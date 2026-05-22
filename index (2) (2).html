@@ -1,0 +1,1061 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Endless Auto Collection — Premium automotive repair, performance upgrades, paint protection film (PPF), ceramic coating, and restyling for European and Japanese performance cars in Fremont, California. Driven by Detail.">
+    <meta property="og:title" content="ENDLESS • AUTO COLLECTION | Premium Automotive Care">
+    <meta property="og:description" content="Obsessive care for the world's most exceptional European and Japanese automobiles. Full Body & Front-End PPF, Performance Tuning, and Concierge-Level Detailing in Fremont, Bay Area.">
+    <meta property="og:image" content="/home/workdir/artifacts/imagine_images/Uw2ZM.jpg">
+    <meta property="og:url" content="https://www.endlessautocollection.com">
+    <meta name="theme-color" content="#050505">
+    
+    <title>ENDLESS • AUTO COLLECTION | Premium Automotive Care • Fremont</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&amp;family=Space+Grotesk:wght@500;600&amp;display=swap');
+        
+        body {
+            font-family: 'Inter', system_ui, sans-serif;
+        }
+        
+        .heading-font {
+            font-family: 'Space Grotesk', 'Inter', system_ui, sans-serif;
+            font-weight: 600;
+            letter-spacing: -0.025em;
+        }
+
+        .premium-dark {
+            background-color: #050505;
+        }
+
+        .section-dark {
+            background-color: #0a0a0a;
+        }
+
+        .nav-scrolled {
+            background-color: rgba(5, 5, 5, 0.96);
+            backdrop-filter: blur(20px);
+        }
+
+        .luxury-card {
+            transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+            background-color: #111111;
+            border: 1px solid #1f1f1f;
+        }
+
+        .luxury-card:hover {
+            transform: translateY(-8px);
+            border-color: #00f5ff;
+            box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 
+                       0 8px 10px -6px rgb(0 0 0 / 0.1),
+                       0 0 15px rgb(0 245 255 / 0.15);
+        }
+
+        .service-icon {
+            transition: all 0.3s ease;
+        }
+
+        .luxury-card:hover .service-icon {
+            color: #00f5ff;
+            transform: scale(1.1);
+        }
+
+        .portfolio-card {
+            overflow: hidden;
+            position: relative;
+        }
+
+        .portfolio-card img {
+            transition: transform 0.7s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+
+        .portfolio-card:hover img {
+            transform: scale(1.08);
+        }
+
+        .portfolio-overlay {
+            background: linear-gradient(to top, rgba(0,0,0,0.88) 0%, rgba(0,0,0,0.45) 55%, transparent 100%);
+        }
+
+        .section-header {
+            font-size: clamp(2.25rem, 5vw, 3.5rem);
+            line-height: 1.05;
+            font-weight: 700;
+            letter-spacing: -0.04em;
+        }
+
+        .nav-link {
+            position: relative;
+            transition: color 0.2s ease;
+        }
+        
+        .nav-link:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 1px;
+            bottom: -2px;
+            left: 0;
+            background-color: #00f5ff;
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover:after {
+            width: 100%;
+        }
+
+        .modal {
+            animation: modalPop 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+
+        @keyframes modalPop {
+            from {
+                opacity: 0;
+                transform: scale(0.96) translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1) translateY(0);
+            }
+        }
+
+        .premium-btn {
+            transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .premium-btn:hover {
+            transform: translateY(-2px);
+        }
+
+        .premium-btn-primary {
+            background-color: #00f5ff;
+            color: #050505;
+            font-weight: 600;
+        }
+
+        .premium-btn-primary:hover {
+            background-color: #fff;
+            box-shadow: 0 0 25px rgb(0 245 255 / 0.4);
+        }
+
+        .premium-btn-secondary {
+            background-color: transparent;
+            border: 1px solid rgba(255,255,255,0.2);
+            color: white;
+        }
+
+        .premium-btn-secondary:hover {
+            background-color: rgba(255,255,255,0.08);
+            border-color: rgba(255,255,255,0.4);
+        }
+
+        .ppf-card {
+            transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+
+        .ppf-card:hover {
+            transform: translateY(-6px);
+            border-color: #00f5ff;
+        }
+
+        .nav-dropdown-parent {
+            position: relative;
+        }
+
+        .nav-dropdown {
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-8px);
+            transition: opacity 0.2s ease, visibility 0.2s ease, transform 0.25s cubic-bezier(0.23, 1, 0.32, 1);
+            pointer-events: none;
+        }
+
+        .nav-dropdown-parent:hover .nav-dropdown {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+            pointer-events: auto;
+        }
+
+        .dropdown-item {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 10px 14px;
+            border-radius: 10px;
+            text-align: left;
+            transition: background-color 0.15s ease;
+            cursor: pointer;
+        }
+
+        .dropdown-item:hover {
+            background-color: rgba(255,255,255,0.06);
+        }
+
+        .dropdown-item:hover span {
+            color: white;
+        }
+
+        .mobile-services-chevron {
+            transition: transform 0.2s ease;
+        }
+
+        .mobile-services-chevron.open {
+            transform: rotate(180deg);
+        }
+    </style>
+</head>
+<body class="premium-dark text-zinc-200 overflow-x-hidden">
+    <!-- NAVBAR -->
+    <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 border-b border-white/10">
+        <div class="max-w-screen-2xl mx-auto">
+            <div class="px-8 md:px-12 flex items-center justify-between h-20">
+                <!-- Logo -->
+                <div class="flex items-center gap-x-3">
+                    <div class="flex items-center">
+                        <div class="w-9 h-9 mr-3 flex items-center justify-center">
+                            <!-- Logo with X in center -->
+                            <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M8 18C8 12.477 12.477 8 18 8C23.523 8 28 12.477 28 18C28 23.523 23.523 28 18 28" stroke="#00f5ff" stroke-width="2.5" stroke-linecap="round"/>
+                                <path d="M28 18C28 23.523 23.523 28 18 28C12.477 28 8 23.523 8 18" stroke="#00f5ff" stroke-width="2.5" stroke-linecap="round"/>
+                                <g transform="translate(18 18)">
+                                    <line x1="-2.4" y1="-2.4" x2="2.4" y2="2.4" stroke="#00f5ff" stroke-width="2" stroke-linecap="round"/>
+                                    <line x1="2.4" y1="-2.4" x2="-2.4" y2="2.4" stroke="#00f5ff" stroke-width="2" stroke-linecap="round"/>
+                                </g>
+                            </svg>
+                        </div>
+                        <div>
+                            <div class="font-black text-3xl tracking-[-2.5px] leading-none text-white">ENDLESS</div>
+                            <div class="font-medium text-[10px] tracking-[3.5px] text-zinc-400 -mt-1">AUTO COLLECTION</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Desktop Navigation -->
+                <div class="hidden md:flex items-center gap-x-10 text-sm font-medium tracking-wider">
+                    <div class="nav-dropdown-parent">
+                        <button class="nav-link text-zinc-300 hover:text-white flex items-center gap-x-1.5 font-medium tracking-wider text-sm">
+                            SERVICES
+                            <i class="fa-solid fa-chevron-down text-[9px] transition-transform duration-200 nav-dropdown-parent:hover:rotate-180"></i>
+                        </button>
+                        <div class="nav-dropdown absolute top-full left-1/2 -translate-x-1/2 pt-2 z-50">
+                            <div class="bg-[#0f0f0f] border border-white/10 rounded-2xl shadow-2xl shadow-black/70 min-w-[260px]">
+                                <div class="p-1.5">
+                                    <button onclick="showServiceModal(0)" class="dropdown-item">
+                                        <i class="fa-solid fa-wrench text-[#00f5ff] text-sm w-5 text-center flex-shrink-0"></i>
+                                        <span class="text-sm font-medium text-zinc-300">Mechanical Repairs</span>
+                                    </button>
+                                    <button onclick="showServiceModal(1)" class="dropdown-item">
+                                        <i class="fa-solid fa-tachometer-alt text-[#00f5ff] text-sm w-5 text-center flex-shrink-0"></i>
+                                        <span class="text-sm font-medium text-zinc-300">Performance Tuning</span>
+                                    </button>
+                                    <button onclick="showServiceModal(2)" class="dropdown-item">
+                                        <i class="fa-solid fa-search text-[#00f5ff] text-sm w-5 text-center flex-shrink-0"></i>
+                                        <span class="text-sm font-medium text-zinc-300">Advanced Diagnostics</span>
+                                    </button>
+                                    <button onclick="showServiceModal(3)" class="dropdown-item">
+                                        <i class="fa-solid fa-palette text-[#00f5ff] text-sm w-5 text-center flex-shrink-0"></i>
+                                        <span class="text-sm font-medium text-zinc-300">Ceramic Coating</span>
+                                    </button>
+                                    <button onclick="showServiceModal(4)" class="dropdown-item">
+                                        <i class="fa-solid fa-shield-alt text-[#00f5ff] text-sm w-5 text-center flex-shrink-0"></i>
+                                        <span class="text-sm font-medium text-zinc-300">Paint Protection Film</span>
+                                    </button>
+                                    <button onclick="showServiceModal(5)" class="dropdown-item">
+                                        <i class="fa-solid fa-images text-[#00f5ff] text-sm w-5 text-center flex-shrink-0"></i>
+                                        <span class="text-sm font-medium text-zinc-300">Custom Wraps &amp; Vinyl</span>
+                                    </button>
+                                </div>
+                                <div class="px-2 pb-2">
+                                    <a href="#services" class="flex items-center justify-center gap-x-2 w-full py-2.5 rounded-xl bg-white/5 hover:bg-white/10 text-xs font-semibold tracking-wider text-[#00f5ff] transition-colors">
+                                        VIEW ALL SERVICES <i class="fa-solid fa-arrow-right text-[9px]"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="#ppf-coverage" class="nav-link text-zinc-300 hover:text-white">PPF COVERAGE</a>
+                    <a href="#work" class="nav-link text-zinc-300 hover:text-white">WORK</a>
+                    <a href="#philosophy" class="nav-link text-zinc-300 hover:text-white">PHILOSOPHY</a>
+                    <a href="#process" class="nav-link text-zinc-300 hover:text-white">PROCESS</a>
+                </div>
+
+                <!-- CTA Button -->
+                <div class="flex items-center gap-x-4">
+                    <button onclick="openShopmonkeyModal()"
+                            class="premium-btn premium-btn-primary px-7 py-2.5 text-sm rounded-full font-semibold tracking-wider flex items-center gap-x-2">
+                        <span>Request a Consultation</span>
+                    </button>
+                    
+                    <button id="mobile-menu-btn" class="md:hidden w-11 h-11 flex items-center justify-center text-xl">
+                        <i class="fa-solid fa-bars"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-[#050505] border-t border-white/10 px-8 py-8">
+            <div class="flex flex-col gap-y-6 text-lg font-medium">
+                <div>
+                    <button onclick="toggleMobileServices()" class="w-full flex items-center justify-between text-lg font-medium text-zinc-200 hover:text-white transition-colors">
+                        <span>Services</span>
+                        <i class="fa-solid fa-chevron-down text-sm mobile-services-chevron" id="mobile-services-chevron"></i>
+                    </button>
+                    <div id="mobile-services-submenu" class="hidden overflow-hidden">
+                        <div class="pt-4 pb-1 flex flex-col gap-y-1 pl-2">
+                            <button onclick="showServiceModal(0); closeMobileMenu()" class="flex items-center gap-x-3 py-2.5 px-3 rounded-xl hover:bg-white/5 text-left w-full transition-colors">
+                                <i class="fa-solid fa-wrench text-[#00f5ff] text-sm w-5 text-center flex-shrink-0"></i>
+                                <span class="text-base text-zinc-300">Mechanical Repairs</span>
+                            </button>
+                            <button onclick="showServiceModal(1); closeMobileMenu()" class="flex items-center gap-x-3 py-2.5 px-3 rounded-xl hover:bg-white/5 text-left w-full transition-colors">
+                                <i class="fa-solid fa-tachometer-alt text-[#00f5ff] text-sm w-5 text-center flex-shrink-0"></i>
+                                <span class="text-base text-zinc-300">Performance Tuning</span>
+                            </button>
+                            <button onclick="showServiceModal(2); closeMobileMenu()" class="flex items-center gap-x-3 py-2.5 px-3 rounded-xl hover:bg-white/5 text-left w-full transition-colors">
+                                <i class="fa-solid fa-search text-[#00f5ff] text-sm w-5 text-center flex-shrink-0"></i>
+                                <span class="text-base text-zinc-300">Advanced Diagnostics</span>
+                            </button>
+                            <button onclick="showServiceModal(3); closeMobileMenu()" class="flex items-center gap-x-3 py-2.5 px-3 rounded-xl hover:bg-white/5 text-left w-full transition-colors">
+                                <i class="fa-solid fa-palette text-[#00f5ff] text-sm w-5 text-center flex-shrink-0"></i>
+                                <span class="text-base text-zinc-300">Ceramic Coating</span>
+                            </button>
+                            <button onclick="showServiceModal(4); closeMobileMenu()" class="flex items-center gap-x-3 py-2.5 px-3 rounded-xl hover:bg-white/5 text-left w-full transition-colors">
+                                <i class="fa-solid fa-shield-alt text-[#00f5ff] text-sm w-5 text-center flex-shrink-0"></i>
+                                <span class="text-base text-zinc-300">Paint Protection Film</span>
+                            </button>
+                            <button onclick="showServiceModal(5); closeMobileMenu()" class="flex items-center gap-x-3 py-2.5 px-3 rounded-xl hover:bg-white/5 text-left w-full transition-colors">
+                                <i class="fa-solid fa-images text-[#00f5ff] text-sm w-5 text-center flex-shrink-0"></i>
+                                <span class="text-base text-zinc-300">Custom Wraps &amp; Vinyl</span>
+                            </button>
+                            <a href="#services" onclick="closeMobileMenu()" class="flex items-center gap-x-3 py-2.5 px-3 rounded-xl hover:bg-white/5 text-left w-full transition-colors">
+                                <i class="fa-solid fa-th-large text-[#00f5ff] text-sm w-5 text-center flex-shrink-0"></i>
+                                <span class="text-base text-zinc-300">View All Services</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <a href="#ppf-coverage" class="mobile-nav-link">PPF Coverage</a>
+                <a href="#work" class="mobile-nav-link">Our Work</a>
+                <a href="#philosophy" class="mobile-nav-link">Our Philosophy</a>
+                <a href="#process" class="mobile-nav-link">The Process</a>
+                <div class="pt-4 border-t border-white/10">
+                    <button onclick="openShopmonkeyModal()" 
+                            class="w-full premium-btn premium-btn-primary py-3.5 rounded-2xl text-base font-semibold tracking-wider">
+                        Request a Consultation
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <header class="relative min-h-[100dvh] flex items-center justify-center pt-20 overflow-hidden">
+        <div class="absolute inset-0 bg-[#050505]">
+            <img src="/home/workdir/artifacts/imagine_images/Uw2ZM.jpg" 
+                 alt="Premium dark Porsche 911 GT3 with electric blue accents - Endless Auto Collection" 
+                 class="absolute inset-0 w-full h-full object-cover opacity-75">
+            <div class="absolute inset-0 bg-gradient-to-b from-black/75 via-black/65 to-black/85"></div>
+            <div class="absolute inset-0 bg-gradient-to-r from-black/70 via-black/40 to-black/75"></div>
+            <div class="absolute inset-0 bg-[radial-gradient(#00f5ff_0.6px,transparent_1px)] bg-[length:5px_5px] opacity-[0.04]"></div>
+        </div>
+
+        <div class="relative z-10 max-w-screen-2xl mx-auto px-8 md:px-16 w-full">
+            <div class="max-w-3xl">
+                <div class="inline-flex items-center gap-x-2 px-5 py-1.5 rounded-full border border-white/20 bg-white/5 backdrop-blur-md mb-8">
+                    <div class="w-2 h-2 rounded-full bg-[#00f5ff] animate-pulse"></div>
+                    <span class="text-xs font-medium tracking-[2px] text-white/90">FREMONT, CA 94538 • WWW.ENDLESSAUTOCOLLECTION.COM</span>
+                </div>
+
+                <div class="mb-6">
+                    <h1 class="heading-font text-[92px] md:text-[120px] leading-[0.86] font-black tracking-[-6.5px] text-white">ENDLESS</h1>
+                    <div class="flex items-baseline gap-x-4 -mt-4 md:-mt-6">
+                        <span class="heading-font text-5xl md:text-7xl font-semibold tracking-[-3px] text-white/90">AUTO COLLECTION</span>
+                    </div>
+                </div>
+
+                <p class="max-w-lg text-2xl md:text-3xl font-light tracking-tight text-white/90 mb-3">Driven by Detail.</p>
+                <p class="max-w-md text-lg text-white/70 mb-10 leading-relaxed">Obsessive care for the world's most exceptional European and Japanese automobiles.</p>
+
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <button onclick="openShopmonkeyModal()"
+                            class="premium-btn premium-btn-primary group flex items-center justify-center gap-x-3 px-10 py-4 text-base rounded-2xl font-semibold tracking-wider">
+                        <span>Request a Consultation</span>
+                        <i class="fa-solid fa-arrow-right transition-transform group-hover:translate-x-1"></i>
+                    </button>
+                    
+                    <button onclick="document.getElementById('work').scrollIntoView({ behavior: 'smooth' })" 
+                            class="premium-btn premium-btn-secondary flex items-center justify-center gap-x-3 px-9 py-4 text-base rounded-2xl font-medium tracking-wider">
+                        <span>VIEW THE CRAFT</span>
+                    </button>
+                </div>
+
+                <div class="mt-12 flex items-center gap-x-8 text-sm">
+                    <div class="flex -space-x-3">
+                        <div class="w-8 h-8 rounded-full border-2 border-[#050505] overflow-hidden"><img src="https://picsum.photos/id/1005/32/32" alt=""></div>
+                        <div class="w-8 h-8 rounded-full border-2 border-[#050505] overflow-hidden"><img src="https://picsum.photos/id/1011/32/32" alt=""></div>
+                        <div class="w-8 h-8 rounded-full border-2 border-[#050505] overflow-hidden"><img src="https://picsum.photos/id/201/32/32" alt=""></div>
+                    </div>
+                    <div class="text-white/60 text-sm tracking-wide">Trusted by discerning owners across the Bay Area</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="absolute bottom-12 left-1/2 -translate-x-1/2 hidden md:block">
+            <div class="flex flex-col items-center gap-y-1 text-[10px] tracking-[3px] text-white/40">
+                <span>SCROLL TO BEGIN</span>
+                <i class="fa-solid fa-chevron-down text-xs"></i>
+            </div>
+        </div>
+    </header>
+
+    <!-- TRUSTED BY -->
+    <div class="border-b border-white/10 py-8">
+        <div class="max-w-screen-2xl mx-auto px-8 md:px-16">
+            <div class="flex flex-wrap items-center justify-center gap-x-12 gap-y-6 opacity-60">
+                <div class="font-semibold tracking-[4px] text-sm">BMW M</div>
+                <div class="font-semibold tracking-[4px] text-sm">MERCEDES-AMG</div>
+                <div class="font-semibold tracking-[4px] text-sm">PORSCHE</div>
+                <div class="font-semibold tracking-[4px] text-sm">AUDI RS</div>
+                <div class="font-semibold tracking-[4px] text-sm">TOYOTA</div>
+                <div class="font-semibold tracking-[4px] text-sm">HONDA S2000</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SERVICES -->
+    <section id="services" class="max-w-screen-2xl mx-auto px-8 md:px-16 pt-24 pb-16">
+        <div class="flex flex-col md:flex-row md:items-end md:justify-between mb-12">
+            <div>
+                <div class="uppercase tracking-[3px] text-xs font-medium text-[#00f5ff] mb-3">EXCELLENCE IN EVERY DETAIL</div>
+                <h2 class="section-header">Signature Services</h2>
+            </div>
+            <p class="max-w-md text-lg text-white/70 mt-4 md:mt-0 md:text-right">Technical mastery meets artistic execution for vehicles that demand nothing less.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+            <div onclick="showServiceModal(0)" class="luxury-card group cursor-pointer rounded-3xl p-8 flex flex-col">
+                <div class="service-icon text-[#00f5ff] mb-6"><i class="fa-solid fa-wrench text-4xl"></i></div>
+                <h3 class="font-semibold text-2xl tracking-tight mb-3">Mechanical Repairs &amp; Maintenance</h3>
+                <p class="text-white/70 flex-1">Precision diagnostics, factory-level maintenance, and expert repairs for European and Japanese performance vehicles.</p>
+                <div class="mt-6 flex items-center text-sm font-medium text-[#00f5ff] group-hover:gap-x-2 transition-all">
+                    <span>EXPLORE SERVICE</span> <i class="fa-solid fa-arrow-right ml-2"></i>
+                </div>
+            </div>
+
+            <div onclick="showServiceModal(1)" class="luxury-card group cursor-pointer rounded-3xl p-8 flex flex-col">
+                <div class="service-icon text-[#00f5ff] mb-6"><i class="fa-solid fa-tachometer-alt text-4xl"></i></div>
+                <h3 class="font-semibold text-2xl tracking-tight mb-3">Performance Upgrades &amp; Tuning</h3>
+                <p class="text-white/70 flex-1">Stage 1–3 tuning, suspension geometry, exhaust systems, and ECU calibration that respect the original engineering intent.</p>
+                <div class="mt-6 flex items-center text-sm font-medium text-[#00f5ff] group-hover:gap-x-2 transition-all">
+                    <span>EXPLORE SERVICE</span> <i class="fa-solid fa-arrow-right ml-2"></i>
+                </div>
+            </div>
+
+            <div onclick="showServiceModal(2)" class="luxury-card group cursor-pointer rounded-3xl p-8 flex flex-col">
+                <div class="service-icon text-[#00f5ff] mb-6"><i class="fa-solid fa-search text-4xl"></i></div>
+                <h3 class="font-semibold text-2xl tracking-tight mb-3">Advanced Diagnostics</h3>
+                <p class="text-white/70 flex-1">State-of-the-art diagnostic tools and deep systems analysis for complex modern vehicles. No guesswork — only clarity.</p>
+                <div class="mt-6 flex items-center text-sm font-medium text-[#00f5ff] group-hover:gap-x-2 transition-all">
+                    <span>EXPLORE SERVICE</span> <i class="fa-solid fa-arrow-right ml-2"></i>
+                </div>
+            </div>
+
+            <div onclick="showServiceModal(3)" class="luxury-card group cursor-pointer rounded-3xl p-8 flex flex-col">
+                <div class="service-icon text-[#00f5ff] mb-6"><i class="fa-solid fa-palette text-4xl"></i></div>
+                <h3 class="font-semibold text-2xl tracking-tight mb-3">Paint Correction &amp; Ceramic Coating</h3>
+                <p class="text-white/70 flex-1">Multi-stage paint correction followed by premium ceramic coatings that deliver unmatched depth, gloss, and protection.</p>
+                <div class="mt-6 flex items-center text-sm font-medium text-[#00f5ff] group-hover:gap-x-2 transition-all">
+                    <span>EXPLORE SERVICE</span> <i class="fa-solid fa-arrow-right ml-2"></i>
+                </div>
+            </div>
+
+            <div onclick="showServiceModal(4)" class="luxury-card group cursor-pointer rounded-3xl p-8 flex flex-col">
+                <div class="service-icon text-[#00f5ff] mb-6"><i class="fa-solid fa-shield-alt text-4xl"></i></div>
+                <h3 class="font-semibold text-2xl tracking-tight mb-3">Paint Protection Film (PPF)</h3>
+                <p class="text-white/70 flex-1">Self-healing, optically clear PPF applied with precision. Choose Full Body or Front-End protection packages.</p>
+                <div class="mt-6 flex items-center text-sm font-medium text-[#00f5ff] group-hover:gap-x-2 transition-all">
+                    <span>EXPLORE COVERAGE OPTIONS</span> <i class="fa-solid fa-arrow-right ml-2"></i>
+                </div>
+            </div>
+
+            <div onclick="showServiceModal(5)" class="luxury-card group cursor-pointer rounded-3xl p-8 flex flex-col">
+                <div class="service-icon text-[#00f5ff] mb-6"><i class="fa-solid fa-images text-4xl"></i></div>
+                <h3 class="font-semibold text-2xl tracking-tight mb-3">Custom Wraps &amp; Vinyl</h3>
+                <p class="text-white/70 flex-1">Color change, matte, satin, and specialty finishes. Flawless execution with premium 3M and Avery Dennison materials.</p>
+                <div class="mt-6 flex items-center text-sm font-medium text-[#00f5ff] group-hover:gap-x-2 transition-all">
+                    <span>EXPLORE SERVICE</span> <i class="fa-solid fa-arrow-right ml-2"></i>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PPF COVERAGE -->
+    <section id="ppf-coverage" class="section-dark py-20 border-t border-white/10">
+        <div class="max-w-screen-2xl mx-auto px-8 md:px-16">
+            <div class="text-center mb-12">
+                <div class="uppercase tracking-[3px] text-xs font-medium text-[#00f5ff] mb-3">PROTECTION THAT LASTS</div>
+                <h2 class="section-header">PPF Coverage Options</h2>
+                <p class="mt-4 max-w-2xl mx-auto text-lg text-white/70">Choose the level of invisible armor that matches how you drive. Both options use premium self-healing film with 10-year warranties.</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+                <div class="ppf-card luxury-card rounded-3xl overflow-hidden border border-white/10 group">
+                    <div class="relative">
+                        <img src="/home/workdir/artifacts/imagine_images/oRKdi.jpg" alt="Full Body PPF" class="w-full aspect-[16/10] object-cover">
+                        <div class="absolute top-6 right-6 bg-black/70 text-[#00f5ff] text-xs tracking-[2px] font-medium px-4 py-1.5 rounded-full">RECOMMENDED</div>
+                    </div>
+                    <div class="p-9">
+                        <div class="flex items-center justify-between mb-4">
+                            <h3 class="font-semibold text-3xl tracking-tight">Full Body PPF</h3>
+                            <div class="text-right"><div class="text-[#00f5ff] text-sm font-medium">MOST POPULAR</div></div>
+                        </div>
+                        <p class="text-white/70 mb-6">Complete vehicle coverage including hood, fenders, doors, roof, mirrors, and rear.</p>
+                        
+                        <div class="grid grid-cols-2 gap-4 text-sm">
+                            <div class="bg-black/40 rounded-2xl p-4">
+                                <div class="text-white/60 text-xs tracking-wider mb-1">COVERAGE</div>
+                                <div class="font-medium">100% of painted surfaces</div>
+                            </div>
+                            <div class="bg-black/40 rounded-2xl p-4">
+                                <div class="text-white/60 text-xs tracking-wider mb-1">BEST FOR</div>
+                                <div class="font-medium">Track cars • Daily drivers • Collectors</div>
+                            </div>
+                        </div>
+                        
+                        <button onclick="showServiceModal(4)" class="mt-8 w-full premium-btn premium-btn-secondary py-3.5 rounded-2xl text-sm font-medium tracking-wider">
+                            LEARN MORE ABOUT FULL BODY
+                        </button>
+                    </div>
+                </div>
+
+                <div class="ppf-card luxury-card rounded-3xl overflow-hidden border border-white/10 group">
+                    <div class="relative">
+                        <img src="/home/workdir/artifacts/imagine_images/DIMoA.jpg" alt="Front-End PPF" class="w-full aspect-[16/10] object-cover">
+                    </div>
+                    <div class="p-9">
+                        <div class="flex items-center justify-between mb-4">
+                            <h3 class="font-semibold text-3xl tracking-tight">Front-End PPF</h3>
+                        </div>
+                        <p class="text-white/70 mb-6">Focused protection on the most vulnerable areas: full front bumper, hood, fenders, mirrors, and headlights.</p>
+                        
+                        <div class="grid grid-cols-2 gap-4 text-sm">
+                            <div class="bg-black/40 rounded-2xl p-4">
+                                <div class="text-white/60 text-xs tracking-wider mb-1">COVERAGE</div>
+                                <div class="font-medium">Front bumper, hood, fenders + mirrors</div>
+                            </div>
+                            <div class="bg-black/40 rounded-2xl p-4">
+                                <div class="text-white/60 text-xs tracking-wider mb-1">BEST FOR</div>
+                                <div class="font-medium">Highway commuters • Weekend cars</div>
+                            </div>
+                        </div>
+                        
+                        <button onclick="showServiceModal(4)" class="mt-8 w-full premium-btn premium-btn-secondary py-3.5 rounded-2xl text-sm font-medium tracking-wider">
+                            LEARN MORE ABOUT FRONT-END
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-10 text-sm text-white/60">
+                Both packages include self-healing film, edge sealing, and a 10-year manufacturer warranty.
+            </div>
+        </div>
+    </section>
+
+    <!-- WORK -->
+    <section id="work" class="max-w-screen-2xl mx-auto px-8 md:px-16 pt-16 pb-20">
+        <div class="flex flex-col md:flex-row md:items-end justify-between mb-10">
+            <div>
+                <div class="uppercase tracking-[3px] text-xs font-medium text-[#00f5ff] mb-3">CURATED TRANSFORMATIONS</div>
+                <h2 class="section-header">Signature Work</h2>
+            </div>
+            <button onclick="openShopmonkeyModal()" class="mt-4 md:mt-0 inline-flex items-center text-sm font-medium tracking-wider group">
+                COMMISSION A PROJECT <i class="fa-solid fa-arrow-right ml-2 transition group-hover:translate-x-1"></i>
+            </button>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div onclick="showPortfolioModal(0)" class="portfolio-card group rounded-3xl overflow-hidden border border-white/10 cursor-pointer">
+                <div class="relative aspect-[16/10]">
+                    <img src="/home/workdir/artifacts/imagine_images/Uw2ZM.jpg" alt="Porsche 911 GT3" class="w-full h-full object-cover">
+                    <div class="portfolio-overlay absolute inset-0 flex flex-col justify-end p-7">
+                        <div class="text-[#00f5ff] text-xs tracking-[2px] font-medium mb-1">PORSCHE 911 GT3 • 2024</div>
+                        <div class="font-semibold text-2xl tracking-tight">Full Body PPF + Ceramic</div>
+                    </div>
+                </div>
+            </div>
+
+            <div onclick="showPortfolioModal(1)" class="portfolio-card group rounded-3xl overflow-hidden border border-white/10 cursor-pointer">
+                <div class="relative aspect-[16/10]">
+                    <img src="/home/workdir/artifacts/imagine_images/HaiKl.jpg" alt="BMW M3" class="w-full h-full object-cover">
+                    <div class="portfolio-overlay absolute inset-0 flex flex-col justify-end p-7">
+                        <div class="text-[#00f5ff] text-xs tracking-[2px] font-medium mb-1">BMW M3 COMPETITION • 2023</div>
+                        <div class="font-semibold text-2xl tracking-tight">Stage 2 Performance Package</div>
+                    </div>
+                </div>
+            </div>
+
+            <div onclick="showPortfolioModal(2)" class="portfolio-card group rounded-3xl overflow-hidden border border-white/10 cursor-pointer">
+                <div class="relative aspect-[16/10]">
+                    <img src="/home/workdir/artifacts/imagine_images/qinEf.jpg" alt="Mercedes-AMG GT" class="w-full h-full object-cover">
+                    <div class="portfolio-overlay absolute inset-0 flex flex-col justify-end p-7">
+                        <div class="text-[#00f5ff] text-xs tracking-[2px] font-medium mb-1">MERCEDES-AMG GT • 2022</div>
+                        <div class="font-semibold text-2xl tracking-tight">Paint Correction + Ceramic</div>
+                    </div>
+                </div>
+            </div>
+
+            <div onclick="showPortfolioModal(3)" class="portfolio-card group rounded-3xl overflow-hidden border border-white/10 cursor-pointer">
+                <div class="relative aspect-[16/10]">
+                    <img src="https://picsum.photos/id/201/900/600" alt="Audi RS6" class="w-full h-full object-cover">
+                    <div class="portfolio-overlay absolute inset-0 flex flex-col justify-end p-7">
+                        <div class="text-[#00f5ff] text-xs tracking-[2px] font-medium mb-1">AUDI RS6 AVANT • 2024</div>
+                        <div class="font-semibold text-2xl tracking-tight">Matte Black Vinyl Wrap</div>
+                    </div>
+                </div>
+            </div>
+
+            <div onclick="showPortfolioModal(4)" class="portfolio-card group rounded-3xl overflow-hidden border border-white/10 cursor-pointer">
+                <div class="relative aspect-[16/10]">
+                    <img src="https://picsum.photos/id/29/900/600" alt="Honda S2000" class="w-full h-full object-cover">
+                    <div class="portfolio-overlay absolute inset-0 flex flex-col justify-end p-7">
+                        <div class="text-[#00f5ff] text-xs tracking-[2px] font-medium mb-1">HONDA S2000 • 2006</div>
+                        <div class="font-semibold text-2xl tracking-tight">Complete Restoration &amp; Restyle</div>
+                    </div>
+                </div>
+            </div>
+
+            <div onclick="showPortfolioModal(5)" class="portfolio-card group rounded-3xl overflow-hidden border border-white/10 cursor-pointer">
+                <div class="relative aspect-[16/10]">
+                    <img src="https://picsum.photos/id/1005/900/600" alt="Toyota GR Supra" class="w-full h-full object-cover">
+                    <div class="portfolio-overlay absolute inset-0 flex flex-col justify-end p-7">
+                        <div class="text-[#00f5ff] text-xs tracking-[2px] font-medium mb-1">TOYOTA GR SUPRA • 2021</div>
+                        <div class="font-semibold text-2xl tracking-tight">Widebody + Aero + Wrap</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PHILOSOPHY -->
+    <section id="philosophy" class="max-w-screen-2xl mx-auto px-8 md:px-16 py-20 border-t border-white/10">
+        <div class="grid md:grid-cols-12 gap-x-12 items-center">
+            <div class="md:col-span-7">
+                <div class="uppercase tracking-[3px] text-xs font-medium text-[#00f5ff] mb-4">OUR APPROACH</div>
+                <h2 class="section-header leading-none mb-8">We don't service cars.<br>We obsess over them.</h2>
+                
+                <div class="max-w-xl space-y-6 text-lg text-white/80">
+                    <p>Every vehicle that enters our facility is treated as a unique expression of engineering and design. We begin with first principles — understanding the intent behind every component — then execute with a level of detail most owners have never experienced.</p>
+                    <p>From German precision engineering to Japanese reliability and performance, we speak the language of these machines fluently.</p>
+                </div>
+            </div>
+            
+            <div class="md:col-span-5 mt-12 md:mt-0">
+                <div class="bg-[#111] border border-white/10 rounded-3xl p-9">
+                    <div class="text-[#00f5ff] text-sm tracking-widest mb-4">THE ENDLESS STANDARD</div>
+                    <ul class="space-y-4 text-white/90">
+                        <li class="flex gap-4"><span class="text-[#00f5ff] mt-1">•</span> <span>Factory-trained technicians with deep model-specific expertise</span></li>
+                        <li class="flex gap-4"><span class="text-[#00f5ff] mt-1">•</span> <span>Only premium materials and OEM+ components</span></li>
+                        <li class="flex gap-4"><span class="text-[#00f5ff] mt-1">•</span> <span>Transparent communication and detailed documentation</span></li>
+                        <li class="flex gap-4"><span class="text-[#00f5ff] mt-1">•</span> <span>White-glove experience from drop-off to delivery</span></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROCESS -->
+    <section id="process" class="section-dark py-20 border-t border-white/10">
+        <div class="max-w-screen-2xl mx-auto px-8 md:px-16">
+            <div class="text-center mb-14">
+                <div class="uppercase tracking-[3px] text-xs font-medium text-[#00f5ff] mb-3">HOW WE WORK</div>
+                <h2 class="section-header">The Endless Process</h2>
+                <p class="mt-4 max-w-md mx-auto text-white/70">A deliberate, transparent journey designed around your car and your expectations.</p>
+            </div>
+
+            <div class="grid md:grid-cols-4 gap-6">
+                <div class="process-step bg-[#111] border border-white/10 rounded-3xl p-8 group">
+                    <div class="flex items-center justify-between mb-6">
+                        <div class="text-6xl font-black text-white/10 group-hover:text-white/20 transition-colors">01</div>
+                        <div class="w-9 h-9 rounded-full bg-[#00f5ff]/10 flex items-center justify-center text-[#00f5ff]"><i class="fa-solid fa-comments text-xl"></i></div>
+                    </div>
+                    <h4 class="font-semibold text-xl tracking-tight mb-3">Discovery &amp; Consultation</h4>
+                    <p class="text-white/70 text-[15px]">We listen to your goals, inspect the vehicle thoroughly, and discuss every option with complete transparency.</p>
+                </div>
+
+                <div class="process-step bg-[#111] border border-white/10 rounded-3xl p-8 group">
+                    <div class="flex items-center justify-between mb-6">
+                        <div class="text-6xl font-black text-white/10 group-hover:text-white/20 transition-colors">02</div>
+                        <div class="w-9 h-9 rounded-full bg-[#00f5ff]/10 flex items-center justify-center text-[#00f5ff]"><i class="fa-solid fa-clipboard-list text-xl"></i></div>
+                    </div>
+                    <h4 class="font-semibold text-xl tracking-tight mb-3">Tailored Proposal</h4>
+                    <p class="text-white/70 text-[15px]">You receive a detailed scope, timeline, and investment breakdown. No surprises — only clarity and options.</p>
+                </div>
+
+                <div class="process-step bg-[#111] border border-white/10 rounded-3xl p-8 group">
+                    <div class="flex items-center justify-between mb-6">
+                        <div class="text-6xl font-black text-white/10 group-hover:text-white/20 transition-colors">03</div>
+                        <div class="w-9 h-9 rounded-full bg-[#00f5ff]/10 flex items-center justify-center text-[#00f5ff]"><i class="fa-solid fa-tools text-xl"></i></div>
+                    </div>
+                    <h4 class="font-semibold text-xl tracking-tight mb-3">Masterful Execution</h4>
+                    <p class="text-white/70 text-[15px]">Our specialists execute every step with obsessive precision using the best tools and materials available.</p>
+                </div>
+
+                <div class="process-step bg-[#111] border border-white/10 rounded-3xl p-8 group">
+                    <div class="flex items-center justify-between mb-6">
+                        <div class="text-6xl font-black text-white/10 group-hover:text-white/20 transition-colors">04</div>
+                        <div class="w-9 h-9 rounded-full bg-[#00f5ff]/10 flex items-center justify-center text-[#00f5ff]"><i class="fa-solid fa-car text-xl"></i></div>
+                    </div>
+                    <h4 class="font-semibold text-xl tracking-tight mb-3">Delivery &amp; Ongoing Care</h4>
+                    <p class="text-white/70 text-[15px]">Final quality inspection, detailed handoff, and a relationship that continues long after you drive away.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section class="max-w-screen-2xl mx-auto px-8 md:px-16 py-20">
+        <div class="text-center mb-12">
+            <div class="uppercase tracking-[3px] text-xs font-medium text-[#00f5ff] mb-3">REAL OWNERS. REAL RESULTS.</div>
+            <h2 class="section-header">Voices from the Garage</h2>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-6">
+            <div class="luxury-card rounded-3xl p-9">
+                <div class="flex gap-x-1 text-[#00f5ff] mb-6"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                <blockquote class="text-lg leading-relaxed">"The level of detail on my 911 is unreal. They treated it like it was their own. I’ve never had a shop deliver this kind of communication and finish quality."</blockquote>
+                <div class="mt-8 flex items-center gap-x-4">
+                    <div class="text-sm"><div class="font-medium">Marcus Chen</div><div class="text-white/60">Owner, 2023 Porsche 911 GT3</div></div>
+                </div>
+            </div>
+
+            <div class="luxury-card rounded-3xl p-9">
+                <div class="flex gap-x-1 text-[#00f5ff] mb-6"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i></div>
+                <blockquote class="text-lg leading-relaxed">"My M3 came back looking better than when it left the factory. The ceramic coating and PPF work is flawless. These guys truly understand performance cars."</blockquote>
+                <div class="mt-8 flex items-center gap-x-4">
+                    <div class="text-sm"><div class="font-medium">Sofia Patel</div><div class="text-white/60">Owner, 2022 BMW M3 Competition</div></div>
+                </div>
+            </div>
+
+            <div class="luxury-card rounded-3xl p-9">
+                <div class="flex gap-x-1 text-[#00f5ff] mb-6"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                <blockquote class="text-lg leading-relaxed">"The S2000 restoration exceeded every expectation. They respected the car’s heritage while bringing it into the modern era. I couldn’t be happier."</blockquote>
+                <div class="mt-8 flex items-center gap-x-4">
+                    <div class="text-sm"><div class="font-medium">David Kim</div><div class="text-white/60">Owner, Honda S2000 AP2</div></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FINAL CTA -->
+    <div class="border-t border-white/10 bg-[#0a0a0a]">
+        <div class="max-w-screen-2xl mx-auto px-8 md:px-16 py-16 md:py-20 text-center">
+            <div class="max-w-2xl mx-auto">
+                <h3 class="text-5xl md:text-6xl font-semibold tracking-tighter leading-none mb-6">Your car deserves<br>this level of care.</h3>
+                <p class="text-xl text-white/70 mb-9">Whether it’s a weekend track weapon or a daily driver that deserves better, we’re ready to elevate it.</p>
+                
+                <button onclick="openShopmonkeyModal()" class="premium-btn premium-btn-primary px-14 py-4 text-lg rounded-2xl font-semibold tracking-wider">
+                    Request a Consultation
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="border-t border-white/10 bg-[#050505]">
+        <div class="max-w-screen-2xl mx-auto px-8 md:px-16 pt-16 pb-10">
+            <div class="grid md:grid-cols-12 gap-y-14">
+                <div class="md:col-span-5">
+                    <div class="flex items-center mb-6">
+                        <div class="w-8 h-8 mr-3">
+                            <svg width="32" height="32" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M8 18C8 12.477 12.477 8 18 8C23.523 8 28 12.477 28 18C28 23.523 23.523 28 18 28" stroke="#00f5ff" stroke-width="2.5" stroke-linecap="round"/>
+                                <path d="M28 18C28 23.523 23.523 28 18 28C12.477 28 8 23.523 8 18" stroke="#00f5ff" stroke-width="2.5" stroke-linecap="round"/>
+                                <g transform="translate(18 18)">
+                                    <line x1="-2.2" y1="-2.2" x2="2.2" y2="2.2" stroke="#00f5ff" stroke-width="1.8" stroke-linecap="round"/>
+                                    <line x1="2.2" y1="-2.2" x2="-2.2" y2="2.2" stroke="#00f5ff" stroke-width="1.8" stroke-linecap="round"/>
+                                </g>
+                            </svg>
+                        </div>
+                        <div>
+                            <div class="font-black text-2xl tracking-[-1.5px]">ENDLESS</div>
+                            <div class="text-[9px] tracking-[2.5px] text-zinc-500 -mt-1">AUTO COLLECTION</div>
+                        </div>
+                    </div>
+                    <p class="max-w-xs text-white/60 text-sm">Premium automotive care and restyling for the most discerning drivers in the Bay Area.</p>
+                    
+                    <div class="flex gap-x-5 mt-8 text-xl">
+                        <a href="#" class="text-white/60 hover:text-[#00f5ff] transition-colors"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#" class="text-white/60 hover:text-[#00f5ff] transition-colors"><i class="fa-brands fa-linkedin"></i></a>
+                    </div>
+                </div>
+
+                <div class="md:col-span-3">
+                    <div class="text-xs tracking-[2px] font-medium mb-4 text-white/60">QUICK LINKS</div>
+                    <div class="space-y-[13px] text-sm">
+                        <a href="#services" class="block hover:text-[#00f5ff]">Our Services</a>
+                        <a href="#ppf-coverage" class="block hover:text-[#00f5ff]">PPF Coverage Options</a>
+                        <a href="#work" class="block hover:text-[#00f5ff]">Signature Projects</a>
+                        <a href="#process" class="block hover:text-[#00f5ff]">The Process</a>
+                    </div>
+                </div>
+
+                <div class="md:col-span-4">
+                    <div class="text-xs tracking-[2px] font-medium mb-4 text-white/60">FREMONT, CALIFORNIA</div>
+                    <div class="space-y-1 text-sm text-white/90">
+                        <div><strong>41907 Albrae St</strong></div>
+                        <div>Fremont, CA 94538</div>
+                        <div class="pt-1">By appointment only</div>
+                        <a href="mailto:hello@endlessautocollection.com" class="block hover:text-[#00f5ff]">hello@endlessautocollection.com</a>
+                    </div>
+                    
+                    <div class="mt-8 text-xs text-white/50">
+                        © 2026 Endless Auto Collection. All rights reserved.<br>
+                        <span class="text-[#00f5ff]">www.endlessautocollection.com</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- SERVICE MODAL -->
+    <div id="service-modal" onclick="if (event.target.id === 'service-modal') hideServiceModal()" class="hidden fixed inset-0 bg-black/90 z-[100] flex items-center justify-center p-6">
+        <div onclick="event.stopImmediatePropagation()" class="modal bg-[#0a0a0a] border border-white/10 rounded-3xl max-w-2xl w-full max-h-[90vh] overflow-hidden flex flex-col">
+            <div class="px-9 pt-8 pb-6 flex items-start justify-between border-b border-white/10">
+                <div>
+                    <div id="modal-service-icon" class="text-[#00f5ff] text-4xl mb-3"></div>
+                    <h3 id="modal-service-title" class="font-semibold text-3xl tracking-tight"></h3>
+                </div>
+                <button onclick="hideServiceModal()" class="text-3xl text-white/60 hover:text-white w-10 h-10 flex items-center justify-center -mr-2">&times;</button>
+            </div>
+            
+            <div class="p-9 flex-1 overflow-auto text-[15px] text-white/80 leading-relaxed" id="modal-service-description"></div>
+            
+            <div class="px-9 py-7 border-t border-white/10 bg-black/40 flex flex-col sm:flex-row gap-4">
+                <button onclick="hideServiceModal(); openShopmonkeyModal()" class="flex-1 premium-btn premium-btn-primary py-4 rounded-2xl font-semibold tracking-wider text-base">
+                    Request a Consultation
+                </button>
+                <button onclick="hideServiceModal()" class="flex-1 premium-btn premium-btn-secondary py-4 rounded-2xl font-medium tracking-wider text-base">
+                    MAYBE LATER
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- PORTFOLIO MODAL -->
+    <div id="portfolio-modal" onclick="if (event.target.id === 'portfolio-modal') hidePortfolioModal()" class="hidden fixed inset-0 bg-black/95 z-[110] flex items-center justify-center p-4 md:p-8">
+        <div onclick="event.stopImmediatePropagation()" class="modal bg-[#0a0a0a] border border-white/10 rounded-3xl max-w-5xl w-full overflow-hidden">
+            <div class="relative">
+                <button onclick="hidePortfolioModal()" class="absolute top-6 right-6 z-10 w-11 h-11 flex items-center justify-center text-3xl text-white/70 hover:text-white bg-black/60 rounded-full">&times;</button>
+                
+                <div id="portfolio-modal-image" class="w-full aspect-video md:aspect-[16/9] bg-zinc-950"></div>
+                
+                <div class="p-9 md:p-10">
+                    <div id="portfolio-modal-meta" class="text-[#00f5ff] text-sm tracking-[2.5px] font-medium mb-2"></div>
+                    <h3 id="portfolio-modal-title" class="font-semibold text-4xl tracking-[-1.5px]"></h3>
+                    <p id="portfolio-modal-desc" class="mt-4 text-lg text-white/75 max-w-3xl"></p>
+                    
+                    <div class="mt-8 pt-8 border-t border-white/10 flex flex-wrap gap-x-10 gap-y-4 text-sm">
+                        <div><div class="text-white/50 text-xs tracking-widest mb-px">SERVICES</div><div id="portfolio-modal-services" class="font-medium"></div></div>
+                        <div><div class="text-white/50 text-xs tracking-widest mb-px">DURATION</div><div id="portfolio-modal-duration" class="font-medium"></div></div>
+                        <div><div class="text-white/50 text-xs tracking-widest mb-px">LOCATION</div><div class="font-medium">Fremont, CA</div></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SHOPMONKEY QUOTE MODAL -->
+    <div id="shopmonkey-modal" onclick="if (event.target.id === 'shopmonkey-modal') closeShopmonkeyModal()" 
+         class="hidden fixed inset-0 bg-black/90 z-[130] flex items-center justify-center p-4 md:p-6">
+        <div onclick="event.stopImmediatePropagation()" 
+             class="modal bg-[#0a0a0a] border border-white/10 rounded-3xl w-full max-w-[960px] overflow-hidden shadow-2xl">
+            
+            <div class="flex items-center justify-between px-8 py-5 border-b border-white/10 bg-[#111]">
+                <div>
+                    <div class="text-[#00f5ff] text-xs tracking-[3px] font-semibold">INSTANT QUOTE</div>
+                    <h3 class="text-2xl font-semibold tracking-tight">Request a Consultation</h3>
+                </div>
+                <button onclick="closeShopmonkeyModal()" class="text-4xl leading-none text-white/60 hover:text-[#00f5ff] transition-colors w-10 h-10 flex items-center justify-center">&times;</button>
+            </div>
+            
+            <div class="bg-black p-1">
+                <iframe src="https://app.shopmonkey.cloud/public/quote-request/a4ae6990-41f1-4247-ae13-fd586c6981a6" 
+                        width="100%" height="720" frameborder="0"
+                        style="display: block; border: none; min-height: 520px; border-radius: 0 0 12px 12px;"></iframe>
+            </div>
+            
+            <div class="px-8 py-4 text-center text-xs text-white/50 border-t border-white/10">
+                Powered by Shopmonkey • Secure &amp; encrypted
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function initializeTailwind() {
+            const navbar = document.getElementById('navbar');
+            
+            window.addEventListener('scroll', () => {
+                if (window.pageYOffset > 80) {
+                    navbar.classList.add('nav-scrolled', 'shadow-xl');
+                } else {
+                    navbar.classList.remove('nav-scrolled', 'shadow-xl');
+                }
+            });
+            
+            const mobileBtn = document.getElementById('mobile-menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            
+            mobileBtn.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+                const icon = mobileBtn.querySelector('i');
+                icon.classList.toggle('fa-bars');
+                icon.classList.toggle('fa-times');
+            });
+
+            document.querySelectorAll('.mobile-nav-link').forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.add('hidden');
+                    mobileBtn.querySelector('i').classList.add('fa-bars');
+                    mobileBtn.querySelector('i').classList.remove('fa-times');
+                });
+            });
+
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        e.preventDefault();
+                        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }
+                });
+            });
+        }
+        
+        const services = [
+            { icon: '<i class="fa-solid fa-wrench"></i>', title: "Mechanical Repairs & Maintenance", description: "Our mechanical division delivers factory-level precision for European and Japanese performance vehicles. From routine maintenance and fluid services to complex engine, transmission, and suspension repairs, every job is approached with deep model-specific knowledge and the highest quality OEM or OEM+ components." },
+            { icon: '<i class="fa-solid fa-tachometer-alt"></i>', title: "Performance Upgrades & Tuning", description: "Unlock the true potential of your vehicle while preserving its character and reliability. Our performance services include ECU tuning (Stage 1-3), exhaust systems, intake upgrades, suspension geometry optimization, brake upgrades, and limited-slip differential installs." },
+            { icon: '<i class="fa-solid fa-search"></i>', title: "Advanced Diagnostics", description: "Modern vehicles are incredibly complex. Our advanced diagnostic capabilities allow us to accurately identify issues that generic scan tools miss. We perform deep system analysis on engine management, transmission, chassis, and body control modules with clear explanations." },
+            { icon: '<i class="fa-solid fa-palette"></i>', title: "Paint Correction & Ceramic Coating", description: "We restore and protect your paint to concours-level standards. Our multi-stage paint correction process removes swirls, scratches, and oxidation. We then apply premium ceramic coatings (9H hardness) that provide exceptional gloss, hydrophobicity, and long-term protection." },
+            { icon: '<i class="fa-solid fa-shield-alt"></i>', title: "Paint Protection Film (PPF)", description: "Invisible yet incredibly tough self-healing paint protection film. We offer two premium packages: <strong>Full Body PPF</strong> (complete vehicle coverage) and <strong>Front-End PPF</strong> (bumper, hood, fenders, mirrors). Both use top-tier film with 10-year warranties and expert edge-to-edge installation." },
+            { icon: '<i class="fa-solid fa-images"></i>', title: "Custom Wraps & Vinyl", description: "Transform your vehicle's appearance with premium vinyl wraps from 3M, Avery, and Hexis. Full color changes, matte/satin finishes, chrome delete, or accent graphics. Flawless execution with perfect contouring and shut line alignment." }
+        ];
+        
+        const projects = [
+            { image: "/home/workdir/artifacts/imagine_images/Uw2ZM.jpg", meta: "PORSCHE 911 GT3 • 2024", title: "Full Body PPF + Ceramic Coating", description: "Complete XPEL Ultimate Plus PPF installation across the entire vehicle followed by a 7-year ceramic coating. The car was also given a full paint correction to remove transport swirls before protection was applied.", services: "Full Body PPF, 7-Year Ceramic, Paint Correction", duration: "6 days" },
+            { image: "/home/workdir/artifacts/imagine_images/HaiKl.jpg", meta: "BMW M3 COMPETITION • 2023", title: "Stage 2 Performance Package", description: "Comprehensive performance upgrade including custom ECU tune, Akrapovič titanium exhaust, KW V3 coilovers with custom spring rates, and alignment geometry optimization for both street and occasional track use.", services: "ECU Tune, Exhaust, Suspension, Alignment, Dyno", duration: "4 days" },
+            { image: "/home/workdir/artifacts/imagine_images/qinEf.jpg", meta: "MERCEDES-AMG GT • 2022", title: "Paint Correction + Ceramic", description: "Multi-stage paint correction to remove years of swirl marks and light scratches from the Obsidian Black paint. Followed by a premium 5-year ceramic coating that dramatically enhanced gloss and made maintenance significantly easier.", services: "Stage 2 Paint Correction, 5-Year Ceramic", duration: "3 days" },
+            { image: "https://picsum.photos/id/201/1400/900", meta: "AUDI RS6 AVANT • 2024", title: "Matte Black Vinyl Wrap", description: "Full vehicle color change to a premium satin/matte black finish using 3M 2080 series vinyl. The transformation gives the car a more aggressive, stealth appearance while protecting the original factory paint.", services: "Full Vehicle Wrap, Interior Detail", duration: "5 days" },
+            { image: "https://picsum.photos/id/29/1400/900", meta: "HONDA S2000 • 2006", title: "Complete Restoration & Restyle", description: "Full mechanical refresh including timing chain, water pump, clutch, and suspension bushings. Exterior received a high-quality respray in original Berlina Black with added clear bra protection. Interior was completely refreshed.", services: "Mechanical Restoration, Paint, Interior Refresh, PPF", duration: "3 weeks" },
+            { image: "https://picsum.photos/id/1005/1400/900", meta: "TOYOTA GR SUPRA • 2021", title: "Widebody + Aero + Custom Wrap", description: "Aggressive widebody kit installation with custom fender flares, side skirts, and rear diffuser. The car was wrapped in a custom satin titanium finish with gloss black accents and received a full suspension drop and alignment.", services: "Widebody Kit, Custom Wrap, Aero, Suspension", duration: "9 days" }
+        ];
+        
+        function showServiceModal(index) {
+            const modal = document.getElementById('service-modal');
+            const iconEl = document.getElementById('modal-service-icon');
+            const titleEl = document.getElementById('modal-service-title');
+            const descEl = document.getElementById('modal-service-description');
+            
+            const service = services[index];
+            iconEl.innerHTML = service.icon;
+            titleEl.textContent = service.title;
+            descEl.innerHTML = `<p>${service.description}</p>`;
+            
+            modal.style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+        }
+        
+        function hideServiceModal() {
+            document.getElementById('service-modal').style.display = 'none';
+            document.body.style.overflow = '';
+        }
+        
+        function showPortfolioModal(index) {
+            const modal = document.getElementById('portfolio-modal');
+            const imgContainer = document.getElementById('portfolio-modal-image');
+            const metaEl = document.getElementById('portfolio-modal-meta');
+            const titleEl = document.getElementById('portfolio-modal-title');
+            const descEl = document.getElementById('portfolio-modal-desc');
+            const servicesEl = document.getElementById('portfolio-modal-services');
+            const durationEl = document.getElementById('portfolio-modal-duration');
+            
+            const project = projects[index];
+            
+            imgContainer.innerHTML = `<img src="${project.image}" alt="${project.title}" class="w-full h-full object-cover">`;
+            metaEl.textContent = project.meta;
+            titleEl.textContent = project.title;
+            descEl.textContent = project.description;
+            servicesEl.textContent = project.services;
+            durationEl.textContent = project.duration;
+            
+            modal.style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+        }
+        
+        function hidePortfolioModal() {
+            document.getElementById('portfolio-modal').style.display = 'none';
+            document.body.style.overflow = '';
+        }
+        
+        function openShopmonkeyModal() {
+            const modal = document.getElementById('shopmonkey-modal');
+            modal.style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+
+            const mobileMenu = document.getElementById('mobile-menu');
+            if (mobileMenu) mobileMenu.classList.add('hidden');
+        }
+
+        function closeShopmonkeyModal() {
+            const modal = document.getElementById('shopmonkey-modal');
+            modal.style.display = 'none';
+            document.body.style.overflow = '';
+        }
+
+        function closeMobileMenu() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            const mobileBtn = document.getElementById('mobile-menu-btn');
+            if (mobileMenu) mobileMenu.classList.add('hidden');
+            if (mobileBtn) {
+                mobileBtn.querySelector('i').classList.add('fa-bars');
+                mobileBtn.querySelector('i').classList.remove('fa-times');
+            }
+        }
+
+        function toggleMobileServices() {
+            const submenu = document.getElementById('mobile-services-submenu');
+            const chevron = document.getElementById('mobile-services-chevron');
+            submenu.classList.toggle('hidden');
+            chevron.classList.toggle('open');
+        }
+        
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                const modals = ['service-modal', 'portfolio-modal', 'shopmonkey-modal'];
+                for (let id of modals) {
+                    const m = document.getElementById(id);
+                    if (m && m.style.display !== 'none') {
+                        m.style.display = 'none';
+                        document.body.style.overflow = '';
+                        return;
+                    }
+                }
+            }
+        });
+        
+        function initializeWebsite() {
+            initializeTailwind();
+            console.log('%c[Endless Auto Collection] Final version ready — Shopmonkey only flow + Fremont address + Logo with X', 'color:#00f5ff');
+        }
+        
+        window.onload = initializeWebsite;
+    </script>
+</body>
+</html>
