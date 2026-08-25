@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PPF Coverage | Endless Auto Collection</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Space+Grotesk:wght@600&display=swap');
+body{font-family:Inter,system-ui,sans-serif;background:#f4f4f5;color:#111}
+.heading-font{font-family:'Space Grotesk',Inter,sans-serif}
+.pkg{border:1px solid #e4e4e7;background:#fff;cursor:pointer}
+.pkg.on{border-color:#111;box-shadow:0 0 0 1px #111}
+.part{cursor:pointer}
+.part .skin{fill:#f1f1f3;stroke:#111;stroke-width:1.2;transition:fill .2s}
+.part.on .skin{fill:#ff3b30}
+.part:hover .skin{fill:#ff6b63}
+.glass{fill:#d8dee6;stroke:#111;stroke-width:1.2}
+.tire{fill:#1a1a1a}.rim{fill:#e8e8ea;stroke:#111}
+</style></head>
+<body>
+<nav class="bg-black text-white px-6 h-16 flex items-center justify-between">
+<a href="index.html"><div class="font-black text-xl">ENDLESS</div></a>
+<a href="index.html" class="text-xs tracking-widest text-zinc-400">HOME</a>
+</nav>
+<main class="max-w-6xl mx-auto px-6 py-12">
+<p class="text-xs tracking-[3px] text-zinc-500 mb-2">PAINT PROTECTION FILM</p>
+<h1 class="heading-font text-4xl md:text-5xl mb-2">Coverage map</h1>
+<p class="text-zinc-600 max-w-xl mb-10">Red is filmed. Pick a package. Hover a panel for the name.</p>
+<div class="grid lg:grid-cols-[240px_1fr] gap-8">
+<aside class="space-y-3">
+<button class="pkg on w-full text-left rounded-2xl p-4" data-pkg="front" id="btn-front"><div class="font-semibold">Full front end</div><p class="text-sm text-zinc-500 mt-1">Bumper, hood, fenders, mirrors, lights.</p></button>
+<button class="pkg w-full text-left rounded-2xl p-4" data-pkg="full" id="btn-full"><div class="font-semibold">Full body</div><p class="text-sm text-zinc-500 mt-1">Every painted panel.</p></button>
+<div class="text-xs text-zinc-500 pt-4" id="live"></div>
+</aside>
+<div class="bg-white border border-zinc-200 rounded-3xl p-6">
+<svg viewBox="0 0 900 520" class="w-full">
+<ellipse cx="460" cy="455" rx="280" ry="22" fill="#000" opacity=".08"/>
+<g class="part" data-part="rear"><path class="skin" d="M118,268 C110,268 104,278 104,292 C104,318 108,338 128,348 L168,352 L176,300 L168,258 Z"/></g>
+<g class="part" data-part="quarter"><path class="skin" d="M168,258 L176,300 L210,318 L268,300 L262,236 L210,228 Z"/></g>
+<g class="part" data-part="roof"><path class="skin" d="M262,236 L310,168 L470,158 L520,200 L500,248 L268,252 Z"/></g>
+<path class="glass" d="M318,178 L458,170 L498,206 L478,242 L328,246 Z"/>
+<g class="part" data-part="door"><path class="skin" d="M268,252 L500,248 L528,268 L530,330 L400,348 L270,320 Z"/></g>
+<g class="part" data-part="hood"><path class="skin" d="M520,200 L640,198 L710,230 L700,268 L528,268 L500,248 Z"/></g>
+<g class="part" data-part="fender"><path class="skin" d="M528,268 L700,268 L720,300 L700,348 L600,360 L530,330 Z"/></g>
+<g class="part" data-part="mirror"><path class="skin" d="M508,232 L538,226 L546,242 L522,250 Z"/></g>
+<g class="part" data-part="headlight"><path class="skin" d="M690,232 L728,238 L732,258 L696,258 Z"/></g>
+<g class="part" data-part="bumper"><path class="skin" d="M710,230 L768,248 L780,278 L770,318 L720,300 L700,268 Z"/></g>
+<circle class="tire" cx="232" cy="348" r="42"/><circle class="rim" cx="232" cy="348" r="22"/>
+<circle class="tire" cx="638" cy="352" r="44"/><circle class="rim" cx="638" cy="352" r="23"/>
+</svg>
+<p class="text-center text-xs text-zinc-400 mt-2" id="hover-name">Hover a panel</p>
+</div></div></main>
+<script>
+const FRONT=new Set(['bumper','hood','fender','mirror','headlight']);
+const FULL=new Set(['bumper','hood','fender','mirror','headlight','door','roof','quarter','rear']);
+const NAMES={bumper:'Front bumper',hood:'Hood',fender:'Fender',mirror:'Mirror',headlight:'Headlight',door:'Door',roof:'Roof',quarter:'Quarter panel',rear:'Rear bumper'};
+let pkg=new URLSearchParams(location.search).get('pkg')==='full'?'full':'front';
+function apply(){const set=pkg==='full'?FULL:FRONT;document.querySelectorAll('.part').forEach(g=>g.classList.toggle('on',set.has(g.dataset.part)));document.getElementById('btn-front').classList.toggle('on',pkg==='front');document.getElementById('btn-full').classList.toggle('on',pkg==='full');document.getElementById('live').textContent='Covered: '+[...set].map(k=>NAMES[k]).join(', ');}
+document.querySelectorAll('[data-pkg]').forEach(b=>b.onclick=()=>{pkg=b.dataset.pkg;apply()});
+document.querySelectorAll('.part').forEach(g=>{g.onmouseenter=()=>document.getElementById('hover-name').textContent=NAMES[g.dataset.part];g.onmouseleave=()=>document.getElementById('hover-name').textContent='Hover a panel';});
+apply();
+</script></body></html>
