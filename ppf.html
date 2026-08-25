@@ -7,57 +7,70 @@
 <script src="https://cdn.tailwindcss.com"></script>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Space+Grotesk:wght@600&display=swap');
-body{font-family:Inter,system-ui,sans-serif;background:#f4f4f5;color:#111}
+body{font-family:Inter,system-ui,sans-serif;background:#fff;color:#111}
 .heading-font{font-family:'Space Grotesk',Inter,sans-serif}
-.pkg{border:1px solid #e4e4e7;background:#fff;cursor:pointer}
+.pkg{border:1px solid #e4e4e7;background:#fff;cursor:pointer;text-align:left}
 .pkg.on{border-color:#111;box-shadow:0 0 0 1px #111}
-.part{cursor:pointer}
-.part .skin{fill:#f1f1f3;stroke:#111;stroke-width:1.2;transition:fill .2s}
-.part.on .skin{fill:#ff3b30}
-.part:hover .skin{fill:#ff6b63}
-.glass{fill:#d8dee6;stroke:#111;stroke-width:1.2}
-.tire{fill:#1a1a1a}.rim{fill:#e8e8ea;stroke:#111}
+.mask{fill:#ff2d20;fill-opacity:0;cursor:pointer;transition:fill-opacity .2s}
+.mask.on{fill-opacity:.42}
+.mask:hover{fill-opacity:.58}
+.dot{fill:#111;stroke:#fff;stroke-width:2}
+.lead{stroke:#111;stroke-width:1.2;fill:none}
+.label{font:600 13px Inter,system-ui,sans-serif;fill:#111}
 </style></head>
 <body>
 <nav class="bg-black text-white px-6 h-16 flex items-center justify-between">
 <a href="index.html"><div class="font-black text-xl">ENDLESS</div></a>
 <a href="index.html" class="text-xs tracking-widest text-zinc-400">HOME</a>
 </nav>
-<main class="max-w-6xl mx-auto px-6 py-12">
+<main class="max-w-6xl mx-auto px-6 py-10">
 <p class="text-xs tracking-[3px] text-zinc-500 mb-2">PAINT PROTECTION FILM</p>
 <h1 class="heading-font text-4xl md:text-5xl mb-2">Coverage map</h1>
-<p class="text-zinc-600 max-w-xl mb-10">Red is filmed. Pick a package. Hover a panel for the name.</p>
-<div class="grid lg:grid-cols-[240px_1fr] gap-8">
+<p class="text-zinc-600 mb-8 max-w-xl">Red overlay = filmed. Switch packages. Hover a panel.</p>
+<div class="grid lg:grid-cols-[220px_1fr] gap-6 items-start">
 <aside class="space-y-3">
-<button class="pkg on w-full text-left rounded-2xl p-4" data-pkg="front" id="btn-front"><div class="font-semibold">Full front end</div><p class="text-sm text-zinc-500 mt-1">Bumper, hood, fenders, mirrors, lights.</p></button>
-<button class="pkg w-full text-left rounded-2xl p-4" data-pkg="full" id="btn-full"><div class="font-semibold">Full body</div><p class="text-sm text-zinc-500 mt-1">Every painted panel.</p></button>
-<div class="text-xs text-zinc-500 pt-4" id="live"></div>
+<button class="pkg on w-full rounded-2xl p-4" data-pkg="front" id="btn-front"><div class="font-semibold">Full front end</div><p class="text-sm text-zinc-500 mt-1">Bumper, hood, fenders, mirrors, lights.</p></button>
+<button class="pkg w-full rounded-2xl p-4" data-pkg="full" id="btn-full"><div class="font-semibold">Full body</div><p class="text-sm text-zinc-500 mt-1">Every painted panel.</p></button>
+<p class="text-xs text-zinc-500 pt-2" id="live"></p>
 </aside>
-<div class="bg-white border border-zinc-200 rounded-3xl p-6">
-<svg viewBox="0 0 900 520" class="w-full">
-<ellipse cx="460" cy="455" rx="280" ry="22" fill="#000" opacity=".08"/>
-<g class="part" data-part="rear"><path class="skin" d="M118,268 C110,268 104,278 104,292 C104,318 108,338 128,348 L168,352 L176,300 L168,258 Z"/></g>
-<g class="part" data-part="quarter"><path class="skin" d="M168,258 L176,300 L210,318 L268,300 L262,236 L210,228 Z"/></g>
-<g class="part" data-part="roof"><path class="skin" d="M262,236 L310,168 L470,158 L520,200 L500,248 L268,252 Z"/></g>
-<path class="glass" d="M318,178 L458,170 L498,206 L478,242 L328,246 Z"/>
-<g class="part" data-part="door"><path class="skin" d="M268,252 L500,248 L528,268 L530,330 L400,348 L270,320 Z"/></g>
-<g class="part" data-part="hood"><path class="skin" d="M520,200 L640,198 L710,230 L700,268 L528,268 L500,248 Z"/></g>
-<g class="part" data-part="fender"><path class="skin" d="M528,268 L700,268 L720,300 L700,348 L600,360 L530,330 Z"/></g>
-<g class="part" data-part="mirror"><path class="skin" d="M508,232 L538,226 L546,242 L522,250 Z"/></g>
-<g class="part" data-part="headlight"><path class="skin" d="M690,232 L728,238 L732,258 L696,258 Z"/></g>
-<g class="part" data-part="bumper"><path class="skin" d="M710,230 L768,248 L780,278 L770,318 L720,300 L700,268 Z"/></g>
-<circle class="tire" cx="232" cy="348" r="42"/><circle class="rim" cx="232" cy="348" r="22"/>
-<circle class="tire" cx="638" cy="352" r="44"/><circle class="rim" cx="638" cy="352" r="23"/>
+<div class="border border-zinc-200 rounded-2xl overflow-hidden bg-white">
+<svg viewBox="0 0 1400 1044" class="w-full h-auto">
+<image href="https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/1965_Porsche_911_Targa_white.jpg/1280px-1965_Porsche_911_Targa_white.jpg" width="1400" height="1044" preserveAspectRatio="xMidYMid slice"/>
+<polygon class="mask" data-part="bumper" points="40,760 180,720 420,780 780,800 980,760 1020,820 980,940 720,980 200,920 30,840"/>
+<polygon class="mask" data-part="hood" points="220,300 520,240 820,300 900,430 780,620 420,640 180,520 160,380"/>
+<ellipse class="mask" data-part="headlight" cx="210" cy="560" rx="95" ry="110"/>
+<ellipse class="mask" data-part="headlight" cx="820" cy="530" rx="90" ry="100"/>
+<polygon class="mask" data-part="fender" points="20,500 160,420 200,620 160,800 40,780 10,620"/>
+<polygon class="mask" data-part="fender" points="900,380 1180,360 1280,520 1240,760 980,720 900,520"/>
+<polygon class="mask" data-part="mirror" points="1188,300 1310,310 1320,370 1210,380"/>
+<polygon class="mask" data-part="door" points="980,360 1180,340 1260,500 1220,700 1000,680 960,500"/>
+<polygon class="mask" data-part="roof" points="430,80 1080,90 1160,220 980,300 520,290 400,200"/>
+<polygon class="mask" data-part="quarter" points="1080,200 1280,240 1360,360 1280,420 1120,340"/>
+<g id="callouts"></g>
 </svg>
-<p class="text-center text-xs text-zinc-400 mt-2" id="hover-name">Hover a panel</p>
-</div></div></main>
+<p class="text-center text-xs text-zinc-400 py-3" id="hover-name">Hover a panel</p>
+</div></div>
+<p class="text-[11px] text-zinc-400 mt-6">Photo: 1965 Porsche 911 Targa white by MrWalkr, Wikimedia Commons, CC BY-SA 4.0.</p>
+</main>
 <script>
 const FRONT=new Set(['bumper','hood','fender','mirror','headlight']);
-const FULL=new Set(['bumper','hood','fender','mirror','headlight','door','roof','quarter','rear']);
-const NAMES={bumper:'Front bumper',hood:'Hood',fender:'Fender',mirror:'Mirror',headlight:'Headlight',door:'Door',roof:'Roof',quarter:'Quarter panel',rear:'Rear bumper'};
+const FULL=new Set(['bumper','hood','fender','mirror','headlight','door','roof','quarter']);
+const NAMES={bumper:'Front bumper',hood:'Hood',fender:'Fender',mirror:'Mirror',headlight:'Headlight',door:'Door',roof:'Roof / targa',quarter:'Quarter'};
+const PINS={bumper:[720,900],hood:[520,420],headlight:[210,560],fender:[1180,500],mirror:[1310,280],door:[1100,560],roof:[760,140],quarter:[1240,280]};
 let pkg=new URLSearchParams(location.search).get('pkg')==='full'?'full':'front';
-function apply(){const set=pkg==='full'?FULL:FRONT;document.querySelectorAll('.part').forEach(g=>g.classList.toggle('on',set.has(g.dataset.part)));document.getElementById('btn-front').classList.toggle('on',pkg==='front');document.getElementById('btn-full').classList.toggle('on',pkg==='full');document.getElementById('live').textContent='Covered: '+[...set].map(k=>NAMES[k]).join(', ');}
+function apply(){
+ const set=pkg==='full'?FULL:FRONT;
+ document.querySelectorAll('.mask').forEach(el=>el.classList.toggle('on',set.has(el.dataset.part)));
+ document.getElementById('btn-front').classList.toggle('on',pkg==='front');
+ document.getElementById('btn-full').classList.toggle('on',pkg==='full');
+ document.getElementById('live').textContent='Covered: '+[...set].map(k=>NAMES[k]).join(', ');
+ const g=document.getElementById('callouts'); g.innerHTML='';
+ [...set].forEach(k=>{
+  const [x,y]=PINS[k]; const lx=x<700?40:1280; const ly=y-40;
+  g.insertAdjacentHTML('beforeend',`<line class="lead" x1="${x}" y1="${y}" x2="${lx}" y2="${ly}"/><circle class="dot" cx="${x}" cy="${y}" r="5"/><text class="label" x="${lx}" y="${ly-6}" text-anchor="${x<700?'start':'end'}">${NAMES[k]}</text>`);
+ });
+}
 document.querySelectorAll('[data-pkg]').forEach(b=>b.onclick=()=>{pkg=b.dataset.pkg;apply()});
-document.querySelectorAll('.part').forEach(g=>{g.onmouseenter=()=>document.getElementById('hover-name').textContent=NAMES[g.dataset.part];g.onmouseleave=()=>document.getElementById('hover-name').textContent='Hover a panel';});
+document.querySelectorAll('.mask').forEach(el=>{el.onmouseenter=()=>document.getElementById('hover-name').textContent=NAMES[el.dataset.part];el.onmouseleave=()=>document.getElementById('hover-name').textContent='Hover a panel'});
 apply();
 </script></body></html>
