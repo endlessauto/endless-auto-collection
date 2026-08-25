@@ -28,39 +28,20 @@ body{font-family:Inter,system-ui,sans-serif;background:#050505;color:#e4e4e7}
   <p class="text-xs tracking-[3px] text-[#00f5ff] mb-3">FREMONT PPF</p>
   <h1 class="heading-font text-4xl md:text-6xl text-white mb-4">Front-end PPF</h1>
   <p class="text-white/70 max-w-2xl mb-8">Front bumper, hood, fenders, mirrors, and headlights. The impact zone for East Bay freeway miles.</p>
-  <div id="ppf-stage" role="img" aria-label="3D preview of PPF coverage on a generic sedan"></div>
-  <div class="flex gap-3 mt-4 mb-16">
-    <button id="replay-wrap" class="px-4 py-2 rounded-full border border-white/20 text-sm">Replay film</button>
-    <a href="ppf-full.html" class="px-4 py-2 rounded-full border border-white/20 text-sm">Full body PPF</a>
-  </div>
-  <section class="grid md:grid-cols-2 gap-6 mb-16">
-    <article class="border border-white/10 rounded-3xl p-8 bg-[#111]">
-      <h2 class="text-2xl font-semibold mb-3">What this package covers</h2>
-      <p class="text-white/70">Focused coverage where chips actually happen. Most commuters start here and add the rest later.</p>
-    </article>
-    <article class="border border-white/10 rounded-3xl p-8 bg-[#111]">
-      <h2 class="text-2xl font-semibold mb-3">Why PPF</h2>
-      <ul class="text-white/70 space-y-2 text-sm">
-        <li>Self-healing clear film over painted surfaces</li>
-        <li>Takes rock chips and wash marring instead of the paint</li>
-        <li>10-year manufacturer warranty on the film we spec</li>
-        <li>Removable — it is not a wrap and not paint</li>
-        <li>Pairs with ceramic on top of the film</li>
-      </ul>
-    </article>
-  </section>
-  <section class="mb-16">
-    <h2 class="heading-font text-3xl mb-6">Benefits, in plain terms</h2>
-    <div class="grid md:grid-cols-3 gap-5">
-      <div class="border border-white/10 rounded-3xl p-6"><h3 class="font-semibold mb-2">Bay Area miles</h3><p class="text-white/65 text-sm">I-880 gravel and parking-lot doors are why front-end exists. Full body is for cars that stay collectible.</p></div>
-      <div class="border border-white/10 rounded-3xl p-6"><h3 class="font-semibold mb-2">Resale paper</h3><p class="text-white/65 text-sm">Documented film and a clean finish read as care. Paint repair after chips does not.</p></div>
-      <div class="border border-white/10 rounded-3xl p-6"><h3 class="font-semibold mb-2">One drop-off</h3><p class="text-white/65 text-sm">Film here. Tint and ceramic in the same visit when scoped. Mechanical through partnerships.</p></div>
+  <div id="ppf-stage" class="relative">
+    <iframe title="Porsche 911 Carrera 4S 3D model" class="w-full h-full border-0" src="https://sketchfab.com/models/d01b254483794de3819786d93e0e1ebf/embed?autostart=1&ui_theme=dark&ui_hint=0&camera=0&preload=1" allow="autoplay; fullscreen; xr-spatial-tracking" allowfullscreen></iframe>
+    <div class="pointer-events-none absolute left-4 bottom-4 max-w-sm rounded-2xl bg-black/70 border border-white/10 p-4">
+      <p class="text-[10px] tracking-[2px] text-[#00f5ff] mb-1">COVERAGE</p>
+      <p class="text-white font-semibold">Front-end PPF</p>
+      <p class="text-white/60 text-xs mt-1">Bumper, hood, fenders, mirrors, headlights. Spin the 911.</p>
     </div>
+  </div>
+  <div class="flex gap-3 mt-4 mb-16"><a href="ppf-full.html" class="px-4 py-2 rounded-full border border-white/20 text-sm">Full body PPF</a></div>
+  <section class="grid md:grid-cols-2 gap-6 mb-16">
+    <article class="border border-white/10 rounded-3xl p-8 bg-[#111]"><h2 class="text-2xl font-semibold mb-3">What this package covers</h2><p class="text-white/70">Focused coverage where chips actually happen. Most commuters start here.</p></article>
+    <article class="border border-white/10 rounded-3xl p-8 bg-[#111]"><h2 class="text-2xl font-semibold mb-3">Why PPF</h2><ul class="text-white/70 space-y-2 text-sm"><li>Self-healing clear film</li><li>Takes chips instead of the paint</li><li>10-year manufacturer warranty</li><li>Removable — not a wrap, not paint</li></ul></article>
   </section>
-  <p class="text-white/40 text-xs mb-8">Viewer v1 uses a generic sedan so we are not shipping an unlicensed 911.</p>
   <a href="index.html" class="btn inline-block px-8 py-3 rounded-2xl">Back to Endless</a>
 </main>
-<script>window.PPF_MODE = "front";</script>
-<script type="module" src="js/ppf-viewer.js"></script>
-</body>
-</html>
+<p class="max-w-6xl mx-auto px-6 pb-10 text-white/35 text-[11px]">3D: Porsche 911 Carrera 4S by Lionsharp Studios, CC BY-SA 4.0. Not an official Porsche product.</p>
+</body></html>
