@@ -4,44 +4,56 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Front-End PPF in Fremont | Endless Auto Collection</title>
-<meta name="description" content="Front bumper, hood, fenders, mirrors, and headlights. The impact zone for East Bay freeway miles.">
-<link rel="canonical" href="https://www.endlessautocollection.com/ppf-front.html">
 <script src="https://cdn.tailwindcss.com"></script>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Space+Grotesk:wght@600&display=swap');
 body{font-family:Inter,system-ui,sans-serif;background:#050505;color:#e4e4e7}
 .heading-font{font-family:'Space Grotesk',Inter,sans-serif}
 .btn{background:#00f5ff;color:#050505;font-weight:600}
-#ppf-stage{width:100%;height:min(70vh,620px);background:#070707;border:1px solid #222;border-radius:1.5rem;overflow:hidden}
-</style>
-</head>
+#ppf-stage{width:100%;height:min(52vh,480px);background:#070707;border:1px solid #222;border-radius:1.5rem;overflow:hidden}
+.ppf-map{width:100%;display:block}.ppf-map .glass{fill:#0b1520;stroke:#2a3a4a}.ppf-map .wheel{fill:#0a0a0a;stroke:#333}
+.ppf-map .on{fill:rgba(0,245,255,.28);stroke:#00f5ff;stroke-width:2}.ppf-map .off{fill:#161616;stroke:#333}
+.ppf-map .label{font-family:Inter,sans-serif;font-size:11px;fill:#e4e4e7}.ppf-map .lead{stroke:#00f5ff;stroke-width:1}
+</style></head>
 <body>
 <nav class="border-b border-white/10 px-6 h-16 flex items-center justify-between max-w-6xl mx-auto">
-  <a href="index.html" class="text-white"><div class="font-black text-xl tracking-tight">ENDLESS</div><div class="text-[9px] tracking-[2px] text-zinc-400">AUTO COLLECTION</div></a>
-  <div class="flex gap-6 text-xs tracking-widest text-zinc-400">
-    <a href="index.html">HOME</a>
-    <a href="ppf-full.html">FULL BODY</a>
-    <a href="ppf-front.html" class="text-white">FRONT-END</a>
-  </div>
+<a href="index.html" class="text-white"><div class="font-black text-xl">ENDLESS</div></a>
+<div class="flex gap-6 text-xs tracking-widest text-zinc-400"><a href="index.html">HOME</a><a href="ppf-full.html">FULL BODY</a><a href="ppf-front.html" class="text-white">FRONT-END</a></div>
 </nav>
 <main class="max-w-6xl mx-auto px-6 py-12">
-  <p class="text-xs tracking-[3px] text-[#00f5ff] mb-3">FREMONT PPF</p>
-  <h1 class="heading-font text-4xl md:text-6xl text-white mb-4">Front-end PPF</h1>
-  <p class="text-white/70 max-w-2xl mb-8">Front bumper, hood, fenders, mirrors, and headlights. The impact zone for East Bay freeway miles.</p>
-  <div id="ppf-stage" class="relative">
-    <iframe title="Porsche 911 Carrera 4S 3D model" class="w-full h-full border-0" src="https://sketchfab.com/models/d01b254483794de3819786d93e0e1ebf/embed?autostart=1&ui_theme=dark&ui_hint=0&camera=0&preload=1" allow="autoplay; fullscreen; xr-spatial-tracking" allowfullscreen></iframe>
-    <div class="pointer-events-none absolute left-4 bottom-4 max-w-sm rounded-2xl bg-black/70 border border-white/10 p-4">
-      <p class="text-[10px] tracking-[2px] text-[#00f5ff] mb-1">COVERAGE</p>
-      <p class="text-white font-semibold">Front-end PPF</p>
-      <p class="text-white/60 text-xs mt-1">Bumper, hood, fenders, mirrors, headlights. Spin the 911.</p>
-    </div>
-  </div>
-  <div class="flex gap-3 mt-4 mb-16"><a href="ppf-full.html" class="px-4 py-2 rounded-full border border-white/20 text-sm">Full body PPF</a></div>
-  <section class="grid md:grid-cols-2 gap-6 mb-16">
-    <article class="border border-white/10 rounded-3xl p-8 bg-[#111]"><h2 class="text-2xl font-semibold mb-3">What this package covers</h2><p class="text-white/70">Focused coverage where chips actually happen. Most commuters start here.</p></article>
-    <article class="border border-white/10 rounded-3xl p-8 bg-[#111]"><h2 class="text-2xl font-semibold mb-3">Why PPF</h2><ul class="text-white/70 space-y-2 text-sm"><li>Self-healing clear film</li><li>Takes chips instead of the paint</li><li>10-year manufacturer warranty</li><li>Removable — not a wrap, not paint</li></ul></article>
-  </section>
-  <a href="index.html" class="btn inline-block px-8 py-3 rounded-2xl">Back to Endless</a>
-</main>
-<p class="max-w-6xl mx-auto px-6 pb-10 text-white/35 text-[11px]">3D: Porsche 911 Carrera 4S by Lionsharp Studios, CC BY-SA 4.0. Not an official Porsche product.</p>
-</body></html>
+<p class="text-xs tracking-[3px] text-[#00f5ff] mb-3">FREMONT PPF</p>
+<h1 class="heading-font text-4xl md:text-6xl text-white mb-3">Front-end PPF</h1>
+<p class="text-white/70 max-w-2xl mb-8">Chip zone only. Cyan is covered. Grey doors, roof, and rear are not.</p>
+<div class="rounded-3xl border border-white/10 overflow-hidden mb-6 bg-[#070707]">
+<svg class="ppf-map" viewBox="0 0 800 360" role="img">
+<rect width="800" height="360" fill="#070707"/>
+<ellipse cx="400" cy="300" rx="280" ry="18" fill="#000" opacity=".45"/>
+<rect class="off" x="70" y="150" width="36" height="60" rx="8"/>
+<rect class="off" x="108" y="118" width="90" height="36" rx="8"/>
+<rect class="off" x="108" y="206" width="90" height="36" rx="8"/>
+<rect class="off" x="250" y="148" width="160" height="64" rx="16"/>
+<rect class="glass" x="268" y="158" width="124" height="44" rx="10"/>
+<rect class="off" x="320" y="118" width="110" height="30" rx="6"/>
+<rect class="off" x="320" y="212" width="110" height="30" rx="6"/>
+<rect class="on" x="520" y="148" width="150" height="64" rx="10"/>
+<rect class="on" x="510" y="112" width="100" height="32" rx="10"/>
+<rect class="on" x="510" y="216" width="100" height="32" rx="10"/>
+<rect class="on" x="490" y="96" width="28" height="14" rx="4"/>
+<rect class="on" x="490" y="250" width="28" height="14" rx="4"/>
+<rect class="on" x="655" y="132" width="28" height="16" rx="4"/>
+<rect class="on" x="655" y="212" width="28" height="16" rx="4"/>
+<rect class="on" x="678" y="150" width="42" height="60" rx="10"/>
+<circle class="wheel" cx="200" cy="118" r="22"/><circle class="wheel" cx="200" cy="242" r="22"/>
+<circle class="wheel" cx="560" cy="118" r="22"/><circle class="wheel" cx="560" cy="242" r="22"/>
+<line class="lead" x1="700" y1="50" x2="710" y2="180"/><text class="label" x="640" y="40">Front bumper</text>
+<line class="lead" x1="620" y1="32" x2="600" y2="180"/><text class="label" x="580" y="24">Hood</text>
+<line class="lead" x1="540" y1="18" x2="560" y2="115"/><text class="label" x="500" y="12">Fender</text>
+<line class="lead" x1="500" y1="8" x2="504" y2="100"/><text class="label" x="460" y="8">Mirror</text>
+<line class="lead" x1="670" y1="70" x2="668" y2="140"/><text class="label" x="630" y="64">Headlight</text>
+</svg></div>
+<a href="ppf-full.html" class="inline-block mb-12 px-4 py-2 rounded-full border border-white/20 text-sm">See full-body coverage</a>
+<h2 class="text-xl font-semibold mb-3">Spin a 911</h2>
+<div id="ppf-stage"><iframe class="w-full h-full border-0" title="911" src="https://sketchfab.com/models/d01b254483794de3819786d93e0e1ebf/embed?autostart=1&ui_theme=dark&camera=0" allow="autoplay; fullscreen" allowfullscreen></iframe></div>
+<p class="text-white/35 text-[11px] mt-3 mb-10">3D: Lionsharp Studios 911 Carrera 4S, CC BY-SA. Coverage is the map — the embed cannot be painted.</p>
+<a href="index.html" class="btn inline-block px-8 py-3 rounded-2xl">Back to Endless</a>
+</main></body></html>
