@@ -30,10 +30,6 @@ input[type=range].vlt-slider::-moz-range-thumb{width:18px;height:18px;border-rad
     <div class="hidden md:flex gap-7 text-xs tracking-widest text-zinc-300">
       <a href="index.html">HOME</a>
       <a href="index.html#services">SERVICES</a>
-      <a href="ppf.html">PPF</a>
-      <a href="ceramic.html">CERAMIC</a>
-      <a href="tint.html" class="text-white">TINT</a>
-      <a href="wraps.html">WRAPS</a>
       <a href="index.html#process">PROCESS</a>
       <a href="index.html#faq">FAQ</a>
     </div>
@@ -48,10 +44,6 @@ input[type=range].vlt-slider::-moz-range-thumb{width:18px;height:18px;border-rad
   <div id="mobile-menu" class="hidden md:hidden px-6 pb-4 border-t border-white/10 bg-[#050505]">
       <a href="index.html" onclick="toggleMenu()" class="block py-3 border-b border-white/5 text-zinc-300">HOME</a>
       <a href="index.html#services" onclick="toggleMenu()" class="block py-3 border-b border-white/5 text-zinc-300">SERVICES</a>
-      <a href="ppf.html" onclick="toggleMenu()" class="block py-3 border-b border-white/5 text-zinc-300">PPF</a>
-      <a href="ceramic.html" onclick="toggleMenu()" class="block py-3 border-b border-white/5 text-zinc-300">CERAMIC</a>
-      <a href="tint.html" onclick="toggleMenu()" class="block py-3 border-b border-white/5 text-white">TINT</a>
-      <a href="wraps.html" onclick="toggleMenu()" class="block py-3 border-b border-white/5 text-zinc-300">WRAPS</a>
       <a href="index.html#process" onclick="toggleMenu()" class="block py-3 border-b border-white/5 text-zinc-300">PROCESS</a>
       <a href="index.html#faq" onclick="toggleMenu()" class="block py-3 border-b border-white/5 text-zinc-300">FAQ</a>
   </div>
@@ -68,12 +60,11 @@ input[type=range].vlt-slider::-moz-range-thumb{width:18px;height:18px;border-rad
 <section id="shades" class="px-6 md:px-16 py-16 bg-[#0a0a0a] border-y border-white/10">
   <div class="max-w-6xl mx-auto">
     <h2 class="h2 heading-font mb-3">Look through the shade.</h2>
-    <p class="text-white/60 max-w-2xl mb-8">Drag from 70% down to 5%. Night and looking-in add extra darkness because the scene has less light.</p>
+    <p class="text-white/60 max-w-2xl mb-8">Drag from 70% down to 5%. Night adds extra darkness because the scene has less light.</p>
     <div class="max-w-3xl mx-auto">
       <div class="flex justify-center gap-2 mb-3">
         <button type="button" id="mode-day" class="mode-btn px-3 py-1.5 rounded-full text-xs border border-white/20 transition-colors">Day · out</button>
         <button type="button" id="mode-night" class="mode-btn px-3 py-1.5 rounded-full text-xs border border-white/20 transition-colors">Night · out</button>
-        <button type="button" id="mode-in" class="mode-btn px-3 py-1.5 rounded-full text-xs border border-white/20 transition-colors">Day · in</button>
       </div>
       <div class="relative rounded-3xl overflow-hidden border-[10px] border-[#1a1a1a]">
         <div class="relative aspect-[16/10]">
@@ -114,14 +105,14 @@ function toggleMenu(){const m=document.getElementById('mobile-menu');const open=
 window.addEventListener('resize',()=>{if(window.innerWidth>=768)document.getElementById('mobile-menu').classList.add('hidden')});
 window.addEventListener('scroll',()=>document.getElementById('navbar').classList.toggle('nav-scrolled',scrollY>70));
 const SHADES=[{vlt:70,label:'70% VLT',note:'Near factory. Typical legal front-side target.'},{vlt:50,label:'50% VLT',note:'Light privacy.'},{vlt:35,label:'35% VLT',note:'Common rear look.'},{vlt:20,label:'20% VLT',note:'Dark rear privacy.'},{vlt:15,label:'15% VLT',note:'Very dark rear.'},{vlt:5,label:'5% VLT',note:'Limo rear only.'}];
-const PHOTOS={day:'https://images.unsplash.com/photo-1449824913935-59a10b8d2000?auto=format&fit=crop&w=1400&q=80',night:'https://images.unsplash.com/photo-1606152537426-33511d5b079d?auto=format&fit=crop&w=1400&q=80',inside:'https://images.unsplash.com/photo-1584729323111-33bda8f116b2?auto=format&fit=crop&w=1400&q=80'};
+const PHOTOS={day:'https://images.unsplash.com/photo-1449824913935-59a10b8d2000?auto=format&fit=crop&w=1400&q=80',night:'https://images.unsplash.com/photo-1606152537426-33511d5b079d?auto=format&fit=crop&w=1400&q=80',inside:'https://images.unsplash.com/photo-1600661653561-629509216228?auto=format&fit=crop&w=1400&q=80'};
 let mode='day', idx=2;
 const picks=document.getElementById('shade-picks'), film=document.getElementById('vlt-film'), photo=document.getElementById('vlt-photo'), live=document.getElementById('shade-live'), badge=document.getElementById('vlt-badge'), slider=document.getElementById('vlt-slider');
 function apply(){
   const current=SHADES[idx];
   let blocked=1-current.vlt/100;
-  if(mode==='night') blocked=Math.min(0.92, blocked+0.12);
-  if(mode==='inside') blocked=Math.min(0.94, 0.35+blocked*0.85);
+  if(mode==='night') blocked=1-(current.vlt/100)*0.88;
+  if(mode==='inside') blocked=0.3+blocked*0.6;
   film.style.opacity=blocked.toFixed(3);
   photo.src=mode==='night'?PHOTOS.night:mode==='inside'?PHOTOS.inside:PHOTOS.day;
   photo.style.filter='none';

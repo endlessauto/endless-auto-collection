@@ -15,6 +15,35 @@ export const CARS = [
 
 const SKIP = /wheel|tire|rim|glass|window|light|lamp|interior|seat|steering|brake|caliper|disc|hub/i;
 
+function makeAsphaltTexture() {
+  const size = 1024;
+  const canvas = document.createElement('canvas');
+  canvas.width = canvas.height = size;
+  const ctx = canvas.getContext('2d');
+  ctx.fillStyle = '#1b1b1d';
+  ctx.fillRect(0, 0, size, size);
+  for (let i = 0; i < 9000; i++) {
+    const x = Math.random() * size;
+    const y = Math.random() * size;
+    const v = 18 + Math.random() * 30;
+    ctx.fillStyle = `rgba(${v},${v},${v + 2},${0.25 + Math.random() * 0.35})`;
+    ctx.fillRect(x, y, 1.4, 1.4);
+  }
+  const laneW = size * 0.05;
+  const dashLen = size * 0.09;
+  const gapLen = size * 0.07;
+  ctx.fillStyle = 'rgba(232,224,204,0.85)';
+  for (let y = -dashLen; y < size + dashLen; y += dashLen + gapLen) {
+    ctx.fillRect(size / 2 - laneW / 2, y, laneW, dashLen);
+  }
+  const tex = new THREE.CanvasTexture(canvas);
+  tex.wrapS = THREE.RepeatWrapping;
+  tex.wrapT = THREE.RepeatWrapping;
+  tex.repeat.set(1.3, 4);
+  tex.anisotropy = 4;
+  return tex;
+}
+
 export function finishToMaterial(finish) {
   const family = finish.family || 'gloss';
   const color = new THREE.Color(finish.hex || '#111111');
@@ -93,7 +122,7 @@ export function createWrapStudio(canvas) {
 
   const ground = new THREE.Mesh(
     new THREE.CircleGeometry(10, 48),
-    new THREE.MeshStandardMaterial({ color: 0x0b0b0b, roughness: 0.95, metalness: 0 })
+    new THREE.MeshStandardMaterial({ map: makeAsphaltTexture(), roughness: 0.92, metalness: 0.05 })
   );
   ground.rotation.x = -Math.PI / 2;
   ground.receiveShadow = true;
