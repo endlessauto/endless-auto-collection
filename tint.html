@@ -1,6 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-FT2B0B4JVB"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-FT2B0B4JVB');
+</script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Window Tint in Fremont | Ceramic Tint & UV Protection | Endless Auto Collection</title>
@@ -105,24 +114,22 @@ function toggleMenu(){const m=document.getElementById('mobile-menu');const open=
 window.addEventListener('resize',()=>{if(window.innerWidth>=768)document.getElementById('mobile-menu').classList.add('hidden')});
 window.addEventListener('scroll',()=>document.getElementById('navbar').classList.toggle('nav-scrolled',scrollY>70));
 const SHADES=[{vlt:70,label:'70% VLT',note:'Near factory. Typical legal front-side target.'},{vlt:50,label:'50% VLT',note:'Light privacy.'},{vlt:35,label:'35% VLT',note:'Common rear look.'},{vlt:20,label:'20% VLT',note:'Dark rear privacy.'},{vlt:15,label:'15% VLT',note:'Very dark rear.'},{vlt:5,label:'5% VLT',note:'Limo rear only.'}];
-const PHOTOS={day:'https://images.unsplash.com/photo-1449824913935-59a10b8d2000?auto=format&fit=crop&w=1400&q=80',night:'https://images.unsplash.com/photo-1606152537426-33511d5b079d?auto=format&fit=crop&w=1400&q=80',inside:'https://images.unsplash.com/photo-1600661653561-629509216228?auto=format&fit=crop&w=1400&q=80'};
+const PHOTOS={day:'https://images.unsplash.com/photo-1449824913935-59a10b8d2000?auto=format&fit=crop&w=1400&q=80',night:'https://images.unsplash.com/photo-1606152537426-33511d5b079d?auto=format&fit=crop&w=1400&q=80'};
 let mode='day', idx=2;
 const picks=document.getElementById('shade-picks'), film=document.getElementById('vlt-film'), photo=document.getElementById('vlt-photo'), live=document.getElementById('shade-live'), badge=document.getElementById('vlt-badge'), slider=document.getElementById('vlt-slider');
 function apply(){
   const current=SHADES[idx];
   let blocked=1-current.vlt/100;
   if(mode==='night') blocked=1-(current.vlt/100)*0.88;
-  if(mode==='inside') blocked=0.3+blocked*0.6;
   film.style.opacity=blocked.toFixed(3);
-  photo.src=mode==='night'?PHOTOS.night:mode==='inside'?PHOTOS.inside:PHOTOS.day;
+  photo.src=mode==='night'?PHOTOS.night:PHOTOS.day;
   photo.style.filter='none';
   badge.textContent=current.vlt+'% VLT';
-  live.textContent=(mode==='night'?'Night, looking out':mode==='inside'?'Day, looking in': 'Day, looking out')+' · '+current.label+' — about '+current.vlt+'% of visible light still passes.';
+  live.textContent=(mode==='night'?'Night, looking out':'Day, looking out')+' · '+current.label+' — about '+current.vlt+'% of visible light still passes.';
   picks.querySelectorAll('span').forEach((t,i)=>t.classList.toggle('on', i===idx));
   slider.value=idx;
   document.getElementById('mode-day').classList.toggle('on', mode==='day');
   document.getElementById('mode-night').classList.toggle('on', mode==='night');
-  document.getElementById('mode-in').classList.toggle('on', mode==='inside');
 }
 SHADES.forEach((s,i)=>{
   const t=document.createElement('span'); t.className='tick cursor-pointer'; t.textContent=s.vlt+'%';
@@ -131,7 +138,6 @@ SHADES.forEach((s,i)=>{
 slider.oninput=()=>{idx=Number(slider.value);apply()};
 document.getElementById('mode-day').onclick=()=>{mode='day';apply()};
 document.getElementById('mode-night').onclick=()=>{mode='night';apply()};
-document.getElementById('mode-in').onclick=()=>{mode='inside';apply()};
 apply();
 </script>
 </body></html>
