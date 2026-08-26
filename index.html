@@ -38,11 +38,14 @@ body{font-family:Inter,system-ui,sans-serif;background:#050505;color:#e4e4e7}
     <button onclick="openQuote()" class="btn px-5 py-2 rounded-full text-sm">Consult</button>
   </div>
 </nav>
-<header class="min-h-[92dvh] flex items-center pt-20 px-6 md:px-16">
-  <div class="max-w-3xl">
-    <p class="text-xs tracking-[2px] text-white/60 mb-5">FREMONT, CA · 41907 ALBRAE ST</p>
+<header class="relative min-h-[100dvh] flex items-center pt-20 px-6 md:px-16 overflow-hidden">
+  <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=2000&q=80" alt="Dark sports car" class="absolute inset-0 w-full h-full object-cover">
+  <div class="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-[#050505]"></div>
+  <div class="absolute inset-0 bg-gradient-to-r from-black/70 via-black/30 to-transparent"></div>
+  <div class="relative z-10 max-w-3xl">
+    <p class="text-xs tracking-[2px] text-white/70 mb-5">FREMONT, CA · 41907 ALBRAE ST</p>
     <h1 class="heading-font text-5xl md:text-7xl text-white">Paint protection, tint, and film — Fremont.</h1>
-    <p class="mt-6 text-lg text-white/70 max-w-xl">Dealer-level procedures. Independent $150/hr rate. One drop-off for PPF, ceramic, tint, and wraps. No shuttle between shops.</p>
+    <p class="mt-6 text-lg text-white/80 max-w-xl">Dealer-level procedures. Independent $150/hr rate. One drop-off for PPF, ceramic, tint, and wraps. No shuttle between shops.</p>
     <div class="mt-10 flex gap-3 flex-wrap">
       <button onclick="openQuote()" class="btn px-8 py-3 rounded-2xl">Request a consultation</button>
       <a href="#services" class="px-8 py-3 rounded-2xl border border-white/20">View services</a>
@@ -54,10 +57,10 @@ body{font-family:Inter,system-ui,sans-serif;background:#050505;color:#e4e4e7}
   <p class="text-xs tracking-[3px] text-[#00f5ff] mb-3">PROTECTION FIRST</p>
   <h2 class="h2 mb-10 heading-font">PPF, ceramic, tint, and wraps</h2>
   <div class="grid md:grid-cols-2 gap-5">
-    <a href="ppf.html" class="card rounded-3xl p-8 block"><p class="text-[#00f5ff] text-xs tracking-[2px] mb-2">OPEN PACKAGES</p><h3 class="text-2xl font-semibold mb-2">Paint protection film in Fremont</h3><p class="text-white/70">Self-healing film. Full body or front-end.</p></a>
-    <a href="ceramic.html" class="card rounded-3xl p-8 block"><p class="text-[#00f5ff] text-xs tracking-[2px] mb-2">OPEN PAGE</p><h3 class="text-2xl font-semibold mb-2">Ceramic coating in Fremont</h3><p class="text-white/70">Gloss and easier washes. Often stacked over PPF.</p></a>
-    <a href="tint.html" class="card rounded-3xl p-8 block"><p class="text-[#00f5ff] text-xs tracking-[2px] mb-2">COMPARE SHADES</p><h3 class="text-2xl font-semibold mb-2">Window tint in Fremont</h3><p class="text-white/70">Heat, UV, California-legal shades.</p></a>
-    <a href="wraps.html" class="card rounded-3xl p-8 block"><p class="text-[#00f5ff] text-xs tracking-[2px] mb-2">OPEN CATALOG</p><h3 class="text-2xl font-semibold mb-2">Custom wraps in Fremont</h3><p class="text-white/70">Color change without paint. 3M and Avery Dennison.</p></a>
+    <a href="ppf.html" class="card rounded-3xl overflow-hidden block"><img src="https://images.unsplash.com/photo-1614162692292-7ac56d7f7f1e?auto=format&fit=crop&w=900&q=80" alt="" class="w-full h-44 object-cover"><div class="p-8"><p class="text-[#00f5ff] text-xs tracking-[2px] mb-2">OPEN PACKAGES</p><h3 class="text-2xl font-semibold mb-2">Paint protection film</h3><p class="text-white/70">Self-healing film. Full body or front-end.</p></div></a>
+    <a href="ceramic.html" class="card rounded-3xl overflow-hidden block"><img src="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&w=900&q=80" alt="" class="w-full h-44 object-cover"><div class="p-8"><p class="text-[#00f5ff] text-xs tracking-[2px] mb-2">OPEN PAGE</p><h3 class="text-2xl font-semibold mb-2">Ceramic coating</h3><p class="text-white/70">Gloss and easier washes. Often stacked over PPF.</p></div></a>
+    <a href="tint.html" class="card rounded-3xl overflow-hidden block"><img src="https://images.unsplash.com/photo-1544636331-e26879cd4d9b?auto=format&fit=crop&w=900&q=80" alt="" class="w-full h-44 object-cover"><div class="p-8"><p class="text-[#00f5ff] text-xs tracking-[2px] mb-2">COMPARE SHADES</p><h3 class="text-2xl font-semibold mb-2">Window tint</h3><p class="text-white/70">Heat, UV, California-legal shades.</p></div></a>
+    <a href="wraps.html" class="card rounded-3xl overflow-hidden block"><img src="https://images.unsplash.com/photo-1617814076367-b759c7d7e738?auto=format&fit=crop&w=900&q=80" alt="" class="w-full h-44 object-cover"><div class="p-8"><p class="text-[#00f5ff] text-xs tracking-[2px] mb-2">OPEN CATALOG</p><h3 class="text-2xl font-semibold mb-2">Custom wraps</h3><p class="text-white/70">Color change without paint. 3M and Avery Dennison.</p></div></a>
   </div>
 </section>
 <section class="px-6 md:px-16 py-16 bg-[#0a0a0a] border-y border-white/10">
