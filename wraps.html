@@ -38,7 +38,23 @@ body{font-family:Inter,system-ui,sans-serif;background:#050505;color:#e4e4e7}
       <a href="index.html#process">PROCESS</a>
       <a href="index.html#faq">FAQ</a>
     </div>
-    <button onclick="openQuote()" class="btn px-5 py-2 rounded-full text-sm">Consult</button>
+    <div class="flex items-center gap-2">
+      <button onclick="openQuote()" class="btn px-5 py-2 rounded-full text-sm">Consult</button>
+      <button onclick="toggleMenu()" id="menu-btn" class="md:hidden text-white p-2 -mr-2" aria-label="Menu" aria-expanded="false">
+        <svg id="menu-icon-open" class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/></svg>
+        <svg id="menu-icon-close" class="w-6 h-6 hidden" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
+      </button>
+    </div>
+  </div>
+  <div id="mobile-menu" class="hidden md:hidden px-6 pb-4 border-t border-white/10 bg-[#050505]">
+      <a href="index.html" onclick="toggleMenu()" class="block py-3 border-b border-white/5 text-zinc-300">HOME</a>
+      <a href="index.html#services" onclick="toggleMenu()" class="block py-3 border-b border-white/5 text-zinc-300">SERVICES</a>
+      <a href="ppf.html" onclick="toggleMenu()" class="block py-3 border-b border-white/5 text-zinc-300">PPF</a>
+      <a href="ceramic.html" onclick="toggleMenu()" class="block py-3 border-b border-white/5 text-zinc-300">CERAMIC</a>
+      <a href="tint.html" onclick="toggleMenu()" class="block py-3 border-b border-white/5 text-zinc-300">TINT</a>
+      <a href="wraps.html" onclick="toggleMenu()" class="block py-3 border-b border-white/5 text-white">WRAPS</a>
+      <a href="index.html#process" onclick="toggleMenu()" class="block py-3 border-b border-white/5 text-zinc-300">PROCESS</a>
+      <a href="index.html#faq" onclick="toggleMenu()" class="block py-3 border-b border-white/5 text-zinc-300">FAQ</a>
   </div>
 </nav>
 <header class="min-h-[78dvh] flex items-center pt-20 px-6 md:px-16">
@@ -106,6 +122,8 @@ body{font-family:Inter,system-ui,sans-serif;background:#050505;color:#e4e4e7}
 <script>
 function openQuote(){const m=document.getElementById('quote');m.classList.remove('hidden');m.style.display='flex';document.body.style.overflow='hidden'}
 function closeQuote(){const m=document.getElementById('quote');m.style.display='none';m.classList.add('hidden');document.body.style.overflow=''}
+function toggleMenu(){const m=document.getElementById('mobile-menu');const open=m.classList.contains('hidden');m.classList.toggle('hidden');document.getElementById('menu-icon-open').classList.toggle('hidden',open);document.getElementById('menu-icon-close').classList.toggle('hidden',!open);document.getElementById('menu-btn').setAttribute('aria-expanded',open?'true':'false')}
+window.addEventListener('resize',()=>{if(window.innerWidth>=768)document.getElementById('mobile-menu').classList.add('hidden')});
 window.addEventListener('scroll',()=>document.getElementById('navbar').classList.toggle('nav-scrolled',scrollY>70));
 const FINISHES = [
   {name:'Gloss Black', family:'gloss', hex:'#0a0a0a', tags:'piano black dark', bg:'linear-gradient(145deg,#111 0%,#000 55%,#2a2a2a 100%)'},
