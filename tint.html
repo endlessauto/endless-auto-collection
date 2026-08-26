@@ -15,15 +15,26 @@ body{font-family:Inter,system-ui,sans-serif;background:#050505;color:#e4e4e7}
 .card{background:#111;border:1px solid #222}
 .btn{background:#00f5ff;color:#050505;font-weight:600}
 .h2{font-size:clamp(2rem,5vw,3.1rem);font-weight:700}
-.shade-card.on{border-color:#00f5ff}
+input[type=range].vlt-slider{-webkit-appearance:none;appearance:none;width:100%;height:2px;background:#2a2a2a;border-radius:2px;outline:none}
+input[type=range].vlt-slider::-webkit-slider-thumb{-webkit-appearance:none;appearance:none;width:18px;height:18px;border-radius:50%;background:#00f5ff;cursor:pointer;box-shadow:0 0 0 4px rgba(0,245,255,.15)}
+input[type=range].vlt-slider::-moz-range-thumb{width:18px;height:18px;border-radius:50%;background:#00f5ff;border:none;cursor:pointer;box-shadow:0 0 0 4px rgba(0,245,255,.15)}
+.tick{color:rgba(255,255,255,.35);transition:.2s}
+.tick.on{color:#00f5ff}
 </style>
 </head>
 <body>
 <nav id="navbar" class="fixed top-0 inset-x-0 z-50 border-b border-white/10">
   <div class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
-    <a href="index.html" class="text-white"><div class="font-black text-2xl">ENDLESS</div></a>
+    <a href="index.html" class="text-white"><div class="font-black text-2xl tracking-[-1px] leading-none">ENDLESS</div><div class="text-[9px] tracking-[2.5px] text-zinc-400">AUTO COLLECTION</div></a>
     <div class="hidden md:flex gap-7 text-xs tracking-widest text-zinc-300">
-      <a href="ppf.html">PPF</a><a href="ceramic.html">CERAMIC</a><a href="tint.html" class="text-white">TINT</a><a href="wraps.html">WRAPS</a>
+      <a href="index.html">HOME</a>
+      <a href="index.html#services">SERVICES</a>
+      <a href="ppf.html">PPF</a>
+      <a href="ceramic.html">CERAMIC</a>
+      <a href="tint.html" class="text-white">TINT</a>
+      <a href="wraps.html">WRAPS</a>
+      <a href="index.html#process">PROCESS</a>
+      <a href="index.html#faq">FAQ</a>
     </div>
     <button onclick="openQuote()" class="btn px-5 py-2 rounded-full text-sm">Consult</button>
   </div>
@@ -38,25 +49,26 @@ body{font-family:Inter,system-ui,sans-serif;background:#050505;color:#e4e4e7}
 <section id="shades" class="px-6 md:px-16 py-16 bg-[#0a0a0a] border-y border-white/10">
   <div class="max-w-6xl mx-auto">
     <h2 class="h2 heading-font mb-3">Look through the shade.</h2>
-    <p class="text-white/60 max-w-2xl mb-8">Click 70% through 5%. Overlay opacity = 1 − VLT. Night and looking-in add extra darkness because the scene has less light.</p>
-    <div class="grid lg:grid-cols-2 gap-8 items-start">
-      <div>
-        <div class="flex flex-wrap gap-2 mb-3">
-          <button type="button" id="mode-day" class="px-3 py-1.5 rounded-full text-xs border border-white/20">Day · out</button>
-          <button type="button" id="mode-night" class="px-3 py-1.5 rounded-full text-xs border border-white/20">Night · out</button>
-          <button type="button" id="mode-in" class="px-3 py-1.5 rounded-full text-xs border border-white/20">Day · in</button>
-        </div>
-        <div class="relative rounded-3xl overflow-hidden border-[10px] border-[#1a1a1a]">
-          <div class="relative aspect-[16/10]">
-            <img id="vlt-photo" alt="View through glass" class="w-full h-full object-cover">
-            <div id="vlt-film" class="absolute inset-0 pointer-events-none" style="background:#05070c"></div>
-            <div id="vlt-badge" class="absolute bottom-3 right-3 text-sm font-semibold bg-black/60 px-3 py-1.5 rounded-full">35% VLT</div>
-          </div>
-        </div>
-        <p id="shade-live" class="mt-4 text-white/60 text-sm"></p>
-        <p class="text-white/35 text-xs mt-2">Preview only — not a meter, not a CHP reading. California front-side VLT is tightly limited.</p>
+    <p class="text-white/60 max-w-2xl mb-8">Drag from 70% down to 5%. Night and looking-in add extra darkness because the scene has less light.</p>
+    <div class="max-w-3xl mx-auto">
+      <div class="flex justify-center gap-2 mb-3">
+        <button type="button" id="mode-day" class="px-3 py-1.5 rounded-full text-xs border border-white/20">Day · out</button>
+        <button type="button" id="mode-night" class="px-3 py-1.5 rounded-full text-xs border border-white/20">Night · out</button>
+        <button type="button" id="mode-in" class="px-3 py-1.5 rounded-full text-xs border border-white/20">Day · in</button>
       </div>
-      <div class="grid grid-cols-2 sm:grid-cols-3 gap-3" id="shade-picks"></div>
+      <div class="relative rounded-3xl overflow-hidden border-[10px] border-[#1a1a1a]">
+        <div class="relative aspect-[16/10]">
+          <img id="vlt-photo" alt="View through glass" class="w-full h-full object-cover">
+          <div id="vlt-film" class="absolute inset-0 pointer-events-none" style="background:#05070c"></div>
+          <div id="vlt-badge" class="absolute bottom-3 right-3 text-sm font-semibold bg-black/60 px-3 py-1.5 rounded-full">35% VLT</div>
+        </div>
+      </div>
+      <div class="mt-8 px-1">
+        <input type="range" id="vlt-slider" class="vlt-slider" min="0" max="5" step="1" value="2">
+        <div class="flex justify-between mt-3 text-xs tracking-wide" id="shade-picks"></div>
+      </div>
+      <p id="shade-live" class="mt-6 text-white/60 text-sm text-center"></p>
+      <p class="text-white/35 text-xs mt-2 text-center">Preview only — not a meter, not a CHP reading. California front-side VLT is tightly limited.</p>
     </div>
   </div>
 </section>
@@ -79,11 +91,13 @@ body{font-family:Inter,system-ui,sans-serif;background:#050505;color:#e4e4e7}
 <script>
 function openQuote(){const m=document.getElementById('quote');m.classList.remove('hidden');m.style.display='flex';document.body.style.overflow='hidden'}
 function closeQuote(){const m=document.getElementById('quote');m.style.display='none';m.classList.add('hidden');document.body.style.overflow=''}
+window.addEventListener('scroll',()=>document.getElementById('navbar').classList.toggle('nav-scrolled',scrollY>70));
 const SHADES=[{vlt:70,label:'70% VLT',note:'Near factory. Typical legal front-side target.'},{vlt:50,label:'50% VLT',note:'Light privacy.'},{vlt:35,label:'35% VLT',note:'Common rear look.'},{vlt:20,label:'20% VLT',note:'Dark rear privacy.'},{vlt:15,label:'15% VLT',note:'Very dark rear.'},{vlt:5,label:'5% VLT',note:'Limo rear only.'}];
 const PHOTOS={day:'https://images.unsplash.com/photo-1449824913935-59a10b8d2000?auto=format&fit=crop&w=1400&q=80',night:'https://images.unsplash.com/photo-1480714378408-67cf0d13bc1b?auto=format&fit=crop&w=1400&q=80',inside:'https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=1400&q=80'};
-let mode='day', current=SHADES[2];
-const picks=document.getElementById('shade-picks'), film=document.getElementById('vlt-film'), photo=document.getElementById('vlt-photo'), live=document.getElementById('shade-live'), badge=document.getElementById('vlt-badge');
+let mode='day', idx=2;
+const picks=document.getElementById('shade-picks'), film=document.getElementById('vlt-film'), photo=document.getElementById('vlt-photo'), live=document.getElementById('shade-live'), badge=document.getElementById('vlt-badge'), slider=document.getElementById('vlt-slider');
 function apply(){
+  const current=SHADES[idx];
   let blocked=1-current.vlt/100;
   if(mode==='night') blocked=Math.min(0.92, blocked+0.12);
   if(mode==='inside') blocked=Math.min(0.94, 0.35+blocked*0.85);
@@ -91,15 +105,14 @@ function apply(){
   photo.src=mode==='night'?PHOTOS.night:mode==='inside'?PHOTOS.inside:PHOTOS.day;
   badge.textContent=current.vlt+'% VLT';
   live.textContent=(mode==='night'?'Night, looking out':mode==='inside'?'Day, looking in': 'Day, looking out')+' · '+current.label+' — about '+current.vlt+'% of visible light still passes.';
-  picks.querySelectorAll('button').forEach(b=>b.classList.toggle('on', Number(b.dataset.vlt)===current.vlt));
+  picks.querySelectorAll('span').forEach((t,i)=>t.classList.toggle('on', i===idx));
+  slider.value=idx;
 }
-SHADES.forEach(s=>{
-  const b=document.createElement('button'); b.type='button'; b.dataset.vlt=s.vlt;
-  b.className='shade-card rounded-2xl border border-white/15 p-4 text-left bg-[#111]';
-  const blocked=1-s.vlt/100;
-  b.innerHTML='<div class="h-10 rounded-lg mb-3 overflow-hidden relative"><div class="absolute inset-0" style="background:url('+PHOTOS.day+') center/cover"></div><div class="absolute inset-0" style="background:#05070c;opacity:'+blocked+'"></div></div><p class="font-semibold">'+s.label+'</p><p class="text-[11px] text-white/45 mt-1">'+s.note+'</p>';
-  b.onclick=()=>{current=s;apply()}; picks.appendChild(b);
+SHADES.forEach((s,i)=>{
+  const t=document.createElement('span'); t.className='tick cursor-pointer'; t.textContent=s.vlt+'%';
+  t.onclick=()=>{idx=i;apply()}; picks.appendChild(t);
 });
+slider.oninput=()=>{idx=Number(slider.value);apply()};
 document.getElementById('mode-day').onclick=()=>{mode='day';apply()};
 document.getElementById('mode-night').onclick=()=>{mode='night';apply()};
 document.getElementById('mode-in').onclick=()=>{mode='inside';apply()};
