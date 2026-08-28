@@ -1,0 +1,6 @@
+name = "endless-auto-collection"
+compatibility_date = "2026-08-27"
+
+[assets]
+directory = "."
+not_found_handling = "404-page"
