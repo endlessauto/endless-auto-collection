@@ -33,6 +33,92 @@ body{font-family:Inter,system-ui,sans-serif;background:#050505;color:#e4e4e7}
 .marquee-track span{padding:0 1.5rem}
 @keyframes marquee{from{transform:translateX(-50%)}to{transform:translateX(0)}}
 @media (prefers-reduced-motion:reduce){.marquee-track{animation:none}}
+
+/* Services — grouped rail + choreographed foil cards */
+.chor-wrap{display:grid;grid-template-columns:220px 1fr;gap:56px;align-items:start}
+.chor-rail{position:sticky;top:88px;display:flex;flex-direction:column}
+.rail-track{position:relative;width:1px;background:#222;margin-left:5px;height:220px}
+.rail-fill{position:absolute;top:0;left:0;width:100%;background:#00f5ff;height:0%;transition:height .08s linear}
+.rail-dot{position:absolute;left:50%;width:11px;height:11px;border-radius:50%;background:#00f5ff;top:0;transform:translate(-50%,-50%);box-shadow:0 0 0 5px rgba(0,245,255,.15);transition:top .08s linear}
+.rail-labels{position:absolute;left:24px;top:0;height:220px;display:flex;flex-direction:column;justify-content:space-between}
+.rail-label{font-size:12.5px;color:rgba(228,228,231,.35);max-width:150px;line-height:1.35;transition:color .4s;padding:4px 0}
+.rail-label.active{color:#e4e4e7;font-weight:600}
+.rail-label .rn{display:block;font-family:'Space Grotesk';font-size:10px;letter-spacing:.1em;color:rgba(228,228,231,.35);margin-bottom:4px}
+.rail-label.active .rn{color:#00f5ff}
+
+.svc-group{margin-bottom:80px}
+.svc-group:last-child{margin-bottom:0}
+.svc-group-head{margin-bottom:22px}
+.svc-group-head h3{font-family:'Space Grotesk',Inter,sans-serif;font-size:1.5rem;font-weight:600;margin:0 0 6px;letter-spacing:-.02em}
+.svc-group-head p{margin:0;color:rgba(228,228,231,.65);font-size:13.5px;max-width:52ch}
+
+.e-cards{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;perspective:1600px}
+.svc-group.care .e-cards{grid-template-columns:repeat(2,1fr)}
+
+.e-card{
+  display:block;position:relative;border-radius:18px;aspect-ratio:3/4;cursor:pointer;
+  transform-style:preserve-3d;
+  opacity:0;
+  transform:perspective(1600px) rotateY(-78deg) translateZ(-40px) scale(.92);
+  transition:opacity .8s cubic-bezier(.22,1,.36,1),transform 1s cubic-bezier(.22,1,.36,1);
+  will-change:transform;
+}
+.svc-group.care .e-card{aspect-ratio:16/10}
+.e-card.in{opacity:1;transform:perspective(1600px) rotateY(var(--tx,0deg)) rotateX(var(--ty,0deg)) translateZ(0) scale(1)}
+
+.e-card-face{
+  position:absolute;inset:0;border-radius:18px;overflow:hidden;clip-path:inset(0 round 18px);
+  border:1px solid #222;background:#111;
+  box-shadow:0 18px 40px -14px rgba(0,0,0,.65);
+  isolation:isolate;
+}
+.e-card-face::before{
+  content:'';position:absolute;inset:-1px;border-radius:18px;padding:1px;z-index:3;pointer-events:none;
+  background:linear-gradient(135deg,rgba(255,255,255,.55),rgba(0,245,255,.35) 30%,rgba(255,255,255,.05) 55%,rgba(255,179,236,.4) 78%,rgba(255,255,255,.5));
+  -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);
+  -webkit-mask-composite:xor;mask-composite:exclude;
+  opacity:.55;
+}
+.e-card img{
+  position:absolute;inset:0;width:100%;height:100%;object-fit:cover;
+  filter:saturate(.9) brightness(.78);
+}
+.e-card img.e-card-clear{
+  position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:1;
+  filter:none;opacity:0;transition:opacity .35s;
+  -webkit-mask-image:radial-gradient(140px circle at var(--mx,50%) var(--my,50%),#fff 0%,#fff 55%,transparent 100%);
+  mask-image:radial-gradient(140px circle at var(--mx,50%) var(--my,50%),#fff 0%,#fff 55%,transparent 100%);
+}
+.e-card:hover img.e-card-clear{opacity:1}
+.e-card-face::after{
+  content:'';position:absolute;inset:0;z-index:2;
+  background:linear-gradient(180deg,rgba(0,0,0,0) 34%,rgba(0,0,0,.88) 100%);
+}
+.e-rarity{
+  position:absolute;top:14px;right:14px;z-index:4;font-size:9.5px;font-weight:700;letter-spacing:.08em;
+  color:#050505;background:linear-gradient(135deg,#fff,#00f5ff);border-radius:999px;padding:4px 9px;
+}
+.e-card .body{position:absolute;left:0;right:0;bottom:0;padding:18px;z-index:3}
+.e-card .body .tg{font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:#00f5ff;font-weight:600;display:block;margin-bottom:6px}
+.e-card .body h4{margin:0 0 5px;font-size:1rem;font-weight:600;color:#e4e4e7}
+.e-card .body p{margin:0;font-size:12.5px;color:rgba(233,233,236,.7);line-height:1.5}
+
+@media (max-width:900px){
+  .chor-wrap{grid-template-columns:1fr;gap:28px}
+  .chor-rail{position:static;flex-direction:row;align-items:center;gap:14px}
+  .rail-track{width:100%;height:1px;margin-left:0}
+  .rail-fill{width:0%;height:100%}
+  .rail-labels{position:static;height:auto;flex-direction:row;gap:18px}
+  .e-cards{grid-template-columns:repeat(2,1fr)}
+}
+@media (max-width:640px){
+  .e-cards{grid-template-columns:1fr}
+  .svc-group.care .e-cards{grid-template-columns:1fr}
+}
+@media (prefers-reduced-motion:reduce){
+  .e-card{transition:opacity .4s;transform:none !important}
+  .e-card.in{transform:none !important}
+}
 </style>
 </head>
 <body class="overflow-x-hidden">
@@ -83,13 +169,86 @@ body{font-family:Inter,system-ui,sans-serif;background:#050505;color:#e4e4e7}
 <section id="services" class="px-6 md:px-16 py-20 max-w-6xl mx-auto">
   <p class="text-xs tracking-[3px] text-[#00f5ff] mb-3">PROTECTION FIRST</p>
   <h2 class="h2 mb-10 heading-font">PPF, ceramic, tint, wraps, detailing, and more</h2>
-  <div class="grid md:grid-cols-2 gap-5">
-    <a href="ppf.html" class="card rounded-3xl overflow-hidden block"><img src="https://images.unsplash.com/photo-1614162692292-7ac56d7f7f1e?auto=format&fit=crop&w=900&q=80" alt="" class="w-full h-44 object-cover"><div class="p-8"><p class="text-[#00f5ff] text-xs tracking-[2px] mb-2">OPEN PACKAGES</p><h3 class="text-2xl font-semibold mb-2">Paint protection film in Fremont</h3><p class="text-white/70">Self-healing film. Full body or front-end. 10-year manufacturer warranty.</p></div></a>
-    <a href="ceramic.html" class="card rounded-3xl overflow-hidden block"><img src="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&w=900&q=80" alt="" class="w-full h-44 object-cover"><div class="p-8"><p class="text-[#00f5ff] text-xs tracking-[2px] mb-2">OPEN PAGE</p><h3 class="text-2xl font-semibold mb-2">Ceramic coating in Fremont</h3><p class="text-white/70">Correction when the paint needs it, then ceramic. Often stacked over PPF.</p></div></a>
-    <a href="tint.html" class="card rounded-3xl overflow-hidden block"><img src="https://images.unsplash.com/photo-1762095213655-60b78e423b0c?auto=format&fit=crop&w=900&q=80" alt="" class="w-full h-44 object-cover"><div class="p-8"><p class="text-[#00f5ff] text-xs tracking-[2px] mb-2">COMPARE SHADES</p><h3 class="text-2xl font-semibold mb-2">Window tint in Fremont</h3><p class="text-white/70">Heat, UV, California-legal shades.</p></div></a>
-    <a href="wraps.html" class="card rounded-3xl overflow-hidden block"><img src="https://images.unsplash.com/photo-1525609004556-c46c7d6cf023?auto=format&fit=crop&w=1200&q=80" alt="" class="w-full h-44 object-cover"><div class="p-8"><p class="text-[#00f5ff] text-xs tracking-[2px] mb-2">OPEN CATALOG</p><h3 class="text-2xl font-semibold mb-2">Custom wraps in Fremont</h3><p class="text-white/70">Color change without paint. 3M and Avery Dennison.</p></div></a>
-    <a href="detailing.html" class="card rounded-3xl overflow-hidden block"><img src="https://images.unsplash.com/photo-1520340356584-f9917d1eea6f?auto=format&fit=crop&w=900&q=80" alt="" class="w-full h-44 object-cover"><div class="p-8"><p class="text-[#00f5ff] text-xs tracking-[2px] mb-2">FULL OR INDIVIDUAL PACKAGES</p><h3 class="text-2xl font-semibold mb-2">Car detailing in Fremont</h3><p class="text-white/70">Full interior and exterior detail, or build it piece by piece.</p></div></a>
-    <a href="mechanical.html" class="card rounded-3xl overflow-hidden block"><img src="https://images.unsplash.com/photo-1530046339160-ce3e530c7d2f?auto=format&fit=crop&w=900&q=80" alt="" class="w-full h-44 object-cover"><div class="p-8"><p class="text-[#00f5ff] text-xs tracking-[2px] mb-2">OPEN PAGE</p><h3 class="text-2xl font-semibold mb-2">Mechanical services in Fremont</h3><p class="text-white/70">Maintenance servicing, inspection, and diagnostic.</p></div></a>
+
+  <div class="chor-wrap">
+    <div class="chor-rail">
+      <div class="rail-track">
+        <div class="rail-fill" id="svc-fill"></div>
+        <div class="rail-dot" id="svc-dot"></div>
+      </div>
+      <div class="rail-labels">
+        <div class="rail-label" data-group="svc-film"><span class="rn">01</span>Protective film work</div>
+        <div class="rail-label" data-group="svc-care"><span class="rn">02</span>Care &amp; maintenance</div>
+      </div>
+    </div>
+
+    <div class="chor-content" id="svc-content">
+      <div class="svc-group film" id="svc-film">
+        <div class="svc-group-head">
+          <h3>Protective film work</h3>
+          <p>Four services built around one material problem — keeping the factory paint and glass intact.</p>
+        </div>
+        <div class="e-cards">
+          <a href="ppf.html" class="e-card" data-i="0">
+            <div class="e-card-face">
+              <img src="https://images.unsplash.com/photo-1614162692292-7ac56d7f7f1e?auto=format&fit=crop&w=900&q=80" alt="">
+              <img class="e-card-clear" src="https://images.unsplash.com/photo-1614162692292-7ac56d7f7f1e?auto=format&fit=crop&w=900&q=80" alt="" aria-hidden="true">
+              <span class="e-rarity">PPF</span>
+              <div class="body"><span class="tg">10-yr warranty</span><h4>Paint protection film</h4><p>Self-healing film, full body or front-end.</p></div>
+            </div>
+          </a>
+          <a href="ceramic.html" class="e-card" data-i="1">
+            <div class="e-card-face">
+              <img src="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&w=900&q=80" alt="">
+              <img class="e-card-clear" src="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&w=900&q=80" alt="" aria-hidden="true">
+              <span class="e-rarity">COAT</span>
+              <div class="body"><span class="tg">Stacks over PPF</span><h4>Ceramic coating</h4><p>Correction, then multi-year gloss.</p></div>
+            </div>
+          </a>
+          <a href="tint.html" class="e-card" data-i="2">
+            <div class="e-card-face">
+              <img src="https://images.unsplash.com/photo-1762095213655-60b78e423b0c?auto=format&fit=crop&w=900&q=80" alt="">
+              <img class="e-card-clear" src="https://images.unsplash.com/photo-1762095213655-60b78e423b0c?auto=format&fit=crop&w=900&q=80" alt="" aria-hidden="true">
+              <span class="e-rarity">TINT</span>
+              <div class="body"><span class="tg">70–5% VLT</span><h4>Window tint</h4><p>Heat, UV, CA-legal shades.</p></div>
+            </div>
+          </a>
+          <a href="wraps.html" class="e-card" data-i="3">
+            <div class="e-card-face">
+              <img src="https://images.unsplash.com/photo-1525609004556-c46c7d6cf023?auto=format&fit=crop&w=1200&q=80" alt="">
+              <img class="e-card-clear" src="https://images.unsplash.com/photo-1525609004556-c46c7d6cf023?auto=format&fit=crop&w=1200&q=80" alt="" aria-hidden="true">
+              <span class="e-rarity">WRAP</span>
+              <div class="body"><span class="tg">3M · Avery</span><h4>Custom wraps</h4><p>Color change without paint.</p></div>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <div class="svc-group care" id="svc-care">
+        <div class="svc-group-head">
+          <h3>Care &amp; maintenance</h3>
+          <p>The other two — hands-on services that keep the car, and the film work, in the condition it left in.</p>
+        </div>
+        <div class="e-cards">
+          <a href="detailing.html" class="e-card" data-i="0">
+            <div class="e-card-face">
+              <img src="https://images.unsplash.com/photo-1520340356584-f9917d1eea6f?auto=format&fit=crop&w=900&q=80" alt="">
+              <img class="e-card-clear" src="https://images.unsplash.com/photo-1520340356584-f9917d1eea6f?auto=format&fit=crop&w=900&q=80" alt="" aria-hidden="true">
+              <span class="e-rarity">DETAIL</span>
+              <div class="body"><span class="tg">Full or à la carte</span><h4>Car detailing</h4><p>Full interior and exterior detail, or build it piece by piece.</p></div>
+            </div>
+          </a>
+          <a href="mechanical.html" class="e-card" data-i="1">
+            <div class="e-card-face">
+              <img src="https://images.unsplash.com/photo-1530046339160-ce3e530c7d2f?auto=format&fit=crop&w=900&q=80" alt="">
+              <img class="e-card-clear" src="https://images.unsplash.com/photo-1530046339160-ce3e530c7d2f?auto=format&fit=crop&w=900&q=80" alt="" aria-hidden="true">
+              <span class="e-rarity">MECH</span>
+              <div class="body"><span class="tg">Consult-scoped</span><h4>Mechanical services</h4><p>Maintenance servicing, inspection, and diagnostic.</p></div>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 <section class="px-6 md:px-16 py-16 bg-[#0a0a0a] border-y border-white/10">
@@ -167,6 +326,81 @@ function closeQuote(){const m=document.getElementById('quote');m.style.display='
 function toggleMenu(){const m=document.getElementById('mobile-menu');const open=m.classList.contains('hidden');m.classList.toggle('hidden');document.getElementById('menu-icon-open').classList.toggle('hidden',open);document.getElementById('menu-icon-close').classList.toggle('hidden',!open);document.getElementById('menu-btn').setAttribute('aria-expanded',open?'true':'false')}
 window.addEventListener('resize',()=>{if(window.innerWidth>=768)document.getElementById('mobile-menu').classList.add('hidden')});
 window.addEventListener('scroll',()=>document.getElementById('navbar').classList.toggle('nav-scrolled',scrollY>70));
+
+(function(){
+  var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var section = document.getElementById('services');
+  if(!section) return;
+  var content = document.getElementById('svc-content');
+  var track = section.querySelector('.rail-track');
+  var fill = document.getElementById('svc-fill');
+  var dot = document.getElementById('svc-dot');
+  if(!content || !track || !fill || !dot) return;
+
+  var cards = section.querySelectorAll('.e-card');
+  cards.forEach(function(card){
+    var i = Number(card.getAttribute('data-i')) || 0;
+    card.style.transitionDelay = (i * 90) + 'ms';
+    card.addEventListener('mousemove', function(e){
+      var r = card.getBoundingClientRect();
+      var mx = e.clientX - r.left, my = e.clientY - r.top;
+      card.style.setProperty('--mx', mx + 'px');
+      card.style.setProperty('--my', my + 'px');
+      if(!reduceMotion){
+        var px = (mx / r.width) - 0.5, py = (my / r.height) - 0.5;
+        card.style.setProperty('--tx', (px * 18) + 'deg');
+        card.style.setProperty('--ty', (py * -18) + 'deg');
+      }
+    });
+    card.addEventListener('mouseleave', function(){
+      card.style.setProperty('--tx', '0deg');
+      card.style.setProperty('--ty', '0deg');
+    });
+  });
+
+  var cardObserver = new IntersectionObserver(function(entries){
+    entries.forEach(function(entry){
+      if(entry.isIntersecting){
+        entry.target.classList.add('in');
+        cardObserver.unobserve(entry.target);
+      }
+    });
+  }, {threshold:0.18, rootMargin:'0px 0px -8% 0px'});
+  cards.forEach(function(c){ cardObserver.observe(c); });
+
+  var labelObserver = new IntersectionObserver(function(entries){
+    entries.forEach(function(entry){
+      var id = entry.target.id;
+      var label = section.querySelector('.rail-label[data-group="'+id+'"]');
+      if(!label) return;
+      if(entry.isIntersecting) label.classList.add('active');
+      else label.classList.remove('active');
+    });
+  }, {threshold:0, rootMargin:'-40% 0px -40% 0px'});
+  section.querySelectorAll('.rail-label[data-group]').forEach(function(label){
+    var g = document.getElementById(label.getAttribute('data-group'));
+    if(g) labelObserver.observe(g);
+  });
+
+  var ticking = false;
+  function updateRail(){
+    ticking = false;
+    var rect = content.getBoundingClientRect();
+    var vh = window.innerHeight;
+    var total = rect.height;
+    var traveled = (vh * 0.55) - rect.top;
+    var pct = Math.min(1, Math.max(0, traveled / total));
+    var trackH = track.clientHeight;
+    fill.style.height = (pct * 100) + '%';
+    dot.style.top = (pct * trackH) + 'px';
+  }
+  function onScroll(){
+    if(!ticking){ ticking = true; requestAnimationFrame(updateRail); }
+  }
+  window.addEventListener('scroll', onScroll, {passive:true});
+  window.addEventListener('resize', onScroll);
+  updateRail();
+})();
 </script>
 <script async src="https://www.instagram.com/embed.js"></script>
 </body></html>
