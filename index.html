@@ -24,8 +24,8 @@ body{font-family:Inter,system-ui,sans-serif;background:#050505;color:#e4e4e7}
 .heading-font{font-family:'Space Grotesk',Inter,sans-serif;letter-spacing:-.03em}
 .nav-scrolled{background:rgba(5,5,5,.96);backdrop-filter:blur(16px)}
 .card{background:#111;border:1px solid #222;transition:.3s}
-.card:hover{border-color:#00f5ff;transform:translateY(-4px)}
-.btn{background:#00f5ff;color:#050505;font-weight:600}
+.card:hover{border-color:#d4af37;transform:translateY(-4px)}
+.btn{position:relative;overflow:hidden;background:linear-gradient(145deg,#f5dfa0 0%,#d4af37 45%,#9c7a22 100%);color:#140f00;font-weight:600;box-shadow:inset 0 1px 0 rgba(255,255,255,.55),inset 0 -2px 4px rgba(0,0,0,.25),0 6px 16px -6px rgba(212,175,55,.55);transition:transform .25s ease,box-shadow .25s ease,filter .25s ease}.btn:hover{transform:translateY(-2px);filter:brightness(1.05);box-shadow:inset 0 1px 0 rgba(255,255,255,.6),inset 0 -2px 4px rgba(0,0,0,.25),0 10px 24px -6px rgba(212,175,55,.7)}.btn:active{transform:translateY(0)}.btn::before{content:'';position:absolute;inset:0;background:linear-gradient(115deg,transparent 30%,rgba(255,255,255,.55) 48%,rgba(255,255,255,.15) 56%,transparent 70%);transform:translateX(-120%);transition:transform .6s ease}.btn:hover::before{transform:translateX(120%)}
 .h2{font-size:clamp(2rem,5vw,3.1rem);line-height:1.05;font-weight:700;letter-spacing:-.04em}
 .marquee{overflow:hidden;white-space:nowrap;-webkit-mask-image:linear-gradient(90deg,transparent,#000 5%,#000 95%,transparent);mask-image:linear-gradient(90deg,transparent,#000 5%,#000 95%,transparent)}
 .marquee-track{display:inline-flex;width:max-content;animation:marquee 28s linear infinite}
@@ -38,13 +38,13 @@ body{font-family:Inter,system-ui,sans-serif;background:#050505;color:#e4e4e7}
 .chor-wrap{display:grid;grid-template-columns:220px 1fr;gap:56px;align-items:start}
 .chor-rail{position:sticky;top:88px;display:flex;flex-direction:column}
 .rail-track{position:relative;width:1px;background:#222;margin-left:5px;height:220px}
-.rail-fill{position:absolute;top:0;left:0;width:100%;background:#00f5ff;height:0%;transition:height .08s linear}
-.rail-dot{position:absolute;left:50%;width:11px;height:11px;border-radius:50%;background:#00f5ff;top:0;transform:translate(-50%,-50%);box-shadow:0 0 0 5px rgba(0,245,255,.15);transition:top .08s linear}
+.rail-fill{position:absolute;top:0;left:0;width:100%;background:#d4af37;height:0%;transition:height .08s linear}
+.rail-dot{position:absolute;left:50%;width:11px;height:11px;border-radius:50%;background:#d4af37;top:0;transform:translate(-50%,-50%);box-shadow:0 0 0 5px rgba(212,175,55,.15);transition:top .08s linear}
 .rail-labels{position:absolute;left:24px;top:0;height:220px;display:flex;flex-direction:column;justify-content:space-between}
 .rail-label{font-size:12.5px;color:rgba(228,228,231,.35);max-width:150px;line-height:1.35;transition:color .4s;padding:4px 0}
 .rail-label.active{color:#e4e4e7;font-weight:600}
 .rail-label .rn{display:block;font-family:'Space Grotesk';font-size:10px;letter-spacing:.1em;color:rgba(228,228,231,.35);margin-bottom:4px}
-.rail-label.active .rn{color:#00f5ff}
+.rail-label.active .rn{color:#f0c869}
 
 .svc-group{margin-bottom:80px}
 .svc-group:last-child{margin-bottom:0}
@@ -74,7 +74,7 @@ body{font-family:Inter,system-ui,sans-serif;background:#050505;color:#e4e4e7}
 }
 .e-card-face::before{
   content:'';position:absolute;inset:-1px;border-radius:18px;padding:1px;z-index:3;pointer-events:none;
-  background:linear-gradient(135deg,rgba(255,255,255,.55),rgba(0,245,255,.35) 30%,rgba(255,255,255,.05) 55%,rgba(255,179,236,.4) 78%,rgba(255,255,255,.5));
+  background:linear-gradient(135deg,rgba(255,255,255,.55),rgba(212,175,55,.35) 30%,rgba(255,255,255,.05) 55%,rgba(255,223,128,.45) 78%,rgba(255,255,255,.5));
   -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);
   -webkit-mask-composite:xor;mask-composite:exclude;
   opacity:.55;
@@ -96,10 +96,10 @@ body{font-family:Inter,system-ui,sans-serif;background:#050505;color:#e4e4e7}
 }
 .e-rarity{
   position:absolute;top:14px;right:14px;z-index:4;font-size:9.5px;font-weight:700;letter-spacing:.08em;
-  color:#050505;background:linear-gradient(135deg,#fff,#00f5ff);border-radius:999px;padding:4px 9px;
+  color:#050505;background:linear-gradient(135deg,#fff,#d4af37);border-radius:999px;padding:4px 9px;
 }
 .e-card .body{position:absolute;left:0;right:0;bottom:0;padding:18px;z-index:3}
-.e-card .body .tg{font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:#00f5ff;font-weight:600;display:block;margin-bottom:6px}
+.e-card .body .tg{font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:#f0c869;font-weight:600;display:block;margin-bottom:6px}
 .e-card .body h4{margin:0 0 5px;font-size:1rem;font-weight:600;color:#e4e4e7}
 .e-card .body p{margin:0;font-size:12.5px;color:rgba(233,233,236,.7);line-height:1.5}
 
@@ -127,7 +127,19 @@ body{font-family:Inter,system-ui,sans-serif;background:#050505;color:#e4e4e7}
     <a href="#" class="text-white"><div class="font-black text-2xl tracking-[-1px] leading-none">ENDLESS</div><div class="text-[9px] tracking-[2.5px] text-zinc-400">AUTO COLLECTION</div></a>
     <div class="hidden md:flex gap-7 text-xs tracking-widest text-zinc-300">
       <a href="index.html">HOME</a>
-      <a href="#services">SERVICES</a>
+      <div class="relative group/svc">
+        <a href="#services" class="inline-flex items-center gap-1">SERVICES<svg class="w-3 h-3 mt-px transition-transform group-hover/svc:rotate-180" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg></a>
+        <div class="absolute left-1/2 -translate-x-1/2 top-full pt-3 opacity-0 pointer-events-none translate-y-1 group-hover/svc:opacity-100 group-hover/svc:pointer-events-auto group-hover/svc:translate-y-0 group-focus-within/svc:opacity-100 group-focus-within/svc:pointer-events-auto group-focus-within/svc:translate-y-0 transition-all duration-200 z-50">
+          <div class="w-72 rounded-2xl border border-white/10 bg-[#0a0a0a] p-2 shadow-2xl shadow-black/60">
+            <a href="ppf.html" class="flex flex-col gap-0.5 px-4 py-3 rounded-xl hover:bg-white/5 transition-colors"><span class="text-white text-sm font-medium tracking-normal normal-case">Paint protection film</span><span class="text-white/40 text-xs tracking-normal normal-case">Self-healing film, 10-year warranty</span></a>
+            <a href="ceramic.html" class="flex flex-col gap-0.5 px-4 py-3 rounded-xl hover:bg-white/5 transition-colors"><span class="text-white text-sm font-medium tracking-normal normal-case">Ceramic coating</span><span class="text-white/40 text-xs tracking-normal normal-case">Correction, then multi-year gloss</span></a>
+            <a href="tint.html" class="flex flex-col gap-0.5 px-4 py-3 rounded-xl hover:bg-white/5 transition-colors"><span class="text-white text-sm font-medium tracking-normal normal-case">Window tint</span><span class="text-white/40 text-xs tracking-normal normal-case">Heat, UV, California-legal shades</span></a>
+            <a href="wraps.html" class="flex flex-col gap-0.5 px-4 py-3 rounded-xl hover:bg-white/5 transition-colors"><span class="text-white text-sm font-medium tracking-normal normal-case">Custom wraps</span><span class="text-white/40 text-xs tracking-normal normal-case">Color change without paint</span></a>
+            <a href="detailing.html" class="flex flex-col gap-0.5 px-4 py-3 rounded-xl hover:bg-white/5 transition-colors"><span class="text-white text-sm font-medium tracking-normal normal-case">Car detailing</span><span class="text-white/40 text-xs tracking-normal normal-case">Full detail or pick individual services</span></a>
+            <a href="mechanical.html" class="flex flex-col gap-0.5 px-4 py-3 rounded-xl hover:bg-white/5 transition-colors"><span class="text-white text-sm font-medium tracking-normal normal-case">Mechanical services</span><span class="text-white/40 text-xs tracking-normal normal-case">Maintenance, inspection, diagnostic</span></a>
+          </div>
+        </div>
+      </div>
       <a href="#process">PROCESS</a>
       <a href="#faq">FAQ</a>
     </div>
@@ -167,7 +179,7 @@ body{font-family:Inter,system-ui,sans-serif;background:#050505;color:#e4e4e7}
   </div>
 </div>
 <section id="services" class="px-6 md:px-16 py-20 max-w-6xl mx-auto">
-  <p class="text-xs tracking-[3px] text-[#00f5ff] mb-3">PROTECTION FIRST</p>
+  <p class="text-xs tracking-[3px] text-[#f0c869] mb-3">PROTECTION FIRST</p>
   <h2 class="h2 mb-10 heading-font">PPF, ceramic, tint, wraps, detailing, and more</h2>
 
   <div class="chor-wrap">
@@ -235,7 +247,7 @@ body{font-family:Inter,system-ui,sans-serif;background:#050505;color:#e4e4e7}
               <img src="https://images.unsplash.com/photo-1520340356584-f9917d1eea6f?auto=format&fit=crop&w=900&q=80" alt="">
               <img class="e-card-clear" src="https://images.unsplash.com/photo-1520340356584-f9917d1eea6f?auto=format&fit=crop&w=900&q=80" alt="" aria-hidden="true">
               <span class="e-rarity">DETAIL</span>
-              <div class="body"><span class="tg">Full or à la carte</span><h4>Car detailing</h4><p>Full interior and exterior detail, or build it piece by piece.</p></div>
+              <div class="body"><span class="tg">Pick individual services</span><h4>Car detailing</h4><p>Full interior and exterior detail, or build it piece by piece.</p></div>
             </div>
           </a>
           <a href="mechanical.html" class="e-card" data-i="1">
@@ -253,9 +265,9 @@ body{font-family:Inter,system-ui,sans-serif;background:#050505;color:#e4e4e7}
 </section>
 <section class="px-6 md:px-16 py-16 bg-[#0a0a0a] border-y border-white/10">
   <div class="max-w-6xl mx-auto grid md:grid-cols-3 gap-5">
-    <div class="rounded-3xl border border-white/10 p-8"><p class="text-[#00f5ff] text-xs tracking-[2px] mb-2">HOW WE PRICE</p><p class="text-xl font-semibold mt-2">Quoted as a job.</p><p class="text-white/60 mt-3 text-sm">Scoped after we see the car. Not an open hourly menu on the site.</p></div>
-    <div class="rounded-3xl border border-white/10 p-8"><p class="text-[#00f5ff] text-xs tracking-[2px] mb-2">STANDARD</p><p class="text-xl font-semibold mt-2">OEM-quality parts and procedures.</p><p class="text-white/60 mt-3 text-sm">Dealer-level paper trail. Independent shop.</p></div>
-    <div class="rounded-3xl border border-white/10 p-8"><p class="text-[#00f5ff] text-xs tracking-[2px] mb-2">PARTNERSHIPS</p><p class="text-xl font-semibold mt-2">Hand-picked. Vetted for high-end vehicles.</p><p class="text-white/60 mt-3 text-sm">Never a network. We coordinate what we do not staff in-house.</p></div>
+    <div class="rounded-3xl border border-white/10 p-8"><p class="text-[#f0c869] text-xs tracking-[2px] mb-2">HOW WE PRICE</p><p class="text-xl font-semibold mt-2">Quoted as a job.</p><p class="text-white/60 mt-3 text-sm">Scoped after we see the car. Not an open hourly menu on the site.</p></div>
+    <div class="rounded-3xl border border-white/10 p-8"><p class="text-[#f0c869] text-xs tracking-[2px] mb-2">STANDARD</p><p class="text-xl font-semibold mt-2">OEM-quality parts and procedures.</p><p class="text-white/60 mt-3 text-sm">Dealer-level paper trail. Independent shop.</p></div>
+    <div class="rounded-3xl border border-white/10 p-8"><p class="text-[#f0c869] text-xs tracking-[2px] mb-2">PARTNERSHIPS</p><p class="text-xl font-semibold mt-2">Hand-picked. Vetted for high-end vehicles.</p><p class="text-white/60 mt-3 text-sm">Never a network. We coordinate what we do not staff in-house.</p></div>
   </div>
 </section>
 <section id="process" class="px-6 md:px-16 py-20 bg-[#0a0a0a] border-y border-white/10">
@@ -286,7 +298,7 @@ body{font-family:Inter,system-ui,sans-serif;background:#050505;color:#e4e4e7}
 <section id="instagram" class="px-6 md:px-16 py-20 bg-[#0a0a0a] border-y border-white/10">
   <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-10 md:gap-16 items-center">
     <div>
-      <p class="text-xs tracking-[3px] text-[#00f5ff] mb-3">INSTAGRAM</p>
+      <p class="text-xs tracking-[3px] text-[#f0c869] mb-3">INSTAGRAM</p>
       <h2 class="h2 heading-font mb-4">See the shop.</h2>
       <p class="text-white/65 max-w-md mb-6">PPF, tint, ceramic, and wraps as they leave 41907 Albrae. The profile is the live feed — this page stays fast.</p>
       <p class="text-white mb-8"><a class="underline" href="https://www.instagram.com/endlessautocollection/" target="_blank" rel="noopener noreferrer">@endlessautocollection</a></p>

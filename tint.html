@@ -22,13 +22,13 @@ body{font-family:Inter,system-ui,sans-serif;background:#050505;color:#e4e4e7}
 .heading-font{font-family:'Space Grotesk',Inter,sans-serif}
 .nav-scrolled{background:rgba(5,5,5,.96);backdrop-filter:blur(16px)}
 .card{background:#111;border:1px solid #222}
-.btn{background:#00f5ff;color:#050505;font-weight:600}
+.btn{position:relative;overflow:hidden;background:linear-gradient(145deg,#f5dfa0 0%,#d4af37 45%,#9c7a22 100%);color:#140f00;font-weight:600;box-shadow:inset 0 1px 0 rgba(255,255,255,.55),inset 0 -2px 4px rgba(0,0,0,.25),0 6px 16px -6px rgba(212,175,55,.55);transition:transform .25s ease,box-shadow .25s ease,filter .25s ease}.btn:hover{transform:translateY(-2px);filter:brightness(1.05);box-shadow:inset 0 1px 0 rgba(255,255,255,.6),inset 0 -2px 4px rgba(0,0,0,.25),0 10px 24px -6px rgba(212,175,55,.7)}.btn:active{transform:translateY(0)}.btn::before{content:'';position:absolute;inset:0;background:linear-gradient(115deg,transparent 30%,rgba(255,255,255,.55) 48%,rgba(255,255,255,.15) 56%,transparent 70%);transform:translateX(-120%);transition:transform .6s ease}.btn:hover::before{transform:translateX(120%)}
 .h2{font-size:clamp(2rem,5vw,3.1rem);font-weight:700}
 .tick{color:rgba(255,255,255,.35);transition:.2s}
-.tick.on{color:#00f5ff}
+.tick.on{color:#f0c869}
 .vtick{position:absolute;left:20px;transform:translateY(-50%);font-size:11px;letter-spacing:.5px;color:rgba(255,255,255,.35);transition:.2s;cursor:pointer;white-space:nowrap}
-.vtick.on{color:#00f5ff}
-.mode-btn.on{border-color:#00f5ff;color:#00f5ff;background:rgba(0,245,255,.08)}
+.vtick.on{color:#f0c869}
+.mode-btn.on{border-color:#d4af37;color:#f0c869;background:rgba(212,175,55,.08)}
 </style>
 </head>
 <body>
@@ -37,7 +37,19 @@ body{font-family:Inter,system-ui,sans-serif;background:#050505;color:#e4e4e7}
     <a href="index.html" class="text-white"><div class="font-black text-2xl tracking-[-1px] leading-none">ENDLESS</div><div class="text-[9px] tracking-[2.5px] text-zinc-400">AUTO COLLECTION</div></a>
     <div class="hidden md:flex gap-7 text-xs tracking-widest text-zinc-300">
       <a href="index.html">HOME</a>
-      <a href="index.html#services">SERVICES</a>
+      <div class="relative group/svc">
+        <a href="index.html#services" class="inline-flex items-center gap-1">SERVICES<svg class="w-3 h-3 mt-px transition-transform group-hover/svc:rotate-180" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg></a>
+        <div class="absolute left-1/2 -translate-x-1/2 top-full pt-3 opacity-0 pointer-events-none translate-y-1 group-hover/svc:opacity-100 group-hover/svc:pointer-events-auto group-hover/svc:translate-y-0 group-focus-within/svc:opacity-100 group-focus-within/svc:pointer-events-auto group-focus-within/svc:translate-y-0 transition-all duration-200 z-50">
+          <div class="w-72 rounded-2xl border border-white/10 bg-[#0a0a0a] p-2 shadow-2xl shadow-black/60">
+            <a href="ppf.html" class="flex flex-col gap-0.5 px-4 py-3 rounded-xl hover:bg-white/5 transition-colors"><span class="text-white text-sm font-medium tracking-normal normal-case">Paint protection film</span><span class="text-white/40 text-xs tracking-normal normal-case">Self-healing film, 10-year warranty</span></a>
+            <a href="ceramic.html" class="flex flex-col gap-0.5 px-4 py-3 rounded-xl hover:bg-white/5 transition-colors"><span class="text-white text-sm font-medium tracking-normal normal-case">Ceramic coating</span><span class="text-white/40 text-xs tracking-normal normal-case">Correction, then multi-year gloss</span></a>
+            <a href="tint.html" class="flex flex-col gap-0.5 px-4 py-3 rounded-xl hover:bg-white/5 transition-colors"><span class="text-white text-sm font-medium tracking-normal normal-case">Window tint</span><span class="text-white/40 text-xs tracking-normal normal-case">Heat, UV, California-legal shades</span></a>
+            <a href="wraps.html" class="flex flex-col gap-0.5 px-4 py-3 rounded-xl hover:bg-white/5 transition-colors"><span class="text-white text-sm font-medium tracking-normal normal-case">Custom wraps</span><span class="text-white/40 text-xs tracking-normal normal-case">Color change without paint</span></a>
+            <a href="detailing.html" class="flex flex-col gap-0.5 px-4 py-3 rounded-xl hover:bg-white/5 transition-colors"><span class="text-white text-sm font-medium tracking-normal normal-case">Car detailing</span><span class="text-white/40 text-xs tracking-normal normal-case">Full detail or pick individual services</span></a>
+            <a href="mechanical.html" class="flex flex-col gap-0.5 px-4 py-3 rounded-xl hover:bg-white/5 transition-colors"><span class="text-white text-sm font-medium tracking-normal normal-case">Mechanical services</span><span class="text-white/40 text-xs tracking-normal normal-case">Maintenance, inspection, diagnostic</span></a>
+          </div>
+        </div>
+      </div>
       <a href="index.html#process">PROCESS</a>
       <a href="index.html#faq">FAQ</a>
     </div>
@@ -77,7 +89,7 @@ body{font-family:Inter,system-ui,sans-serif;background:#050505;color:#e4e4e7}
       <div class="flex gap-4 items-stretch">
         <div id="vlt-vslider" class="relative w-16 shrink-0 cursor-ns-resize select-none">
           <div class="absolute left-[6px] top-2 bottom-2 w-px bg-white/15"></div>
-          <div id="vlt-thumb" class="absolute left-[6px] w-3.5 h-3.5 -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#00f5ff] shadow-[0_0_0_4px_rgba(0,245,255,.15)] transition-[top] duration-150"></div>
+          <div id="vlt-thumb" class="absolute left-[6px] w-3.5 h-3.5 -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#d4af37] shadow-[0_0_0_4px_rgba(212,175,55,.15)] transition-[top] duration-150"></div>
           <div id="vlt-vticks" class="absolute inset-0"></div>
         </div>
         <div id="vlt-panel" class="relative rounded-3xl overflow-hidden border-[10px] border-[#1a1a1a] flex-1 min-w-0">
