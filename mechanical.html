@@ -35,7 +35,7 @@ body{font-family:Inter,system-ui,sans-serif;background:#050505;color:#e4e4e7}
 <body class="overflow-x-hidden">
 <nav id="navbar" class="fixed top-0 inset-x-0 z-50 border-b border-white/10">
   <div class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
-    <a href="index.html" class="text-white"><div class="font-black text-2xl tracking-[-1px] leading-none">ENDLESS</div><div class="text-[9px] tracking-[2.5px] text-zinc-400">AUTO COLLECTION</div></a>
+    <a href="index.html" class="flex items-center shrink-0"><img src="Endless_Tshirt_Back_1.png" alt="Endless Auto Collection" class="h-6 sm:h-7 md:h-9 w-auto"></a>
     <div class="hidden md:flex gap-7 text-xs tracking-widest text-zinc-300">
       <div class="relative group/svc">
         <a href="index.html#services" class="inline-flex items-center gap-1">SERVICES<svg class="w-3 h-3 mt-px transition-transform group-hover/svc:rotate-180" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg></a>
@@ -71,7 +71,7 @@ body{font-family:Inter,system-ui,sans-serif;background:#050505;color:#e4e4e7}
   <div class="max-w-6xl mx-auto w-full">
   <div class="max-w-3xl">
     <p class="text-xs tracking-[2px] text-white/60 mb-5">FREMONT · MECHANICAL SERVICES</p>
-    <h1 class="heading-font text-5xl md:text-7xl text-white">Mechanical services in Fremont.</h1>
+    <h1 class="heading-font text-5xl md:text-7xl text-white">Mechanical Services In Fremont.</h1>
     <p class="mt-6 text-lg text-white/70 max-w-xl">Maintenance servicing, inspection, and diagnostic — the upkeep side of owning the car, handled at the same shop that protects and finishes it.</p>
     <div class="mt-10 flex gap-3 flex-wrap">
       <button onclick="openQuote()" class="btn px-8 py-3 rounded-2xl">Request a service consult</button>
@@ -109,7 +109,20 @@ body{font-family:Inter,system-ui,sans-serif;background:#050505;color:#e4e4e7}
   <p class="text-white/65 max-w-2xl mx-auto">Request a consultation and we will quote the work for your specific vehicle — not a generic menu price.</p>
   <button onclick="openQuote()" class="btn px-10 py-3 rounded-2xl mt-8">Request a consultation</button>
 </section>
-<footer class="px-6 md:px-16 py-14 text-sm max-w-6xl mx-auto"><p><strong>41907 Albrae St</strong>, Fremont, CA 94538 · <a href="tel:+15107097097">(510) 709-7097</a> · <a href="https://www.instagram.com/endlessautocollection/" target="_blank" rel="noopener noreferrer">Instagram</a></p></footer>
+<footer class="px-6 py-14 text-sm max-w-6xl mx-auto grid md:grid-cols-2 gap-8">
+  <div>
+    <div class="font-black text-2xl tracking-[-1px] leading-none">ENDLESS</div>
+    <div class="text-[9px] tracking-[2.5px] text-zinc-400">AUTO COLLECTION</div>
+    <p class="text-white/55 mt-3 max-w-sm">PPF, ceramic coating, window tint, wraps, detailing, and mechanical services in Fremont. Hand-picked partnerships for everything else.</p>
+  </div>
+  <div class="text-white/80 md:text-right">
+    <p><strong>41907 Albrae St</strong><br>Fremont, CA 94538<br>By appointment only</p>
+    <p class="mt-3"><a href="tel:+15107097097">(510) 709-7097</a><br>
+    <a href="mailto:endlessautocollection@gmail.com">endlessautocollection@gmail.com</a><br>
+    <a href="https://www.instagram.com/endlessautocollection/" target="_blank" rel="noopener noreferrer">Instagram</a></p>
+    <p class="text-white/40 mt-6">© 2026 Endless Auto Collection</p>
+  </div>
+</footer>
 <div id="quote" class="hidden fixed inset-0 bg-black/90 z-[100] p-4" style="align-items:center;justify-content:center">
   <div class="bg-[#0a0a0a] border border-white/10 rounded-3xl w-full max-w-4xl overflow-hidden">
     <div class="flex justify-between px-6 py-4 border-b border-white/10"><h3 class="text-xl font-semibold">Request a consultation</h3><button onclick="closeQuote()" class="text-3xl">&times;</button></div>
@@ -123,4 +136,5 @@ function toggleMenu(){const m=document.getElementById('mobile-menu');const open=
 window.addEventListener('resize',()=>{if(window.innerWidth>=768)document.getElementById('mobile-menu').classList.add('hidden')});
 window.addEventListener('scroll',()=>document.getElementById('navbar').classList.toggle('nav-scrolled',scrollY>70));
 </script>
+<script src="/js/bg-music.js"></script>
 </body></html>
