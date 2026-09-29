@@ -32,7 +32,7 @@ body{font-family:Inter,system-ui,sans-serif;background:#050505;color:#e4e4e7}
 .btn{position:relative;overflow:hidden;background:linear-gradient(145deg,#f5dfa0 0%,#d4af37 45%,#9c7a22 100%);color:#140f00;font-weight:600;box-shadow:inset 0 1px 0 rgba(255,255,255,.55),inset 0 -2px 4px rgba(0,0,0,.25),0 6px 16px -6px rgba(212,175,55,.55);transition:transform .25s ease,box-shadow .25s ease,filter .25s ease}.btn:hover{transform:translateY(-2px);filter:brightness(1.05);box-shadow:inset 0 1px 0 rgba(255,255,255,.6),inset 0 -2px 4px rgba(0,0,0,.25),0 10px 24px -6px rgba(212,175,55,.7)}.btn:active{transform:translateY(0)}.btn::before{content:'';position:absolute;inset:0;background:linear-gradient(115deg,transparent 30%,rgba(255,255,255,.55) 48%,rgba(255,255,255,.15) 56%,transparent 70%);transform:translateX(-120%);transition:transform .6s ease}.btn:hover::before{transform:translateX(120%)}
 .h2{font-size:clamp(2rem,5vw,3.1rem);line-height:1.05;font-weight:700;letter-spacing:-.04em}
 .marquee{overflow:hidden;white-space:nowrap;-webkit-mask-image:linear-gradient(90deg,transparent,#000 5%,#000 95%,transparent);mask-image:linear-gradient(90deg,transparent,#000 5%,#000 95%,transparent)}
-.marquee-track{display:inline-flex;width:max-content;animation:marquee 28s linear infinite}
+.marquee-track{display:inline-flex;width:max-content;animation:marquee 56s linear infinite}
 .marquee:hover .marquee-track{animation-play-state:paused}
 .marquee-track span{padding:0 1.5rem}
 @keyframes marquee{from{transform:translateX(-50%)}to{transform:translateX(0)}}
@@ -162,18 +162,22 @@ body{font-family:Inter,system-ui,sans-serif;background:#050505;color:#e4e4e7}
   </video>
   <div class="absolute inset-0 bg-gradient-to-b from-black/55 via-black/35 to-[#050505]"></div>
   <div class="absolute inset-0 bg-gradient-to-r from-black/50 via-black/20 to-transparent"></div>
-  <div class="relative z-10 max-w-3xl">
-    <p class="text-xs tracking-[2px] text-white/70 mb-5">FREMONT, CA · 41907 ALBRAE ST · DRIVEN BY DETAIL</p>
-    <h1 class="heading-font text-5xl md:text-7xl text-white">Paint Protection, Tint, And Film — Fremont.</h1>
-    <p class="mt-6 text-lg text-white/70 max-w-xl">Dealer-level procedures. One drop-off for PPF, ceramic, tint, and wraps. We photograph and video the process so you see the work. Jobs are scoped as a package after consult.</p>
-    <div class="mt-10 flex gap-3 flex-wrap">
-      <button onclick="openQuote()" class="btn px-8 py-3 rounded-2xl">Request a consultation</button>
-      <a href="#services" class="px-8 py-3 rounded-2xl border border-white/20">View services</a>
+  <div class="relative z-10 max-w-6xl mx-auto w-full">
+    <div class="max-w-3xl">
+      <p class="text-xs tracking-[2px] text-white/70 mb-5">FREMONT, CA · 41907 ALBRAE ST · DRIVEN BY DETAIL</p>
+      <h1 class="heading-font text-5xl md:text-7xl text-white">Paint Protection, Tint, And Film — Fremont.</h1>
+      <p class="mt-6 text-lg text-white/70 max-w-xl">Dealer-level procedures. One drop-off for PPF, ceramic, tint, and wraps. We photograph and video the process so you see the work. Jobs are scoped as a package after consult.</p>
+      <div class="mt-10 flex gap-3 flex-wrap">
+        <button onclick="openQuote()" class="btn px-8 py-3 rounded-2xl">Request a consultation</button>
+        <a href="#services" class="px-8 py-3 rounded-2xl border border-white/20">View services</a>
+      </div>
     </div>
   </div>
 </header>
 <div class="border-y border-white/10 py-5 marquee text-xs tracking-[3px] text-white/40">
   <div class="marquee-track">
+    <span>BMW M</span><span>·</span><span>MERCEDES-AMG</span><span>·</span><span>PORSCHE</span><span>·</span><span>AUDI RS</span><span>·</span><span>TOYOTA</span><span>·</span><span>HONDA</span><span>·</span>
+    <span>BMW M</span><span>·</span><span>MERCEDES-AMG</span><span>·</span><span>PORSCHE</span><span>·</span><span>AUDI RS</span><span>·</span><span>TOYOTA</span><span>·</span><span>HONDA</span><span>·</span>
     <span>BMW M</span><span>·</span><span>MERCEDES-AMG</span><span>·</span><span>PORSCHE</span><span>·</span><span>AUDI RS</span><span>·</span><span>TOYOTA</span><span>·</span><span>HONDA</span><span>·</span>
     <span>BMW M</span><span>·</span><span>MERCEDES-AMG</span><span>·</span><span>PORSCHE</span><span>·</span><span>AUDI RS</span><span>·</span><span>TOYOTA</span><span>·</span><span>HONDA</span><span>·</span>
   </div>
