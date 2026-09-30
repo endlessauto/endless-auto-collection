@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-FT2B0B4JVB"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-FT2B0B4JVB');
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Build Archive | Endless Auto Collection</title>
+<link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon/favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/images/favicon/favicon-16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/favicon/apple-touch-icon.png">
+<meta name="description" content="Build Archive entries: the story, aftermarket parts, and ownership history behind real Endless Auto Collection customer builds.">
+<link rel="canonical" href="https://www.endlessautocollection.com/build-detail">
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Space+Grotesk:wght@600&family=JetBrains+Mono:wght@500&display=swap');
+body{font-family:Inter,system-ui,sans-serif;background:#050505;color:#e4e4e7}
+.heading-font{font-family:'Space Grotesk',Inter,sans-serif;letter-spacing:-.03em}
+.mono{font-family:'JetBrains Mono',monospace}
+.nav-scrolled{background:rgba(5,5,5,.96);backdrop-filter:blur(16px)}
+.btn{position:relative;overflow:hidden;background:linear-gradient(145deg,#f5dfa0 0%,#d4af37 45%,#9c7a22 100%);color:#140f00;font-weight:600;box-shadow:inset 0 1px 0 rgba(255,255,255,.55),inset 0 -2px 4px rgba(0,0,0,.25),0 6px 16px -6px rgba(212,175,55,.55);transition:transform .25s ease,box-shadow .25s ease,filter .25s ease}.btn:hover{transform:translateY(-2px);filter:brightness(1.05);box-shadow:inset 0 1px 0 rgba(255,255,255,.6),inset 0 -2px 4px rgba(0,0,0,.25),0 10px 24px -6px rgba(212,175,55,.7)}.btn:active{transform:translateY(0)}.btn::before{content:'';position:absolute;inset:0;background:linear-gradient(115deg,transparent 30%,rgba(255,255,255,.55) 48%,rgba(255,255,255,.15) 56%,transparent 70%);transform:translateX(-120%);transition:transform .6s ease}.btn:hover::before{transform:translateX(120%)}
+.h2{font-size:clamp(2rem,5vw,3.1rem);line-height:1.05;font-weight:700;letter-spacing:-.04em}
+
+/* Rarity badge */
+.badge{font-size:9.5px;font-weight:700;letter-spacing:.08em;color:#050505;background:linear-gradient(135deg,#fff,#d4af37);border-radius:999px;padding:5px 11px;display:inline-block}
+
+/* Foil frame around hero + stat card, matching index.html services aesthetic */
+.foil-frame{position:relative;border-radius:28px;overflow:hidden;isolation:isolate}
+.foil-frame::before{content:'';position:absolute;inset:-1px;border-radius:28px;padding:1.5px;z-index:5;pointer-events:none;
+  background:linear-gradient(135deg,rgba(255,255,255,.6),rgba(212,175,55,.4) 30%,rgba(255,255,255,.05) 55%,rgba(255,223,128,.5) 78%,rgba(255,255,255,.55));
+  -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;opacity:.7}
+
+.card{background:#111;border:1px solid #222}
+.social-chip{width:30px;height:30px;border-radius:999px;background:rgba(10,10,10,.75);backdrop-filter:blur(6px);border:1px solid rgba(255,255,255,.18);display:flex;align-items:center;justify-content:center;transition:transform .15s ease,border-color .15s ease}
+.social-chip:hover{transform:translateY(-1px);border-color:rgba(212,175,55,.6)}
+
+/* Stat bars */
+.stat-row{display:grid;grid-template-columns:110px 1fr 46px;align-items:center;gap:14px}
+.stat-track{height:9px;border-radius:999px;background:#1c1c1c;border:1px solid #262626;overflow:hidden}
+.stat-fill{height:100%;border-radius:999px;width:0;background:linear-gradient(90deg,#9c7a22,#f0c869,#f5dfa0);transition:width 1.1s cubic-bezier(.16,1,.3,1)}
+.stat-fill.in{width:var(--val,0%)}
+
+/* Tier ring */
+.tier-ring{width:104px;height:104px;border-radius:50%;display:flex;align-items:center;justify-content:center;position:relative;background:conic-gradient(#f0c869 var(--pct,50%),#1c1c1c 0)}
+.tier-ring::before{content:'';position:absolute;inset:7px;border-radius:50%;background:#0a0a0a}
+.tier-ring span{position:relative;z-index:1;font-family:'Space Grotesk';font-weight:600}
+
+/* Upgrade chips */
+.mod-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:12px}
+.mod-item{display:flex;align-items:flex-start;gap:12px;background:#111;border:1px solid #222;border-radius:16px;padding:14px 16px;transition:border-color .25s,transform .25s}
+.mod-item.unlocked:hover{border-color:#d4af37;transform:translateY(-2px)}
+.mod-item.locked{opacity:.45}
+.mod-icon{width:34px;height:34px;flex:none;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:16px;background:linear-gradient(145deg,#2a2210,#1a1508);border:1px solid rgba(212,175,55,.35);color:#f0c869}
+.mod-item.locked .mod-icon{background:#161616;border-color:#2a2a2a;color:#555}
+.mod-item .mn{font-weight:600;font-size:13.5px;color:#e4e4e7}
+.mod-item .mc{font-size:11px;color:rgba(228,228,231,.45);margin-top:1px;letter-spacing:.03em}
+.mod-check{margin-left:auto;font-size:10px;color:#f0c869;letter-spacing:.06em;font-weight:700;align-self:center}
+.mod-item.locked .mod-check{color:#555}
+
+/* Category rail */
+.cat-pill{font-size:11px;letter-spacing:.05em;color:rgba(228,228,231,.7);background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);border-radius:999px;padding:6px 13px;display:inline-flex;align-items:center;gap:6px;white-space:nowrap}
+.cat-pill .dot{width:6px;height:6px;border-radius:50%;background:#d4af37}
+
+.xp-track{height:14px;border-radius:999px;background:#151515;border:1px solid #262626;overflow:hidden;position:relative}
+.xp-fill{height:100%;background:linear-gradient(90deg,#9c7a22,#d4af37,#f5dfa0);border-radius:999px;width:0;transition:width 1.3s cubic-bezier(.16,1,.3,1)}
+.xp-fill.in{width:var(--xp,0%)}
+.xp-track .xp-label{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:9.5px;font-weight:700;letter-spacing:.08em;color:#050505;mix-blend-mode:screen;opacity:0}
+
+.quote-card{background:linear-gradient(180deg,#111,#0c0c0c);border:1px solid #222;border-radius:22px;padding:26px}
+.quote-card .qtag{font-size:10.5px;letter-spacing:.14em;color:#f0c869;font-weight:700;margin-bottom:10px;display:block}
+.quote-mark{font-family:'Space Grotesk';font-size:2.4rem;color:rgba(212,175,55,.35);line-height:.6;display:block;margin-bottom:4px}
+
+@keyframes floaty{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+.float{animation:floaty 4.5s ease-in-out infinite}
+
+.mockup-flag{position:fixed;bottom:18px;right:18px;z-index:60;font-size:10px;letter-spacing:.12em;color:rgba(228,228,231,.5);background:rgba(10,10,10,.85);border:1px solid rgba(255,255,255,.12);border-radius:999px;padding:6px 14px;backdrop-filter:blur(8px)}
+
+@media (max-width:640px){
+  .stat-row{grid-template-columns:90px 1fr 40px;gap:10px}
+}
+</style>
+</head>
+<body class="overflow-x-hidden">
+<nav id="navbar" class="fixed top-0 inset-x-0 z-50 border-b border-white/10">
+  <div class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
+    <a href="index.html" class="flex items-center shrink-0"><img src="Endless_Tshirt_Back_1.png" alt="Endless Auto Collection" class="h-6 sm:h-7 md:h-9 w-auto"></a>
+    <div class="hidden md:flex gap-7 text-xs tracking-widest text-zinc-300">
+      <div class="relative group/svc">
+        <a href="index.html#services" class="inline-flex items-center gap-1">SERVICES<svg class="w-3 h-3 mt-px transition-transform group-hover/svc:rotate-180" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg></a>
+        <div class="absolute left-1/2 -translate-x-1/2 top-full pt-3 opacity-0 pointer-events-none translate-y-1 group-hover/svc:opacity-100 group-hover/svc:pointer-events-auto group-hover/svc:translate-y-0 group-focus-within/svc:opacity-100 group-focus-within/svc:pointer-events-auto group-focus-within/svc:translate-y-0 transition-all duration-200 z-50">
+          <div class="w-72 rounded-2xl border border-white/10 bg-[#0a0a0a] p-2 shadow-2xl shadow-black/60">
+            <a href="ppf.html" class="flex flex-col gap-0.5 px-4 py-3 rounded-xl hover:bg-white/5 transition-colors"><span class="text-white text-sm font-medium tracking-normal normal-case">Paint protection film</span><span class="text-white/40 text-xs tracking-normal normal-case">Self-healing film, 10-year warranty</span></a>
+            <a href="ceramic.html" class="flex flex-col gap-0.5 px-4 py-3 rounded-xl hover:bg-white/5 transition-colors"><span class="text-white text-sm font-medium tracking-normal normal-case">Ceramic coating</span><span class="text-white/40 text-xs tracking-normal normal-case">Correction, then multi-year gloss</span></a>
+            <a href="tint.html" class="flex flex-col gap-0.5 px-4 py-3 rounded-xl hover:bg-white/5 transition-colors"><span class="text-white text-sm font-medium tracking-normal normal-case">Window tint</span><span class="text-white/40 text-xs tracking-normal normal-case">Heat, UV, California-legal shades</span></a>
+            <a href="wraps.html" class="flex flex-col gap-0.5 px-4 py-3 rounded-xl hover:bg-white/5 transition-colors"><span class="text-white text-sm font-medium tracking-normal normal-case">Custom wraps</span><span class="text-white/40 text-xs tracking-normal normal-case">Color change without paint</span></a>
+            <a href="detailing.html" class="flex flex-col gap-0.5 px-4 py-3 rounded-xl hover:bg-white/5 transition-colors"><span class="text-white text-sm font-medium tracking-normal normal-case">Car detailing</span><span class="text-white/40 text-xs tracking-normal normal-case">Full detail or pick individual services</span></a>
+            <a href="mechanical.html" class="flex flex-col gap-0.5 px-4 py-3 rounded-xl hover:bg-white/5 transition-colors"><span class="text-white text-sm font-medium tracking-normal normal-case">Mechanical services</span><span class="text-white/40 text-xs tracking-normal normal-case">Maintenance, inspection, diagnostic</span></a>
+          </div>
+        </div>
+      </div>
+      <a href="index.html#process">PROCESS</a>
+      <a href="index.html#faq">FAQ</a>
+      <a href="build-archive.html" class="text-[#f0c869]">BUILD ARCHIVE</a>
+      <a href="shop.html">SHOP</a>
+    </div>
+    <div class="flex items-center gap-2">
+      <button onclick="openQuote()" class="btn px-5 py-2 rounded-full text-sm">Consult</button>
+      <button onclick="toggleMenu()" id="menu-btn" class="md:hidden text-white p-2 -mr-2" aria-label="Menu" aria-expanded="false">
+        <svg id="menu-icon-open" class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/></svg>
+        <svg id="menu-icon-close" class="w-6 h-6 hidden" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
+      </button>
+    </div>
+  </div>
+  <div id="mobile-menu" class="hidden md:hidden px-6 pb-4 border-t border-white/10 bg-[#050505]">
+      <a href="index.html#services" onclick="toggleMenu()" class="block py-3 border-b border-white/5 text-zinc-300">SERVICES</a>
+      <a href="index.html#process" onclick="toggleMenu()" class="block py-3 border-b border-white/5 text-zinc-300">PROCESS</a>
+      <a href="index.html#faq" onclick="toggleMenu()" class="block py-3 border-b border-white/5 text-zinc-300">FAQ</a>
+      <a href="build-archive.html" onclick="toggleMenu()" class="block py-3 border-b border-white/5 text-[#f0c869]">BUILD ARCHIVE</a>
+      <a href="shop.html" onclick="toggleMenu()" class="block py-3 border-b border-white/5 text-zinc-300">SHOP</a>
+  </div>
+</nav>
+
+<main class="max-w-6xl mx-auto px-6 pt-28 pb-20">
+  <a href="build-archive.html" class="inline-flex items-center gap-2 text-xs tracking-[2px] text-white/50 hover:text-[#f0c869] transition-colors mb-6"><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/></svg>BACK TO ARCHIVE</a>
+
+  <!-- HERO -->
+  <div class="foil-frame">
+    <div id="hero-img" class="relative aspect-[16/9] md:aspect-[21/9] bg-black">
+      <img id="hero-photo" src="" alt="" class="absolute inset-0 w-full h-full object-cover">
+      <div class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent"></div>
+      <div class="absolute inset-0 bg-gradient-to-r from-black/70 via-transparent to-transparent"></div>
+      <span id="rarity-badge" class="badge absolute top-5 right-5 float"></span>
+      <div class="absolute left-5 bottom-5 right-5">
+        <p id="hero-tag" class="text-xs tracking-[3px] text-[#f0c869] mb-2 mono"></p>
+        <h1 id="hero-title" class="heading-font text-3xl md:text-5xl text-white"></h1>
+        <p id="hero-owner" class="text-white/60 text-sm mt-2"></p>
+        <div id="hero-social" class="flex items-center gap-2 mt-3"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- QUICK STATS -->
+  <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-6">
+    <div class="card rounded-2xl p-5 text-center">
+      <p class="text-[10px] tracking-[2px] text-white/40 mb-2">OWNERSHIP</p>
+      <p id="stat-ownership" class="heading-font text-2xl text-white"></p>
+    </div>
+    <div class="card rounded-2xl p-5 text-center">
+      <p class="text-[10px] tracking-[2px] text-white/40 mb-2">MODS INSTALLED</p>
+      <p id="stat-mods" class="heading-font text-2xl text-white"></p>
+    </div>
+    <div class="card rounded-2xl p-5 text-center">
+      <p class="text-[10px] tracking-[2px] text-white/40 mb-2">CATEGORIES BUILT</p>
+      <p id="stat-categories" class="heading-font text-2xl text-white"></p>
+    </div>
+    <div class="card rounded-2xl p-5 text-center">
+      <p class="text-[10px] tracking-[2px] text-white/40 mb-2">BUILD TIER</p>
+      <p id="stat-tier" class="heading-font text-2xl text-[#f0c869]"></p>
+    </div>
+  </div>
+
+  <!-- BUILD PROGRESS XP -->
+  <div class="card rounded-2xl p-6 mt-4">
+    <div class="flex items-center justify-between mb-3">
+      <p class="text-xs tracking-[2px] text-white/50">BUILD PROGRESS</p>
+      <p id="xp-percent" class="mono text-xs text-[#f0c869]"></p>
+    </div>
+    <div class="xp-track"><div id="xp-fill" class="xp-fill"></div></div>
+    <p id="xp-caption" class="text-white/40 text-xs mt-3"></p>
+  </div>
+
+  <!-- STAT RING + BARS -->
+  <div class="grid md:grid-cols-[auto_1fr] gap-8 items-center card rounded-3xl p-7 mt-6">
+    <div class="flex flex-col items-center gap-2 shrink-0">
+      <div id="tier-ring" class="tier-ring"><span id="tier-ring-label" class="text-white text-lg"></span></div>
+      <p class="text-[10px] tracking-[2px] text-white/40">OVERALL SCORE</p>
+    </div>
+    <div class="space-y-4 w-full">
+      <div class="stat-row"><span class="text-xs text-white/60">Power</span><div class="stat-track"><div class="stat-fill" data-stat="power"></div></div><span class="mono text-xs text-white/50 stat-num" data-num="power"></span></div>
+      <div class="stat-row"><span class="text-xs text-white/60">Handling</span><div class="stat-track"><div class="stat-fill" data-stat="handling"></div></div><span class="mono text-xs text-white/50 stat-num" data-num="handling"></span></div>
+      <div class="stat-row"><span class="text-xs text-white/60">Style</span><div class="stat-track"><div class="stat-fill" data-stat="style"></div></div><span class="mono text-xs text-white/50 stat-num" data-num="style"></span></div>
+      <div class="stat-row"><span class="text-xs text-white/60">Rarity</span><div class="stat-track"><div class="stat-fill" data-stat="rarity"></div></div><span class="mono text-xs text-white/50 stat-num" data-num="rarity"></span></div>
+    </div>
+  </div>
+
+  <!-- UNLOCKED UPGRADES -->
+  <div class="mt-12">
+    <div class="flex items-end justify-between mb-5 flex-wrap gap-3">
+      <h2 class="h2 heading-font text-2xl md:text-3xl">Unlocked upgrades</h2>
+      <div id="cat-pills" class="flex gap-2 flex-wrap"></div>
+    </div>
+    <div id="mod-grid" class="mod-grid"></div>
+  </div>
+
+  <!-- STORY -->
+  <div class="grid md:grid-cols-3 gap-5 mt-12">
+    <div class="quote-card"><span class="qtag">THE STORY</span><span class="quote-mark">"</span><p id="story-text" class="text-white/75 text-sm leading-relaxed"></p></div>
+    <div class="quote-card"><span class="qtag">BIGGEST CHALLENGE</span><span class="quote-mark">"</span><p id="challenge-text" class="text-white/75 text-sm leading-relaxed"></p></div>
+    <div class="quote-card"><span class="qtag">FAVORITE PART</span><span class="quote-mark">"</span><p id="favorite-text" class="text-white/75 text-sm leading-relaxed"></p></div>
+  </div>
+
+  <!-- CTA -->
+  <div class="text-center mt-16 card rounded-3xl p-10 md:p-14">
+    <p class="text-xs tracking-[3px] text-[#f0c869] mb-3">JOIN THE ARCHIVE</p>
+    <h2 class="h2 heading-font mb-4">Your build belongs here too.</h2>
+    <p class="text-white/65 max-w-xl mx-auto mb-8">No perfect car required. Log your mods, tell the story, and become part of a growing record of what this community actually builds.</p>
+    <div class="flex gap-3 justify-center flex-wrap">
+      <a href="build-submit.html" class="btn px-8 py-3 rounded-2xl inline-block">Submit your build</a>
+      <a href="build-archive.html" class="px-8 py-3 rounded-2xl border border-white/20">Browse more builds</a>
+    </div>
+  </div>
+</main>
+
+<footer class="px-6 py-14 text-sm max-w-6xl mx-auto grid md:grid-cols-2 gap-8">
+  <div>
+    <div class="font-black text-2xl tracking-[-1px] leading-none">ENDLESS</div>
+    <div class="text-[9px] tracking-[2.5px] text-zinc-400">AUTO COLLECTION</div>
+    <p class="text-white/55 mt-3 max-w-sm">PPF, ceramic coating, window tint, wraps, detailing, and mechanical services in Fremont. Hand-picked partnerships for everything else.</p>
+  </div>
+  <div class="text-white/80 md:text-right">
+    <p><strong>41907 Albrae St</strong><br>Fremont, CA 94538<br>By appointment only</p>
+    <p class="mt-3"><a href="tel:+15107097097">(510) 709-7097</a><br>
+    <a href="mailto:endlessautocollection@gmail.com">endlessautocollection@gmail.com</a><br>
+    <a href="https://www.instagram.com/endlessautocollection/" target="_blank" rel="noopener noreferrer">Instagram</a></p>
+    <p class="text-white/40 mt-6">© 2026 Endless Auto Collection</p>
+  </div>
+</footer>
+
+<div id="quote" class="hidden fixed inset-0 bg-black/90 z-[100] p-4" style="align-items:center;justify-content:center">
+  <div class="bg-[#0a0a0a] border border-white/10 rounded-3xl w-full max-w-4xl overflow-hidden">
+    <div class="flex justify-between px-6 py-4 border-b border-white/10">
+      <h3 class="text-xl font-semibold">Request a consultation</h3>
+      <button onclick="closeQuote()" class="text-3xl leading-none">&times;</button>
+    </div>
+    <iframe src="https://app.shopmonkey.cloud/public/quote-request/a4ae6990-41f1-4247-ae13-fd586c6981a6" width="100%" height="640" style="border:0"></iframe>
+  </div>
+</div>
+
+<div class="mockup-flag">MOCKUP · NOT LIVE</div>
+
+<script src="/js/build-score.js"></script>
+<script>
+const BUILDS = {
+  'bmw-m3': {
+    tag: 'BMW M3 · TRACK BUILD', title: 'Three years chasing one lap time',
+    owner: 'Owner: M. Reyes · Fremont, CA', image: 'images/archive-bmw-m3.jpg',
+    social: {instagram: '@reyes.builds', youtube: 'https://youtube.com/@reyesbuilds'},
+    tier: 'Stage 3', tierPct: 92,
+    ownership: '3 yrs', modsCount: 14, categories: '5/6', xp: 82,
+    xpCaption: '82% toward a full Stage 3 track build — brakes and a roll bar left on the list.',
+    cats: ['Suspension','Aero','Wheels & Tires','Exterior','Interior'],
+    mods: [
+      {cat:'Suspension', name:'Coilover suspension', icon:'⚙', unlocked:true},
+      {cat:'Suspension', name:'Adjustable sway bars', icon:'⚙', unlocked:true},
+      {cat:'Aero', name:'Front splitter', icon:'▲', unlocked:true},
+      {cat:'Aero', name:'Rear wing', icon:'▲', unlocked:true},
+      {cat:'Wheels & Tires', name:'Forged 18" wheels', icon:'◎', unlocked:true},
+      {cat:'Wheels & Tires', name:'Track-compound tires', icon:'◎', unlocked:true},
+      {cat:'Exterior', name:'Carbon mirror caps', icon:'◆', unlocked:true},
+      {cat:'Exterior', name:'PPF full body', icon:'◆', unlocked:true},
+      {cat:'Interior', name:'Bucket seats + harness', icon:'■', unlocked:true},
+      {cat:'Interior', name:'Roll bar', icon:'■', unlocked:false},
+      {cat:'Braking', name:'Big brake kit', icon:'●', unlocked:false},
+      {cat:'Engine', name:'Ported intake', icon:'▣', unlocked:true},
+    ],
+    story: 'Bought it as a daily and turned it into a weekend track car one part at a time. Every upgrade was chasing the same half-second on the same corner.',
+    challenge: 'Cracked the subframe mid-season pushing too hard on cold tires. Rebuilt it twice before it finally held under load.',
+    favorite: 'The coilovers. Everything else is bolt-on — this is the one change that actually made the car feel like mine.'
+  },
+  'honda-civic': {
+    tag: 'HONDA CIVIC · DAILY', title: 'First car, first wrap, first mistake',
+    owner: 'Owner: J. Tran · San Jose, CA', image: 'images/archive-honda-civic.jpg',
+    tier: 'Stage 1', tierPct: 48,
+    ownership: '1.5 yrs', modsCount: 6, categories: '3/6', xp: 41,
+    xpCaption: '41% into the build — wheels and a proper intake are next on the list.',
+    cats: ['Exterior','Wheels & Tires','Interior'],
+    mods: [
+      {cat:'Exterior', name:'Full color-change wrap', icon:'◆', unlocked:true},
+      {cat:'Exterior', name:'Smoked tail lights', icon:'◆', unlocked:true},
+      {cat:'Wheels & Tires', name:'17" aftermarket wheels', icon:'◎', unlocked:true},
+      {cat:'Wheels & Tires', name:'Lowering springs', icon:'◎', unlocked:true},
+      {cat:'Interior', name:'Shift knob + pedals', icon:'■', unlocked:true},
+      {cat:'Interior', name:'Steering wheel', icon:'■', unlocked:true},
+      {cat:'Engine', name:'Cold air intake', icon:'▣', unlocked:false},
+      {cat:'Engine', name:'Cat-back exhaust', icon:'▣', unlocked:false},
+      {cat:'Suspension', name:'Coilovers', icon:'⚙', unlocked:false},
+    ],
+    story: 'First car out of college, wrapped it myself in a friend’s garage because the shop quotes were out of budget. Learned everything the hard way.',
+    challenge: 'Trapped air bubbles on the hood on attempt one. Had to pull the whole panel and start over with a heat gun and a lot of patience.',
+    favorite: 'The color. It took three tries to get the shade right, but it stops people in parking lots now.'
+  },
+  'porsche-911': {
+    tag: 'PORSCHE 911 · WEEKEND CAR', title: 'Bringing back a car that sat for a decade',
+    owner: 'Owner: D. Okafor · Hayward, CA', image: 'images/archive-porsche-911.jpg',
+    tier: 'Stage 2', tierPct: 70,
+    ownership: '8 mo', modsCount: 10, categories: '4/6', xp: 66,
+    xpCaption: '66% restored — suspension refresh and a proper detail are scheduled next.',
+    cats: ['Mechanical','Exterior','Interior','Wheels & Tires'],
+    mods: [
+      {cat:'Mechanical', name:'Full fluid service', icon:'▣', unlocked:true},
+      {cat:'Mechanical', name:'Timing belt + water pump', icon:'▣', unlocked:true},
+      {cat:'Mechanical', name:'New fuel system', icon:'▣', unlocked:true},
+      {cat:'Exterior', name:'Paint correction', icon:'◆', unlocked:true},
+      {cat:'Exterior', name:'Ceramic coating', icon:'◆', unlocked:true},
+      {cat:'Interior', name:'Reupholstered seats', icon:'■', unlocked:true},
+      {cat:'Interior', name:'Refinished dash', icon:'■', unlocked:true},
+      {cat:'Wheels & Tires', name:'Refinished factory wheels', icon:'◎', unlocked:true},
+      {cat:'Suspension', name:'Bushings + shocks', icon:'⚙', unlocked:false},
+      {cat:'Braking', name:'Rebuilt calipers', icon:'●', unlocked:false},
+    ],
+    story: 'Bought it running rough after sitting untouched since 2016. Eight months of small, deliberate fixes to bring it back to how it was meant to drive.',
+    challenge: 'The fuel system had varnished solid from sitting. What looked like a quick clean-out turned into a full replacement before it would idle right.',
+    favorite: 'The interior. Stripping and redoing the seats by hand made it feel earned, not just bought.'
+  },
+  'subaru-wrx': {
+    tag: 'SUBARU WRX STI · RALLY BUILD', title: 'Built for gravel, licensed for the street',
+    owner: 'Owner: K. Nakamura · Fremont, CA', image: 'images/archive-subaru-wrx.jpg',
+    tier: 'Stage 2', tierPct: 74,
+    ownership: '2 yrs', modsCount: 12, categories: '5/6', xp: 71,
+    xpCaption: '71% built — a proper roll cage is the last box left to check.',
+    cats: ['Suspension','Exterior','Wheels & Tires','Interior','Engine'],
+    mods: [
+      {cat:'Suspension', name:'Rally-spec coilovers', icon:'⚙', unlocked:true},
+      {cat:'Suspension', name:'Reinforced control arms', icon:'⚙', unlocked:true},
+      {cat:'Exterior', name:'Livery wrap', icon:'◆', unlocked:true},
+      {cat:'Exterior', name:'Rally light bar', icon:'◆', unlocked:true},
+      {cat:'Wheels & Tires', name:'Gravel-spec wheels', icon:'◎', unlocked:true},
+      {cat:'Wheels & Tires', name:'All-terrain tires', icon:'◎', unlocked:true},
+      {cat:'Interior', name:'Bucket seats + harness', icon:'■', unlocked:true},
+      {cat:'Interior', name:'Roll cage', icon:'■', unlocked:false},
+      {cat:'Engine', name:'Upgraded turbo', icon:'▣', unlocked:true},
+      {cat:'Engine', name:'Intercooler kit', icon:'▣', unlocked:true},
+      {cat:'Braking', name:'Rally brake ducts', icon:'●', unlocked:false},
+      {cat:'Suspension', name:'Hydraulic handbrake', icon:'⚙', unlocked:true},
+    ],
+    story: 'Grew up watching rally onboard videos and finally built the car to match. Not a show car — every part on it earns its place on loose surfaces.',
+    challenge: 'Snapped a control arm on a gravel test run in the first month. Rebuilt the whole front end with reinforced parts before touching dirt again.',
+    favorite: 'The livery. Designed it myself and it turns the car into something that looks like it belongs on a stage, not just a street.'
+  },
+  'mercedes-c63': {
+    tag: 'MERCEDES-AMG C63 · DAILY', title: 'A V8 daily that still needs to haul groceries',
+    owner: 'Owner: P. Alvarez · Union City, CA', image: 'images/archive-mercedes-c63.jpg',
+    tier: 'Stage 1', tierPct: 52,
+    ownership: '2.5 yrs', modsCount: 8, categories: '3/6', xp: 47,
+    xpCaption: '47% into the build — an exhaust and a proper alignment are next.',
+    cats: ['Exterior','Wheels & Tires','Suspension'],
+    mods: [
+      {cat:'Exterior', name:'PPF front end', icon:'◆', unlocked:true},
+      {cat:'Exterior', name:'Window tint', icon:'◆', unlocked:true},
+      {cat:'Exterior', name:'Carbon spoiler', icon:'◆', unlocked:true},
+      {cat:'Wheels & Tires', name:'Staggered forged wheels', icon:'◎', unlocked:true},
+      {cat:'Wheels & Tires', name:'Performance tires', icon:'◎', unlocked:true},
+      {cat:'Suspension', name:'Lowering springs', icon:'⚙', unlocked:true},
+      {cat:'Suspension', name:'Strut brace', icon:'⚙', unlocked:true},
+      {cat:'Interior', name:'Ambient lighting', icon:'■', unlocked:true},
+      {cat:'Engine', name:'Performance exhaust', icon:'▣', unlocked:false},
+      {cat:'Braking', name:'Upgraded brake pads', icon:'●', unlocked:false},
+    ],
+    story: 'Wanted a V8 that could still do the school run and the grocery run. It gets driven every day, rain or shine, and still gets detailed like a weekend car.',
+    challenge: 'Fitting wider wheels without rubbing meant three rounds of spacers and camber adjustments before it finally sat right.',
+    favorite: 'The exhaust note at start-up. Not modified yet — the factory V8 is still the best part of driving it to work.'
+  },
+  'toyota-supra': {
+    tag: 'TOYOTA SUPRA · DAILY', title: 'Chasing the legend without chasing debt',
+    owner: 'Owner: A. Kim · Fremont, CA', image: 'images/archive-toyota-supra.jpg',
+    tier: 'Stage 1', tierPct: 45,
+    ownership: '1 yr', modsCount: 7, categories: '3/6', xp: 39,
+    xpCaption: '39% into the build — intake and tune are budgeted for next quarter.',
+    cats: ['Exterior','Wheels & Tires','Interior'],
+    mods: [
+      {cat:'Exterior', name:'Ceramic coating', icon:'◆', unlocked:true},
+      {cat:'Exterior', name:'Gloss black badges', icon:'◆', unlocked:true},
+      {cat:'Wheels & Tires', name:'19" forged wheels', icon:'◎', unlocked:true},
+      {cat:'Wheels & Tires', name:'Lowering springs', icon:'◎', unlocked:true},
+      {cat:'Interior', name:'Carbon shift paddles', icon:'■', unlocked:true},
+      {cat:'Interior', name:'Alcantara wheel wrap', icon:'■', unlocked:true},
+      {cat:'Engine', name:'Downpipe + tune', icon:'▣', unlocked:false},
+      {cat:'Engine', name:'Intake', icon:'▣', unlocked:false},
+      {cat:'Suspension', name:'Coilovers', icon:'⚙', unlocked:true},
+    ],
+    story: 'Bought it brand new and promised myself I’d build it slow — no financing mods, no half-finished parts bin. One upgrade at a time, paid for in full.',
+    challenge: 'Waited eight months for the right wheel fitment instead of settling for an off-the-shelf spec that would’ve rubbed on lowering springs.',
+    favorite: 'The badges. Small detail, but deleting the chrome was the first thing that made the car feel like mine instead of the dealer’s demo unit.'
+  },
+  'audi-rs6': {
+    tag: 'AUDI RS6 AVANT · TRACK BUILD', title: 'A wagon that embarrasses sports cars',
+    owner: 'Owner: S. Bergström · Pleasanton, CA', image: 'images/archive-audi-rs6.jpg',
+    tier: 'Stage 2', tierPct: 78,
+    ownership: '2 yrs', modsCount: 13, categories: '5/6', xp: 75,
+    xpCaption: '75% built — big brake kit is the last item before track day certification.',
+    cats: ['Engine','Suspension','Aero','Wheels & Tires','Exterior'],
+    mods: [
+      {cat:'Engine', name:'Stage 2 ECU tune', icon:'▣', unlocked:true},
+      {cat:'Engine', name:'Downpipes', icon:'▣', unlocked:true},
+      {cat:'Suspension', name:'Adjustable air suspension', icon:'⚙', unlocked:true},
+      {cat:'Suspension', name:'Rear sway bar', icon:'⚙', unlocked:true},
+      {cat:'Aero', name:'Carbon front splitter', icon:'▲', unlocked:true},
+      {cat:'Aero', name:'Roof spoiler', icon:'▲', unlocked:true},
+      {cat:'Wheels & Tires', name:'Track-compound tires', icon:'◎', unlocked:true},
+      {cat:'Wheels & Tires', name:'Forged 21" wheels', icon:'◎', unlocked:true},
+      {cat:'Exterior', name:'PPF full body', icon:'◆', unlocked:true},
+      {cat:'Exterior', name:'Ceramic coating', icon:'◆', unlocked:true},
+      {cat:'Interior', name:'Track data logger', icon:'■', unlocked:true},
+      {cat:'Braking', name:'Big brake kit', icon:'●', unlocked:false},
+      {cat:'Interior', name:'Half roll cage', icon:'■', unlocked:false},
+    ],
+    story: 'Bought it as a family wagon and couldn’t resist finding out what it could do on track. Turns out it can humble cars half its size and twice the price.',
+    challenge: 'Factory brakes faded hard by lap three at the first track day. Everything since has been building toward a setup that can actually hold up for a full session.',
+    favorite: 'That it still fits a stroller in the back. The build never had to choose between track car and family car — it just had to be both.'
+  }
+};
+
+const params = new URLSearchParams(location.search);
+const slug = params.get('car') || 'bmw-m3';
+const data = BUILDS[slug] || BUILDS['bmw-m3'];
+
+document.title = data.title + ' | Build Archive | Endless Auto Collection';
+document.getElementById('hero-photo').src = data.image;
+document.getElementById('hero-photo').alt = data.title;
+document.getElementById('hero-tag').textContent = data.tag;
+document.getElementById('hero-title').textContent = data.title;
+document.getElementById('hero-owner').textContent = data.owner;
+
+const SOCIAL_ICONS = {
+  instagram: {color:'#E1306C', icon:'<svg viewBox="0 0 24 24" fill="currentColor" width="13" height="13"><path d="M12 2.2c3.2 0 3.58.01 4.85.07 1.17.05 1.97.24 2.43.4a4.9 4.9 0 011.77 1.15 4.9 4.9 0 011.15 1.77c.16.46.35 1.26.4 2.43.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.24 1.97-.4 2.43a4.9 4.9 0 01-1.15 1.77 4.9 4.9 0 01-1.77 1.15c-.46.16-1.26.35-2.43.4-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.97-.24-2.43-.4a4.9 4.9 0 01-1.77-1.15 4.9 4.9 0 01-1.15-1.77c-.16-.46-.35-1.26-.4-2.43C2.21 15.58 2.2 15.2 2.2 12s.01-3.58.07-4.85c.05-1.17.24-1.97.4-2.43a4.9 4.9 0 011.15-1.77A4.9 4.9 0 015.59 1.8c.46-.16 1.26-.35 2.43-.4C9.29 1.34 9.67 1.33 12 1.33zm0 1.8c-3.15 0-3.5.01-4.73.07-.96.04-1.48.2-1.82.34-.46.18-.79.39-1.13.73-.34.34-.55.67-.73 1.13-.14.34-.3.86-.34 1.82-.06 1.23-.07 1.58-.07 4.73s.01 3.5.07 4.73c.04.96.2 1.48.34 1.82.18.46.39.79.73 1.13.34.34.67.55 1.13.73.34.14.86.3 1.82.34 1.23.06 1.58.07 4.73.07s3.5-.01 4.73-.07c.96-.04 1.48-.2 1.82-.34.46-.18.79-.39 1.13-.73.34-.34.55-.67.73-1.13.14-.34.3-.86.34-1.82.06-1.23.07-1.58.07-4.73s-.01-3.5-.07-4.73c-.04-.96-.2-1.48-.34-1.82a3.1 3.1 0 00-.73-1.13 3.1 3.1 0 00-1.13-.73c-.34-.14-.86-.3-1.82-.34-1.23-.06-1.58-.07-4.73-.07zm0 4.03a5.97 5.97 0 110 11.94 5.97 5.97 0 010-11.94zm0 9.84a3.87 3.87 0 100-7.74 3.87 3.87 0 000 7.74zm7.6-10.08a1.4 1.4 0 11-2.8 0 1.4 1.4 0 012.8 0z"/></svg>', href: v => `https://instagram.com/${v.replace(/^@/,'')}`},
+  tiktok: {color:'#ffffff', icon:'<svg viewBox="0 0 24 24" fill="currentColor" width="12" height="12"><path d="M16.6 2h-3.2v13.9a3.3 3.3 0 11-2.33-3.16v-3.3a6.6 6.6 0 105.53 6.52V8.6a7.5 7.5 0 004.4 1.4V6.8a4.3 4.3 0 01-4.4-4.3V2z"/></svg>', href: v => `https://tiktok.com/@${v.replace(/^@/,'')}`},
+  youtube: {color:'#FF0000', icon:'<svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14"><path d="M23.5 6.2a3 3 0 00-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 00.5 6.2 31.4 31.4 0 000 12a31.4 31.4 0 00.5 5.8 3 3 0 002.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 002.1-2.1A31.4 31.4 0 0024 12a31.4 31.4 0 00-.5-5.8zM9.6 15.5v-7l6.3 3.5-6.3 3.5z"/></svg>', href: v => v.startsWith('http') ? v : `https://youtube.com/@${v.replace(/^@/,'')}`},
+  website: {color:'#d4af37', icon:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="12" height="12"><path d="M10.5 13.5a4 4 0 005.7.2l3-3a4 4 0 00-5.6-5.7l-1.6 1.5"/><path d="M13.5 10.5a4 4 0 00-5.7-.2l-3 3a4 4 0 005.6 5.7l1.6-1.5"/></svg>', href: v => v.startsWith('http') ? v : `https://${v}`}
+};
+if (data.social){
+  document.getElementById('hero-social').innerHTML = Object.entries(data.social)
+    .filter(([,v]) => v)
+    .map(([k,v]) => `<a href="${SOCIAL_ICONS[k].href(v)}" target="_blank" rel="noopener noreferrer" class="social-chip" style="color:${SOCIAL_ICONS[k].color}" title="${v}">${SOCIAL_ICONS[k].icon}</a>`)
+    .join('');
+}
+
+document.getElementById('stat-ownership').textContent = data.ownership;
+document.getElementById('stat-mods').textContent = data.modsCount;
+document.getElementById('stat-categories').textContent = data.categories;
+document.getElementById('stat-tier').textContent = data.tier;
+
+document.getElementById('xp-percent').textContent = data.xp + '%';
+document.getElementById('xp-caption').textContent = data.xpCaption;
+
+const stats = computeStatsFromMods(data.mods);
+const overall = computeOverall(stats);
+document.getElementById('tier-ring').style.setProperty('--pct', overall + '%');
+document.getElementById('tier-ring-label').textContent = overall;
+document.getElementById('rarity-badge').textContent = computeRarityLabel(overall);
+
+document.querySelectorAll('.stat-fill').forEach(el => {
+  const key = el.dataset.stat;
+  el.style.setProperty('--val', stats[key] + '%');
+});
+document.querySelectorAll('.stat-num').forEach(el => {
+  const key = el.dataset.num;
+  el.textContent = stats[key] + '/100';
+});
+
+document.getElementById('cat-pills').innerHTML = data.cats.map(c => `<span class="cat-pill"><span class="dot"></span>${c}</span>`).join('');
+
+document.getElementById('mod-grid').innerHTML = data.mods.map(m => `
+  <div class="mod-item ${m.unlocked ? 'unlocked' : 'locked'}">
+    <span class="mod-icon">${m.icon}</span>
+    <div>
+      <p class="mn">${m.name}</p>
+      <p class="mc">${m.cat}</p>
+    </div>
+    <span class="mod-check">${m.unlocked ? 'DONE' : 'PLANNED'}</span>
+  </div>
+`).join('');
+
+document.getElementById('story-text').textContent = data.story;
+document.getElementById('challenge-text').textContent = data.challenge;
+document.getElementById('favorite-text').textContent = data.favorite;
+
+requestAnimationFrame(() => {
+  setTimeout(() => {
+    document.querySelectorAll('.stat-fill').forEach(el => el.classList.add('in'));
+    document.getElementById('xp-fill').style.setProperty('--xp', data.xp + '%');
+    document.getElementById('xp-fill').classList.add('in');
+  }, 150);
+});
+
+function openQuote(){const m=document.getElementById('quote');m.classList.remove('hidden');m.style.display='flex';document.body.style.overflow='hidden'}
+function closeQuote(){const m=document.getElementById('quote');m.style.display='none';m.classList.add('hidden');document.body.style.overflow=''}
+function toggleMenu(){const m=document.getElementById('mobile-menu');const open=m.classList.contains('hidden');m.classList.toggle('hidden');document.getElementById('menu-icon-open').classList.toggle('hidden',open);document.getElementById('menu-icon-close').classList.toggle('hidden',!open);document.getElementById('menu-btn').setAttribute('aria-expanded',open?'true':'false')}
+window.addEventListener('resize',()=>{if(window.innerWidth>=768)document.getElementById('mobile-menu').classList.add('hidden')});
+window.addEventListener('scroll',()=>document.getElementById('navbar').classList.toggle('nav-scrolled',scrollY>70));
+</script>
+<script src="/js/bg-music.js"></script>
+</body></html>

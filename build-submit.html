@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-FT2B0B4JVB"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-FT2B0B4JVB');
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Submit Your Build | Endless Auto Collection</title>
+<link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon/favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/images/favicon/favicon-16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/favicon/apple-touch-icon.png">
+<meta name="description" content="Build your Build Archive profile: log your car, your aftermarket parts, and your story, and watch your build card come alive as you go.">
+<link rel="canonical" href="https://www.endlessautocollection.com/build-submit">
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Space+Grotesk:wght@600&family=JetBrains+Mono:wght@500&display=swap');
+body{font-family:Inter,system-ui,sans-serif;background:#050505;color:#e4e4e7}
+.heading-font{font-family:'Space Grotesk',Inter,sans-serif;letter-spacing:-.03em}
+.mono{font-family:'JetBrains Mono',monospace}
+.nav-scrolled{background:rgba(5,5,5,.96);backdrop-filter:blur(16px)}
+.btn{position:relative;overflow:hidden;background:linear-gradient(145deg,#f5dfa0 0%,#d4af37 45%,#9c7a22 100%);color:#140f00;font-weight:600;box-shadow:inset 0 1px 0 rgba(255,255,255,.55),inset 0 -2px 4px rgba(0,0,0,.25),0 6px 16px -6px rgba(212,175,55,.55);transition:transform .25s ease,box-shadow .25s ease,filter .25s ease}.btn:hover{transform:translateY(-2px);filter:brightness(1.05);box-shadow:inset 0 1px 0 rgba(255,255,255,.6),inset 0 -2px 4px rgba(0,0,0,.25),0 10px 24px -6px rgba(212,175,55,.7)}.btn:active{transform:translateY(0)}.btn::before{content:'';position:absolute;inset:0;background:linear-gradient(115deg,transparent 30%,rgba(255,255,255,.55) 48%,rgba(255,255,255,.15) 56%,transparent 70%);transform:translateX(-120%);transition:transform .6s ease}.btn:hover::before{transform:translateX(120%)}
+.btn:disabled{filter:grayscale(.4) brightness(.8);cursor:not-allowed;transform:none}
+.h2{font-size:clamp(2rem,5vw,3.1rem);line-height:1.05;font-weight:700;letter-spacing:-.04em}
+
+.badge{font-size:9.5px;font-weight:700;letter-spacing:.08em;color:#050505;background:linear-gradient(135deg,#fff,#d4af37);border-radius:999px;padding:5px 11px;display:inline-block}
+
+.foil-frame{position:relative;border-radius:28px;overflow:hidden;isolation:isolate}
+.foil-frame::before{content:'';position:absolute;inset:-1px;border-radius:28px;padding:1.5px;z-index:5;pointer-events:none;
+  background:linear-gradient(135deg,rgba(255,255,255,.6),rgba(212,175,55,.4) 30%,rgba(255,255,255,.05) 55%,rgba(255,223,128,.5) 78%,rgba(255,255,255,.55));
+  -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;opacity:.7}
+
+.card{background:#111;border:1px solid #222}
+
+.stat-row{display:grid;grid-template-columns:110px 1fr 46px;align-items:center;gap:14px}
+.stat-row-calc{display:grid;grid-template-columns:110px 1fr 40px 70px;align-items:center;gap:14px}
+.stat-track{height:9px;border-radius:999px;background:#1c1c1c;border:1px solid #262626;overflow:hidden}
+.stat-fill{height:100%;border-radius:999px;width:0;background:linear-gradient(90deg,#9c7a22,#f0c869,#f5dfa0);transition:width .6s cubic-bezier(.16,1,.3,1)}
+.nudge{-webkit-appearance:none;appearance:none;width:100%;height:5px;border-radius:999px;background:#1c1c1c;border:1px solid #262626;outline:none}
+.nudge::-webkit-slider-thumb{-webkit-appearance:none;width:13px;height:13px;border-radius:50%;background:linear-gradient(145deg,#f5dfa0,#d4af37);cursor:pointer;border:2px solid #050505}
+.nudge::-moz-range-thumb{width:13px;height:13px;border-radius:50%;background:linear-gradient(145deg,#f5dfa0,#d4af37);cursor:pointer;border:2px solid #050505}
+
+.tier-ring{width:104px;height:104px;border-radius:50%;display:flex;align-items:center;justify-content:center;position:relative;background:conic-gradient(#f0c869 var(--pct,0%),#1c1c1c 0);transition:background 1s}
+.tier-ring::before{content:'';position:absolute;inset:7px;border-radius:50%;background:#0a0a0a}
+.tier-ring span{position:relative;z-index:1;font-family:'Space Grotesk';font-weight:600}
+
+.mod-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:12px}
+.mod-item{display:flex;align-items:flex-start;gap:12px;background:#111;border:1px solid #222;border-radius:16px;padding:14px 16px;transition:border-color .25s,transform .25s,opacity .25s}
+.mod-item.unlocked:hover{border-color:#d4af37}
+.mod-item.locked{opacity:.45}
+.mod-icon{width:34px;height:34px;flex:none;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:16px;background:linear-gradient(145deg,#2a2210,#1a1508);border:1px solid rgba(212,175,55,.35);color:#f0c869}
+.mod-item.locked .mod-icon{background:#161616;border-color:#2a2a2a;color:#555}
+.mod-item .mn{font-weight:600;font-size:13.5px;color:#e4e4e7}
+.mod-item .mc{font-size:11px;color:rgba(228,228,231,.45);margin-top:1px;letter-spacing:.03em}
+.mod-check{margin-left:auto;font-size:10px;color:#f0c869;letter-spacing:.06em;font-weight:700;align-self:center}
+.mod-item.locked .mod-check{color:#555}
+.mod-remove{flex:none;width:20px;height:20px;border-radius:50%;background:rgba(255,255,255,.06);color:rgba(228,228,231,.5);font-size:12px;line-height:1;display:flex;align-items:center;justify-content:center;border:1px solid rgba(255,255,255,.1);cursor:pointer;transition:.2s}
+.mod-remove:hover{background:rgba(220,60,60,.2);border-color:rgba(220,60,60,.4);color:#ff9a9a}
+
+.cat-pill{font-size:11px;letter-spacing:.05em;color:rgba(228,228,231,.7);background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);border-radius:999px;padding:6px 13px;display:inline-flex;align-items:center;gap:6px;white-space:nowrap}
+.cat-pill .dot{width:6px;height:6px;border-radius:50%;background:#d4af37}
+
+.xp-track{height:14px;border-radius:999px;background:#151515;border:1px solid #262626;overflow:hidden;position:relative}
+.xp-fill{height:100%;background:linear-gradient(90deg,#9c7a22,#d4af37,#f5dfa0);border-radius:999px;width:0;transition:width .5s cubic-bezier(.16,1,.3,1)}
+
+.quote-card{background:linear-gradient(180deg,#111,#0c0c0c);border:1px solid #222;border-radius:22px;padding:22px}
+.quote-card .qtag{font-size:10.5px;letter-spacing:.14em;color:#f0c869;font-weight:700;margin-bottom:10px;display:block}
+.quote-mark{font-family:'Space Grotesk';font-size:2.4rem;color:rgba(212,175,55,.35);line-height:.6;display:block;margin-bottom:4px}
+
+.tag{font-size:11px;letter-spacing:.04em;color:rgba(228,228,231,.75);background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:999px;padding:7px 14px;cursor:pointer;transition:border-color .2s,background .2s,color .2s}
+.tag:hover{border-color:rgba(212,175,55,.5);color:#e4e4e7}
+.tag.active{background:rgba(212,175,55,.15);border-color:#d4af37;color:#f0c869}
+
+@keyframes floaty{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+.float{animation:floaty 4.5s ease-in-out infinite}
+@keyframes popIn{0%{transform:scale(.7);opacity:0}70%{transform:scale(1.08)}100%{transform:scale(1);opacity:1}}
+.pop{animation:popIn .5s cubic-bezier(.34,1.56,.64,1)}
+
+.mockup-flag{position:fixed;bottom:18px;right:18px;z-index:60;font-size:10px;letter-spacing:.12em;color:rgba(228,228,231,.5);background:rgba(10,10,10,.85);border:1px solid rgba(255,255,255,.12);border-radius:999px;padding:6px 14px;backdrop-filter:blur(8px)}
+
+/* Editable "card" form fields — look like the card, not a form */
+.field-input{background:transparent;border:none;border-bottom:1px dashed rgba(255,255,255,.2);color:#fff;outline:none;width:100%;transition:border-color .2s}
+.field-input::placeholder{color:rgba(255,255,255,.35)}
+.field-input:focus{border-bottom-color:#d4af37}
+.field-input.title{font-family:'Space Grotesk',Inter,sans-serif;font-size:1.9rem;font-weight:700;letter-spacing:-.03em}
+@media (min-width:768px){.field-input.title{font-size:2.6rem}}
+.field-input.tagline{font-size:12px;letter-spacing:3px;color:#f0c869;text-transform:uppercase;font-family:'JetBrains Mono',monospace}
+.field-input.owner{font-size:.9rem;color:rgba(255,255,255,.75)}
+
+select.field-select,input.field-text,textarea.field-text{background:#0d0d0d;border:1px solid #262626;border-radius:12px;color:#e4e4e7;padding:10px 14px;font-size:13.5px;outline:none;transition:border-color .2s;width:100%}
+select.field-select:focus,input.field-text:focus,textarea.field-text:focus{border-color:#d4af37}
+textarea.field-text{resize:vertical;min-height:90px;background:transparent;border:none;padding:0;font-size:14px;line-height:1.55;color:rgba(228,228,231,.9)}
+textarea.field-text::placeholder{color:rgba(228,228,231,.3)}
+.social-row{display:flex;align-items:center;gap:10px}
+.social-icon{flex:none;width:34px;height:34px;border-radius:10px;background:#0d0d0d;border:1px solid #262626;display:flex;align-items:center;justify-content:center}
+.social-row .field-text{flex:1}
+.social-chip{width:28px;height:28px;border-radius:999px;background:rgba(10,10,10,.75);backdrop-filter:blur(6px);border:1px solid rgba(255,255,255,.18);display:flex;align-items:center;justify-content:center;transition:transform .15s ease,border-color .15s ease}
+.social-chip:hover{transform:translateY(-1px);border-color:rgba(212,175,55,.6)}
+
+.upload-zone{border:1.5px dashed rgba(255,255,255,.25);border-radius:16px;padding:14px 18px;text-align:center;cursor:pointer;transition:border-color .2s,background .2s}
+.upload-zone:hover{border-color:#d4af37;background:rgba(212,175,55,.05)}
+
+.section-eyebrow{font-size:11px;letter-spacing:.14em;color:#f0c869;font-weight:700;margin-bottom:6px}
+
+.jump-nav{display:flex;gap:6px;flex-wrap:wrap}
+.jump-nav a{font-size:10.5px;letter-spacing:.06em;color:rgba(228,228,231,.5);border:1px solid rgba(255,255,255,.1);border-radius:999px;padding:6px 12px;transition:.2s}
+.jump-nav a:hover,.jump-nav a.on{color:#f0c869;border-color:#d4af37;background:rgba(212,175,55,.1)}
+
+.slider{-webkit-appearance:none;appearance:none;width:100%;height:9px;border-radius:999px;background:#1c1c1c;border:1px solid #262626;outline:none}
+.slider::-webkit-slider-thumb{-webkit-appearance:none;width:18px;height:18px;border-radius:50%;background:linear-gradient(145deg,#f5dfa0,#d4af37);cursor:pointer;border:2px solid #050505;box-shadow:0 0 0 2px rgba(212,175,55,.4)}
+.slider::-moz-range-thumb{width:18px;height:18px;border-radius:50%;background:linear-gradient(145deg,#f5dfa0,#d4af37);cursor:pointer;border:2px solid #050505}
+
+#success-panel{display:none}
+@media (max-width:640px){
+  .stat-row{grid-template-columns:90px 1fr 40px;gap:10px}
+  .stat-row-calc{grid-template-columns:90px 1fr 34px 56px;gap:8px}
+}
+</style>
+</head>
+<body class="overflow-x-hidden">
+<nav id="navbar" class="fixed top-0 inset-x-0 z-50 border-b border-white/10">
+  <div class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
+    <a href="index.html" class="flex items-center shrink-0"><img src="Endless_Tshirt_Back_1.png" alt="Endless Auto Collection" class="h-6 sm:h-7 md:h-9 w-auto"></a>
+    <div class="hidden md:flex gap-7 text-xs tracking-widest text-zinc-300">
+      <div class="relative group/svc">
+        <a href="index.html#services" class="inline-flex items-center gap-1">SERVICES<svg class="w-3 h-3 mt-px transition-transform group-hover/svc:rotate-180" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg></a>
+        <div class="absolute left-1/2 -translate-x-1/2 top-full pt-3 opacity-0 pointer-events-none translate-y-1 group-hover/svc:opacity-100 group-hover/svc:pointer-events-auto group-hover/svc:translate-y-0 group-focus-within/svc:opacity-100 group-focus-within/svc:pointer-events-auto group-focus-within/svc:translate-y-0 transition-all duration-200 z-50">
+          <div class="w-72 rounded-2xl border border-white/10 bg-[#0a0a0a] p-2 shadow-2xl shadow-black/60">
+            <a href="ppf.html" class="flex flex-col gap-0.5 px-4 py-3 rounded-xl hover:bg-white/5 transition-colors"><span class="text-white text-sm font-medium tracking-normal normal-case">Paint protection film</span><span class="text-white/40 text-xs tracking-normal normal-case">Self-healing film, 10-year warranty</span></a>
+            <a href="ceramic.html" class="flex flex-col gap-0.5 px-4 py-3 rounded-xl hover:bg-white/5 transition-colors"><span class="text-white text-sm font-medium tracking-normal normal-case">Ceramic coating</span><span class="text-white/40 text-xs tracking-normal normal-case">Correction, then multi-year gloss</span></a>
+            <a href="tint.html" class="flex flex-col gap-0.5 px-4 py-3 rounded-xl hover:bg-white/5 transition-colors"><span class="text-white text-sm font-medium tracking-normal normal-case">Window tint</span><span class="text-white/40 text-xs tracking-normal normal-case">Heat, UV, California-legal shades</span></a>
+            <a href="wraps.html" class="flex flex-col gap-0.5 px-4 py-3 rounded-xl hover:bg-white/5 transition-colors"><span class="text-white text-sm font-medium tracking-normal normal-case">Custom wraps</span><span class="text-white/40 text-xs tracking-normal normal-case">Color change without paint</span></a>
+            <a href="detailing.html" class="flex flex-col gap-0.5 px-4 py-3 rounded-xl hover:bg-white/5 transition-colors"><span class="text-white text-sm font-medium tracking-normal normal-case">Car detailing</span><span class="text-white/40 text-xs tracking-normal normal-case">Full detail or pick individual services</span></a>
+            <a href="mechanical.html" class="flex flex-col gap-0.5 px-4 py-3 rounded-xl hover:bg-white/5 transition-colors"><span class="text-white text-sm font-medium tracking-normal normal-case">Mechanical services</span><span class="text-white/40 text-xs tracking-normal normal-case">Maintenance, inspection, diagnostic</span></a>
+          </div>
+        </div>
+      </div>
+      <a href="index.html#process">PROCESS</a>
+      <a href="index.html#faq">FAQ</a>
+      <a href="build-archive.html" class="text-[#f0c869]">BUILD ARCHIVE</a>
+      <a href="shop.html">SHOP</a>
+    </div>
+    <div class="flex items-center gap-2">
+      <button onclick="openQuote()" class="btn px-5 py-2 rounded-full text-sm">Consult</button>
+      <button onclick="toggleMenu()" id="menu-btn" class="md:hidden text-white p-2 -mr-2" aria-label="Menu" aria-expanded="false">
+        <svg id="menu-icon-open" class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/></svg>
+        <svg id="menu-icon-close" class="w-6 h-6 hidden" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
+      </button>
+    </div>
+  </div>
+  <div id="mobile-menu" class="hidden md:hidden px-6 pb-4 border-t border-white/10 bg-[#050505]">
+      <a href="index.html#services" onclick="toggleMenu()" class="block py-3 border-b border-white/5 text-zinc-300">SERVICES</a>
+      <a href="index.html#process" onclick="toggleMenu()" class="block py-3 border-b border-white/5 text-zinc-300">PROCESS</a>
+      <a href="index.html#faq" onclick="toggleMenu()" class="block py-3 border-b border-white/5 text-zinc-300">FAQ</a>
+      <a href="build-archive.html" onclick="toggleMenu()" class="block py-3 border-b border-white/5 text-[#f0c869]">BUILD ARCHIVE</a>
+      <a href="shop.html" onclick="toggleMenu()" class="block py-3 border-b border-white/5 text-zinc-300">SHOP</a>
+  </div>
+</nav>
+
+<!-- sticky completion meter -->
+<div class="fixed top-16 inset-x-0 z-40 bg-[#050505]/95 backdrop-blur border-b border-white/10">
+  <div class="max-w-6xl mx-auto px-6 py-2.5 flex items-center gap-4">
+    <p class="text-[10px] tracking-[2px] text-white/40 shrink-0">CARD COMPLETION</p>
+    <div class="xp-track flex-1 max-w-xs"><div id="completion-fill" class="xp-fill"></div></div>
+    <p id="completion-pct" class="mono text-xs text-[#f0c869] shrink-0">0%</p>
+    <div class="jump-nav hidden md:flex ml-auto">
+      <a href="#sec-identity">Identity</a>
+      <a href="#sec-mods">Upgrades</a>
+      <a href="#sec-stats">Stats</a>
+      <a href="#sec-story">Story</a>
+      <a href="#sec-submit">Submit</a>
+    </div>
+  </div>
+</div>
+
+<main class="max-w-6xl mx-auto px-6 pt-32 pb-20">
+  <p class="text-xs tracking-[3px] text-[#f0c869] mb-3">BUILD YOUR PROFILE</p>
+  <h1 class="heading-font text-3xl md:text-5xl text-white max-w-2xl">Your car has a story. Let's build the card.</h1>
+  <p class="mt-4 text-white/60 max-w-xl">Fill in what you've got, watch your build card come alive as you go, and see exactly how it'll look in the archive. No essay required — even a half-built card is worth sharing.</p>
+
+  <!-- LIVE CARD -->
+  <div id="sec-identity" class="foil-frame mt-10 scroll-mt-32">
+    <div class="relative aspect-[16/9] md:aspect-[21/9] bg-[#0c0c0c]" id="hero-preview">
+      <img id="hero-photo" src="" alt="" class="absolute inset-0 w-full h-full object-cover hidden">
+      <div id="hero-placeholder" class="absolute inset-0 flex items-center justify-center">
+        <label for="photo-input" class="upload-zone">
+          <p class="text-white/70 text-sm font-medium">+ Add a cover photo</p>
+          <p class="text-white/35 text-xs mt-1">A shot of your car, wide side or 3/4 angle works best</p>
+        </label>
+        <input type="file" id="photo-input" accept="image/*" class="hidden">
+      </div>
+      <div id="hero-gradient" class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent hidden"></div>
+      <span id="rarity-badge" class="badge absolute top-5 right-5 float">UNRATED</span>
+      <div class="absolute left-5 right-5 bottom-5 space-y-2">
+        <input id="in-tagline" class="field-input tagline" placeholder="MAKE MODEL · BUILD TYPE (E.G. BMW M3 · TRACK BUILD)" maxlength="48">
+        <input id="in-title" class="field-input title" placeholder="Give your build a headline">
+        <input id="in-owner" class="field-input owner" placeholder="Your name · City, State">
+        <div id="social-preview" class="flex items-center gap-2 pt-1 hidden"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- BUILD TYPE TAGS -->
+  <div class="card rounded-2xl p-6 mt-6">
+    <p class="section-eyebrow">BUILD TYPE — pick all that apply</p>
+    <p class="text-white/45 text-xs mb-4">This is how other people will find your build when they filter the archive.</p>
+    <div id="type-tags" class="flex gap-2 flex-wrap">
+      <button type="button" class="tag" data-type="jdm">JDM</button>
+      <button type="button" class="tag" data-type="euro">Euro</button>
+      <button type="button" class="tag" data-type="track">Track</button>
+      <button type="button" class="tag" data-type="daily">Daily</button>
+      <button type="button" class="tag" data-type="show">Show</button>
+      <button type="button" class="tag" data-type="offroad">Off-road</button>
+    </div>
+  </div>
+
+  <!-- MODS -->
+  <div id="sec-mods" class="mt-12 scroll-mt-32">
+    <div class="flex items-end justify-between mb-5 flex-wrap gap-3">
+      <div>
+        <h2 class="h2 heading-font text-2xl md:text-3xl">Unlocked upgrades</h2>
+        <p class="text-white/45 text-sm mt-1">Add what's on the car now — and what's still on the list.</p>
+      </div>
+      <div id="cat-pills" class="flex gap-2 flex-wrap"></div>
+    </div>
+
+    <div class="card rounded-2xl p-5 mb-6">
+      <div class="grid sm:grid-cols-[1fr_1fr_auto_auto] gap-3 items-end">
+        <div>
+          <label class="text-[10px] tracking-[1.5px] text-white/40 block mb-1.5">CATEGORY</label>
+          <select id="mod-cat" class="field-select">
+            <option>Suspension</option>
+            <option>Aero</option>
+            <option>Wheels & Tires</option>
+            <option>Exterior</option>
+            <option>Interior</option>
+            <option>Engine</option>
+            <option>Braking</option>
+            <option>Mechanical</option>
+          </select>
+        </div>
+        <div>
+          <label class="text-[10px] tracking-[1.5px] text-white/40 block mb-1.5">UPGRADE</label>
+          <input id="mod-name" class="field-text" placeholder="e.g. Coilover suspension" maxlength="40">
+        </div>
+        <div>
+          <label class="text-[10px] tracking-[1.5px] text-white/40 block mb-1.5">STATUS</label>
+          <select id="mod-status" class="field-select">
+            <option value="true">Installed</option>
+            <option value="false">Planned</option>
+          </select>
+        </div>
+        <button id="mod-add" class="btn px-6 py-2.5 rounded-xl text-sm whitespace-nowrap">+ Add</button>
+      </div>
+    </div>
+
+    <div id="mod-grid" class="mod-grid"></div>
+    <p id="mod-empty" class="text-white/35 text-sm mt-2">No upgrades added yet — your card is waiting for its first mod.</p>
+  </div>
+
+  <!-- STATS -->
+  <div id="sec-stats" class="grid md:grid-cols-[auto_1fr] gap-8 items-center card rounded-3xl p-7 mt-8 scroll-mt-32">
+    <div class="flex flex-col items-center gap-2 shrink-0">
+      <div id="tier-ring" class="tier-ring"><span id="tier-ring-label" class="text-white text-lg">0</span></div>
+      <p class="text-[10px] tracking-[2px] text-white/40">OVERALL SCORE</p>
+    </div>
+    <div class="space-y-5 w-full">
+      <p class="text-white/45 text-xs -mt-1">Calculated from your unlocked upgrades above — add mods to move these. Nudge ±10 if a stat feels off.</p>
+      <div class="stat-row-calc" data-stat="power">
+        <span class="text-xs text-white/60">Power</span>
+        <div class="stat-track"><div class="stat-fill" data-fill="power"></div></div>
+        <span class="mono text-xs text-white/50 stat-num" data-num="power">0</span>
+        <input type="range" min="-10" max="10" value="0" class="nudge" data-nudge="power" title="Fine-tune">
+      </div>
+      <div class="stat-row-calc" data-stat="handling">
+        <span class="text-xs text-white/60">Handling</span>
+        <div class="stat-track"><div class="stat-fill" data-fill="handling"></div></div>
+        <span class="mono text-xs text-white/50 stat-num" data-num="handling">0</span>
+        <input type="range" min="-10" max="10" value="0" class="nudge" data-nudge="handling" title="Fine-tune">
+      </div>
+      <div class="stat-row-calc" data-stat="style">
+        <span class="text-xs text-white/60">Style</span>
+        <div class="stat-track"><div class="stat-fill" data-fill="style"></div></div>
+        <span class="mono text-xs text-white/50 stat-num" data-num="style">0</span>
+        <input type="range" min="-10" max="10" value="0" class="nudge" data-nudge="style" title="Fine-tune">
+      </div>
+      <div class="stat-row-calc" data-stat="rarity">
+        <span class="text-xs text-white/60">Rarity</span>
+        <div class="stat-track"><div class="stat-fill" data-fill="rarity"></div></div>
+        <span class="mono text-xs text-white/50 stat-num" data-num="rarity">0</span>
+        <input type="range" min="-10" max="10" value="0" class="nudge" data-nudge="rarity" title="Fine-tune">
+      </div>
+    </div>
+  </div>
+
+  <!-- QUICK STATS -->
+  <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-6">
+    <div class="card rounded-2xl p-5 text-center">
+      <p class="text-[10px] tracking-[2px] text-white/40 mb-2">OWNERSHIP</p>
+      <div class="flex items-center justify-center gap-1.5">
+        <input id="in-ownership-num" type="number" min="0" max="60" value="" placeholder="0" class="field-input text-center w-12 heading-font text-2xl text-white">
+        <select id="in-ownership-unit" class="field-select text-xs w-auto py-1 px-2">
+          <option value="yrs">yrs</option>
+          <option value="mo">mo</option>
+        </select>
+      </div>
+    </div>
+    <div class="card rounded-2xl p-5 text-center">
+      <p class="text-[10px] tracking-[2px] text-white/40 mb-2">MODS INSTALLED</p>
+      <p id="stat-mods" class="heading-font text-2xl text-white">0</p>
+    </div>
+    <div class="card rounded-2xl p-5 text-center">
+      <p class="text-[10px] tracking-[2px] text-white/40 mb-2">CATEGORIES BUILT</p>
+      <p id="stat-categories" class="heading-font text-2xl text-white">0/8</p>
+    </div>
+    <div class="card rounded-2xl p-5 text-center">
+      <p class="text-[10px] tracking-[2px] text-white/40 mb-2">BUILD TIER</p>
+      <p id="stat-tier" class="heading-font text-2xl text-[#f0c869]">Stage 0</p>
+    </div>
+  </div>
+
+  <!-- XP -->
+  <div class="card rounded-2xl p-6 mt-4">
+    <div class="flex items-center justify-between mb-3">
+      <p class="text-xs tracking-[2px] text-white/50">BUILD PROGRESS</p>
+      <p id="xp-percent" class="mono text-xs text-[#f0c869]">0%</p>
+    </div>
+    <div class="xp-track"><div id="xp-fill" class="xp-fill"></div></div>
+    <p id="xp-caption" class="text-white/40 text-xs mt-3">Add your first upgrade above to start leveling up your build.</p>
+  </div>
+
+  <!-- STORY -->
+  <div id="sec-story" class="mt-12 scroll-mt-32">
+    <h2 class="h2 heading-font text-2xl md:text-3xl mb-1">Tell the story</h2>
+    <p class="text-white/45 text-sm mb-5">Three short prompts — a couple sentences each is plenty.</p>
+    <div class="grid md:grid-cols-3 gap-5">
+      <div class="quote-card">
+        <span class="qtag">THE STORY</span><span class="quote-mark">"</span>
+        <textarea id="in-story" class="field-text" maxlength="280" placeholder="What made you start this build, and where's it at now?"></textarea>
+        <p class="text-white/25 text-[10px] mt-2 text-right"><span id="story-count">0</span>/280</p>
+      </div>
+      <div class="quote-card">
+        <span class="qtag">BIGGEST CHALLENGE</span><span class="quote-mark">"</span>
+        <textarea id="in-challenge" class="field-text" maxlength="280" placeholder="What broke, went wrong, or took longer than planned?"></textarea>
+        <p class="text-white/25 text-[10px] mt-2 text-right"><span id="challenge-count">0</span>/280</p>
+      </div>
+      <div class="quote-card">
+        <span class="qtag">FAVORITE PART</span><span class="quote-mark">"</span>
+        <textarea id="in-favorite" class="field-text" maxlength="280" placeholder="Which upgrade or detail are you proudest of?"></textarea>
+        <p class="text-white/25 text-[10px] mt-2 text-right"><span id="favorite-count">0</span>/280</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- SUBMIT -->
+  <div id="sec-submit" class="text-center mt-16 card rounded-3xl p-10 md:p-14 scroll-mt-32">
+    <div id="submit-panel">
+      <p class="text-xs tracking-[3px] text-[#f0c869] mb-3">LAST STEP</p>
+      <h2 class="h2 heading-font mb-4">Send your card to the archive.</h2>
+      <p class="text-white/65 max-w-xl mx-auto mb-7">We review new builds before they go live so the archive stays genuine. Leave a way to reach you and we'll follow up.</p>
+      <div class="max-w-sm mx-auto grid gap-3 mb-7 text-left">
+        <div>
+          <label class="text-[10px] tracking-[1.5px] text-white/40 block mb-1.5">EMAIL</label>
+          <input id="in-email" type="email" class="field-text" placeholder="you@email.com">
+        </div>
+        <div>
+          <label class="text-[10px] tracking-[1.5px] text-white/40 block mb-1.5">SOCIAL MEDIA (OPTIONAL)</label>
+          <p class="text-white/35 text-xs mb-2.5">Tag your build's socials and we'll link them on your card — check the preview up top as you type.</p>
+          <div class="grid gap-2.5">
+            <div class="social-row">
+              <span class="social-icon" style="color:#E1306C">
+                <svg viewBox="0 0 24 24" fill="currentColor" width="17" height="17"><path d="M12 2.2c3.2 0 3.58.01 4.85.07 1.17.05 1.97.24 2.43.4a4.9 4.9 0 011.77 1.15 4.9 4.9 0 011.15 1.77c.16.46.35 1.26.4 2.43.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.24 1.97-.4 2.43a4.9 4.9 0 01-1.15 1.77 4.9 4.9 0 01-1.77 1.15c-.46.16-1.26.35-2.43.4-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.97-.24-2.43-.4a4.9 4.9 0 01-1.77-1.15 4.9 4.9 0 01-1.15-1.77c-.16-.46-.35-1.26-.4-2.43C2.21 15.58 2.2 15.2 2.2 12s.01-3.58.07-4.85c.05-1.17.24-1.97.4-2.43a4.9 4.9 0 011.15-1.77A4.9 4.9 0 015.59 1.8c.46-.16 1.26-.35 2.43-.4C9.29 1.34 9.67 1.33 12 1.33zm0 1.8c-3.15 0-3.5.01-4.73.07-.96.04-1.48.2-1.82.34-.46.18-.79.39-1.13.73-.34.34-.55.67-.73 1.13-.14.34-.3.86-.34 1.82-.06 1.23-.07 1.58-.07 4.73s.01 3.5.07 4.73c.04.96.2 1.48.34 1.82.18.46.39.79.73 1.13.34.34.67.55 1.13.73.34.14.86.3 1.82.34 1.23.06 1.58.07 4.73.07s3.5-.01 4.73-.07c.96-.04 1.48-.2 1.82-.34.46-.18.79-.39 1.13-.73.34-.34.55-.67.73-1.13.14-.34.3-.86.34-1.82.06-1.23.07-1.58.07-4.73s-.01-3.5-.07-4.73c-.04-.96-.2-1.48-.34-1.82a3.1 3.1 0 00-.73-1.13 3.1 3.1 0 00-1.13-.73c-.34-.14-.86-.3-1.82-.34-1.23-.06-1.58-.07-4.73-.07zm0 4.03a5.97 5.97 0 110 11.94 5.97 5.97 0 010-11.94zm0 9.84a3.87 3.87 0 100-7.74 3.87 3.87 0 000 7.74zm7.6-10.08a1.4 1.4 0 11-2.8 0 1.4 1.4 0 012.8 0z"/></svg>
+              </span>
+              <input id="in-instagram" class="field-text" placeholder="Instagram — @handle">
+            </div>
+            <div class="social-row">
+              <span class="social-icon" style="color:#fff">
+                <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M16.6 2h-3.2v13.9a3.3 3.3 0 11-2.33-3.16v-3.3a6.6 6.6 0 105.53 6.52V8.6a7.5 7.5 0 004.4 1.4V6.8a4.3 4.3 0 01-4.4-4.3V2z"/></svg>
+              </span>
+              <input id="in-tiktok" class="field-text" placeholder="TikTok — @handle">
+            </div>
+            <div class="social-row">
+              <span class="social-icon" style="color:#FF0000">
+                <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M23.5 6.2a3 3 0 00-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 00.5 6.2 31.4 31.4 0 000 12a31.4 31.4 0 00.5 5.8 3 3 0 002.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 002.1-2.1A31.4 31.4 0 0024 12a31.4 31.4 0 00-.5-5.8zM9.6 15.5v-7l6.3 3.5-6.3 3.5z"/></svg>
+              </span>
+              <input id="in-youtube" class="field-text" placeholder="YouTube — channel name or link">
+            </div>
+            <div class="social-row">
+              <span class="social-icon" style="color:#d4af37">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="16" height="16"><path d="M10.5 13.5a4 4 0 005.7.2l3-3a4 4 0 00-5.6-5.7l-1.6 1.5"/><path d="M13.5 10.5a4 4 0 00-5.7-.2l-3 3a4 4 0 005.6 5.7l1.6-1.5"/></svg>
+              </span>
+              <input id="in-website" class="field-text" placeholder="Anything else — link to your build thread, YouTube, etc.">
+            </div>
+          </div>
+        </div>
+      </div>
+      <button id="submit-btn" class="btn px-8 py-3 rounded-2xl">Add my build to the archive</button>
+      <p id="submit-hint" class="text-white/35 text-xs mt-4"></p>
+    </div>
+    <div id="success-panel">
+      <div class="badge pop mb-4" style="font-size:11px;padding:7px 16px">CARD SUBMITTED</div>
+      <h2 class="h2 heading-font mb-4">Nice build. That's on its way in.</h2>
+      <p class="text-white/65 max-w-xl mx-auto mb-8">We'll take a look and reach out at the email you left before it goes live in the archive. Thanks for being part of this.</p>
+      <div class="flex gap-3 justify-center flex-wrap">
+        <a href="build-archive.html" class="btn px-8 py-3 rounded-2xl">Browse the archive</a>
+        <a href="index.html" class="px-8 py-3 rounded-2xl border border-white/20">Back to home</a>
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer class="px-6 py-14 text-sm max-w-6xl mx-auto grid md:grid-cols-2 gap-8">
+  <div>
+    <div class="font-black text-2xl tracking-[-1px] leading-none">ENDLESS</div>
+    <div class="text-[9px] tracking-[2.5px] text-zinc-400">AUTO COLLECTION</div>
+    <p class="text-white/55 mt-3 max-w-sm">PPF, ceramic coating, window tint, wraps, detailing, and mechanical services in Fremont. Hand-picked partnerships for everything else.</p>
+  </div>
+  <div class="text-white/80 md:text-right">
+    <p><strong>41907 Albrae St</strong><br>Fremont, CA 94538<br>By appointment only</p>
+    <p class="mt-3"><a href="tel:+15107097097">(510) 709-7097</a><br>
+    <a href="mailto:endlessautocollection@gmail.com">endlessautocollection@gmail.com</a><br>
+    <a href="https://www.instagram.com/endlessautocollection/" target="_blank" rel="noopener noreferrer">Instagram</a></p>
+    <p class="text-white/40 mt-6">© 2026 Endless Auto Collection</p>
+  </div>
+</footer>
+
+<div id="quote" class="hidden fixed inset-0 bg-black/90 z-[100] p-4" style="align-items:center;justify-content:center">
+  <div class="bg-[#0a0a0a] border border-white/10 rounded-3xl w-full max-w-4xl overflow-hidden">
+    <div class="flex justify-between px-6 py-4 border-b border-white/10">
+      <h3 class="text-xl font-semibold">Request a consultation</h3>
+      <button onclick="closeQuote()" class="text-3xl leading-none">&times;</button>
+    </div>
+    <iframe src="https://app.shopmonkey.cloud/public/quote-request/a4ae6990-41f1-4247-ae13-fd586c6981a6" width="100%" height="640" style="border:0"></iframe>
+  </div>
+</div>
+
+<div class="mockup-flag">MOCKUP · NOT LIVE</div>
+
+<script src="/js/build-score.js"></script>
+<script>
+const ICONS = {'Suspension':'⚙','Aero':'▲','Wheels & Tires':'◎','Exterior':'◆','Interior':'■','Engine':'▣','Braking':'●','Mechanical':'▣'};
+const ALL_CATS = Object.keys(ICONS);
+let mods = [];
+let selectedTypes = new Set();
+let statNudge = {power:0, handling:0, style:0, rarity:0};
+
+function computeTier(count){
+  if (count >= 12) return {label:'Stage 3', pct:95};
+  if (count >= 8) return {label:'Stage 2', pct:72};
+  if (count >= 4) return {label:'Stage 1', pct:48};
+  if (count >= 1) return {label:'Stage 0.5', pct:22};
+  return {label:'Stage 0', pct:6};
+}
+
+function render(){
+  // mods grid
+  const grid = document.getElementById('mod-grid');
+  const empty = document.getElementById('mod-empty');
+  if (mods.length === 0){
+    grid.innerHTML = '';
+    empty.classList.remove('hidden');
+  } else {
+    empty.classList.add('hidden');
+    grid.innerHTML = mods.map((m,i) => `
+      <div class="mod-item ${m.unlocked ? 'unlocked' : 'locked'}">
+        <span class="mod-icon">${ICONS[m.cat]}</span>
+        <div class="flex-1 min-w-0">
+          <p class="mn truncate">${m.name}</p>
+          <p class="mc">${m.cat}</p>
+        </div>
+        <span class="mod-check">${m.unlocked ? 'DONE' : 'PLANNED'}</span>
+        <span class="mod-remove" data-remove="${i}" title="Remove">&times;</span>
+      </div>
+    `).join('');
+    grid.querySelectorAll('[data-remove]').forEach(el => {
+      el.addEventListener('click', () => { mods.splice(+el.dataset.remove,1); render(); });
+    });
+  }
+
+  // category pills (distinct categories used)
+  const usedCats = [...new Set(mods.map(m => m.cat))];
+  document.getElementById('cat-pills').innerHTML = usedCats.map(c => `<span class="cat-pill"><span class="dot"></span>${c}</span>`).join('');
+
+  // quick stats
+  const installedCount = mods.filter(m => m.unlocked).length;
+  document.getElementById('stat-mods').textContent = installedCount;
+  document.getElementById('stat-categories').textContent = usedCats.length + '/' + ALL_CATS.length;
+  const tier = computeTier(installedCount);
+  document.getElementById('stat-tier').textContent = tier.label;
+
+  // xp bar
+  const xpPct = Math.min(100, Math.round((installedCount / 15) * 100));
+  document.getElementById('xp-fill').style.width = xpPct + '%';
+  document.getElementById('xp-percent').textContent = xpPct + '%';
+  document.getElementById('xp-caption').textContent = installedCount === 0
+    ? 'Add your first upgrade above to start leveling up your build.'
+    : `${xpPct}% built — keep logging upgrades to climb the tiers.`;
+
+  // stats computed from unlocked upgrades, plus the manual nudge
+  const stats = computeStatsFromMods(mods, statNudge);
+  Object.keys(stats).forEach(key => {
+    document.querySelector(`.stat-fill[data-fill="${key}"]`).style.width = stats[key] + '%';
+    document.querySelector(`.stat-num[data-num="${key}"]`).textContent = stats[key];
+  });
+  const overall = computeOverall(stats);
+  document.getElementById('tier-ring').style.setProperty('--pct', overall + '%');
+  document.getElementById('tier-ring-label').textContent = overall;
+  document.getElementById('rarity-badge').textContent = computeRarityLabel(overall);
+
+  // completion meter (identity fields + at least 1 mod + story + type)
+  const title = document.getElementById('in-title').value.trim();
+  const owner = document.getElementById('in-owner').value.trim();
+  const tagline = document.getElementById('in-tagline').value.trim();
+  const story = document.getElementById('in-story').value.trim();
+  const checks = [
+    !!title, !!owner, !!tagline,
+    mods.length > 0, selectedTypes.size > 0,
+    !!story,
+    !document.getElementById('hero-photo').classList.contains('hidden')
+  ];
+  const done = checks.filter(Boolean).length;
+  const pct = Math.round((done / checks.length) * 100);
+  document.getElementById('completion-fill').style.width = pct + '%';
+  document.getElementById('completion-pct').textContent = pct + '%';
+}
+
+document.querySelectorAll('.nudge').forEach(s => s.addEventListener('input', () => {
+  statNudge[s.dataset.nudge] = +s.value;
+  render();
+}));
+
+document.getElementById('mod-add').addEventListener('click', () => {
+  const cat = document.getElementById('mod-cat').value;
+  const nameInput = document.getElementById('mod-name');
+  const name = nameInput.value.trim();
+  if (!name) { nameInput.focus(); return; }
+  const unlocked = document.getElementById('mod-status').value === 'true';
+  mods.push({cat, name, unlocked});
+  nameInput.value = '';
+  nameInput.focus();
+  render();
+});
+document.getElementById('mod-name').addEventListener('keydown', e => { if (e.key === 'Enter'){ e.preventDefault(); document.getElementById('mod-add').click(); } });
+
+document.querySelectorAll('#type-tags .tag').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const t = btn.dataset.type;
+    if (selectedTypes.has(t)) { selectedTypes.delete(t); btn.classList.remove('active'); }
+    else { selectedTypes.add(t); btn.classList.add('active'); }
+    render();
+  });
+});
+
+document.getElementById('photo-input').addEventListener('change', e => {
+  const file = e.target.files[0];
+  if (!file) return;
+  const url = URL.createObjectURL(file);
+  const img = document.getElementById('hero-photo');
+  img.src = url;
+  img.classList.remove('hidden');
+  document.getElementById('hero-placeholder').classList.add('hidden');
+  document.getElementById('hero-gradient').classList.remove('hidden');
+  render();
+});
+
+['in-tagline','in-title','in-owner','in-ownership-num','in-ownership-unit'].forEach(id => {
+  document.getElementById(id).addEventListener('input', render);
+});
+
+const SOCIAL_FIELDS = [
+  {id:'in-instagram', color:'#E1306C', icon:'<svg viewBox="0 0 24 24" fill="currentColor" width="13" height="13"><path d="M12 2.2c3.2 0 3.58.01 4.85.07 1.17.05 1.97.24 2.43.4a4.9 4.9 0 011.77 1.15 4.9 4.9 0 011.15 1.77c.16.46.35 1.26.4 2.43.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.24 1.97-.4 2.43a4.9 4.9 0 01-1.15 1.77 4.9 4.9 0 01-1.77 1.15c-.46.16-1.26.35-2.43.4-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.97-.24-2.43-.4a4.9 4.9 0 01-1.77-1.15 4.9 4.9 0 01-1.15-1.77c-.16-.46-.35-1.26-.4-2.43C2.21 15.58 2.2 15.2 2.2 12s.01-3.58.07-4.85c.05-1.17.24-1.97.4-2.43a4.9 4.9 0 011.15-1.77A4.9 4.9 0 015.59 1.8c.46-.16 1.26-.35 2.43-.4C9.29 1.34 9.67 1.33 12 1.33zm0 1.8c-3.15 0-3.5.01-4.73.07-.96.04-1.48.2-1.82.34-.46.18-.79.39-1.13.73-.34.34-.55.67-.73 1.13-.14.34-.3.86-.34 1.82-.06 1.23-.07 1.58-.07 4.73s.01 3.5.07 4.73c.04.96.2 1.48.34 1.82.18.46.39.79.73 1.13.34.34.67.55 1.13.73.34.14.86.3 1.82.34 1.23.06 1.58.07 4.73.07s3.5-.01 4.73-.07c.96-.04 1.48-.2 1.82-.34.46-.18.79-.39 1.13-.73.34-.34.55-.67.73-1.13.14-.34.3-.86.34-1.82.06-1.23.07-1.58.07-4.73s-.01-3.5-.07-4.73c-.04-.96-.2-1.48-.34-1.82a3.1 3.1 0 00-.73-1.13 3.1 3.1 0 00-1.13-.73c-.34-.14-.86-.3-1.82-.34-1.23-.06-1.58-.07-4.73-.07zm0 4.03a5.97 5.97 0 110 11.94 5.97 5.97 0 010-11.94zm0 9.84a3.87 3.87 0 100-7.74 3.87 3.87 0 000 7.74zm7.6-10.08a1.4 1.4 0 11-2.8 0 1.4 1.4 0 012.8 0z"/></svg>',
+   href: v => `https://instagram.com/${v.replace(/^@/,'')}`},
+  {id:'in-tiktok', color:'#ffffff', icon:'<svg viewBox="0 0 24 24" fill="currentColor" width="12" height="12"><path d="M16.6 2h-3.2v13.9a3.3 3.3 0 11-2.33-3.16v-3.3a6.6 6.6 0 105.53 6.52V8.6a7.5 7.5 0 004.4 1.4V6.8a4.3 4.3 0 01-4.4-4.3V2z"/></svg>',
+   href: v => `https://tiktok.com/@${v.replace(/^@/,'')}`},
+  {id:'in-youtube', color:'#FF0000', icon:'<svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14"><path d="M23.5 6.2a3 3 0 00-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 00.5 6.2 31.4 31.4 0 000 12a31.4 31.4 0 00.5 5.8 3 3 0 002.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 002.1-2.1A31.4 31.4 0 0024 12a31.4 31.4 0 00-.5-5.8zM9.6 15.5v-7l6.3 3.5-6.3 3.5z"/></svg>',
+   href: v => v.startsWith('http') ? v : `https://youtube.com/@${v.replace(/^@/,'')}`},
+  {id:'in-website', color:'#d4af37', icon:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="12" height="12"><path d="M10.5 13.5a4 4 0 005.7.2l3-3a4 4 0 00-5.6-5.7l-1.6 1.5"/><path d="M13.5 10.5a4 4 0 00-5.7-.2l-3 3a4 4 0 005.6 5.7l1.6-1.5"/></svg>',
+   href: v => v.startsWith('http') ? v : `https://${v}`}
+];
+
+function renderSocialPreview(){
+  const wrap = document.getElementById('social-preview');
+  const chips = SOCIAL_FIELDS
+    .map(f => ({...f, value: document.getElementById(f.id).value.trim()}))
+    .filter(f => f.value);
+  if (!chips.length){
+    wrap.classList.add('hidden');
+    wrap.innerHTML = '';
+    return;
+  }
+  wrap.classList.remove('hidden');
+  wrap.innerHTML = chips.map(f => `
+    <a href="${f.href(f.value)}" target="_blank" rel="noopener noreferrer" class="social-chip" style="color:${f.color}" title="${f.value}">${f.icon}</a>
+  `).join('');
+}
+
+['in-instagram','in-tiktok','in-youtube','in-website'].forEach(id => {
+  document.getElementById(id).addEventListener('input', renderSocialPreview);
+});
+
+['in-story','in-challenge','in-favorite'].forEach(id => {
+  const el = document.getElementById(id);
+  const counter = document.getElementById(id.replace('in-','') + '-count');
+  el.addEventListener('input', () => { counter.textContent = el.value.length; render(); });
+});
+
+document.getElementById('submit-btn').addEventListener('click', () => {
+  const title = document.getElementById('in-title').value.trim();
+  const owner = document.getElementById('in-owner').value.trim();
+  const email = document.getElementById('in-email').value.trim();
+  const hint = document.getElementById('submit-hint');
+  if (!title || !owner || !email){
+    hint.textContent = 'Add a build title, your name, and an email so we can reach you.';
+    hint.classList.add('text-red-400');
+    return;
+  }
+  document.getElementById('submit-panel').style.display = 'none';
+  const success = document.getElementById('success-panel');
+  success.style.display = 'block';
+  success.classList.add('pop');
+  success.scrollIntoView({behavior:'smooth', block:'center'});
+});
+
+render();
+renderSocialPreview();
+
+function openQuote(){const m=document.getElementById('quote');m.classList.remove('hidden');m.style.display='flex';document.body.style.overflow='hidden'}
+function closeQuote(){const m=document.getElementById('quote');m.style.display='none';m.classList.add('hidden');document.body.style.overflow=''}
+function toggleMenu(){const m=document.getElementById('mobile-menu');const open=m.classList.contains('hidden');m.classList.toggle('hidden');document.getElementById('menu-icon-open').classList.toggle('hidden',open);document.getElementById('menu-icon-close').classList.toggle('hidden',!open);document.getElementById('menu-btn').setAttribute('aria-expanded',open?'true':'false')}
+window.addEventListener('resize',()=>{if(window.innerWidth>=768)document.getElementById('mobile-menu').classList.add('hidden')});
+window.addEventListener('scroll',()=>document.getElementById('navbar').classList.toggle('nav-scrolled',scrollY>70));
+</script>
+<script src="/js/bg-music.js"></script>
+</body></html>
