@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-FT2B0B4JVB"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-FT2B0B4JVB');
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title id="page-title">Product | Endless Auto Collection</title>
+<link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon/favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/images/favicon/favicon-16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/favicon/apple-touch-icon.png">
+<meta name="description" content="Endless Auto Collection apparel and merchandise.">
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Space+Grotesk:wght@600&display=swap');
+body{font-family:Inter,system-ui,sans-serif;background:#050505;color:#e4e4e7}
+.heading-font{font-family:'Space Grotesk',Inter,sans-serif;letter-spacing:-.03em}
+.nav-scrolled{background:rgba(5,5,5,.96);backdrop-filter:blur(16px)}
+.btn{position:relative;overflow:hidden;background:linear-gradient(145deg,#f5dfa0 0%,#d4af37 45%,#9c7a22 100%);color:#140f00;font-weight:600;box-shadow:inset 0 1px 0 rgba(255,255,255,.55),inset 0 -2px 4px rgba(0,0,0,.25),0 6px 16px -6px rgba(212,175,55,.55);transition:transform .25s ease,box-shadow .25s ease,filter .25s ease}.btn:hover{transform:translateY(-2px);filter:brightness(1.05);box-shadow:inset 0 1px 0 rgba(255,255,255,.6),inset 0 -2px 4px rgba(0,0,0,.25),0 10px 24px -6px rgba(212,175,55,.7)}.btn:active{transform:translateY(0)}.btn::before{content:'';position:absolute;inset:0;background:linear-gradient(115deg,transparent 30%,rgba(255,255,255,.55) 48%,rgba(255,255,255,.15) 56%,transparent 70%);transform:translateX(-120%);transition:transform .6s ease}.btn:hover::before{transform:translateX(120%)}
+.btn:disabled{opacity:.5;cursor:not-allowed;filter:none;transform:none}
+.card{background:#111;border:1px solid #222;transition:.3s}
+.card:hover{border-color:#d4af37;transform:translateY(-4px)}
+.h2{font-size:clamp(2rem,5vw,3.1rem);line-height:1.05;font-weight:700;letter-spacing:-.04em}
+.badge{font-size:9.5px;font-weight:700;letter-spacing:.08em;color:#050505;background:linear-gradient(135deg,#fff,#d4af37);border-radius:999px;padding:4px 9px;display:inline-block}
+.tag{font-size:11px;letter-spacing:.04em;color:rgba(228,228,231,.75);background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:999px;padding:5px 12px}
+.prod-card img{filter:saturate(.95) brightness(.9);transition:filter .3s,transform .5s}
+.prod-card:hover img{filter:saturate(1) brightness(1);transform:scale(1.04)}
+.mockup-flag{position:fixed;bottom:18px;right:18px;z-index:60;font-size:10px;letter-spacing:.12em;color:rgba(228,228,231,.5);background:rgba(10,10,10,.85);border:1px solid rgba(255,255,255,.12);border-radius:999px;padding:6px 14px;backdrop-filter:blur(8px)}
+#gallery-track{scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch}
+#gallery-track>div{scroll-snap-align:center}
+#gallery-track::-webkit-scrollbar{display:none}
+.gdot{width:6px;height:6px;border-radius:999px;background:rgba(255,255,255,.25);transition:.25s}
+.gdot.active{background:#d4af37;width:18px}
+.star{color:#d4af37}
+.size-btn{border:1px solid rgba(255,255,255,.18);transition:.2s}
+.size-btn.active{border-color:#d4af37;background:rgba(212,175,55,.12);color:#f0c869}
+</style>
+</head>
+<body class="overflow-x-hidden">
+<nav id="navbar" class="fixed top-0 inset-x-0 z-50 border-b border-white/10">
+  <div class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
+    <a href="index.html" class="flex items-center shrink-0"><img src="Endless_Tshirt_Back_1.png" alt="Endless Auto Collection" class="h-6 sm:h-7 md:h-9 w-auto"></a>
+    <div class="hidden md:flex gap-7 text-xs tracking-widest text-zinc-300">
+      <a href="index.html#services">SERVICES</a>
+      <a href="index.html#process">PROCESS</a>
+      <a href="index.html#faq">FAQ</a>
+      <a href="build-archive.html">BUILD ARCHIVE</a>
+      <a href="shop.html" class="text-[#f0c869]">SHOP</a>
+    </div>
+    <div class="flex items-center gap-2">
+      <button onclick="openQuote()" class="btn px-5 py-2 rounded-full text-sm">Consult</button>
+      <button onclick="toggleMenu()" id="menu-btn" class="md:hidden text-white p-2 -mr-2" aria-label="Menu" aria-expanded="false">
+        <svg id="menu-icon-open" class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/></svg>
+        <svg id="menu-icon-close" class="w-6 h-6 hidden" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
+      </button>
+    </div>
+  </div>
+  <div id="mobile-menu" class="hidden md:hidden px-6 pb-4 border-t border-white/10 bg-[#050505]">
+      <a href="index.html#services" onclick="toggleMenu()" class="block py-3 border-b border-white/5 text-zinc-300">SERVICES</a>
+      <a href="index.html#process" onclick="toggleMenu()" class="block py-3 border-b border-white/5 text-zinc-300">PROCESS</a>
+      <a href="index.html#faq" onclick="toggleMenu()" class="block py-3 border-b border-white/5 text-zinc-300">FAQ</a>
+      <a href="build-archive.html" onclick="toggleMenu()" class="block py-3 border-b border-white/5 text-zinc-300">BUILD ARCHIVE</a>
+      <a href="shop.html" onclick="toggleMenu()" class="block py-3 border-b border-white/5 text-[#f0c869]">SHOP</a>
+  </div>
+</nav>
+
+<div class="max-w-6xl mx-auto px-6 pt-24 text-xs text-white/40">
+  <a href="shop.html" class="hover:text-white/70">Shop</a> <span id="crumb-cat"></span> <span id="crumb-name" class="text-white/70"></span>
+</div>
+
+<section class="max-w-6xl mx-auto px-6 md:px-16 pt-6 pb-16 grid md:grid-cols-2 gap-10 md:gap-16">
+  <!-- Gallery -->
+  <div>
+    <div class="relative rounded-3xl overflow-hidden bg-black aspect-square">
+      <div id="gallery-track" class="flex h-full overflow-x-auto snap-x">
+      </div>
+      <button id="gal-prev" onclick="galStep(-1)" class="hidden md:flex absolute left-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-black/60 border border-white/15 items-center justify-center hover:border-[#d4af37] transition-colors">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/></svg>
+      </button>
+      <button id="gal-next" onclick="galStep(1)" class="hidden md:flex absolute right-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-black/60 border border-white/15 items-center justify-center hover:border-[#d4af37] transition-colors">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+      </button>
+      <span id="gal-badge" class="badge absolute top-4 right-4 hidden"></span>
+    </div>
+    <div id="gal-dots" class="flex justify-center gap-2 mt-4"></div>
+  </div>
+
+  <!-- Info -->
+  <div>
+    <p id="p-cat" class="text-[#f0c869] text-xs tracking-[2px] mb-3"></p>
+    <h1 id="p-name" class="heading-font text-3xl md:text-4xl text-white"></h1>
+    <div class="flex items-center gap-2 mt-3">
+      <div id="p-stars" class="flex gap-0.5 text-sm"></div>
+      <a href="#reviews" id="p-rating-count" class="text-white/50 text-xs hover:text-white/70"></a>
+    </div>
+    <p id="p-price" class="text-2xl font-semibold text-white mt-5"></p>
+    <p id="p-desc" class="text-white/65 mt-4 leading-relaxed"></p>
+
+    <div id="size-wrap" class="mt-7">
+      <p class="text-xs tracking-[2px] text-white/50 mb-3">SIZE</p>
+      <div id="size-list" class="flex flex-wrap gap-2"></div>
+    </div>
+
+    <div class="mt-8 flex gap-3 flex-wrap">
+      <button onclick="openQuote()" class="btn px-8 py-3 rounded-2xl">Notify me</button>
+      <span class="tag self-center">Mock-up preview — checkout coming soon</span>
+    </div>
+
+    <div class="mt-9 border-t border-white/10 pt-6 space-y-3 text-sm text-white/60">
+      <div class="flex items-center gap-3"><svg class="w-4 h-4 text-[#d4af37] shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Small-batch, made to the same standard as the bay</div>
+      <div class="flex items-center gap-3"><svg class="w-4 h-4 text-[#d4af37] shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Ships from Fremont, CA</div>
+      <div class="flex items-center gap-3"><svg class="w-4 h-4 text-[#d4af37] shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Questions? <a href="mailto:endlessautocollection@gmail.com" class="text-white/80 underline decoration-white/20 hover:decoration-white/60">Email us</a></div>
+    </div>
+
+    <details class="mt-8 border-t border-white/10 pt-5 group">
+      <summary class="cursor-pointer flex items-center justify-between text-sm font-medium text-white/85"><span>Sizing & fit</span><svg class="w-4 h-4 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg></summary>
+      <p id="p-fit" class="text-white/55 text-sm mt-3 leading-relaxed"></p>
+    </details>
+    <details class="mt-4 border-t border-white/10 pt-5 group">
+      <summary class="cursor-pointer flex items-center justify-between text-sm font-medium text-white/85"><span>Shipping & returns</span><svg class="w-4 h-4 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg></summary>
+      <p class="text-white/55 text-sm mt-3 leading-relaxed">Mock-up preview only — shop isn't live yet. Once it launches, orders ship from Fremont within three to five business days. Returns accepted within thirty days, unworn.</p>
+    </details>
+  </div>
+</section>
+
+<!-- Reviews -->
+<section id="reviews" class="max-w-6xl mx-auto px-6 md:px-16 py-14 border-t border-white/10">
+  <div class="flex items-end justify-between flex-wrap gap-4 mb-8">
+    <h2 class="h2 heading-font" style="font-size:clamp(1.6rem,4vw,2.4rem)">Reviews</h2>
+    <div class="flex items-center gap-3">
+      <div id="rev-stars" class="flex gap-1"></div>
+      <span id="rev-summary" class="text-white/60 text-sm"></span>
+    </div>
+  </div>
+  <div id="review-list" class="grid sm:grid-cols-2 gap-5"></div>
+</section>
+
+<!-- Recommended -->
+<section class="max-w-6xl mx-auto px-6 md:px-16 py-14 border-t border-white/10">
+  <h2 class="h2 heading-font mb-8" style="font-size:clamp(1.6rem,4vw,2.4rem)">You may also like</h2>
+  <div id="rec-list" class="grid sm:grid-cols-2 md:grid-cols-3 gap-6"></div>
+</section>
+
+<footer class="px-6 py-14 text-sm max-w-6xl mx-auto grid md:grid-cols-2 gap-8">
+  <div>
+    <div class="font-black text-2xl tracking-[-1px] leading-none">ENDLESS</div>
+    <div class="text-[9px] tracking-[2.5px] text-zinc-400">AUTO COLLECTION</div>
+    <p class="text-white/55 mt-3 max-w-sm">PPF, ceramic coating, window tint, wraps, detailing, and mechanical services in Fremont. Hand-picked partnerships for everything else.</p>
+  </div>
+  <div class="text-white/80 md:text-right">
+    <p><strong>41907 Albrae St</strong><br>Fremont, CA 94538<br>By appointment only</p>
+    <p class="mt-3"><a href="tel:+15107097097">(510) 709-7097</a><br>
+    <a href="mailto:endlessautocollection@gmail.com">endlessautocollection@gmail.com</a><br>
+    <a href="https://www.instagram.com/endlessautocollection/" target="_blank" rel="noopener noreferrer">Instagram</a></p>
+    <p class="text-white/40 mt-6">© 2026 Endless Auto Collection</p>
+  </div>
+</footer>
+
+<div id="quote" class="hidden fixed inset-0 bg-black/90 z-[100] p-4" style="align-items:center;justify-content:center">
+  <div class="bg-[#0a0a0a] border border-white/10 rounded-3xl w-full max-w-4xl overflow-hidden">
+    <div class="flex justify-between px-6 py-4 border-b border-white/10">
+      <h3 class="text-xl font-semibold">Request a consultation</h3>
+      <button onclick="closeQuote()" class="text-3xl leading-none">&times;</button>
+    </div>
+    <iframe src="https://app.shopmonkey.cloud/public/quote-request/a4ae6990-41f1-4247-ae13-fd586c6981a6" width="100%" height="640" style="border:0"></iframe>
+  </div>
+</div>
+
+<div class="mockup-flag">MOCKUP · NOT LIVE</div>
+
+<script>
+const PRODUCTS = {
+  tee: {
+    name: "Endless Auto Works Tee", cat: "APPAREL", price: 38, badge: "BEST SELLER",
+    images: ["images/product-tee-back.jpg","images/product-tee-front.jpg"],
+    desc: "Heavyweight cotton tee with a back print and a small chest logo up front. Boxy, oversized fit — the same weight of cotton we'd put on a customer's car if cotton could protect paint. Black only.",
+    fit: "Runs oversized / boxy. True to size for a relaxed fit, size down for something closer to the body.",
+    sizes: ["S","M","L","XL","XXL"],
+    rating: 4.8, reviewCount: 3,
+    reviews: [
+      {name:"Marcus T.", rating:5, text:"Heavier cotton than I expected for the price. Fits true to the oversized cut in the photos.", date:"2026-07-14"},
+      {name:"Dana R.", rating:5, text:"Back print is clean, no cracking after a few washes. My go-to garage shirt now.", date:"2026-06-30"},
+      {name:"Ilhan K.", rating:4, text:"Great shirt, wish it came in more colors.", date:"2026-06-02"}
+    ]
+  },
+  microfiber: {
+    name: "Shop Microfiber Set", cat: "DETAILING GEAR", price: 24,
+    images: ["images/product-microfiber.jpg"],
+    desc: "The exact towels we reach for on customer cars — a pack of six, split between plush drying and edgeless buffing weaves. Safe on ceramic, PPF, and fresh paint correction work.",
+    fit: "16in x 16in each, pack of six.",
+    sizes: [],
+    rating: 4.9, reviewCount: 2,
+    reviews: [
+      {name:"Priya S.", rating:5, text:"Noticeably softer than the towels I was using. No swirl marks on my black car.", date:"2026-08-01"},
+      {name:"Owen B.", rating:5, text:"Bought a second set for the trunk. Great for quick wipe-downs between full details.", date:"2026-05-19"}
+    ]
+  },
+  cap: {
+    name: "Embroidered Snapback", cat: "HEADWEAR", price: 32,
+    images: ["images/product-cap.jpg"],
+    desc: "Structured six-panel snapback with a gold-thread logo on the front panel. Flat brim, adjustable snap closure.",
+    fit: "One size fits most, adjustable strap.",
+    sizes: [],
+    rating: 4.6, reviewCount: 2,
+    reviews: [
+      {name:"Chris L.", rating:5, text:"Stitching is tight and the gold thread pops without being loud.", date:"2026-07-22"},
+      {name:"Naomi P.", rating:4, text:"Good quality cap, brim was a little stiff out of the box but broke in fast.", date:"2026-06-11"}
+    ]
+  },
+  keychain: {
+    name: "Metal Keychain", cat: "ACCESSORIES", price: 16,
+    images: ["images/product-keychain.jpg"],
+    desc: "Solid brass keychain with a laser-etched logo. Small, heavy, and built to outlast the keys on the ring.",
+    fit: "1.5in diameter.",
+    sizes: [],
+    rating: 4.7, reviewCount: 1,
+    reviews: [
+      {name:"Diego V.", rating:5, text:"Feels a lot more premium than the price suggests. Solid weight to it.", date:"2026-07-05"}
+    ]
+  },
+  hoodie: {
+    name: "Garage Hoodie", cat: "APPAREL", price: 62,
+    images: ["images/product-hoodie.jpg"],
+    desc: "Midweight fleece hoodie with a small embroidered chest logo. Built for cold mornings in the bay, not for standing still.",
+    fit: "Regular fit, true to size.",
+    sizes: ["S","M","L","XL","XXL"],
+    rating: 4.9, reviewCount: 2,
+    reviews: [
+      {name:"Ray H.", rating:5, text:"Warm without being bulky. Wearing it more than any hoodie I own.", date:"2026-08-10"},
+      {name:"Sam W.", rating:5, text:"Logo is subtle, fabric feels like it'll hold up for years.", date:"2026-04-28"}
+    ]
+  },
+  sticker: {
+    name: "Sticker Pack", cat: "ACCESSORIES", price: 10,
+    images: ["images/product-sticker.jpg"],
+    desc: "Five die-cut logo stickers, weatherproof vinyl. Toolbox, laptop, or bumper — they hold up outside.",
+    fit: "Sizes range 2in–4in across five designs.",
+    sizes: [],
+    rating: 4.5, reviewCount: 1,
+    reviews: [
+      {name:"Alex F.", rating:4, text:"Good vinyl quality, survived a car wash on the bumper no problem.", date:"2026-05-30"}
+    ]
+  }
+};
+
+const params = new URLSearchParams(location.search);
+const pid = params.get('id') || 'tee';
+const p = PRODUCTS[pid] || PRODUCTS.tee;
+
+document.getElementById('page-title').textContent = p.name + " | Endless Auto Collection";
+document.getElementById('crumb-cat').innerHTML = '<span class="mx-1">/</span>' + p.cat;
+document.getElementById('crumb-name').innerHTML = '<span class="mx-1">/</span>' + p.name;
+document.getElementById('p-cat').textContent = p.cat;
+document.getElementById('p-name').textContent = p.name;
+document.getElementById('p-price').textContent = '$' + p.price;
+document.getElementById('p-desc').textContent = p.desc;
+document.getElementById('p-fit').textContent = p.fit;
+document.getElementById('p-rating-count').textContent = p.rating.toFixed(1) + ' (' + p.reviewCount + ' review' + (p.reviewCount===1?'':'s') + ')';
+if (p.badge) { const b=document.getElementById('gal-badge'); b.textContent=p.badge; b.classList.remove('hidden'); }
+
+function starsHTML(rating, size) {
+  let h = '';
+  for (let i=1;i<=5;i++) {
+    const filled = i <= Math.round(rating);
+    h += `<svg class="${size||'w-4 h-4'} ${filled?'star':'text-white/20'}" fill="currentColor" viewBox="0 0 20 20"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6-5.4-3-5.4 3 1.2-6L1.3 7.8l6.1-.7z"/></svg>`;
+  }
+  return h;
+}
+document.getElementById('p-stars').innerHTML = starsHTML(p.rating);
+document.getElementById('rev-stars').innerHTML = starsHTML(p.rating, 'w-5 h-5');
+document.getElementById('rev-summary').textContent = p.rating.toFixed(1) + ' out of 5 · ' + p.reviewCount + ' review' + (p.reviewCount===1?'':'s');
+
+// Sizes
+const sizeWrap = document.getElementById('size-wrap');
+if (!p.sizes.length) { sizeWrap.classList.add('hidden'); }
+else {
+  const list = document.getElementById('size-list');
+  p.sizes.forEach((s,i) => {
+    const btn = document.createElement('button');
+    btn.textContent = s;
+    btn.className = 'size-btn px-4 py-2 rounded-xl text-sm' + (i===1?' active':'');
+    btn.onclick = () => { document.querySelectorAll('.size-btn').forEach(b=>b.classList.remove('active')); btn.classList.add('active'); };
+    list.appendChild(btn);
+  });
+}
+
+// Gallery
+const track = document.getElementById('gallery-track');
+const dotsWrap = document.getElementById('gal-dots');
+p.images.forEach((src,i) => {
+  const slide = document.createElement('div');
+  slide.className = 'w-full h-full shrink-0 snap-center';
+  slide.style.width = '100%';
+  slide.innerHTML = `<img src="${src}" alt="${p.name}" class="w-full h-full object-cover">`;
+  track.appendChild(slide);
+  if (p.images.length > 1) {
+    const dot = document.createElement('span');
+    dot.className = 'gdot' + (i===0?' active':'');
+    dotsWrap.appendChild(dot);
+  }
+});
+if (p.images.length <= 1) {
+  document.getElementById('gal-prev').style.display='none';
+  document.getElementById('gal-next').style.display='none';
+}
+function updateDots() {
+  const idx = Math.round(track.scrollLeft / track.clientWidth);
+  [...dotsWrap.children].forEach((d,i)=>d.classList.toggle('active', i===idx));
+}
+track.addEventListener('scroll', () => { window.requestAnimationFrame(updateDots); });
+function galStep(dir) {
+  track.scrollBy({left: dir*track.clientWidth, behavior:'smooth'});
+}
+
+// Reviews
+const reviewList = document.getElementById('review-list');
+p.reviews.forEach(r => {
+  const card = document.createElement('div');
+  card.className = 'card rounded-2xl p-5';
+  card.innerHTML = `
+    <div class="flex items-center justify-between mb-2">
+      <span class="font-medium text-white/90 text-sm">${r.name}</span>
+      <span class="text-white/40 text-xs">${new Date(r.date).toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'})}</span>
+    </div>
+    <div class="flex gap-0.5 mb-2">${starsHTML(r.rating,'w-3.5 h-3.5')}</div>
+    <p class="text-white/60 text-sm leading-relaxed">${r.text}</p>`;
+  reviewList.appendChild(card);
+});
+
+// Recommended
+const recList = document.getElementById('rec-list');
+Object.entries(PRODUCTS).filter(([id]) => id !== pid).slice(0,3).forEach(([id,prod]) => {
+  const a = document.createElement('a');
+  a.href = 'product.html?id=' + id;
+  a.className = 'prod-card card rounded-3xl overflow-hidden block';
+  a.innerHTML = `
+    <div class="relative aspect-square overflow-hidden bg-black">
+      <img src="${prod.images[0]}" alt="${prod.name}" class="absolute inset-0 w-full h-full object-cover">
+    </div>
+    <div class="p-6">
+      <p class="text-[#f0c869] text-xs tracking-[2px] mb-2">${prod.cat}</p>
+      <h3 class="text-lg font-semibold mb-1">${prod.name}</h3>
+      <div class="flex items-center justify-between mt-3">
+        <span class="text-white font-semibold">$${prod.price}</span>
+        <span class="text-xs border border-white/20 rounded-full px-4 py-2">View</span>
+      </div>
+    </div>`;
+  recList.appendChild(a);
+});
+
+function openQuote(){const m=document.getElementById('quote');m.classList.remove('hidden');m.style.display='flex';document.body.style.overflow='hidden'}
+function closeQuote(){const m=document.getElementById('quote');m.style.display='none';m.classList.add('hidden');document.body.style.overflow=''}
+function toggleMenu(){const m=document.getElementById('mobile-menu');const open=m.classList.contains('hidden');m.classList.toggle('hidden');document.getElementById('menu-icon-open').classList.toggle('hidden',open);document.getElementById('menu-icon-close').classList.toggle('hidden',!open);document.getElementById('menu-btn').setAttribute('aria-expanded',open?'true':'false')}
+window.addEventListener('resize',()=>{if(window.innerWidth>=768)document.getElementById('mobile-menu').classList.add('hidden')});
+window.addEventListener('scroll',()=>document.getElementById('navbar').classList.toggle('nav-scrolled',scrollY>70));
+</script>
+<script src="/js/bg-music.js"></script>
+</body></html>
