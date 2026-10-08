@@ -71,15 +71,21 @@ body{font-family:Inter,system-ui,sans-serif;background:#050505;color:#e4e4e7}
   <p class="text-xs tracking-[3px] text-[#f0c869] mb-3">FREMONT PPF</p>
   <h1 class="heading-font text-4xl md:text-6xl text-white mb-4">Paint Protection Film Packages</h1>
   <p class="text-white/65 max-w-2xl mb-10">Two scopes. Same film standard. Pick the coverage that matches how you drive I-880.</p>
-  <div class="card rounded-3xl p-4 md:p-6 mb-5">
+  <div id="coverage-card" class="card rounded-3xl p-4 md:p-6 mb-5">
     <div class="flex items-center justify-center gap-2 mb-4">
-      <button id="cov-full-btn" onclick="setCoverage('full')" class="px-5 py-2 rounded-full text-sm font-medium border border-[#d4af37] bg-[#d4af37]/15 text-[#f0c869] transition-colors">Full body</button>
-      <button id="cov-front-btn" onclick="setCoverage('front')" class="px-5 py-2 rounded-full text-sm font-medium border border-white/15 text-white/60 transition-colors">Front-end</button>
+      <button id="cov-front-btn" onclick="setCoverage('front')" class="px-5 py-2 rounded-full text-sm font-medium border border-[#d4af37] bg-[#d4af37]/15 text-[#f0c869] transition-colors">Front-end</button>
+      <button id="cov-full-btn" onclick="setCoverage('full')" class="px-5 py-2 rounded-full text-sm font-medium border border-white/15 text-white/60 transition-colors">Full body</button>
     </div>
     <div class="relative rounded-2xl overflow-hidden aspect-[3/2] bg-black">
-      <img id="cov-full-img" src="images/ppf-full-body-m3.png" alt="Full body PPF coverage on M3" class="absolute inset-0 w-full h-full object-cover transition-opacity duration-500 opacity-100">
-      <img id="cov-front-img" src="images/ppf-front-end-m3.png" alt="Front-end PPF coverage on M3" class="absolute inset-0 w-full h-full object-cover transition-opacity duration-500 opacity-0">
+      <img id="cov-full-img" src="images/ppf-full-body-m3.png" alt="Full body PPF coverage on M3" class="absolute inset-0 w-full h-full object-cover transition-opacity duration-500 opacity-0">
+      <img id="cov-front-img" src="images/ppf-front-end-m3.png" alt="Front-end PPF coverage on M3" class="absolute inset-0 w-full h-full object-cover transition-opacity duration-500 opacity-100">
+      <div class="absolute left-3 bottom-3 md:left-5 md:bottom-5 rounded-xl bg-black/60 backdrop-blur-md border border-white/15 px-3 py-2.5 md:px-4 md:py-3 text-xs md:text-sm text-white/90">
+        <p class="text-[10px] tracking-[2px] text-white/50 mb-1.5">COLOR KEY</p>
+        <p class="flex items-center gap-2"><span class="inline-block w-3.5 h-3.5 rounded-full border border-white/40" style="background:#f3e8a0"></span>Film applied</p>
+        <p id="key-white" class="flex items-center gap-2 mt-1"><span class="inline-block w-3.5 h-3.5 rounded-full border border-white/40 bg-white"></span>Not covered</p>
+      </div>
     </div>
+    <p class="text-white/55 text-xs md:text-sm text-center mt-4 max-w-2xl mx-auto">The yellow is only a visual guide to show where film goes. It isn't colored PPF or a vinyl wrap, and your car keeps its original color.</p>
   </div>
   <div class="grid md:grid-cols-2 gap-5">
     <a href="ppf-full.html" class="card rounded-3xl p-8 block"><p class="text-[#f0c869] text-xs tracking-[2px] mb-2">MOST POPULAR</p><h2 class="text-3xl font-semibold mb-3">Full body PPF</h2><p class="text-white/70">Hood, fenders, doors, roof, mirrors, rear — painted surfaces covered.</p></a>
@@ -125,8 +131,11 @@ function openQuote(){const m=document.getElementById('quote');m.classList.remove
 function closeQuote(){const m=document.getElementById('quote');m.style.display='none';m.classList.add('hidden');document.body.style.overflow=''}
 function setCoverage(mode){
   const full=mode==='full';
+  const card=document.getElementById('coverage-card'),r=card.getBoundingClientRect(),top=80,room=innerHeight-top;
+  if(r.top<top||r.bottom>innerHeight){const y=scrollY+r.top-top-(r.height<room?(room-r.height)/2:0);scrollTo({top:Math.max(0,y),behavior:'smooth'})}
   document.getElementById('cov-full-img').style.opacity=full?'1':'0';
   document.getElementById('cov-front-img').style.opacity=full?'0':'1';
+  document.getElementById('key-white').style.display=full?'none':'';
   document.getElementById('cov-full-btn').className='px-5 py-2 rounded-full text-sm font-medium border transition-colors '+(full?'border-[#d4af37] bg-[#d4af37]/15 text-[#f0c869]':'border-white/15 text-white/60');
   document.getElementById('cov-front-btn').className='px-5 py-2 rounded-full text-sm font-medium border transition-colors '+(full?'border-white/15 text-white/60':'border-[#d4af37] bg-[#d4af37]/15 text-[#f0c869]');
 }
