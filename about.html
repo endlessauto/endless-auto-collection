@@ -31,6 +31,7 @@ body{font-family:Inter,system-ui,sans-serif;background:#050505;color:#e4e4e7}
 .avatar{width:76px;height:76px;border-radius:9999px;background:linear-gradient(145deg,#2a2a2a 0%,#1a1a1a 100%);border:1px solid rgba(212,175,55,.3);color:#f0c869;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:1.1rem}
 .founder-card{background:radial-gradient(circle at 15% 20%,rgba(212,175,55,.12),transparent 55%),#0d0d0d;border:1px solid rgba(212,175,55,.45);box-shadow:0 20px 50px -20px rgba(212,175,55,.35)}
 .founder-avatar{width:112px;height:112px;border-radius:9999px;background:linear-gradient(145deg,#f5dfa0 0%,#d4af37 45%,#9c7a22 100%);color:#140f00;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:1.75rem;box-shadow:inset 0 1px 0 rgba(255,255,255,.55),0 10px 24px -6px rgba(212,175,55,.6)}
+.showcase-img{cursor:zoom-in;transition:filter .25s ease}.showcase-img:hover{filter:brightness(1.1)}
 </style>
 </head>
 <body>
@@ -195,6 +196,10 @@ document.querySelectorAll('.yt-lite').forEach(b=>b.addEventListener('click',()=>
     <p class="text-white/40 mt-6">© 2026 Endless Auto Collection</p>
   </div>
 </footer>
+<div id="lightbox" class="hidden fixed inset-0 z-[110] bg-black/95 p-4 md:p-10 items-center justify-center" role="dialog" aria-modal="true" aria-label="Photo viewer">
+  <button id="lightbox-close" class="absolute top-4 right-5 text-white text-4xl leading-none p-2" aria-label="Close photo">&times;</button>
+  <img id="lightbox-img" src="" alt="" class="max-w-full max-h-full object-contain rounded-xl cursor-zoom-out">
+</div>
 <div id="quote" class="hidden fixed inset-0 bg-black/90 z-[100] p-4" style="align-items:center;justify-content:center">
   <div class="bg-[#0a0a0a] border border-white/10 rounded-3xl w-full max-w-4xl overflow-hidden">
     <div class="flex justify-between px-6 py-4 border-b border-white/10"><h3 class="text-xl font-semibold">Request a consultation</h3><button onclick="closeQuote()" class="text-3xl">&times;</button></div>
@@ -210,4 +215,11 @@ window.addEventListener('scroll',()=>document.getElementById('navbar').classList
 </script>
 <script src="/js/bg-music.js"></script>
 <script async src="https://www.instagram.com/embed.js"></script>
+<script>
+(()=>{const lb=document.getElementById('lightbox'),big=document.getElementById('lightbox-img');
+function open(img){big.src=img.src;big.alt=img.alt;lb.classList.remove('hidden');lb.style.display='flex';document.body.style.overflow='hidden';document.getElementById('lightbox-close').focus()}
+function close(){lb.style.display='none';lb.classList.add('hidden');big.src='';document.body.style.overflow=''}
+document.querySelectorAll('img[src^="images/showcase/"]').forEach(i=>{i.classList.add('showcase-img');i.tabIndex=0;i.setAttribute('role','button');i.addEventListener('click',()=>open(i));i.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();open(i)}})});
+lb.addEventListener('click',close);document.addEventListener('keydown',e=>{if(e.key==='Escape'&&!lb.classList.contains('hidden'))close()})})();
+</script>
 </body></html>
