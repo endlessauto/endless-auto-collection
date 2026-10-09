@@ -16,6 +16,10 @@ The user wants the agent able to analyze social media analytics, actively bounce
 
 Everything else in the original spec and Amendment 1 stands.
 
+## Amendment 3 (2026-10-09)
+
+Added `docs/marketing/references/youtube-engine-playbook.md`, a reference doc distilled from an external YouTube growth framework (demand mapping, packaging, hook structure, bingeability, deep-link distribution, 24-hour amplification, conversion embedding, A/B rules). Sub-skills read it for principles; it is not a skill itself and adds no infrastructure. Where it conflicts with brand voice (hype titles), brand voice wins. More references of this kind go in the same folder.
+
 ## Purpose
 
 Endless Auto Collection (EAC) wants to build a repeatable system, run through Claude Code, for producing car-owner video content that markets the shop's craft and builds a "Build Archive" library on the website. The immediate deadline is one high-production long-form piece (interview + b-roll + car shots) ready before SEMA, then short-form cutdowns for other platforms. Production is not for sale yet — it's a brand asset to show prospective customers and partners what EAC can do.
