@@ -13,5 +13,7 @@ The user supplies analytics for a posted piece: numbers, a described screenshot,
 
 ## Rules
 
+- YouTube view counts are in `docs/marketing/youtube-catalog.md`. Run `python3 scripts/refresh_youtube_catalog.py` first if the user asks about a recent upload. Views only; retention, CTR and saves still come from the user.
+
 - Don't invent numbers or baselines. With one data point, say there's nothing to compare yet.
 - Next research run reads these notes.

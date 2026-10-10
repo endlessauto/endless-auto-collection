@@ -20,6 +20,10 @@ Everything else in the original spec and Amendment 1 stands.
 
 Added `docs/marketing/references/youtube-engine-playbook.md`, a reference doc distilled from an external YouTube growth framework (demand mapping, packaging, hook structure, bingeability, deep-link distribution, 24-hour amplification, conversion embedding, A/B rules). Sub-skills read it for principles; it is not a skill itself and adds no infrastructure. Where it conflicts with brand voice (hype titles), brand voice wins. More references of this kind go in the same folder.
 
+## Amendment 4 (2026-10-09)
+
+Added `docs/marketing/youtube-catalog.md`, a record of posted YouTube long-form and Shorts with public view counts, maintained by `scripts/refresh_youtube_catalog.py` (stdlib Python, channel RSS feed, no API key). The script merges into the file, so rows stay after they leave the feed's 15-item window. The daily scheduled research run refreshes it first and commits the result; `content-engine` checks it to avoid repeating posted topics, and `performance` reads view counts from it. YouTube is read-only and public data only. The Meta API non-goal is unchanged; Instagram stays manual.
+
 ## Purpose
 
 Endless Auto Collection (EAC) wants to build a repeatable system, run through Claude Code, for producing car-owner video content that markets the shop's craft and builds a "Build Archive" library on the website. The immediate deadline is one high-production long-form piece (interview + b-roll + car shots) ready before SEMA, then short-form cutdowns for other platforms. Production is not for sale yet — it's a brand asset to show prospective customers and partners what EAC can do.

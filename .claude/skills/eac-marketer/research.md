@@ -20,4 +20,4 @@ Find outliers: videos far above their own channel's average, not just high view 
 ## Modes
 
 - **On-demand:** answer in chat. Save only if asked.
-- **Scheduled (daily):** write `docs/marketing/trend-briefs/trend-brief-YYYY-MM-DD.md` and notify. Research only. Never draft content, touch the calendar, or post.
+- **Scheduled (daily):** first run `python3 scripts/refresh_youtube_catalog.py` to update `docs/marketing/youtube-catalog.md`. Then write `docs/marketing/trend-briefs/trend-brief-YYYY-MM-DD.md` and notify. Research only. Never draft content, touch the calendar, or post.

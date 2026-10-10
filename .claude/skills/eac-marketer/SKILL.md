@@ -47,6 +47,7 @@ Tag every idea and piece with exactly one: **Build Stories**, **Process & Craft*
 | `docs/marketing/approval-queue.md` | Only gate to `scheduled` |
 | `docs/marketing/content-grader.md` | Scoring rubric |
 | `docs/marketing/references/youtube-engine-playbook.md` | Packaging, hook, distribution, A/B principles |
+| `docs/marketing/youtube-catalog.md` | Posted long-form and Shorts with views; check before proposing a topic |
 | `docs/marketing/trend-briefs/` | Dated research briefs |
 | `docs/marketing/build-archives/` | Per-car briefs and archive copy |
 

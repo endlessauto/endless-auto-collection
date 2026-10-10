@@ -1,5 +1,7 @@
 # Content engine
 
+Before proposing a topic, check `docs/marketing/youtube-catalog.md` so you don't repeat a posted one.
+
 Drafts text from footage notes, a transcript, or raw interview answers (pasted or described; no video processing).
 
 **Read first:** `docs/marketing/references/youtube-engine-playbook.md` and `docs/marketing/content-grader.md`.
