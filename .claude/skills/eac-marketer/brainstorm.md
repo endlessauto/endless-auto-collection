@@ -6,12 +6,13 @@
 
 1. Read `docs/marketing/idea-inbox.md`. If an entry concerns this car/owner, start from it.
 2. Ask only what you can't infer: car (year/make/model), owner, what's known about the build, filming date if any. One question at a time.
-3. Generate 3 candidate story angles. For each: what's interesting about the build, the tension or difficulty, the owner's relationship to the car.
+3. Generate 3 candidate story angles. For each: what's interesting about the build, the tension or difficulty, the owner's relationship to the car, and the idea as topic + seed (one-line premise or contrarian take). Check relevance to a likely customer, not just enthusiasts.
 4. Recommend one angle. Tag its content pillar.
 5. Write the brief to `docs/marketing/build-archives/<car-slug>-brief.md` with:
    - Pillar and chosen angle (one paragraph)
    - **Interview questions**: tied to this car's build history, ordered so the story builds. No generic "tell me about your car".
    - **Shot list** in four groups: interview setup, b-roll (detail shots), action/driving, environment/location
+   - **Hook seeds** (short-form): one text hook, one visual hook, one spoken hook that all say the same thing (Kallaway playbook section 4)
    - **Packaging seeds**: one outcome-first working title and one thumbnail idea (see playbook section 2)
 6. Hand off to `calendar.md` to add the row (status `idea`).
 
