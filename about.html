@@ -19,7 +19,6 @@
 <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon/apple-touch-icon.png">
 <meta name="description" content="Meet the team behind Endless Auto Collection in Fremont — PPF, ceramic coating, tint, wraps, detailing, and mechanical services.">
 <link rel="canonical" href="https://www.endlessautocollection.com/about">
-<script src="https://cdn.tailwindcss.com"></script>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Space+Grotesk:wght@600&display=swap');
 body{font-family:Inter,system-ui,sans-serif;background:#050505;color:#e4e4e7}
@@ -33,11 +32,12 @@ body{font-family:Inter,system-ui,sans-serif;background:#050505;color:#e4e4e7}
 .founder-avatar{width:112px;height:112px;border-radius:9999px;background:linear-gradient(145deg,#f5dfa0 0%,#d4af37 45%,#9c7a22 100%);color:#140f00;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:1.75rem;box-shadow:inset 0 1px 0 rgba(255,255,255,.55),0 10px 24px -6px rgba(212,175,55,.6)}
 .showcase-img{cursor:zoom-in;transition:filter .25s ease}.showcase-img:hover{filter:brightness(1.1)}
 </style>
+<link rel="stylesheet" href="/css/tailwind.css">
 </head>
 <body>
 <nav id="navbar" class="fixed top-0 inset-x-0 z-50 border-b border-white/10">
   <div class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
-    <a href="index.html" class="flex items-center shrink-0"><img src="Endless_Tshirt_Back_1.png" alt="Endless Auto Collection" class="h-6 sm:h-7 md:h-9 w-auto"></a>
+    <a href="index.html" class="flex items-center shrink-0"><img src="Endless_Tshirt_Back_1.webp" alt="Endless Auto Collection" class="h-6 sm:h-7 md:h-9 w-auto"></a>
     <div class="hidden md:flex gap-7 text-xs tracking-widest text-zinc-300">
       <div class="relative group/svc">
         <a href="index.html#services" class="inline-flex items-center gap-1">SERVICES<svg class="w-3 h-3 mt-px transition-transform group-hover/svc:rotate-180" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg></a>
@@ -148,33 +148,37 @@ body{font-family:Inter,system-ui,sans-serif;background:#050505;color:#e4e4e7}
   <h2 class="h2 heading-font mb-4">Watch the work.</h2>
   <p class="text-white/65 max-w-xl mb-8">Builds, details, and shop days from Endless Autoworks. Press play to watch here.</p>
   <div class="grid md:grid-cols-3 gap-5">
+      <!-- yt:cards:start -->
       <div class="card rounded-3xl overflow-hidden">
-        <button type="button" class="yt-lite relative block w-full aspect-video bg-black" data-yt="dWNpwu3I82M" aria-label="Play: Getting Our F80 M3 Ready for Touchdown | Revshift Bushings + Bilstein EDC Shocks">
-          <img src="https://i.ytimg.com/vi/dWNpwu3I82M/hqdefault.jpg" alt="Getting Our F80 M3 Ready for Touchdown | Revshift Bushings + Bilstein EDC Shocks" loading="lazy" class="absolute inset-0 w-full h-full object-cover">
+        <button type="button" class="yt-lite relative block w-full aspect-video bg-black" data-yt="LQzZyGXlrbU" aria-label="Play: Cars and Coffee Bay Area | Chill Sunday Car Meet Vlog at Alexander&#x27;s Patisserie | Cupertino, CA">
+          <img src="https://i.ytimg.com/vi/LQzZyGXlrbU/hqdefault.jpg" alt="Cars and Coffee Bay Area | Chill Sunday Car Meet Vlog at Alexander&#x27;s Patisserie | Cupertino, CA" loading="lazy" class="absolute inset-0 w-full h-full object-cover">
           <span class="absolute inset-0 flex items-center justify-center"><span class="w-14 h-14 rounded-full bg-black/60 backdrop-blur border border-white/30 flex items-center justify-center"><svg class="w-6 h-6 text-white ml-0.5" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span></span>
         </button>
-        <h3 class="text-base font-semibold p-4">Getting Our F80 M3 Ready for Touchdown | Revshift Bushings + Bilstein EDC Shocks</h3>
+        <h3 class="text-base font-semibold p-4">Cars and Coffee Bay Area | Chill Sunday Car Meet Vlog at Alexander&#x27;s Patisserie | Cupertino, CA</h3>
       </div>
       <div class="card rounded-3xl overflow-hidden">
-        <button type="button" class="yt-lite relative block w-full aspect-video bg-black" data-yt="L2c1o-Qete8" aria-label="Play: This Toyota Sienna Needed a Reset | Full Car Detail">
-          <img src="https://i.ytimg.com/vi/L2c1o-Qete8/hqdefault.jpg" alt="This Toyota Sienna Needed a Reset | Full Car Detail" loading="lazy" class="absolute inset-0 w-full h-full object-cover">
+        <button type="button" class="yt-lite relative block w-full aspect-video bg-black" data-yt="DAqY4Em1KUw" aria-label="Play: F80 M3 Differential Bushings Installed + Rear Strut Swap Begins">
+          <img src="https://i.ytimg.com/vi/DAqY4Em1KUw/hqdefault.jpg" alt="F80 M3 Differential Bushings Installed + Rear Strut Swap Begins" loading="lazy" class="absolute inset-0 w-full h-full object-cover">
           <span class="absolute inset-0 flex items-center justify-center"><span class="w-14 h-14 rounded-full bg-black/60 backdrop-blur border border-white/30 flex items-center justify-center"><svg class="w-6 h-6 text-white ml-0.5" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span></span>
         </button>
-        <h3 class="text-base font-semibold p-4">This Toyota Sienna Needed a Reset | Full Car Detail</h3>
+        <h3 class="text-base font-semibold p-4">F80 M3 Differential Bushings Installed + Rear Strut Swap Begins</h3>
       </div>
       <div class="card rounded-3xl overflow-hidden">
-        <button type="button" class="yt-lite relative block w-full aspect-video bg-black" data-yt="oZxXJGU6hEc" aria-label="Play: We Turned Our Auto Shop Into a Peaky Blinders Party">
-          <img src="https://i.ytimg.com/vi/oZxXJGU6hEc/hqdefault.jpg" alt="We Turned Our Auto Shop Into a Peaky Blinders Party" loading="lazy" class="absolute inset-0 w-full h-full object-cover">
+        <button type="button" class="yt-lite relative block w-full aspect-video bg-black" data-yt="-8X6nPS1r_8" aria-label="Play: We Removed BMW M3 Differential Bushings With PLASTIC?! | DIY Bushing Puller M3/M4 F80/F82/F8X">
+          <img src="https://i.ytimg.com/vi/-8X6nPS1r_8/hqdefault.jpg" alt="We Removed BMW M3 Differential Bushings With PLASTIC?! | DIY Bushing Puller M3/M4 F80/F82/F8X" loading="lazy" class="absolute inset-0 w-full h-full object-cover">
           <span class="absolute inset-0 flex items-center justify-center"><span class="w-14 h-14 rounded-full bg-black/60 backdrop-blur border border-white/30 flex items-center justify-center"><svg class="w-6 h-6 text-white ml-0.5" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span></span>
         </button>
-        <h3 class="text-base font-semibold p-4">We Turned Our Auto Shop Into a Peaky Blinders Party</h3>
+        <h3 class="text-base font-semibold p-4">We Removed BMW M3 Differential Bushings With PLASTIC?! | DIY Bushing Puller M3/M4 F80/F82/F8X</h3>
       </div>
+<!-- yt:cards:end -->
   </div>
   <div class="mt-8 flex flex-wrap gap-4">
     <a href="https://www.youtube.com/@EndlessAutoworks" target="_blank" rel="noopener noreferrer" class="btn inline-block px-8 py-3 rounded-2xl">Subscribe on YouTube</a>
   </div>
 </section>
-<script type="application/ld+json">[{"@context": "https://schema.org", "@type": "VideoObject", "name": "Getting Our F80 M3 Ready for Touchdown | Revshift Bushings + Bilstein EDC Shocks", "description": "Our F80 BMW M3 has sat on the lift for weeks. We work through the complications and line up Revshift bushings and Bilstein EDC shocks.", "thumbnailUrl": "https://i.ytimg.com/vi/dWNpwu3I82M/hqdefault.jpg", "uploadDate": "2026-10-08T12:03:45-07:00", "duration": "PT2M21S", "embedUrl": "https://www.youtube-nocookie.com/embed/dWNpwu3I82M", "contentUrl": "https://www.youtube.com/watch?v=dWNpwu3I82M"}, {"@context": "https://schema.org", "@type": "VideoObject", "name": "This Toyota Sienna Needed a Reset | Full Car Detail", "description": "Trash, dirty carpets, and a Toyota Sienna ready for a fresh start. A full car detail, behind the scenes at Endless Autoworks.", "thumbnailUrl": "https://i.ytimg.com/vi/L2c1o-Qete8/hqdefault.jpg", "uploadDate": "2026-10-07T10:52:26-07:00", "duration": "PT2M20S", "embedUrl": "https://www.youtube-nocookie.com/embed/L2c1o-Qete8", "contentUrl": "https://www.youtube.com/watch?v=L2c1o-Qete8"}, {"@context": "https://schema.org", "@type": "VideoObject", "name": "We Turned Our Auto Shop Into a Peaky Blinders Party", "description": "We turned Endless Autoworks into a Peaky Blinders-inspired after-hours party.", "thumbnailUrl": "https://i.ytimg.com/vi/oZxXJGU6hEc/hqdefault.jpg", "uploadDate": "2026-10-06T11:59:03-07:00", "duration": "PT6M57S", "embedUrl": "https://www.youtube-nocookie.com/embed/oZxXJGU6hEc", "contentUrl": "https://www.youtube.com/watch?v=oZxXJGU6hEc"}]</script>
+<!-- yt:schema:start -->
+<script type="application/ld+json">[{"@context": "https://schema.org", "@type": "VideoObject", "name": "Cars and Coffee Bay Area | Chill Sunday Car Meet Vlog at Alexander's Patisserie | Cupertino, CA", "description": "A relaxed cars and coffee car meet vlog from the Bay Area, filmed at Alexander's Patisserie on a Sunday morning.", "thumbnailUrl": "https://i.ytimg.com/vi/LQzZyGXlrbU/hqdefault.jpg", "uploadDate": "2026-10-13T19:47:43+00:00", "duration": "PT6M55S", "embedUrl": "https://www.youtube-nocookie.com/embed/LQzZyGXlrbU", "contentUrl": "https://www.youtube.com/watch?v=LQzZyGXlrbU"}, {"@context": "https://schema.org", "@type": "VideoObject", "name": "F80 M3 Differential Bushings Installed + Rear Strut Swap Begins", "description": "We put the F80 M3 differential back in with new bushings, reconnected the driveshaft and brace, then started on the rear passenger strut and spring for the Bilstein B1 shocks.", "thumbnailUrl": "https://i.ytimg.com/vi/DAqY4Em1KUw/hqdefault.jpg", "uploadDate": "2026-10-12T19:55:09+00:00", "duration": "PT4M37S", "embedUrl": "https://www.youtube-nocookie.com/embed/DAqY4Em1KUw", "contentUrl": "https://www.youtube.com/watch?v=DAqY4Em1KUw"}, {"@context": "https://schema.org", "@type": "VideoObject", "name": "We Removed BMW M3 Differential Bushings With PLASTIC?! | DIY Bushing Puller M3/M4 F80/F82/F8X", "description": "Torque Specifications: https://endlessautocollection.com/f80-m3-differential-bushing", "thumbnailUrl": "https://i.ytimg.com/vi/-8X6nPS1r_8/hqdefault.jpg", "uploadDate": "2026-10-09T18:57:41+00:00", "duration": "PT6M36S", "embedUrl": "https://www.youtube-nocookie.com/embed/-8X6nPS1r_8", "contentUrl": "https://www.youtube.com/watch?v=-8X6nPS1r_8"}]</script>
+<!-- yt:schema:end -->
 <script>
 document.querySelectorAll('.yt-lite').forEach(b=>b.addEventListener('click',()=>{const f=document.createElement('iframe');f.src='https://www.youtube-nocookie.com/embed/'+b.dataset.yt+'?autoplay=1&rel=0';f.title=b.getAttribute('aria-label').replace('Play: ','');f.allow='autoplay; encrypted-media; picture-in-picture; fullscreen';f.allowFullscreen=true;f.className='block w-full aspect-video';f.style.border='0';b.replaceWith(f)}));
 </script>

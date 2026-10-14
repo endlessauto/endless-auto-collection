@@ -18,3 +18,5 @@ wrangler.toml
 .gitignore
 .assetsignore
 image-originals/
+tailwind.config.js
+css/tailwind.src.css
