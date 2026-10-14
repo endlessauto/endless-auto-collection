@@ -10,3 +10,10 @@ PPF Model/
 Car Window Tint Models/
 docs/
 Hi-Quality Photos/
+CLAUDE.md
+README.md
+.claude/
+scripts/
+wrangler.toml
+.gitignore
+.assetsignore
