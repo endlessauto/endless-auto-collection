@@ -7,7 +7,7 @@
   audio.id = 'bg-music';
   audio.src = SRC;
   audio.loop = true;
-  audio.preload = 'auto';
+  audio.preload = 'metadata';
   document.body.appendChild(audio);
 
   var savedTime = parseFloat(localStorage.getItem(TIME_KEY));
