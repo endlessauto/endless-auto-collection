@@ -24,6 +24,10 @@ Added `docs/marketing/references/youtube-engine-playbook.md`, a reference doc di
 
 Added `docs/marketing/youtube-catalog.md`, a record of posted YouTube long-form and Shorts with public view counts, maintained by `scripts/refresh_youtube_catalog.py` (stdlib Python, channel RSS feed, no API key). The script merges into the file, so rows stay after they leave the feed's 15-item window. The daily scheduled research run refreshes it first and commits the result; `content-engine` checks it to avoid repeating posted topics, and `performance` reads view counts from it. YouTube is read-only and public data only. The Meta API non-goal is unchanged; Instagram stays manual.
 
+## Amendment 5 (2026-10-15)
+
+Added a **Carousel** sub-skill (`carousel.md`) modeled on the user's existing carousel routine for another product, rebuilt for the Endless brand. It writes four self-contained HTML Instagram carousels per day (1-slide, 3–5 slide, two 8–10 slide) to `docs/marketing/carousels/YYYY-MM-DD/`, styled per `docs/marketing/carousel-style.md` and the reference build in `docs/marketing/carousels/template/reference.html`. It runs daily as a second scheduled cloud routine after the research brief, and on demand. Photos are real repo images only (no generation); each carousel is graded and staged unchecked in the approval queue. Nothing posts. `docs/` is already excluded from deploy by `.assetsignore`.
+
 ## Purpose
 
 Endless Auto Collection (EAC) wants to build a repeatable system, run through Claude Code, for producing car-owner video content that markets the shop's craft and builds a "Build Archive" library on the website. The immediate deadline is one high-production long-form piece (interview + b-roll + car shots) ready before SEMA, then short-form cutdowns for other platforms. Production is not for sale yet — it's a brand asset to show prospective customers and partners what EAC can do.

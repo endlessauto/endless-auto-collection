@@ -17,6 +17,7 @@ Router and shared context for Endless Auto Collection (EAC) content. This skill 
 | Prepare a video for publishing: title, thumbnail text, description, tags, keyword research | `publish.md` |
 | "What's trending", competitor or format research | `research.md` |
 | "How did this post do", pasted analytics | `performance.md` |
+| Instagram carousels (HTML slides), daily carousel batch | `carousel.md` |
 | "First 3 videos", sprint, remix an outlier | `research.md` then `content-engine.md` (Kallaway playbook section 6) |
 
 Paths are relative to this folder. If a request spans two, run them in the data-flow order below.
@@ -58,6 +59,8 @@ Tag every idea and piece with exactly one: **Build Stories**, **Process & Craft*
 | `docs/marketing/trend-briefs/` | Dated research briefs |
 | `docs/marketing/build-archives/` | Per-car briefs and archive copy |
 | `docs/marketing/publish/` | Per-video publish packages (keywords, titles, thumbnail text, description, tags) |
+| `docs/marketing/carousel-style.md` | Carousel visual rules |
+| `docs/marketing/carousels/` | Dated carousel batches; `template/reference.html` is the style reference |
 
 ## Data flow
 
@@ -65,6 +68,6 @@ research → inbox check → brainstorm → calendar row (`idea`) → filming ha
 
 ## Hard limits
 
-- Text and markdown only. No image/video generation, no posting, no Meta API.
+- Text, markdown, and self-contained HTML carousels only. No image/video generation, no posting, no Meta API.
 - Never mark anything approved or `scheduled` without a checked box in the approval queue.
 - Never invent car specs, owner quotes, or analytics. Ask or mark `TBD`.
