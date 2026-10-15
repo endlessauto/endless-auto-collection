@@ -8,7 +8,7 @@ Builds Instagram carousels as self-contained HTML files, ready to screenshot. Ru
 |------|-----|
 | `../SKILL.md` (this skill's router) | Brand voice, pillars, hard limits |
 | `docs/marketing/carousel-style.md` | Visual rules: palette, type, slide types, photos |
-| `docs/marketing/carousels/template/reference.html` | The build to copy. Same `<head>`, CSS, sphere symbol and markup |
+| `docs/marketing/carousels/template/reference.html` | The build to copy. Same `<head>`, CSS, inline background sphere and markup |
 | `docs/marketing/content-grader.md` | Score every carousel before saving |
 | `docs/marketing/idea-inbox.md` | Team ideas come first |
 | Latest `docs/marketing/trend-briefs/` file from the last 7 days | Inspiration, same tier as your own ideas |
@@ -91,7 +91,7 @@ Never imply a lead magnet, DM flow or email list exists.
 
 ## Build
 
-- Start from `reference.html`. Keep the Google Fonts link, `:root` tokens, CSS and the `#sphere` symbol unchanged. Only add CSS when a layout truly needs it.
+- Start from `reference.html`. Keep the Google Fonts link, `:root` tokens, CSS and the inline `.sph-bg` SVG unchanged. Never use `<use href>` references; they vanish in the PNG export. Only add CSS when a layout truly needs it.
 - Photo and logo `src` values are full live-site URLs (`https://www.endlessautocollection.com/images/...`), never relative paths, so the HTML renders when opened from an email. Only use files listed in `carousel-style.md` or found in `images/` and already deployed. Never hotlink stock or generate images.
 - Each slide sits in `.sw` with a `.sn` label, the `.slide`, then a `.shot-note`.
 - The `.brief` box at the top holds: format, pillar, hook type (with current belief vs true contrast), angle source, caption with 4–6 hashtags (always `#fremontca`), CTA asset and status, grade, open items, supporting photos.
@@ -109,8 +109,8 @@ All carousels:
 - [ ] Gradient (`.metal`) text on slide 2 only
 - [ ] Content slides left-aligned with `.num`, `.bar`, 1–3 gold keywords
 - [ ] No headline over 10 words, no supporting line over 18
-- [ ] ENDLESS wordmark and sphere mark on slides 2–9, not on 1 or the CTA
-- [ ] CTA slide has the script logo image and exactly one action with a real URL
+- [ ] Logo image (`.flogo`) bottom-left on slides 2–9 and top-left on slide 1. No typed ENDLESS, no sphere in the corners
+- [ ] CTA slide has the full logo image (`.logo`) and exactly one action with a real URL
 - [ ] Only repo photos, each listed in "Supporting photos"
 - [ ] A `.shot-note` below every slide, nothing production-related inside a slide
 - [ ] No exclamation points, no hype, sentence case
@@ -121,7 +121,7 @@ Hook slide:
 - [ ] No hero line wraps mid-phrase
 
 1-slide posts:
-- [ ] `.tb`, `.sph-bg`, `.hd`, `.st`, `.cb`, `.wm`, `.sph` all present
+- [ ] `.tb`, `.sph-bg`, `.hd`, `.st`, `.cb`, `.flogo` all present
 
 Per run:
 - [ ] 1 × 1-slide, 1 × 3–5 slide, 2 × 8–10 slide with different hook types

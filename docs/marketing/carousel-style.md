@@ -16,7 +16,7 @@ The reference build is `docs/marketing/carousels/template/reference.html`. Copy 
 |-------|-----|-----|
 | `--black` | #050505 | Every slide background, except the insight slide |
 | `--graphite` | #191919 | Insight slide background, panels |
-| `--gold` | #F5B51B | Key words, accent bar, rules, sphere mark. Accent only, never a fill behind text |
+| `--gold` | #F5B51B | Key words, accent bar, rules, faint background sphere. Accent only, never a fill behind text |
 | `--gold-hi` | #FFD45A | Bright end of gold gradients |
 | `--gold-burnt` | #C77A00 | Dark end of gold gradients |
 | `--white` | #F4F4F2 | Headlines |
@@ -28,12 +28,12 @@ Ratio per slide: about 70% black, 20% white/steel, 10% gold. If a slide looks ye
 
 | Role | Font | Settings |
 |------|------|----------|
-| Display (headlines, hero words, wordmark) | Archivo, wide | `font-stretch:125%`, weight 700–800, tight line height (1.0–1.15) |
+| Display (headlines, hero words) | Archivo, wide | `font-stretch:125%`, weight 700–800, tight line height (1.0–1.15) |
 | Supporting lines, setup phrases | Inter | 400–500, 13–16 px, `--steel` |
 | Eyebrows, labels, footer | Inter | 600, 9–10 px, uppercase, letter spacing 2–4 px |
-| Script logo (CTA slide only) | `Endless_Tshirt_Back_1.webp` image | Never retype it in a font |
+| Logo | `images/endless-logo.png` image (`.flogo`, `.logo`) | Never retype ENDLESS or the script in a font. Never use the sphere as a logo |
 
-Load both from one Google Fonts link (see the reference file). Copy stays in sentence case. Only the ENDLESS wordmark and small labels are uppercase.
+Load both from one Google Fonts link (see the reference file). Copy stays in sentence case. Only small labels are uppercase.
 
 ### Hook slide sizes
 
@@ -51,13 +51,15 @@ Put long setup phrases in Inter (16 px, `--steel`). Reserve big Archivo for 1–
 
 | Slide | Layout |
 |-------|--------|
-| 1 Hook | Full-bleed real shop photo (`.ph`) under a black gradient (`.shade`), eyebrow label in gold, setup line in Inter, hero words in Archivo. ENDLESS wordmark top-left, "Swipe" cue bottom-right. With no fitting photo, use the black background with a large faint sphere (`.sph-bg`) |
+| 1 Hook | Full-bleed real shop photo (`.ph`) under a black gradient (`.shade`), eyebrow label in gold, setup line in Inter, hero words in Archivo. Logo (`.flogo.top`) top-left, "Swipe" cue bottom-right. With no fitting photo, use the black background with a large faint sphere (`.sph-bg`) |
 | 2 Transition | Centered. Short gold rule above. Metallic text (`.metal`: white to steel gradient). This is the only slide with gradient text |
 | 3–8 Content | Left-aligned. Outlined step number (`.num`), gold accent bar (`.bar`) beside the headline, gold `<b>` on 1–3 key words, one Inter supporting line. Optional top photo panel (`.ph-top`) when a real photo fits the point |
 | 9 Insight | `--graphite` background, large faint sphere behind, centered reframe. The save-worthy line |
-| 10 CTA | Centered. Script logo image, one Archivo line, one action in a gold outlined pill (`.pill`) with the real URL. One action only |
+| 10 CTA | Centered. Full logo image (`.logo`), one Archivo line, one action in a gold outlined pill (`.pill`) with the real URL. One action only |
 
-Slides 2–9 carry the footer: ENDLESS wordmark (`.wm`) bottom-left and the Endless Sphere mark (`.sph`) bottom-right. Slides 1 and 10 do not.
+Slides 2–9 carry the logo (`.flogo`) bottom-left. No sphere mark in the corners. Slide 1 carries it top-left; the CTA slide carries it large and centered.
+
+Export rule: everything on a slide must be inline markup, `<img>` or CSS. Never `<use href="#id">` or any reference to an element outside the slide; the PNG exporter drops it. The faint background sphere is a self-contained inline `<svg class="sph-bg">` copied from the reference.
 
 For 3–5 slide posts, keep the same slide types and drop content slides. For 1-slide posts, see below.
 
@@ -72,8 +74,7 @@ Never text on plain black alone. Every 1-slider has:
 | Statement in Archivo, gold on 1–3 words | `.hd` |
 | Subtitle in Inter, `--steel` | `.st` |
 | Gold outlined pill: location or next step | `.cb` |
-| ENDLESS wordmark bottom-left | `.wm` |
-| Sphere mark bottom-right | `.sph` |
+| Logo bottom-left | `.flogo` |
 
 A real photo background (`.ph` + `.shade`) is allowed on a 1-slider when it is the proof.
 
@@ -100,7 +101,7 @@ Available now. Use the full live-site URL so the file renders anywhere, includin
 | `https://www.endlessautocollection.com/images/paint-protection-film.webp` | PPF (landscape) |
 | `https://www.endlessautocollection.com/images/ppf-front-end-m3.webp`, `ppf-full-body-m3.webp` | PPF coverage diagrams on an M3 |
 | `https://www.endlessautocollection.com/images/tint-vlt-5.webp` … `tint-vlt-100.webp` | Tint shade renders, 5 to 100% VLT |
-| `https://www.endlessautocollection.com/Endless_Tshirt_Back_1.webp` | "Auto Collection" gold script logo (CTA slide) |
+| `https://www.endlessautocollection.com/images/endless-logo.png` | Full Endless Auto Collection logo, white block "ENDLESS" over gold script. Always use this for branding |
 
 Check the folder before each run; new photos may have landed. When no photo fits, use a text layout and write the shot you need in the slide's `.shot-note`.
 
