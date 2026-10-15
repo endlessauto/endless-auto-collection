@@ -8,6 +8,7 @@ For content, social, video scripts, captions, Build Archive pages, the content c
 
 - Calendar: `docs/marketing/content-calendar.md`
 - Build archives: `docs/marketing/build-archives/`
+- Carousels: `docs/marketing/carousels/YYYY-MM-DD/` (daily scheduled run), style in `docs/marketing/carousel-style.md`
 - Design spec: `docs/superpowers/specs/2026-09-28-eac-marketer-agent-design.md`
 
 Voice and brand standards come from the global `~/.claude/CLAUDE.md`. Don't duplicate them here.
