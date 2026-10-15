@@ -11,3 +11,18 @@
 
 /images/*
   Access-Control-Allow-Origin: *
+
+/*.webp
+  Access-Control-Allow-Origin: *
+
+/*.jpg
+  Access-Control-Allow-Origin: *
+
+/*.jpeg
+  Access-Control-Allow-Origin: *
+
+/*.png
+  Access-Control-Allow-Origin: *
+
+/*.svg
+  Access-Control-Allow-Origin: *

@@ -314,7 +314,7 @@ If you're not sure what your paint can take, ask before anyone polishes it. Deta
   var slides=[].slice.call(document.querySelectorAll('.slide'));
   var pad=function(n){return (n<10?'0':'')+n};
   function name(i){return base+'-slide-'+pad(i+1)+'.png'}
-  function save(url,file){var a=document.createElement('a');a.href=url;a.download=file;document.body.appendChild(a);a.click();a.remove()}
+  var touch=window.matchMedia&&matchMedia('(pointer:coarse)').matches;
   var fontCss;
   function toData(u){return fetch(u).then(function(r){return r.blob()}).then(function(b){return new Promise(function(ok){var f=new FileReader();f.onload=function(){ok(f.result)};f.readAsDataURL(b)})})}
   async function fonts(){
@@ -328,35 +328,48 @@ If you're not sure what your paint can take, ask before anyone polishes it. Deta
     }catch(e){fontCss=''}
     return fontCss;
   }
-  async function render(el){return htmlToImage.toPng(el,{pixelRatio:3,cacheBust:true,width:360,height:450,fontEmbedCSS:await fonts()})}
-  async function one(i,btn){
-    var t=btn.textContent;btn.disabled=true;btn.textContent='Preparing…';
-    try{save(await render(slides[i]),name(i))}
-    catch(e){alert('Could not export slide '+(i+1)+'. Open this page from the website link, not a saved copy, and try again.')}
-    btn.disabled=false;btn.textContent=t;
+  var cache=[];
+  function file(i){
+    if(!cache[i])cache[i]=fonts().then(function(fc){return htmlToImage.toBlob(slides[i],{pixelRatio:3,cacheBust:true,width:360,height:450,fontEmbedCSS:fc})}).then(function(b){return new File([b],name(i),{type:'image/png'})}).catch(function(e){cache[i]=null;throw e});
+    return cache[i];
+  }
+  function save(f){
+    var url=URL.createObjectURL(f),a=document.createElement('a');
+    a.href=url;a.download=f.name;document.body.appendChild(a);a.click();a.remove();
+    setTimeout(function(){URL.revokeObjectURL(url)},10000);
+  }
+  async function deliver(files){
+    if(touch&&navigator.canShare&&navigator.canShare({files:files})){
+      try{await navigator.share({files:files});return}
+      catch(e){if(e&&e.name==='AbortError')return}
+    }
+    for(var i=0;i<files.length;i++){save(files[i]);await new Promise(function(r){setTimeout(r,500)})}
+  }
+  async function guard(btn,label,fn){
+    btn.disabled=true;btn.textContent='Preparing…';
+    try{await fn()}catch(e){alert('Could not export. Open this page in Safari or Chrome from the website link and try again.')}
+    btn.disabled=false;btn.textContent=label;
   }
   slides.forEach(function(s,i){
-    var b=document.createElement('button');b.className='dl-btn';b.textContent='Download as PNG';
-    b.onclick=function(){one(i,b)};
+    var b=document.createElement('button');b.className='dl-btn';b.textContent=touch?'Save PNG':'Download as PNG';
+    var label=b.textContent;
+    b.onclick=function(){guard(b,label,async function(){await deliver([await file(i)])})};
     s.parentNode.insertBefore(b,s.nextSibling);
   });
   var first=document.querySelector('.deck');
   if(first&&slides.length){
     var bar=document.createElement('div');bar.className='dl-bar';
-    var all=document.createElement('button');all.className='dl-btn dl-all';all.textContent='Download all slides';
-    all.onclick=async function(){
-      all.disabled=true;
-      try{
-        for(var i=0;i<slides.length;i++){
-          all.textContent='Preparing '+(i+1)+' of '+slides.length+'…';
-          save(await render(slides[i]),name(i));
-          await new Promise(function(r){setTimeout(r,500)});
-        }
-      }catch(e){alert('Could not export all slides. Open this page from the website link and try again.')}
-      all.disabled=false;all.textContent='Download all slides';
-    };
+    var all=document.createElement('button');all.className='dl-btn dl-all';all.textContent=touch?'Save all slides':'Download all slides';
+    var allLabel=all.textContent;
+    all.onclick=function(){guard(all,allLabel,async function(){
+      var files=[];for(var i=0;i<slides.length;i++)files.push(await file(i));
+      await deliver(files);
+    })};
     bar.appendChild(all);first.parentNode.insertBefore(bar,first);
   }
+  window.addEventListener('load',async function(){
+    for(var i=0;i<slides.length;i++){try{await file(i)}catch(e){cache[i]=null}}
+  });
 })();
 </script>
 
