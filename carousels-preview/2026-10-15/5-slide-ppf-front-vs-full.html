@@ -202,7 +202,20 @@ Tell us your commute and we will talk through it. endlessautocollection.com/ppf
   var pad=function(n){return (n<10?'0':'')+n};
   function name(i){return base+'-slide-'+pad(i+1)+'.png'}
   function save(url,file){var a=document.createElement('a');a.href=url;a.download=file;document.body.appendChild(a);a.click();a.remove()}
-  function render(el){return htmlToImage.toPng(el,{pixelRatio:3,cacheBust:true,width:360,height:450})}
+  var fontCss;
+  function toData(u){return fetch(u).then(function(r){return r.blob()}).then(function(b){return new Promise(function(ok){var f=new FileReader();f.onload=function(){ok(f.result)};f.readAsDataURL(b)})})}
+  async function fonts(){
+    if(fontCss!==undefined)return fontCss;
+    try{
+      var href=document.querySelector('link[href*="fonts.googleapis.com/css2"]').href;
+      var css=await (await fetch(href)).text();
+      var urls=css.match(/url\(([^)]+)\)/g)||[];
+      for(var i=0;i<urls.length;i++){var u=urls[i].slice(4,-1).replace(/["']/g,'');css=css.split(u).join(await toData(u))}
+      fontCss=css;
+    }catch(e){fontCss=''}
+    return fontCss;
+  }
+  async function render(el){return htmlToImage.toPng(el,{pixelRatio:3,cacheBust:true,width:360,height:450,fontEmbedCSS:await fonts()})}
   async function one(i,btn){
     var t=btn.textContent;btn.disabled=true;btn.textContent='Preparing…';
     try{save(await render(slides[i]),name(i))}
