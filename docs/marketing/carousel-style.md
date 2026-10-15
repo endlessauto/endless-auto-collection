@@ -81,26 +81,26 @@ A real photo background (`.ph` + `.shade`) is allowed on a 1-slider when it is t
 
 Only real Endless photos from the repo. No stock, no AI images, no recolored cars. Gold comes from the graphic layer, never from the car.
 
-Available now (paths from a dated output folder):
+Available now. Use the full live-site URL so the file renders anywhere, including as an email attachment:
 
 | File | Shows |
 |------|-------|
-| `../../../../images/showcase/polish.jpg` | Machine polishing a blue BMW hood (portrait) |
-| `../../../../images/showcase/ppf-install.jpg` | PPF install (landscape) |
-| `../../../../images/showcase/team.jpg` | The team (landscape) |
-| `../../../../images/showcase/m2-lift.jpg` | M2 on the lift (portrait) |
-| `../../../../images/showcase/m4-lift.jpg` | M4 on the lift (landscape) |
-| `../../../../images/showcase/engine-bay.jpg` | Engine bay (portrait) |
-| `../../../../images/showcase/supra.jpg` | Supra (portrait) |
-| `../../../../images/showcase/night-drive.jpg` | Night drive (portrait) |
-| `../../../../images/showcase/grinder.jpg` | Grinder sparks, fabrication (portrait) |
-| `../../../../images/showcase/bike.jpg` | Motorcycle (portrait) |
-| `../../../../images/ceramic-coating.webp` | Ceramic coating (portrait) |
-| `../../../../images/custom-wraps.webp` | Wrap work (portrait) |
-| `../../../../images/paint-protection-film.webp` | PPF (landscape) |
-| `../../../../images/ppf-front-end-m3.webp`, `ppf-full-body-m3.webp` | PPF coverage diagrams on an M3 |
-| `../../../../images/tint-vlt-5.webp` … `tint-vlt-100.webp` | Tint shade renders, 5 to 100% VLT |
-| `../../../../Endless_Tshirt_Back_1.webp` | "Auto Collection" gold script logo (CTA slide) |
+| `https://www.endlessautocollection.com/images/showcase/polish.jpg` | Machine polishing a blue BMW hood (portrait) |
+| `https://www.endlessautocollection.com/images/showcase/ppf-install.jpg` | PPF install (landscape) |
+| `https://www.endlessautocollection.com/images/showcase/team.jpg` | The team (landscape) |
+| `https://www.endlessautocollection.com/images/showcase/m2-lift.jpg` | M2 on the lift (portrait) |
+| `https://www.endlessautocollection.com/images/showcase/m4-lift.jpg` | M4 on the lift (landscape) |
+| `https://www.endlessautocollection.com/images/showcase/engine-bay.jpg` | Engine bay (portrait) |
+| `https://www.endlessautocollection.com/images/showcase/supra.jpg` | Supra (portrait) |
+| `https://www.endlessautocollection.com/images/showcase/night-drive.jpg` | Night drive (portrait) |
+| `https://www.endlessautocollection.com/images/showcase/grinder.jpg` | Grinder sparks, fabrication (portrait) |
+| `https://www.endlessautocollection.com/images/showcase/bike.jpg` | Motorcycle (portrait) |
+| `https://www.endlessautocollection.com/images/ceramic-coating.webp` | Ceramic coating (portrait) |
+| `https://www.endlessautocollection.com/images/custom-wraps.webp` | Wrap work (portrait) |
+| `https://www.endlessautocollection.com/images/paint-protection-film.webp` | PPF (landscape) |
+| `https://www.endlessautocollection.com/images/ppf-front-end-m3.webp`, `ppf-full-body-m3.webp` | PPF coverage diagrams on an M3 |
+| `https://www.endlessautocollection.com/images/tint-vlt-5.webp` … `tint-vlt-100.webp` | Tint shade renders, 5 to 100% VLT |
+| `https://www.endlessautocollection.com/Endless_Tshirt_Back_1.webp` | "Auto Collection" gold script logo (CTA slide) |
 
 Check the folder before each run; new photos may have landed. When no photo fits, use a text layout and write the shot you need in the slide's `.shot-note`.
 

@@ -92,7 +92,7 @@ Never imply a lead magnet, DM flow or email list exists.
 ## Build
 
 - Start from `reference.html`. Keep the Google Fonts link, `:root` tokens, CSS and the `#sphere` symbol unchanged. Only add CSS when a layout truly needs it.
-- Photo paths are relative to the dated folder: `../../../../images/...`. Only use files listed in `carousel-style.md` or found in `images/`. Never hotlink stock or generate images.
+- Photo and logo `src` values are full live-site URLs (`https://www.endlessautocollection.com/images/...`), never relative paths, so the HTML renders when opened from an email. Only use files listed in `carousel-style.md` or found in `images/` and already deployed. Never hotlink stock or generate images.
 - Each slide sits in `.sw` with a `.sn` label, the `.slide`, then a `.shot-note`.
 - The `.brief` box at the top holds: format, pillar, hook type (with current belief vs true contrast), angle source, caption with 4–6 hashtags (always `#fremontca`), CTA asset and status, grade, open items, supporting photos.
 
@@ -136,3 +136,12 @@ After saving, add one unchecked line per carousel to `docs/marketing/approval-qu
 ```
 
 Never check a box, never edit the calendar, never post.
+
+## Email delivery (scheduled runs)
+
+After committing, email the day's carousels to endlessautocollection@gmail.com only, with the Gmail `send_message` tool:
+
+- Attach each of the 4 HTML files: `content` = output of `base64 -w0 <file>`, `mimeType` = `text/html`, `filename` = the file name.
+- Subject: `EAC carousels YYYY-MM-DD: <strongest hook, under 60 characters>`.
+- Plain text body (no Markdown symbols): per carousel, file name, format, pillar, hook, grade, caption, open items. Then one line on whether the push to main succeeded, and one line: "Open the attachments in a browser to view and screenshot the slides."
+- If attaching fails, send the same email without attachments and say so in the body.
