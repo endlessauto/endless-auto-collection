@@ -137,6 +137,10 @@ After saving, add one unchecked line per carousel to `docs/marketing/approval-qu
 
 Never check a box, never edit the calendar, never post.
 
+## PNG export
+
+Every carousel file must keep the `<!-- PNG export: do not remove -->` block (style plus two scripts) from `template/reference.html`, copied unchanged just before `</body>`. It adds a "Download as PNG" button under each slide and a "Download all slides" button above the deck. Exports are 1080×1350 PNGs. Don't rename `.slide`, `.sw` or `.deck`.
+
 ## Email delivery (scheduled runs)
 
 Gmail attachments need the whole file passed through the send call, which fails at this size. Publish unlisted preview copies and email links instead.

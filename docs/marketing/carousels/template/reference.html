@@ -299,5 +299,53 @@ If you're not sure what your paint can take, ask before anyone polishes it. Deta
   </div>
 </div>
 
+<!-- PNG export: do not remove -->
+<style>
+.dl-bar{max-width:760px;margin:0 auto 24px;display:flex;justify-content:center}
+.dl-btn{display:block;margin:10px auto 0;padding:9px 18px;border:1.5px solid rgba(245,181,27,.55);border-radius:20px;background:transparent;color:#F5B51B;font:600 11px 'Inter',sans-serif;letter-spacing:1.5px;text-transform:uppercase;cursor:pointer}
+.dl-btn:hover{background:rgba(245,181,27,.12)}
+.dl-btn:disabled{opacity:.5;cursor:default}
+.dl-all{padding:12px 26px;font-size:12px}
+</style>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html-to-image/1.11.11/html-to-image.min.js"></script>
+<script>
+(function(){
+  var base=(location.pathname.split('/').pop()||'carousel').replace(/\.html$/,'');
+  var slides=[].slice.call(document.querySelectorAll('.slide'));
+  var pad=function(n){return (n<10?'0':'')+n};
+  function name(i){return base+'-slide-'+pad(i+1)+'.png'}
+  function save(url,file){var a=document.createElement('a');a.href=url;a.download=file;document.body.appendChild(a);a.click();a.remove()}
+  function render(el){return htmlToImage.toPng(el,{pixelRatio:3,cacheBust:true,width:360,height:450})}
+  async function one(i,btn){
+    var t=btn.textContent;btn.disabled=true;btn.textContent='Preparing…';
+    try{save(await render(slides[i]),name(i))}
+    catch(e){alert('Could not export slide '+(i+1)+'. Open this page from the website link, not a saved copy, and try again.')}
+    btn.disabled=false;btn.textContent=t;
+  }
+  slides.forEach(function(s,i){
+    var b=document.createElement('button');b.className='dl-btn';b.textContent='Download as PNG';
+    b.onclick=function(){one(i,b)};
+    s.parentNode.insertBefore(b,s.nextSibling);
+  });
+  var first=document.querySelector('.deck');
+  if(first&&slides.length){
+    var bar=document.createElement('div');bar.className='dl-bar';
+    var all=document.createElement('button');all.className='dl-btn dl-all';all.textContent='Download all slides';
+    all.onclick=async function(){
+      all.disabled=true;
+      try{
+        for(var i=0;i<slides.length;i++){
+          all.textContent='Preparing '+(i+1)+' of '+slides.length+'…';
+          save(await render(slides[i]),name(i));
+          await new Promise(function(r){setTimeout(r,500)});
+        }
+      }catch(e){alert('Could not export all slides. Open this page from the website link and try again.')}
+      all.disabled=false;all.textContent='Download all slides';
+    };
+    bar.appendChild(all);first.parentNode.insertBefore(bar,first);
+  }
+})();
+</script>
+
 </body>
 </html>
