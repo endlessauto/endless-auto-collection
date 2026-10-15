@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PPF front-end vs full body</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=Inter:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+:root{--black:#050505;--graphite:#191919;--gold:#F5B51B;--gold-hi:#FFD45A;--gold-burnt:#C77A00;--white:#F4F4F2;--steel:#BFC1C3}
+*{box-sizing:border-box}
+body{margin:0;background:#121212;color:var(--white);font-family:'Inter',sans-serif;padding:24px 16px 64px}
+
+/* Brief box */
+.brief{max-width:760px;margin:0 auto 28px;padding:18px 20px;background:#1a1a1a;border:1px solid rgba(245,181,27,.25);border-radius:8px;font-size:13px;line-height:1.6;color:#d9d9d6}
+.brief h1{font-family:'Archivo',sans-serif;font-stretch:125%;font-weight:800;font-size:18px;margin:0 0 10px;color:var(--white)}
+.brief b{color:var(--gold);font-weight:600}
+.brief ul{margin:4px 0 8px;padding-left:18px}
+.brief .cap{white-space:pre-line;background:#111;border-radius:6px;padding:10px 12px;margin:4px 0 8px}
+
+/* Deck */
+.deck{display:flex;flex-wrap:wrap;gap:22px;justify-content:center}
+.sw{width:360px}
+.sn{font:600 10px 'Inter',sans-serif;letter-spacing:2px;text-transform:uppercase;color:#7d7f81;margin-bottom:6px}
+.slide{position:relative;width:360px;height:450px;background:var(--black);overflow:hidden;color:var(--white)}
+.slide.insight{background:var(--graphite)}
+.pad{position:absolute;inset:24px;display:flex;flex-direction:column;z-index:3}
+.center{justify-content:center;align-items:center;text-align:center}
+
+/* Type */
+.hd{font-family:'Archivo',sans-serif;font-stretch:125%;font-weight:800;line-height:1.05;letter-spacing:-.2px}
+.hd b,.cl b{color:var(--gold);font-weight:800}
+.eb{font:600 9px 'Inter',sans-serif;letter-spacing:3px;text-transform:uppercase;color:var(--gold)}
+.setup{font:italic 400 16px/1.4 'Inter',sans-serif;color:var(--steel)}
+.sup{font:400 14px/1.5 'Inter',sans-serif;color:var(--steel);margin-top:12px}
+.metal{background:linear-gradient(180deg,#FFFFFF 0%,#F4F4F2 40%,#BFC1C3 75%,#8E9093 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
+.rule{width:36px;height:2px;background:var(--gold);margin:0 auto 18px}
+
+/* Photos */
+.ph{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0}
+.shade{position:absolute;inset:0;z-index:1;background:linear-gradient(to top,rgba(5,5,5,.97) 0%,rgba(5,5,5,.85) 38%,rgba(5,5,5,.25) 75%,rgba(5,5,5,.55) 100%)}
+.ph-top{position:absolute;top:0;left:0;right:0;height:180px;width:100%;object-fit:cover;z-index:0}
+.ph-top-fade{position:absolute;top:0;left:0;right:0;height:180px;z-index:1;background:linear-gradient(to bottom,rgba(5,5,5,0) 40%,var(--black) 100%)}
+
+/* Content slides */
+.num{font-family:'Archivo',sans-serif;font-stretch:125%;font-weight:800;font-size:64px;line-height:1;color:transparent;-webkit-text-stroke:1px rgba(191,193,195,.35)}
+.cl{position:relative;padding-left:16px;margin-top:auto;margin-bottom:auto}
+.bar{position:absolute;left:0;top:4px;bottom:4px;width:3px;background:linear-gradient(to bottom,var(--gold-hi),var(--gold-burnt))}
+.cl .hd{font-size:25px;font-weight:700}
+
+/* Footer and marks */
+.wm{position:absolute;left:24px;bottom:18px;z-index:5;font-family:'Archivo',sans-serif;font-stretch:125%;font-weight:800;font-size:10px;letter-spacing:4px;color:rgba(244,244,242,.6)}
+.sph{position:absolute;right:22px;bottom:14px;width:20px;height:20px;z-index:5;opacity:.85}
+.sph-bg{position:absolute;width:300px;height:300px;left:30px;top:75px;opacity:.07;z-index:0}
+.swipe{position:absolute;right:24px;bottom:18px;z-index:5;font:600 9px 'Inter',sans-serif;letter-spacing:3px;text-transform:uppercase;color:var(--steel);display:flex;align-items:center;gap:8px}
+.swipe::after{content:"";width:22px;height:1px;background:var(--gold)}
+.top-wm{position:absolute;left:24px;top:22px;z-index:5;font-family:'Archivo',sans-serif;font-stretch:125%;font-weight:800;font-size:11px;letter-spacing:5px;color:var(--white)}
+
+/* CTA */
+.logo{width:210px;height:auto;margin-bottom:22px}
+.pill{display:inline-block;margin-top:20px;padding:7px 14px;border:1.5px solid rgba(245,181,27,.55);border-radius:20px;font:600 10px 'Inter',sans-serif;letter-spacing:1.5px;color:var(--gold)}
+
+/* 1-slide extras */
+.tb{position:absolute;top:0;left:0;right:0;height:5px;z-index:6;background:linear-gradient(to right,var(--gold-burnt),var(--gold-hi),var(--gold-burnt))}
+.st{font:italic 400 14px/1.45 'Inter',sans-serif;color:var(--steel);margin-top:16px}
+.cb{display:inline-block;margin-top:16px;padding:4px 12px;border:1.5px solid rgba(245,181,27,.45);border-radius:20px;font:700 9px 'Inter',sans-serif;letter-spacing:2.5px;text-transform:uppercase;color:var(--gold)}
+
+/* Production notes, outside the slide */
+.shot-note{max-width:360px;margin:4px auto 0;padding:8px 12px;background:rgba(245,181,27,.05);border:1px dashed rgba(245,181,27,.3);border-radius:6px;font:400 10px/1.6 'Inter',sans-serif;color:#c9a75a}
+.shot-note b{color:var(--gold);font-weight:700}
+</style>
+</head>
+<body>
+
+<!-- Endless Sphere mark. Reuse this exact SVG for .sph and .sph-bg. -->
+<svg width="0" height="0" style="position:absolute">
+  <symbol id="sphere" viewBox="0 0 24 24" fill="none" stroke="#F5B51B" stroke-width=".7">
+    <circle cx="12" cy="12" r="10.5"/>
+    <ellipse cx="12" cy="12" rx="4.6" ry="10.5"/>
+    <ellipse cx="12" cy="12" rx="10.5" ry="4.2"/>
+    <line x1="1.5" y1="12" x2="22.5" y2="12"/>
+    <line x1="12" y1="1.5" x2="12" y2="22.5"/>
+  </symbol>
+</svg>
+
+<div class="brief">
+  <h1>5-slide: PPF covers what it covers</h1>
+  <b>Format:</b> 5-slide post<br>
+  <b>Pillar:</b> Education<br>
+  <b>Hook type:</b> Limit (current belief: PPF protects the whole car. True contrast: front-end film protects the chip zone only)<br>
+  <b>Angle source:</b> Thursday angle (limits: what a service doesn't do), <code>docs/marketing/carousel-style.md</code> daily angle table; facts from the site page named in the caption<br>
+  <b>Caption:</b>
+  <div class="cap">Front-end PPF covers the chip zone: bumper, hood, fenders, mirrors and headlights. Full body covers the painted surfaces around the car.
+
+Commute miles on 880 usually start at front-end. Full body is for owners who want the same standard everywhere.
+
+Tell us your commute and we will talk through it. endlessautocollection.com/ppf
+
+#ppf #paintprotectionfilm #carprotection #fremontca #bayareacars</div>
+  <b>CTA asset:</b> <code>endlessautocollection.com/ppf</code> (exists)<br>
+  <b>Grade:</b> 29/40 first pass (proof 2: no photo), added the real install photo and the M3 coverage diagram, re-graded 32/40 PUSH. Clear limit, all facts from ppf.html; the diagram is an M3, not a customer car.<br>
+  <b>Open items:</b>
+  <ul><li>Slide 3 diagram shows an M3. Confirm it is fine to use as a generic coverage example.</li><li>Warranty and self-healing claims left out on purpose; add only with team wording.</li></ul>
+  <b>Supporting photos:</b>
+  <ul><li>Slide 1: <code>images/showcase/ppf-install.jpg</code> (in repo)</li><li>Slide 3: <code>images/ppf-front-end-m3.webp</code> (in repo)</li></ul>
+</div>
+
+<div class="deck">
+
+  <div class="sw">
+    <div class="sn">Slide 1 — Hook</div>
+    <div class="slide">
+      <img class="ph" src="https://www.endlessautocollection.com/images/showcase/ppf-install.jpg" alt="" style="object-position:50% 50%">
+      <div class="shade"></div>
+      <div class="top-wm">ENDLESS</div>
+      <div class="pad" style="justify-content:flex-end;padding-bottom:28px">
+        <div class="eb">Paint protection film</div>
+        <div class="setup" style="margin-top:12px">Front-end PPF covers the chip zone.</div>
+        <div class="hd" style="font-size:36px;margin-top:8px">Not the</div>
+        <div class="hd" style="font-size:44px;color:var(--gold)">whole car.</div>
+      </div>
+      <div class="swipe">Swipe</div>
+    </div>
+    <div class="shot-note"><b>Slide 1 — Photo:</b> images/showcase/ppf-install.jpg. Real PPF install, matches the topic.</div>
+  </div>
+
+  <div class="sw">
+    <div class="sn">Slide 2 — Transition</div>
+    <div class="slide">
+      <div class="pad center">
+        <div class="rule"></div>
+        <div class="hd metal" style="font-size:24px;font-weight:700;line-height:1.2">So pick film by where your car takes hits.</div>
+      </div>
+      <div class="wm">ENDLESS</div>
+      <svg class="sph"><use href="#sphere"/></svg>
+    </div>
+    <div class="shot-note"><b>Slide 2 — Text only.</b></div>
+  </div>
+
+  <div class="sw">
+    <div class="sn">Slide 3 — Content</div>
+    <div class="slide">
+      <img class="ph-top" src="https://www.endlessautocollection.com/images/ppf-front-end-m3.webp" alt="">
+      <div class="ph-top-fade"></div>
+      <div class="pad" style="top:150px">
+        <div class="num">01</div>
+        <div class="cl"><div class="bar"></div>
+          <div class="hd">Front-end film covers the <b>chip zone</b>.</div>
+          <div class="sup">Bumper, hood, fenders, mirrors and headlights. Built for East Bay freeway miles.</div>
+        </div>
+      </div>
+      <div class="wm">ENDLESS</div>
+      <svg class="sph"><use href="#sphere"/></svg>
+    </div>
+    <div class="shot-note"><b>Slide 3 — Photo:</b> images/ppf-front-end-m3.webp. Coverage diagram on an M3; shows what front-end covers.</div>
+  </div>
+
+  <div class="sw">
+    <div class="sn">Slide 4 — Content</div>
+    <div class="slide">
+      <div class="pad">
+        <div class="num">02</div>
+        <div class="cl"><div class="bar"></div>
+          <div class="hd">Full body is for the <b>same standard</b> everywhere.</div>
+          <div class="sup">It covers painted surfaces around the car, not only the front.</div>
+        </div>
+      </div>
+      <div class="wm">ENDLESS</div>
+      <svg class="sph"><use href="#sphere"/></svg>
+    </div>
+    <div class="shot-note"><b>Slide 4 — Text only.</b></div>
+  </div>
+
+  <div class="sw">
+    <div class="sn">Slide 5 — CTA</div>
+    <div class="slide">
+      <div class="pad center">
+        <img class="logo" src="https://www.endlessautocollection.com/Endless_Tshirt_Back_1.webp" alt="Endless Auto Collection">
+        <div class="hd" style="font-size:20px;font-weight:700;line-height:1.25">Front-end or full body? Tell us your commute.</div>
+        <div class="pill">endlessautocollection.com/ppf</div>
+      </div>
+    </div>
+    <div class="shot-note"><b>Slide 5 — Text only.</b> Script logo from repo.</div>
+  </div>
+
+</div>
+
+</body>
+</html>
