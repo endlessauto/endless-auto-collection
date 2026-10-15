@@ -1,0 +1,250 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tint is two shades, not one</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=Inter:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+:root{--black:#050505;--graphite:#191919;--gold:#F5B51B;--gold-hi:#FFD45A;--gold-burnt:#C77A00;--white:#F4F4F2;--steel:#BFC1C3}
+*{box-sizing:border-box}
+body{margin:0;background:#121212;color:var(--white);font-family:'Inter',sans-serif;padding:24px 16px 64px}
+
+/* Brief box */
+.brief{max-width:760px;margin:0 auto 28px;padding:18px 20px;background:#1a1a1a;border:1px solid rgba(245,181,27,.25);border-radius:8px;font-size:13px;line-height:1.6;color:#d9d9d6}
+.brief h1{font-family:'Archivo',sans-serif;font-stretch:125%;font-weight:800;font-size:18px;margin:0 0 10px;color:var(--white)}
+.brief b{color:var(--gold);font-weight:600}
+.brief ul{margin:4px 0 8px;padding-left:18px}
+.brief .cap{white-space:pre-line;background:#111;border-radius:6px;padding:10px 12px;margin:4px 0 8px}
+
+/* Deck */
+.deck{display:flex;flex-wrap:wrap;gap:22px;justify-content:center}
+.sw{width:360px}
+.sn{font:600 10px 'Inter',sans-serif;letter-spacing:2px;text-transform:uppercase;color:#7d7f81;margin-bottom:6px}
+.slide{position:relative;width:360px;height:450px;background:var(--black);overflow:hidden;color:var(--white)}
+.slide.insight{background:var(--graphite)}
+.pad{position:absolute;inset:24px;display:flex;flex-direction:column;z-index:3}
+.center{justify-content:center;align-items:center;text-align:center}
+
+/* Type */
+.hd{font-family:'Archivo',sans-serif;font-stretch:125%;font-weight:800;line-height:1.05;letter-spacing:-.2px}
+.hd b,.cl b{color:var(--gold);font-weight:800}
+.eb{font:600 9px 'Inter',sans-serif;letter-spacing:3px;text-transform:uppercase;color:var(--gold)}
+.setup{font:italic 400 16px/1.4 'Inter',sans-serif;color:var(--steel)}
+.sup{font:400 14px/1.5 'Inter',sans-serif;color:var(--steel);margin-top:12px}
+.metal{background:linear-gradient(180deg,#FFFFFF 0%,#F4F4F2 40%,#BFC1C3 75%,#8E9093 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
+.rule{width:36px;height:2px;background:var(--gold);margin:0 auto 18px}
+
+/* Photos */
+.ph{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0}
+.shade{position:absolute;inset:0;z-index:1;background:linear-gradient(to top,rgba(5,5,5,.97) 0%,rgba(5,5,5,.85) 38%,rgba(5,5,5,.25) 75%,rgba(5,5,5,.55) 100%)}
+.ph-top{position:absolute;top:0;left:0;right:0;height:180px;width:100%;object-fit:cover;z-index:0}
+.ph-top-fade{position:absolute;top:0;left:0;right:0;height:180px;z-index:1;background:linear-gradient(to bottom,rgba(5,5,5,0) 40%,var(--black) 100%)}
+
+/* Content slides */
+.num{font-family:'Archivo',sans-serif;font-stretch:125%;font-weight:800;font-size:64px;line-height:1;color:transparent;-webkit-text-stroke:1px rgba(191,193,195,.35)}
+.cl{position:relative;padding-left:16px;margin-top:auto;margin-bottom:auto}
+.bar{position:absolute;left:0;top:4px;bottom:4px;width:3px;background:linear-gradient(to bottom,var(--gold-hi),var(--gold-burnt))}
+.cl .hd{font-size:25px;font-weight:700}
+
+/* Footer and marks */
+.wm{position:absolute;left:24px;bottom:18px;z-index:5;font-family:'Archivo',sans-serif;font-stretch:125%;font-weight:800;font-size:10px;letter-spacing:4px;color:rgba(244,244,242,.6)}
+.sph{position:absolute;right:22px;bottom:14px;width:20px;height:20px;z-index:5;opacity:.85}
+.sph-bg{position:absolute;width:300px;height:300px;left:30px;top:75px;opacity:.07;z-index:0}
+.swipe{position:absolute;right:24px;bottom:18px;z-index:5;font:600 9px 'Inter',sans-serif;letter-spacing:3px;text-transform:uppercase;color:var(--steel);display:flex;align-items:center;gap:8px}
+.swipe::after{content:"";width:22px;height:1px;background:var(--gold)}
+.top-wm{position:absolute;left:24px;top:22px;z-index:5;font-family:'Archivo',sans-serif;font-stretch:125%;font-weight:800;font-size:11px;letter-spacing:5px;color:var(--white)}
+
+/* CTA */
+.logo{width:210px;height:auto;margin-bottom:22px}
+.pill{display:inline-block;margin-top:20px;padding:7px 14px;border:1.5px solid rgba(245,181,27,.55);border-radius:20px;font:600 10px 'Inter',sans-serif;letter-spacing:1.5px;color:var(--gold)}
+
+/* 1-slide extras */
+.tb{position:absolute;top:0;left:0;right:0;height:5px;z-index:6;background:linear-gradient(to right,var(--gold-burnt),var(--gold-hi),var(--gold-burnt))}
+.st{font:italic 400 14px/1.45 'Inter',sans-serif;color:var(--steel);margin-top:16px}
+.cb{display:inline-block;margin-top:16px;padding:4px 12px;border:1.5px solid rgba(245,181,27,.45);border-radius:20px;font:700 9px 'Inter',sans-serif;letter-spacing:2.5px;text-transform:uppercase;color:var(--gold)}
+
+/* Production notes, outside the slide */
+.shot-note{max-width:360px;margin:4px auto 0;padding:8px 12px;background:rgba(245,181,27,.05);border:1px dashed rgba(245,181,27,.3);border-radius:6px;font:400 10px/1.6 'Inter',sans-serif;color:#c9a75a}
+.shot-note b{color:var(--gold);font-weight:700}
+</style>
+</head>
+<body>
+
+<!-- Endless Sphere mark. Reuse this exact SVG for .sph and .sph-bg. -->
+<svg width="0" height="0" style="position:absolute">
+  <symbol id="sphere" viewBox="0 0 24 24" fill="none" stroke="#F5B51B" stroke-width=".7">
+    <circle cx="12" cy="12" r="10.5"/>
+    <ellipse cx="12" cy="12" rx="4.6" ry="10.5"/>
+    <ellipse cx="12" cy="12" rx="10.5" ry="4.2"/>
+    <line x1="1.5" y1="12" x2="22.5" y2="12"/>
+    <line x1="12" y1="1.5" x2="12" y2="22.5"/>
+  </symbol>
+</svg>
+
+<div class="brief">
+  <h1>9-slide: tint is two shades, not one</h1>
+  <b>Format:</b> 9-slide post<br>
+  <b>Pillar:</b> Education<br>
+  <b>Hook type:</b> Contrarian (current belief: pick one shade for the whole car. True contrast: fronts and rears are set as a pair, fronts limited by law)<br>
+  <b>Angle source:</b> Thursday angle (limits: what a service doesn't do), <code>docs/marketing/carousel-style.md</code> daily angle table; facts from the site page named in the caption<br>
+  <b>Caption:</b>
+  <div class="cap">Most people ask for one tint shade. A car gets two decisions: the front side windows, which California limits tightly, and the rears, which can go darker.
+
+Fronts stay lighter to stay legal. Rears are a privacy call. We confirm the final pair at consult, after you look through the shades.
+
+Compare each shade against clear glass at endlessautocollection.com/tint.
+
+#windowtint #cartint #autotint #fremontca #bayareacars</div>
+  <b>CTA asset:</b> <code>endlessautocollection.com/tint</code> (exists, shade comparison)<br>
+  <b>Grade:</b> 32/40 PUSH on a strict re-grade. Contrarian hook with a real decision; the legal figure is the site wording, not statute text, so specificity is held at 3.<br>
+  <b>Open items:</b>
+  <ul><li>LEGAL CHECK BEFORE POSTING: slide 3 uses the 70% VLT front-side figure as written on tint.html. Verify against CVC section 26708 (and how aftermarket film is measured against factory glass) before publishing.</li><li>Confirm the team is fine saying "darkest shade we show" for 5% on slide 5.</li></ul>
+  <b>Supporting photos:</b>
+  <ul><li>Slide 1: <code>images/tint-vlt-33.webp</code> (in repo)</li></ul>
+</div>
+
+<div class="deck">
+
+  <div class="sw">
+    <div class="sn">Slide 1 — Hook</div>
+    <div class="slide">
+      <img class="ph" src="https://www.endlessautocollection.com/images/tint-vlt-33.webp" alt="" style="object-position:50% 50%">
+      <div class="shade"></div>
+      <div class="top-wm">ENDLESS</div>
+      <div class="pad" style="justify-content:flex-end;padding-bottom:28px">
+        <div class="eb">Window tint</div>
+        <div class="setup" style="margin-top:12px">Tint isn't one number.</div>
+        <div class="hd" style="font-size:36px;margin-top:8px">Two shades,</div>
+        <div class="hd" style="font-size:44px;color:var(--gold)">not one.</div>
+      </div>
+      <div class="swipe">Swipe</div>
+    </div>
+    <div class="shot-note"><b>Slide 1 — Photo:</b> images/tint-vlt-33.webp. Site shade render, 33% VLT.</div>
+  </div>
+
+  <div class="sw">
+    <div class="sn">Slide 2 — Transition</div>
+    <div class="slide">
+      <div class="pad center">
+        <div class="rule"></div>
+        <div class="hd metal" style="font-size:24px;font-weight:700;line-height:1.2">The front side windows set the limit.</div>
+      </div>
+      <div class="wm">ENDLESS</div>
+      <svg class="sph"><use href="#sphere"/></svg>
+    </div>
+    <div class="shot-note"><b>Slide 2 — Text only.</b></div>
+  </div>
+
+  <div class="sw">
+    <div class="sn">Slide 3 — Content</div>
+    <div class="slide">
+      <div class="pad">
+        <div class="num">01</div>
+        <div class="cl"><div class="bar"></div>
+          <div class="hd">California limits <b>front-side</b> tint.</div>
+          <div class="sup">Fronts stay lighter to stay legal. 70% VLT is the target we typically discuss.</div>
+        </div>
+      </div>
+      <div class="wm">ENDLESS</div>
+      <svg class="sph"><use href="#sphere"/></svg>
+    </div>
+    <div class="shot-note"><b>Slide 3 — Text only.</b></div>
+  </div>
+
+  <div class="sw">
+    <div class="sn">Slide 4 — Content</div>
+    <div class="slide">
+      <div class="pad">
+        <div class="num">02</div>
+        <div class="cl"><div class="bar"></div>
+          <div class="hd">Rear windows can go <b>darker</b>.</div>
+          <div class="sup">33% is a common rear look. 18% is dark rear privacy.</div>
+        </div>
+      </div>
+      <div class="wm">ENDLESS</div>
+      <svg class="sph"><use href="#sphere"/></svg>
+    </div>
+    <div class="shot-note"><b>Slide 4 — Text only.</b></div>
+  </div>
+
+  <div class="sw">
+    <div class="sn">Slide 5 — Content</div>
+    <div class="slide">
+      <div class="pad">
+        <div class="num">03</div>
+        <div class="cl"><div class="bar"></div>
+          <div class="hd">5% is for <b>rear glass only</b>.</div>
+          <div class="sup">It is the darkest shade we show.</div>
+        </div>
+      </div>
+      <div class="wm">ENDLESS</div>
+      <svg class="sph"><use href="#sphere"/></svg>
+    </div>
+    <div class="shot-note"><b>Slide 5 — Text only.</b></div>
+  </div>
+
+  <div class="sw">
+    <div class="sn">Slide 6 — Content</div>
+    <div class="slide">
+      <div class="pad">
+        <div class="num">04</div>
+        <div class="cl"><div class="bar"></div>
+          <div class="hd">A preview <b>isn't a meter</b>.</div>
+          <div class="sup">Our shade slider compares against clear glass. It is not a CHP reading.</div>
+        </div>
+      </div>
+      <div class="wm">ENDLESS</div>
+      <svg class="sph"><use href="#sphere"/></svg>
+    </div>
+    <div class="shot-note"><b>Slide 6 — Text only.</b></div>
+  </div>
+
+  <div class="sw">
+    <div class="sn">Slide 7 — Content</div>
+    <div class="slide">
+      <div class="pad">
+        <div class="num">05</div>
+        <div class="cl"><div class="bar"></div>
+          <div class="hd">We set the <b>pair</b> after you look through shades.</div>
+          <div class="sup">Final shade is confirmed at consult. It depends on your glass and your goal.</div>
+        </div>
+      </div>
+      <div class="wm">ENDLESS</div>
+      <svg class="sph"><use href="#sphere"/></svg>
+    </div>
+    <div class="shot-note"><b>Slide 7 — Text only.</b></div>
+  </div>
+
+  <div class="sw">
+    <div class="sn">Slide 8 — Insight</div>
+    <div class="slide insight">
+      <svg class="sph-bg"><use href="#sphere"/></svg>
+      <div class="pad center">
+        <div class="rule"></div>
+        <div class="hd" style="font-size:24px;font-weight:700;line-height:1.2">The right tint is <b>two numbers</b>, not one.</div>
+      </div>
+      <div class="wm">ENDLESS</div>
+      <svg class="sph"><use href="#sphere"/></svg>
+    </div>
+    <div class="shot-note"><b>Slide 8 — Text only.</b></div>
+  </div>
+
+  <div class="sw">
+    <div class="sn">Slide 9 — CTA</div>
+    <div class="slide">
+      <div class="pad center">
+        <img class="logo" src="https://www.endlessautocollection.com/Endless_Tshirt_Back_1.webp" alt="Endless Auto Collection">
+        <div class="hd" style="font-size:20px;font-weight:700;line-height:1.25">See each shade against clear glass.</div>
+        <div class="pill">endlessautocollection.com/tint</div>
+      </div>
+    </div>
+    <div class="shot-note"><b>Slide 9 — Text only.</b> Script logo from repo.</div>
+  </div>
+
+</div>
+
+</body>
+</html>

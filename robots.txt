@@ -1,4 +1,5 @@
 User-agent: *
 Allow: /
+Disallow: /carousels-preview/
 
 Sitemap: https://www.endlessautocollection.com/sitemap.xml

@@ -139,9 +139,9 @@ Never check a box, never edit the calendar, never post.
 
 ## Email delivery (scheduled runs)
 
-After committing, email the day's carousels to endlessautocollection@gmail.com only, with the Gmail `send_message` tool:
+Gmail attachments need the whole file passed through the send call, which fails at this size. Publish unlisted preview copies and email links instead.
 
-- Attach each of the 4 HTML files: `content` = output of `base64 -w0 <file>`, `mimeType` = `text/html`, `filename` = the file name.
-- Subject: `EAC carousels YYYY-MM-DD: <strongest hook, under 60 characters>`.
-- Plain text body (no Markdown symbols): per carousel, file name, format, pillar, hook, grade, caption, open items. Then one line on whether the push to main succeeded, and one line: "Open the attachments in a browser to view and screenshot the slides."
-- If attaching fails, send the same email without attachments and say so in the body.
+1. Copy the day's 4 HTML files to `carousels-preview/YYYY-MM-DD/` (same file names) and commit them with the carousel folder. The site serves them at `https://www.endlessautocollection.com/carousels-preview/YYYY-MM-DD/<file>.html`. `_headers` marks the path noindex and `robots.txt` disallows it.
+2. After pushing, email the day's carousels to endlessautocollection@gmail.com only, with the Gmail `send_message` tool. Do not attach files.
+3. Subject: `EAC carousels YYYY-MM-DD: <strongest hook, under 60 characters>`.
+4. Plain text body (no Markdown symbols): per carousel, the full preview URL on its own line, then file name, format, pillar, hook, grade, caption, open items. Then one line on whether the push to main succeeded, and one line: "Previews go live a minute or two after the push. Open the links in a browser to view and screenshot the slides."
