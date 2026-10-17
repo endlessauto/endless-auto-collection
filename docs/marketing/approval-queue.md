@@ -12,3 +12,7 @@ Drafts land here unchecked. Check a box (`- [x]`) to approve. Only a checked box
 - [ ] Carousel (Instagram): We rebuilt the shop around workflow (`docs/marketing/carousels/2026-10-16/4-slide-shop-revamp-workflow.html`)
 - [ ] Carousel (Instagram): Who actually works on your car (`docs/marketing/carousels/2026-10-16/8-slide-who-works-on-your-car.html`)
 - [ ] Carousel (Instagram): Our own M3 gets the same standard (`docs/marketing/carousels/2026-10-16/9-slide-our-m3-same-standard.html`)
+- [ ] Carousel (Instagram): A daily driver deserves a full reset (`docs/marketing/carousels/2026-10-17/1-slide-daily-driver-full-reset.html`)
+- [ ] Carousel (Instagram): A wash is not a detail (`docs/marketing/carousels/2026-10-17/4-slide-wash-vs-detail.html`)
+- [ ] Carousel (Instagram): Wash, decontaminate, polish, in that order (`docs/marketing/carousels/2026-10-17/9-slide-detail-in-order.html`)
+- [ ] Carousel (Instagram): Older cars have the most to gain (`docs/marketing/carousels/2026-10-17/9-slide-older-cars-detail.html`)
