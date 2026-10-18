@@ -16,3 +16,7 @@ Drafts land here unchecked. Check a box (`- [x]`) to approve. Only a checked box
 - [ ] Carousel (Instagram): A wash is not a detail (`docs/marketing/carousels/2026-10-17/4-slide-wash-vs-detail.html`)
 - [ ] Carousel (Instagram): Wash, decontaminate, polish, in that order (`docs/marketing/carousels/2026-10-17/9-slide-detail-in-order.html`)
 - [ ] Carousel (Instagram): Older cars have the most to gain (`docs/marketing/carousels/2026-10-17/9-slide-older-cars-detail.html`)
+- [ ] Carousel (Instagram): Ceramic makes washing shorter, not optional (`docs/marketing/carousels/2026-10-18/1-slide-coating-shorter-wash.html`)
+- [ ] Carousel (Instagram): Dusting your car drags grit (`docs/marketing/carousels/2026-10-18/4-slide-dusting-drags-grit.html`)
+- [ ] Carousel (Instagram): Wash in order (`docs/marketing/carousels/2026-10-18/8-slide-wash-in-order.html`)
+- [ ] Carousel (Instagram): Coated doesn't mean skip the wash (`docs/marketing/carousels/2026-10-18/9-slide-coated-still-wash.html`)
