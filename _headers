@@ -9,9 +9,6 @@
 /carousels-preview/*
   X-Robots-Tag: noindex, nofollow
 
-/images/*
-  Access-Control-Allow-Origin: *
-
 /*.webp
   Access-Control-Allow-Origin: *
 
