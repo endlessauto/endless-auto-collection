@@ -20,3 +20,7 @@ Drafts land here unchecked. Check a box (`- [x]`) to approve. Only a checked box
 - [ ] Carousel (Instagram): Dusting your car drags grit (`docs/marketing/carousels/2026-10-18/4-slide-dusting-drags-grit.html`)
 - [ ] Carousel (Instagram): Wash in order (`docs/marketing/carousels/2026-10-18/8-slide-wash-in-order.html`)
 - [ ] Carousel (Instagram): Coated doesn't mean skip the wash (`docs/marketing/carousels/2026-10-18/9-slide-coated-still-wash.html`)
+- [ ] Carousel (Instagram): Change the color, keep the paint (`docs/marketing/carousels/2026-10-19/1-slide-change-color-keep-paint.html`)
+- [ ] Carousel (Instagram): Heat is a glass problem (`docs/marketing/carousels/2026-10-19/5-slide-heat-is-a-glass-problem.html`)
+- [ ] Carousel (Instagram): Pick the problem, not the product (`docs/marketing/carousels/2026-10-19/8-slide-pick-the-problem.html`)
+- [ ] Carousel (Instagram): Film first, then coating (`docs/marketing/carousels/2026-10-19/9-slide-film-first-then-coating.html`)

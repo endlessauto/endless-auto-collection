@@ -1,0 +1,229 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>9-slide: film first, then coating</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=Inter:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+:root{--black:#050505;--graphite:#191919;--gold:#F5B51B;--gold-hi:#FFD45A;--gold-burnt:#C77A00;--white:#F4F4F2;--steel:#BFC1C3}
+*{box-sizing:border-box}
+body{margin:0;background:#121212;color:var(--white);font-family:'Inter',sans-serif;padding:24px 16px 64px}
+
+/* Brief box */
+.brief{max-width:760px;margin:0 auto 28px;padding:18px 20px;background:#1a1a1a;border:1px solid rgba(245,181,27,.25);border-radius:8px;font-size:13px;line-height:1.6;color:#d9d9d6}
+.brief h1{font-family:'Archivo',sans-serif;font-stretch:125%;font-weight:800;font-size:18px;margin:0 0 10px;color:var(--white)}
+.brief b{color:var(--gold);font-weight:600}
+.brief ul{margin:4px 0 8px;padding-left:18px}
+.brief .cap{white-space:pre-line;background:#111;border-radius:6px;padding:10px 12px;margin:4px 0 8px}
+
+/* Deck */
+.deck{display:flex;flex-wrap:wrap;gap:22px;justify-content:center}
+.sw{width:360px}
+.sn{font:600 10px 'Inter',sans-serif;letter-spacing:2px;text-transform:uppercase;color:#7d7f81;margin-bottom:6px}
+.slide{position:relative;width:360px;height:450px;background:var(--black);overflow:hidden;color:var(--white)}
+.slide.insight{background:var(--graphite)}
+.pad{position:absolute;inset:24px;display:flex;flex-direction:column;z-index:3}
+.center{justify-content:center;align-items:center;text-align:center}
+
+/* Type */
+.hd{font-family:'Archivo',sans-serif;font-stretch:125%;font-weight:800;line-height:1.05;letter-spacing:-.2px}
+.hd b,.cl b{color:var(--gold);font-weight:800}
+.eb{font:600 9px 'Inter',sans-serif;letter-spacing:3px;text-transform:uppercase;color:var(--gold)}
+.setup{font:italic 400 16px/1.4 'Inter',sans-serif;color:var(--steel)}
+.sup{font:400 14px/1.5 'Inter',sans-serif;color:var(--steel);margin-top:12px}
+.metal{background:linear-gradient(180deg,#FFFFFF 0%,#F4F4F2 40%,#BFC1C3 75%,#8E9093 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
+.rule{width:36px;height:2px;background:var(--gold);margin:0 auto 18px}
+
+/* Photos */
+.ph{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0}
+.shade{position:absolute;inset:0;z-index:1;background:linear-gradient(to top,rgba(5,5,5,.97) 0%,rgba(5,5,5,.85) 38%,rgba(5,5,5,.25) 75%,rgba(5,5,5,.55) 100%)}
+.ph-top{position:absolute;top:0;left:0;right:0;height:180px;width:100%;object-fit:cover;z-index:0}
+.ph-top-fade{position:absolute;top:0;left:0;right:0;height:180px;z-index:1;background:linear-gradient(to bottom,rgba(5,5,5,0) 40%,var(--black) 100%)}
+
+/* Content slides */
+.num{font-family:'Archivo',sans-serif;font-stretch:125%;font-weight:800;font-size:64px;line-height:1;color:transparent;-webkit-text-stroke:1px rgba(191,193,195,.35)}
+.cl{position:relative;padding-left:16px;margin-top:auto;margin-bottom:auto}
+.bar{position:absolute;left:0;top:4px;bottom:4px;width:3px;background:linear-gradient(to bottom,var(--gold-hi),var(--gold-burnt))}
+.cl .hd{font-size:25px;font-weight:700}
+
+/* Footer and marks */
+.flogo{position:absolute;left:24px;bottom:16px;width:132px;height:auto;z-index:5}
+.sph-bg{position:absolute;width:300px;height:300px;left:30px;top:75px;opacity:.07;z-index:0}
+.swipe{position:absolute;right:24px;bottom:18px;z-index:5;font:600 9px 'Inter',sans-serif;letter-spacing:3px;text-transform:uppercase;color:var(--steel);display:flex;align-items:center;gap:8px}
+.swipe::after{content:"";width:22px;height:1px;background:var(--gold)}
+.flogo.top{bottom:auto;top:22px}
+
+/* CTA */
+.logo{width:260px;height:auto;margin-bottom:22px}
+.pill{display:inline-block;margin-top:20px;padding:7px 14px;border:1.5px solid rgba(245,181,27,.55);border-radius:20px;font:600 10px 'Inter',sans-serif;letter-spacing:1.5px;color:var(--gold)}
+
+/* 1-slide extras */
+.tb{position:absolute;top:0;left:0;right:0;height:5px;z-index:6;background:linear-gradient(to right,var(--gold-burnt),var(--gold-hi),var(--gold-burnt))}
+.st{font:italic 400 14px/1.45 'Inter',sans-serif;color:var(--steel);margin-top:16px}
+.cb{display:inline-block;margin-top:16px;padding:4px 12px;border:1.5px solid rgba(245,181,27,.45);border-radius:20px;font:700 9px 'Inter',sans-serif;letter-spacing:2.5px;text-transform:uppercase;color:var(--gold)}
+
+/* Production notes, outside the slide */
+.shot-note{max-width:360px;margin:4px auto 0;padding:8px 12px;background:rgba(245,181,27,.05);border:1px dashed rgba(245,181,27,.3);border-radius:6px;font:400 10px/1.6 'Inter',sans-serif;color:#c9a75a}
+.shot-note b{color:var(--gold);font-weight:700}
+</style>
+</head>
+<body>
+<div class="brief">
+  <h1>9-slide: film first, then coating</h1>
+  <b>Format:</b> 9-slide post<br>
+  <b>Pillar:</b> Education<br>
+  <b>Hook type:</b> Process (current belief: coating and film are either/or. True contrast: they stack, in a set order)<br>
+  <b>Angle source:</b> Monday angle (Education, the decision). Facts from endlessautocollection.com/ceramic, /ppf, /tint and /wraps. Order and coverage wording from the PPF FAQ.<br>
+  <b>Caption:</b>
+  <div class="cap">Ceramic coating and PPF are not rivals. Film goes on first, on the panels you want protected from chips. Coating goes over the film and the rest of the paint so water beads.
+
+Most protection packages stack both after a consult. Front-end film is where most I-880 commuters start.
+
+Want to know where film should go on your car? Ask us. Details at endlessautocollection.com/ppf.
+
+#ppf #ceramiccoating #paintprotection #fremontca #i880</div>
+  <b>CTA asset:</b> PPF page, <code>endlessautocollection.com/ppf</code> (exists)<br>
+  <b>Grade:</b> 33/40 PUSH on strict pass (35 on first pass, marked down because the photo is an install, not a front-end job). Different hook type from the 8-slide (process, not contrarian), real install photo as proof, and a CTA that follows the lesson. Scores: voice 5, hook 4, specificity 4, platform 5, packaging 4, proof 3, next step 5, on-target 3.<br>
+  <b>Open items:</b>
+  <ul><li>Slide 3 chip-zone list is the PPF page wording for front-end.</li><li>Slide 5 "usually start at front-end" is the PPF FAQ wording; no coverage percentages or prices used.</li><li>Photo ppf-install.jpg shows an install, not necessarily a front-end job. Confirm it is fine as a hook image.</li></ul>
+  <b>Supporting photos:</b>
+  <ul><li>Slide 1: <code>images/showcase/ppf-install.jpg</code> (in repo)</li></ul>
+</div>
+
+<div class="deck">
+
+  <div class="sw">
+    <div class="sn">Slide 1 — Hook</div>
+    <div class="slide"><img class="ph" src="https://www.endlessautocollection.com/images/showcase/ppf-install.jpg" alt="" style="object-position:50% 50%"><div class="shade"></div><img class="flogo top" src="https://www.endlessautocollection.com/images/endless-logo.png" alt="Endless Auto Collection"><div class="pad" style="justify-content:flex-end;padding-bottom:28px"><div class="eb">PPF and ceramic</div><div class="setup" style="margin-top:12px">Doing both? The order matters.</div><div class="hd" style="font-size:36px;margin-top:6px">Film first.</div><div class="hd" style="font-size:44px;margin-top:0px;color:var(--gold)">Then coat.</div></div><div class="swipe">Swipe</div></div>
+    <div class="shot-note"><b>Slide 1 — Photo:</b> images/showcase/ppf-install.jpg. Real PPF install, matches the topic.</div>
+  </div>
+
+  <div class="sw">
+    <div class="sn">Slide 2 — Transition</div>
+    <div class="slide"><div class="pad center"><div class="rule"></div><div class="hd metal" style="font-size:24px;font-weight:700;line-height:1.2">Stacking works. Only in one order.</div></div><img class="flogo" src="https://www.endlessautocollection.com/images/endless-logo.png" alt="Endless Auto Collection"></div>
+    <div class="shot-note"><b>Slide 2 — Text only.</b></div>
+  </div>
+
+  <div class="sw">
+    <div class="sn">Slide 3 — Content</div>
+    <div class="slide"><div class="pad"><div class="num">01</div><div class="cl"><div class="bar"></div><div class="hd">Film goes on the <b>chip zone</b> first.</div><div class="sup">Bumper, hood, fenders, mirrors and headlights are where freeway grit lands.</div></div></div><img class="flogo" src="https://www.endlessautocollection.com/images/endless-logo.png" alt="Endless Auto Collection"></div>
+    <div class="shot-note"><b>Slide 3 — Text only.</b></div>
+  </div>
+
+  <div class="sw">
+    <div class="sn">Slide 4 — Content</div>
+    <div class="slide"><div class="pad"><div class="num">02</div><div class="cl"><div class="bar"></div><div class="hd">Then <b>coating</b> goes over the film.</div><div class="sup">It also covers the rest of the paint, so water beads everywhere.</div></div></div><img class="flogo" src="https://www.endlessautocollection.com/images/endless-logo.png" alt="Endless Auto Collection"></div>
+    <div class="shot-note"><b>Slide 4 — Text only.</b></div>
+  </div>
+
+  <div class="sw">
+    <div class="sn">Slide 5 — Content</div>
+    <div class="slide"><div class="pad"><div class="num">03</div><div class="cl"><div class="bar"></div><div class="hd">Coating alone leaves <b>chips</b> unanswered.</div><div class="sup">Ceramic isn't chip armor. Film is the layer that takes the hit.</div></div></div><img class="flogo" src="https://www.endlessautocollection.com/images/endless-logo.png" alt="Endless Auto Collection"></div>
+    <div class="shot-note"><b>Slide 5 — Text only.</b></div>
+  </div>
+
+  <div class="sw">
+    <div class="sn">Slide 6 — Content</div>
+    <div class="slide"><div class="pad"><div class="num">04</div><div class="cl"><div class="bar"></div><div class="hd">Front-end or <b>full body</b>?</div><div class="sup">880 commute miles usually start at front-end. Full body is the same standard everywhere.</div></div></div><img class="flogo" src="https://www.endlessautocollection.com/images/endless-logo.png" alt="Endless Auto Collection"></div>
+    <div class="shot-note"><b>Slide 6 — Text only.</b></div>
+  </div>
+
+  <div class="sw">
+    <div class="sn">Slide 7 — Content</div>
+    <div class="slide"><div class="pad"><div class="num">05</div><div class="cl"><div class="bar"></div><div class="hd">Scope is written <b>after</b> we see the car.</div><div class="sup">Your paint and your driving set the plan, not a menu.</div></div></div><img class="flogo" src="https://www.endlessautocollection.com/images/endless-logo.png" alt="Endless Auto Collection"></div>
+    <div class="shot-note"><b>Slide 7 — Text only.</b></div>
+  </div>
+
+  <div class="sw">
+    <div class="sn">Slide 8 — Insight</div>
+    <div class="slide insight"><svg class="sph-bg" viewBox="0 0 24 24" fill="none" stroke="#F5B51B" stroke-width=".7"><circle cx="12" cy="12" r="10.5"/><ellipse cx="12" cy="12" rx="4.6" ry="10.5"/><ellipse cx="12" cy="12" rx="10.5" ry="4.2"/><line x1="1.5" y1="12" x2="22.5" y2="12"/><line x1="12" y1="1.5" x2="12" y2="22.5"/></svg><div class="pad center"><div class="rule"></div><div class="hd" style="font-size:24px;font-weight:700;line-height:1.2">Film takes the hit. <b>Coating</b> makes the wash easy.</div></div><img class="flogo" src="https://www.endlessautocollection.com/images/endless-logo.png" alt="Endless Auto Collection"></div>
+    <div class="shot-note"><b>Slide 8 — Text only.</b></div>
+  </div>
+
+  <div class="sw">
+    <div class="sn">Slide 9 — CTA</div>
+    <div class="slide"><div class="pad center"><img class="logo" src="https://www.endlessautocollection.com/images/endless-logo.png" alt="Endless Auto Collection"><div class="hd" style="font-size:20px;font-weight:700;line-height:1.25">Where does film go on your car? Ask us.</div><div class="pill">endlessautocollection.com/ppf</div></div></div>
+    <div class="shot-note"><b>Slide 9 — Text only.</b> Script logo from repo.</div>
+  </div>
+
+</div>
+
+<!-- PNG export: do not remove -->
+<style>
+.dl-bar{max-width:760px;margin:0 auto 24px;display:flex;justify-content:center}
+.dl-btn{display:block;margin:10px auto 0;padding:9px 18px;border:1.5px solid rgba(245,181,27,.55);border-radius:20px;background:transparent;color:#F5B51B;font:600 11px 'Inter',sans-serif;letter-spacing:1.5px;text-transform:uppercase;cursor:pointer}
+.dl-btn:hover{background:rgba(245,181,27,.12)}
+.dl-btn:disabled{opacity:.5;cursor:default}
+.dl-all{padding:12px 26px;font-size:12px}
+</style>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html-to-image/1.11.11/html-to-image.min.js"></script>
+<script>
+(function(){
+  var base=(location.pathname.split('/').pop()||'carousel').replace(/\.html$/,'');
+  var slides=[].slice.call(document.querySelectorAll('.slide'));
+  var pad=function(n){return (n<10?'0':'')+n};
+  function name(i){return base+'-slide-'+pad(i+1)+'.png'}
+  var touch=window.matchMedia&&matchMedia('(pointer:coarse)').matches;
+  var fontCss;
+  function toData(u){return fetch(u).then(function(r){return r.blob()}).then(function(b){return new Promise(function(ok){var f=new FileReader();f.onload=function(){ok(f.result)};f.readAsDataURL(b)})})}
+  async function fonts(){
+    if(fontCss!==undefined)return fontCss;
+    try{
+      var href=document.querySelector('link[href*="fonts.googleapis.com/css2"]').href;
+      var css=await (await fetch(href)).text();
+      var urls=css.match(/url\(([^)]+)\)/g)||[];
+      for(var i=0;i<urls.length;i++){var u=urls[i].slice(4,-1).replace(/["']/g,'');css=css.split(u).join(await toData(u))}
+      fontCss=css;
+    }catch(e){fontCss=''}
+    return fontCss;
+  }
+  var cache=[];
+  function file(i){
+    if(!cache[i])cache[i]=fonts().then(function(fc){return htmlToImage.toBlob(slides[i],{pixelRatio:3,cacheBust:true,width:360,height:450,fontEmbedCSS:fc})}).then(function(b){return new File([b],name(i),{type:'image/png'})}).catch(function(e){cache[i]=null;throw e});
+    return cache[i];
+  }
+  function save(f){
+    var url=URL.createObjectURL(f),a=document.createElement('a');
+    a.href=url;a.download=f.name;document.body.appendChild(a);a.click();a.remove();
+    setTimeout(function(){URL.revokeObjectURL(url)},10000);
+  }
+  async function deliver(files){
+    if(touch&&navigator.canShare&&navigator.canShare({files:files})){
+      try{await navigator.share({files:files});return}
+      catch(e){if(e&&e.name==='AbortError')return}
+    }
+    for(var i=0;i<files.length;i++){save(files[i]);await new Promise(function(r){setTimeout(r,500)})}
+  }
+  async function guard(btn,label,fn){
+    btn.disabled=true;btn.textContent='Preparing…';
+    try{await fn()}catch(e){alert('Could not export. Open this page in Safari or Chrome from the website link and try again.')}
+    btn.disabled=false;btn.textContent=label;
+  }
+  slides.forEach(function(s,i){
+    var b=document.createElement('button');b.className='dl-btn';b.textContent=touch?'Save PNG':'Download as PNG';
+    var label=b.textContent;
+    b.onclick=function(){guard(b,label,async function(){await deliver([await file(i)])})};
+    s.parentNode.insertBefore(b,s.nextSibling);
+  });
+  var first=document.querySelector('.deck');
+  if(first&&slides.length){
+    var bar=document.createElement('div');bar.className='dl-bar';
+    var all=document.createElement('button');all.className='dl-btn dl-all';all.textContent=touch?'Save all slides':'Download all slides';
+    var allLabel=all.textContent;
+    all.onclick=function(){guard(all,allLabel,async function(){
+      var files=[];for(var i=0;i<slides.length;i++)files.push(await file(i));
+      await deliver(files);
+    })};
+    bar.appendChild(all);first.parentNode.insertBefore(bar,first);
+  }
+  window.addEventListener('load',async function(){
+    for(var i=0;i<slides.length;i++){try{await file(i)}catch(e){cache[i]=null}}
+  });
+})();
+</script>
+
+</body>
+</html>
