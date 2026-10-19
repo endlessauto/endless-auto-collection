@@ -173,9 +173,18 @@ If you want us to look at how your paint is holding up, details at endlessautoco
     }catch(e){fontCss=''}
     return fontCss;
   }
+  var inlined;
+  function inlineImages(){
+    if(!inlined)inlined=Promise.all([].slice.call(document.querySelectorAll('.slide img')).map(function(im){
+      if(im.src.indexOf('data:')===0)return;
+      return toData(im.src).then(function(d){im.src=d;return im.decode?im.decode():0}).catch(function(){});
+    }));
+    return inlined;
+  }
   var cache=[];
+  function render(i,fc){return htmlToImage.toBlob(slides[i],{pixelRatio:3,width:360,height:450,fontEmbedCSS:fc})}
   function file(i){
-    if(!cache[i])cache[i]=fonts().then(function(fc){return htmlToImage.toBlob(slides[i],{pixelRatio:3,cacheBust:true,width:360,height:450,fontEmbedCSS:fc})}).then(function(b){return new File([b],name(i),{type:'image/png'})}).catch(function(e){cache[i]=null;throw e});
+    if(!cache[i])cache[i]=Promise.all([fonts(),inlineImages()]).then(function(r){var fc=r[0];return render(i,fc).then(function(){return render(i,fc)})}).then(function(b){return new File([b],name(i),{type:'image/png'})}).catch(function(e){cache[i]=null;throw e});
     return cache[i];
   }
   function save(f){
