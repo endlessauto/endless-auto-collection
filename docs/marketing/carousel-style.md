@@ -51,7 +51,7 @@ Put long setup phrases in Inter (16 px, `--steel`). Reserve big Archivo for 1–
 
 | Slide | Layout |
 |-------|--------|
-| 1 Hook | Full-bleed real shop photo (`.ph`) under a black gradient (`.shade`), eyebrow label in gold, setup line in Inter, hero words in Archivo. Logo (`.flogo.top`) top-left, "Swipe" cue bottom-right. With no fitting photo, use the black background with a large faint sphere (`.sph-bg`) |
+| 1 Hook | Full-bleed real shop photo (`.ph`) under a black gradient (`.shade`), eyebrow label in gold, setup line in Inter, hero words in Archivo. Logo (`.flogo.top`) top-left, no swipe cue. With no fitting photo, use the black background with a large faint sphere (`.sph-bg`) |
 | 2 Transition | Centered. Short gold rule above. Metallic text (`.metal`: white to steel gradient). This is the only slide with gradient text |
 | 3–8 Content | Left-aligned. Outlined step number (`.num`), gold accent bar (`.bar`) beside the headline, gold `<b>` on 1–3 key words, one Inter supporting line. Optional top photo panel (`.ph-top`) when a real photo fits the point |
 | 9 Insight | `--graphite` background, large faint sphere behind, centered reframe. The save-worthy line |
