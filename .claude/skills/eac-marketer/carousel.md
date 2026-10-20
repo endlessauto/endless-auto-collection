@@ -72,6 +72,15 @@ Slide 10     CTA          One action that follows from what was taught
 - Never invent specs, prices, timelines, legal limits, owner quotes, or results. If a number isn't in this repo (site pages, guides, build archives, catalog), leave it out or mark it `TBD` in the brief's open items. California tint limits need a statute check before use.
 - "Endless" or "Endless Auto Collection" for the shop. Never "EAC" in public copy.
 
+## TikTok title
+
+Every carousel gets a TikTok photo-post title, shown in the brief box directly above the caption.
+
+- Under 90 characters, sentence case, no exclamation points, no hype, no emoji.
+- SEO: the primary search phrase an owner would type ("paint correction", "ceramic coating vs ppf", "tint percentages") goes in the first words. Add the city ("Fremont, CA") when it fits in the limit.
+- It must name the real topic and promise only what the slides deliver. No bait, no invented claims.
+- Same topic as the caption, different words. Use the primary keyword once in the title, once in the caption's first sentence, and in one hashtag.
+
 ## CTA assets
 
 Point to a real page. Status must be `exists` unless the user says otherwise.
@@ -94,7 +103,7 @@ Never imply a lead magnet, DM flow or email list exists.
 - Start from `reference.html`. Keep the Google Fonts link, `:root` tokens, CSS and the inline `.sph-bg` SVG unchanged. Never use `<use href>` references; they vanish in the PNG export. Only add CSS when a layout truly needs it.
 - Photo and logo `src` values are full live-site URLs (`https://www.endlessautocollection.com/images/...`), never relative paths, so the HTML renders when opened from an email. Only use files listed in `carousel-style.md` or found in `images/` and already deployed. Never hotlink stock or generate images.
 - Each slide sits in `.sw` with a `.sn` label, the `.slide`, then a `.shot-note`.
-- The `.brief` box at the top holds: format, pillar, hook type (with current belief vs true contrast), angle source, caption with 4–6 hashtags (always `#fremontca`), CTA asset and status, grade, open items, supporting photos.
+- The `.brief` box at the top holds: format, pillar, hook type (with current belief vs true contrast), angle source, TikTok title (bold label `TikTok title:`, directly above the caption), caption with 4–6 hashtags (always `#fremontca`), CTA asset and status, grade, open items, supporting photos.
 
 ## Grade
 
@@ -114,6 +123,7 @@ All carousels:
 - [ ] Only repo photos, each listed in "Supporting photos"
 - [ ] A `.shot-note` below every slide, nothing production-related inside a slide
 - [ ] No exclamation points, no hype, sentence case
+- [ ] TikTok title under 90 characters, primary keyword first, directly above the caption in the brief
 - [ ] No invented numbers; every unverified fact is in open items
 
 Hook slide:
@@ -148,4 +158,4 @@ Gmail attachments need the whole file passed through the send call, which fails 
 1. Copy the day's 4 HTML files to `carousels-preview/YYYY-MM-DD/` (same file names) and commit them with the carousel folder. The site serves them at `https://www.endlessautocollection.com/carousels-preview/YYYY-MM-DD/<file>.html`. `_headers` marks the path noindex and `robots.txt` disallows it.
 2. After pushing, email the day's carousels to endlessautocollection@gmail.com only, with the Gmail `send_message` tool. Do not attach files.
 3. Subject: `EAC carousels YYYY-MM-DD: <strongest hook, under 60 characters>`.
-4. Plain text body (no Markdown symbols): per carousel, the full preview URL on its own line, then file name, format, pillar, hook, grade, caption, open items. Then one line on whether the push to main succeeded, and one line: "Previews go live a minute or two after the push. Open the links in a browser to view and screenshot the slides."
+4. Plain text body (no Markdown symbols): per carousel, the full preview URL on its own line, then file name, format, pillar, hook, grade, TikTok title, caption, open items. Then one line on whether the push to main succeeded, and one line: "Previews go live a minute or two after the push. Open the links in a browser to view and screenshot the slides."
