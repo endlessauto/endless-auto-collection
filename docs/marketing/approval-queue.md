@@ -24,3 +24,7 @@ Drafts land here unchecked. Check a box (`- [x]`) to approve. Only a checked box
 - [ ] Carousel (Instagram): Heat is a glass problem (`docs/marketing/carousels/2026-10-19/5-slide-heat-is-a-glass-problem.html`)
 - [ ] Carousel (Instagram): Pick the problem, not the product (`docs/marketing/carousels/2026-10-19/8-slide-pick-the-problem.html`)
 - [ ] Carousel (Instagram): Film first, then coating (`docs/marketing/carousels/2026-10-19/9-slide-film-first-then-coating.html`)
+- [ ] Carousel (Instagram): Diagnose first, don't pay to guess (`docs/marketing/carousels/2026-10-20/1-slide-diagnose-dont-guess.html`)
+- [ ] Carousel (Instagram): Get a real look first (`docs/marketing/carousels/2026-10-20/4-slide-get-a-real-look.html`)
+- [ ] Carousel (Instagram): Scope after we see the car (`docs/marketing/carousels/2026-10-20/8-slide-scope-after-we-see-it.html`)
+- [ ] Carousel (Instagram): The prep you can't see (`docs/marketing/carousels/2026-10-20/9-slide-prep-you-cant-see.html`)
