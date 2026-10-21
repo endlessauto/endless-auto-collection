@@ -28,3 +28,7 @@ Drafts land here unchecked. Check a box (`- [x]`) to approve. Only a checked box
 - [ ] Carousel (Instagram): Get a real look first (`docs/marketing/carousels/2026-10-20/4-slide-get-a-real-look.html`)
 - [ ] Carousel (Instagram): Scope after we see the car (`docs/marketing/carousels/2026-10-20/8-slide-scope-after-we-see-it.html`)
 - [ ] Carousel (Instagram): The prep you can't see (`docs/marketing/carousels/2026-10-20/9-slide-prep-you-cant-see.html`)
+- [ ] Carousel (Instagram): 168,000 miles on the original suspension (`docs/marketing/carousels/2026-10-21/1-slide-168000-miles-original-suspension.html`)
+- [ ] Carousel (Instagram): All four corners, not just the rears (`docs/marketing/carousels/2026-10-21/5-slide-all-four-corners.html`)
+- [ ] Carousel (Instagram): Ride height is set on the bench (`docs/marketing/carousels/2026-10-21/8-slide-ride-height-on-the-bench.html`)
+- [ ] Carousel (Instagram): Lowered isn't done until it's aligned (`docs/marketing/carousels/2026-10-21/9-slide-lowered-isnt-done-until-aligned.html`)
