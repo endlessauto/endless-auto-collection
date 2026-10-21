@@ -53,6 +53,7 @@ Tag every idea and piece with exactly one: **Build Stories**, **Process & Craft*
 | `docs/marketing/idea-inbox.md` | Raw team ideas, checked first |
 | `docs/marketing/approval-queue.md` | Only gate to `scheduled` |
 | `docs/marketing/content-grader.md` | Scoring rubric |
+| `docs/marketing/references/writing-style.md` | Banned words and openers, self-check, draft-feels-off log |
 | `docs/marketing/references/youtube-engine-playbook.md` | Packaging, hook, distribution, A/B principles |
 | `docs/marketing/references/kallaway-short-form-playbook.md` | Content game, idea mining, remix rule, hook alignment, buyer activation flow, lead magnets, first-3-reps sprint |
 | `docs/marketing/youtube-catalog.md` | Posted long-form and Shorts with views; check before proposing a topic |

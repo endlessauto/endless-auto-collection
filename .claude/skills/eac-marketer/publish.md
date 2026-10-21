@@ -2,7 +2,7 @@
 
 Turns a finished YouTube long-form video into a paste-ready publish package: keyword research, title options, thumbnail text, description, tags. Trigger phrases: "prepare for publishing", "publish prep", "upload package", "title and description for this video".
 
-**Read first:** `docs/marketing/references/youtube-engine-playbook.md` (sections 2 and 4), `docs/marketing/youtube-catalog.md` (avoid repeating a posted topic; pull "Previous" links), and `docs/marketing/content-grader.md`.
+**Read first:** `docs/marketing/references/writing-style.md` (banned words, openers, self-check; run it on titles, thumbnail text, and description), `docs/marketing/references/youtube-engine-playbook.md` (sections 2 and 4), `docs/marketing/youtube-catalog.md` (avoid repeating a posted topic; pull "Previous" links), and `docs/marketing/content-grader.md`. For parts blocks, check `docs/marketing/references/` (for example `f80-m3-strut-suspension-parts.md`) before marking a part number `TBD`.
 
 ## Inputs
 
@@ -19,7 +19,7 @@ Never invent cars, specs, timestamps, or part numbers. Unknown means `TBD`.
 
 1. **Keyword research.** Run live YouTube autocomplete, one fetch per seed, using `https://suggestqueries.google.com/complete/search?client=firefox&ds=yt&q=<seed>` via WebFetch. Seed with: the format ("car meet vlog"), the broad term, the local term ("bay area", "fremont"), the venue, and any named car or part. Add a WebSearch for venue and event facts. Record results verbatim.
 2. **Pick keywords.** One primary keyword (highest-intent phrase that honestly describes the video), 3–5 secondary. Prefer the open lane: specific local or model terms over saturated broad ones. Note what is saturated.
-3. **Title options.** Three options. Primary keyword within the first 40 characters, under 60 characters total, one promise, no hype, no exclamation points, no all-caps words. Mark one recommended and why. Compare against titles in the catalog so the channel's titles stay consistent.
+3. **Title options.** Three options. Primary keyword within the first 40 characters, under 60 characters total, one promise, no hype, no exclamation points, no all-caps words. Every title must carry one clear emotion (relief, tension, pride, curiosity, satisfaction), earned through a specific stake or payoff, not hype words. Name the emotion in the one-line rationale. Mark one recommended and why. Compare against titles in the catalog so the channel's titles stay consistent.
 4. **Thumbnail text.** Three options, 2–4 words each, sentence case or caps per the user's current thumbnail style. Text adds to the title and never repeats it. Pair each with a one-line image direction (subject, framing, contrast block). Text only, no image generation.
 5. **Description.** Fill the template below. Omit a section when it has no content; never leave an empty header. Put the primary keyword and one secondary in the first two sentences, because only about 150 characters show before "more".
 6. **Tags.** 15–20 tags, most specific first, comma-separated, 500 characters max total. Mix: primary keyword and variants, secondary keywords, venue, area, car makes shown, format ("car meet vlog"), and brand ("endless autoworks"). No tags for things not in the video.

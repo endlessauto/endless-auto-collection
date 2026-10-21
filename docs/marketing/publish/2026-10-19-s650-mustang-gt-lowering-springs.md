@@ -53,13 +53,14 @@ Cars in this video
 2024 Ford Mustang GT (S650)
 
 Parts in this video
-Lowering springs: [TBD brand, part number, price, link]
+Lowering springs: Steeda Mustang Minimum Drop MagneRide Lowering Springs, part 555-8225, $419.95: https://www.steeda.com/steeda-555-8225-mustang-s650-magneride-minimum-drop-lowering-springs
 [TBD: anything else shown]
 
 Location
 Endless AutoWorks, Fremont, CA
 
 Related
+Written guide with tools, steps, and torque specs: https://www.endlessautocollection.com/s650-mustang-lowering-springs
 Mechanical work at our shop: https://www.endlessautocollection.com/mechanical
 Previous: F80 M3 Bilstein B16 Coilovers: Finally Off the Lift: https://www.youtube.com/watch?v=djCrFSHym1k
 Part 2: [TBD, add the link when it posts]
@@ -98,7 +99,8 @@ Total 27/40, REVISE once the open items are filled. Weakest: proof, because Part
 ## Open items
 
 - What you did on camera so far (strut removal, springs out, anything else). Chapters and the first description sentence should name it.
-- Spring brand, part number, price, link, and whether the car has MagneRide.
+- Spring brand is Steeda 555-8225 (MagneRide, 0.75 in front, 0.375 in rear per Steeda). Confirm the car is MagneRide.
+- Written guide is filled from pasted research (tools, steps, torque, tips). Torque values are not yet checked against Ford service data. Measured ride height, MagneRide connector handling, and alignment results stay TBD until Part 2.
 - Chapter timestamps (three minimum, first at 00:00).
 - When Part 2 posts, add its link to this description and update the "Part 2" line.
 - Shoot date, and whether the owner is fine with the car on camera.

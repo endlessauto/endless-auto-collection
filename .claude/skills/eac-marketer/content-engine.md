@@ -4,7 +4,7 @@ Before proposing a topic, check `docs/marketing/youtube-catalog.md` so you don't
 
 Drafts text from footage notes, a transcript, or raw interview answers (pasted or described; no video processing).
 
-**Read first:** `docs/marketing/references/youtube-engine-playbook.md`, `docs/marketing/references/kallaway-short-form-playbook.md` (sections 4–6), and `docs/marketing/content-grader.md`.
+**Read first:** `docs/marketing/references/writing-style.md` (banned words, openers, self-check; run it on every draft), `docs/marketing/references/youtube-engine-playbook.md`, `docs/marketing/references/kallaway-short-form-playbook.md` (sections 4–6), and `docs/marketing/content-grader.md`.
 
 ## Pick what to build
 
@@ -18,8 +18,8 @@ Drafts text from footage notes, a transcript, or raw interview answers (pasted o
 |--------|-------|
 | Long-form script structure | Narrative beats, not word-for-word. Hook follows promise (0–15s), proof (15–30s), plan (30–60s) |
 | Short-form cutdowns | Instagram and YouTube Shorts: hook (text, visual, spoken, drafted in that order), beats, caption, CTA |
-| Thumbnail concepts | Text only: subject, contrast text block, before/after element, single promise matching the title |
-| Title options | Outcome-first, specific, no hype |
+| Thumbnail concepts | Text only: subject, contrast text block, before/after element, single promise matching the title. Each must evoke one clear emotion through a visible face, reaction or stake |
+| Title options | Outcome-first, specific, no hype, and each carries one clear emotion (relief, tension, pride, curiosity) |
 | Description + chapters | Keyword-dense, derived from the script (playbook section 4) |
 | CTA | Logical next step of what the piece taught, e.g. tint comparison tool or consultation |
 | Lead-magnet funnel copy | When asked: comment keyword (hyper-specific), auto-DM text, landing page (outcome headline, specific subheadline, 3 bullets, one field, "Send me the [thing]"), delivery line. Playbook section 5 |
