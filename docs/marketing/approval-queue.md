@@ -32,3 +32,7 @@ Drafts land here unchecked. Check a box (`- [x]`) to approve. Only a checked box
 - [ ] Carousel (Instagram): All four corners, not just the rears (`docs/marketing/carousels/2026-10-21/5-slide-all-four-corners.html`)
 - [ ] Carousel (Instagram): Ride height is set on the bench (`docs/marketing/carousels/2026-10-21/8-slide-ride-height-on-the-bench.html`)
 - [ ] Carousel (Instagram): Lowered isn't done until it's aligned (`docs/marketing/carousels/2026-10-21/9-slide-lowered-isnt-done-until-aligned.html`)
+- [ ] Carousel (Instagram): Self-healing film is not scratch-proof (`docs/marketing/carousels/2026-10-22/1-slide-self-healing-not-scratch-proof.html`)
+- [ ] Carousel (Instagram): Polish can't fix every scratch (`docs/marketing/carousels/2026-10-22/5-slide-polish-cant-fix-every-scratch.html`)
+- [ ] Carousel (Instagram): A wrap doesn't hide damage (`docs/marketing/carousels/2026-10-22/9-slide-wrap-doesnt-hide-damage.html`)
+- [ ] Carousel (Instagram): Sometimes the answer is: not like that (`docs/marketing/carousels/2026-10-22/8-slide-not-like-that.html`)
