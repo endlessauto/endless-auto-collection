@@ -81,6 +81,8 @@ Use a frame from the two-camera setup where his expression is clearest. Shoot or
 ```
 Lamborghini Murcielago owner Arun explains why he is selling the car he dreamed of as a kid. This is an interview about childhood dream cars, what it means to own one, and what comes next.
 
+Want to be in What Drives You? Sign up on our website: https://www.endlessautocollection.com/whatdrivesyou
+
 Chapters
 00:00 [TBD: cold open]
 [TBD] Why sell a childhood dream car
@@ -91,8 +93,8 @@ Chapters
 [TBD] How long he owned it and what's next
 
 About the series
-What Drives You is a series where car owners tell the story behind their car in their own words. Want to be in it? Sign up on our website: https://www.endlessautocollection.com/whatdrivesyou
-Or message us on Instagram: @endlessautocollection
+What Drives You is a series where car owners tell the story behind their car in their own words. To be in it, sign up through our website: https://www.endlessautocollection.com/whatdrivesyou
+Questions? Message us on Instagram: @endlessautocollection
 
 Cars in this video
 2008 Lamborghini Murcielago LP640 [TBD: coupe or roadster]

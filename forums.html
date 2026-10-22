@@ -12,16 +12,16 @@
 </script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Shop Guides and DIY Forums | Endless Auto Collection</title>
+<title>Forums: Shop Guides and Owner Stories | Endless Auto Collection</title>
 <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
 <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon/favicon-32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon/favicon-16.png">
 <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon/apple-touch-icon.png">
-<meta name="description" content="Step-by-step guides from jobs serviced at Endless Auto Collection in Fremont: parts, part numbers, and torque specs.">
+<meta name="description" content="Step-by-step shop guides with parts and torque specs, plus What Drives You, a series where car owners tell the story behind their car. From Endless Auto Collection in Fremont.">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Endless Auto Collection">
-<meta property="og:title" content="Shop Guides and DIY Forums | Endless Auto Collection">
-<meta property="og:description" content="Step-by-step guides from jobs serviced at Endless Auto Collection in Fremont: parts, part numbers, and torque specs.">
+<meta property="og:title" content="Forums: Shop Guides and Owner Stories | Endless Auto Collection">
+<meta property="og:description" content="Step-by-step shop guides with parts and torque specs, plus What Drives You, a series where car owners tell the story behind their car. From Endless Auto Collection in Fremont.">
 <meta property="og:url" content="https://www.endlessautocollection.com/forums">
 <meta property="og:image" content="https://www.endlessautocollection.com/images/guides/f80-diff-bushing-thumb.jpg">
 <meta name="twitter:card" content="summary_large_image">
@@ -37,6 +37,8 @@ body{font-family:Inter,system-ui,sans-serif;background:#050505;color:#e4e4e7}
 .avatar{width:76px;height:76px;border-radius:9999px;background:linear-gradient(145deg,#2a2a2a 0%,#1a1a1a 100%);border:1px solid rgba(212,175,55,.3);color:#f0c869;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:1.1rem}
 .founder-card{background:radial-gradient(circle at 15% 20%,rgba(212,175,55,.12),transparent 55%),#0d0d0d;border:1px solid rgba(212,175,55,.45);box-shadow:0 20px 50px -20px rgba(212,175,55,.35)}
 .founder-avatar{width:112px;height:112px;border-radius:9999px;background:linear-gradient(145deg,#f5dfa0 0%,#d4af37 45%,#9c7a22 100%);color:#140f00;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:1.75rem;box-shadow:inset 0 1px 0 rgba(255,255,255,.55),0 10px 24px -6px rgba(212,175,55,.6)}
+.chip{padding:.5rem 1.1rem;border-radius:9999px;border:1px solid #2a2a2a;background:#0d0d0d;color:rgba(255,255,255,.7);font-size:.85rem;transition:border-color .25s ease,color .25s ease,background .25s ease}.chip:hover{border-color:rgba(212,175,55,.6);color:#fff}.chip[aria-pressed="true"]{border-color:#d4af37;background:rgba(212,175,55,.12);color:#f0c869}
+.gold-text{background:linear-gradient(145deg,#f5dfa0 0%,#d4af37 50%,#b08a2a 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
 .ph{border:1px dashed rgba(212,175,55,.5);background:rgba(212,175,55,.06);color:#f0c869;border-radius:.5rem;padding:.1rem .5rem;font-size:.85em}
 .step{counter-increment:s}
 .step::before{content:counter(s);position:absolute;left:0;top:0;width:2rem;height:2rem;border-radius:9999px;background:linear-gradient(145deg,#f5dfa0,#d4af37 45%,#9c7a22);color:#140f00;font-weight:700;display:flex;align-items:center;justify-content:center;font-size:.9rem}
@@ -87,17 +89,64 @@ table{width:100%;border-collapse:collapse}th,td{text-align:left;padding:.75rem 1
 <header class="min-h-[40dvh] flex items-center pt-20 px-6 md:px-16">
   <div class="max-w-6xl mx-auto w-full"><div class="max-w-3xl">
     <p class="text-xs tracking-[2px] text-white/60 mb-5">FREMONT · FORUMS</p>
-    <h1 class="heading-font text-5xl md:text-7xl text-white">Shop Guides.</h1>
-    <p class="mt-6 text-lg text-white/70">Jobs we have serviced at Endless, written up step by step: the parts we bought, what they cost, and the torque specs.</p>
+    <h1 class="heading-font text-5xl md:text-7xl text-white">Forums.</h1>
+    <p class="mt-6 text-lg text-white/70">Shop guides written up step by step, and car owners telling the story behind their car.</p>
   </div></div>
 </header>
-<section class="px-6 md:px-16 py-16 max-w-6xl mx-auto border-t border-white/10">
-  <div class="grid md:grid-cols-2 gap-5">
+<div class="px-6 md:px-16 border-t border-white/10">
+  <div class="max-w-6xl mx-auto flex flex-wrap gap-2 py-6" role="group" aria-label="Filter topics">
+    <button type="button" data-filter="all" aria-pressed="true" class="chip">All</button>
+    <button type="button" data-filter="interviews" aria-pressed="false" class="chip">What drives you</button>
+    <button type="button" data-filter="guides" aria-pressed="false" class="chip">Shop guides</button>
+    <button type="button" data-filter="archive" aria-pressed="false" class="chip">Build archive</button>
+  </div>
+</div>
+<section id="what-drives-you" data-topic="interviews" class="px-6 md:px-16 pt-10 pb-16 border-t border-white/10"><div class="max-w-6xl mx-auto">
+  <a href="whatdrivesyou.html" class="founder-card rounded-3xl p-8 md:p-12 grid md:grid-cols-[1fr_auto] gap-8 items-center hover:border-[#f0c869] transition-colors">
+    <div class="max-w-2xl">
+      <p class="text-[#f0c869] text-xs tracking-[3px] font-semibold mb-3">INTERVIEW SERIES</p>
+      <h2 class="heading-font h2 text-white">What drives <span class="gold-text">you</span>.</h2>
+      <p class="mt-4 text-white/70">Car owners tell the story behind their car in their own words. Any car, any budget, any story. We give you a few questions and you talk. We never post without your approval.</p>
+    </div>
+    <span class="btn px-7 py-3 rounded-full text-sm text-center">Share your story</span>
+  </a>
+  <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-5 mt-5">
+    <!-- Episode card template. Copy, then fill in: owner page (copy what-drives-you-arun-coumar.html), thumbnail path (images/guides/), title, date.
+    <a href="OWNER-PAGE.html" class="card rounded-3xl overflow-hidden flex flex-col hover:border-[#d4af37]/60 transition-colors">
+      <img src="images/guides/THUMBNAIL.jpg" alt="DESCRIBE THE THUMBNAIL" loading="lazy" width="1280" height="720" class="w-full aspect-video object-cover object-left">
+      <div class="p-7 flex flex-col flex-1 text-left">
+        <p class="text-[#f0c869] text-xs tracking-[3px] font-semibold mb-3">MAKE · YEAR MODEL</p>
+        <h3 class="heading-font text-2xl text-white">VIDEO TITLE</h3>
+        <p class="text-white/60 mt-3">ONE-SENTENCE SUMMARY.</p>
+        <p class="text-white/40 mt-5 text-xs">Posted MON DD, YYYY</p>
+        <p class="text-white/80 mt-5 text-sm">Meet NAME →</p>
+      </div>
+    </a>
+    -->
+    <a href="what-drives-you-arun-coumar.html" class="card rounded-3xl overflow-hidden flex flex-col hover:border-[#d4af37]/60 transition-colors">
+      <img src="images/guides/what-drives-you-arun-murcielago-thumb.jpg" alt="Arun Coumar beside his yellow 2008 Lamborghini Murciélago LP640 coupe, with the What Drives You title and 20 months of ownership" loading="lazy" width="1280" height="720" class="w-full aspect-video object-cover object-left">
+      <div class="p-7 flex flex-col flex-1 text-left">
+        <p class="text-[#f0c869] text-xs tracking-[3px] font-semibold mb-3">LAMBORGHINI · 2008 MURCIÉLAGO LP640</p>
+        <h3 class="heading-font text-2xl text-white">Selling his childhood dream car?</h3>
+        <p class="text-white/60 mt-3">Arun Coumar on why he is selling the Murciélago he dreamed of as a kid, after 20 months of ownership.</p>
+        <p class="text-white/40 mt-5 text-xs">Posted Oct 21, 2026</p>
+        <p class="text-white/80 mt-5 text-sm">Meet Arun →</p>
+      </div>
+    </a>
+  </div>
+</div></section>
+<section id="shop-guides" data-topic="guides" class="px-6 md:px-16 py-16 border-t border-white/10"><div class="max-w-6xl mx-auto">
+  <div class="max-w-3xl mb-8">
+    <p class="text-[#f0c869] text-xs tracking-[3px] font-semibold mb-3">SHOP GUIDES</p>
+    <h2 class="heading-font h2 text-white">Step by step, from the shop.</h2>
+    <p class="mt-4 text-white/70">Jobs we have serviced at Endless: the parts we bought, what they cost, and the torque specs.</p>
+  </div>
+  <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
     <a href="s650-mustang-lowering-springs.html" class="card rounded-3xl overflow-hidden block hover:border-[#d4af37]/60 transition-colors">
       <img src="images/guides/s650-lowering-springs-thumb.jpg" alt="Man standing beside a white S650 Mustang GT with the hood up in the shop, with the word Lowered and the Mustang pony badge" loading="lazy" width="1280" height="720" class="w-full aspect-video object-cover">
-      <div class="p-8">
+      <div class="p-7">
         <p class="text-[#f0c869] text-xs tracking-[3px] font-semibold mb-3">FORD · 2024 MUSTANG GT S650</p>
-        <h2 class="heading-font text-2xl text-white">S650 Mustang GT lowering springs install</h2>
+        <h3 class="heading-font text-2xl text-white">S650 Mustang GT lowering springs install</h3>
         <p class="text-white/60 mt-3">Steeda minimum drop springs on a 2024 Mustang GT: the part we bought, the tools, every step, and the torque specs.</p>
         <p class="text-white/40 mt-5 text-xs">Published Oct 19, 2026</p>
         <p class="text-white/80 mt-5 text-sm">Read the guide →</p>
@@ -105,9 +154,9 @@ table{width:100%;border-collapse:collapse}th,td{text-align:left;padding:.75rem 1
     </a>
     <a href="bilstein-b16-strut-assembly.html" class="card rounded-3xl overflow-hidden block hover:border-[#d4af37]/60 transition-colors">
       <img src="images/guides/bilstein-b16-thumb.jpg" alt="Driver in a BMW M3 gesturing, with a white F80 M3 in the shop behind and the words On Schedule" loading="lazy" width="1280" height="720" class="w-full aspect-video object-cover">
-      <div class="p-8">
+      <div class="p-7">
         <p class="text-[#f0c869] text-xs tracking-[3px] font-semibold mb-3">BMW · 2018 M3 F80</p>
-        <h2 class="heading-font text-2xl text-white">Bilstein B16 strut assembly, front and rear</h2>
+        <h3 class="heading-font text-2xl text-white">Bilstein B16 strut assembly, front and rear</h3>
         <p class="text-white/60 mt-3">Coilover install on all four corners: the parts and tools we used, every step, and the torque specs.</p>
         <p class="text-white/40 mt-5 text-xs">Published Oct 12, 2026</p>
         <p class="text-white/80 mt-5 text-sm">Read the guide →</p>
@@ -115,16 +164,26 @@ table{width:100%;border-collapse:collapse}th,td{text-align:left;padding:.75rem 1
     </a>
     <a href="f80-m3-differential-bushing.html" class="card rounded-3xl overflow-hidden block hover:border-[#d4af37]/60 transition-colors">
       <img src="images/guides/f80-diff-bushing-thumb.jpg" alt="Homemade bushing puller on a BMW M3 F80 with a hand holding the bolt, titled Plastic Works, DIY bushing tool" loading="lazy" width="1280" height="720" class="w-full aspect-video object-cover">
-      <div class="p-8">
+      <div class="p-7">
         <p class="text-[#f0c869] text-xs tracking-[3px] font-semibold mb-3">BMW · 2018 M3 F80</p>
-        <h2 class="heading-font text-2xl text-white">Rear differential bushing replacement</h2>
+        <h3 class="heading-font text-2xl text-white">Rear differential bushing replacement</h3>
         <p class="text-white/60 mt-3">Clunk on throttle or shifts? How to confirm the bushings are bad, what we bought, and how we installed them.</p>
         <p class="text-white/40 mt-5 text-xs">Published Oct 9, 2026</p>
         <p class="text-white/80 mt-5 text-sm">Read the guide →</p>
       </div>
     </a>
   </div>
-</section>
+</div></section>
+<section id="build-archive" data-topic="archive" class="px-6 md:px-16 py-16 border-t border-white/10"><div class="max-w-6xl mx-auto">
+  <a href="build-submit.html" class="founder-card rounded-3xl p-8 md:p-12 grid md:grid-cols-[1fr_auto] gap-8 items-center hover:border-[#f0c869] transition-colors">
+    <div class="max-w-2xl">
+      <p class="text-[#f0c869] text-xs tracking-[3px] font-semibold mb-3">BUILD ARCHIVE</p>
+      <h2 class="heading-font h2 text-white">Every build, on the <span class="gold-text">record</span>.</h2>
+      <p class="mt-4 text-white/70">One page per car: the upgrades, the story, and what you would do differently. We review every build before it goes live. Our own first entries are on the way.</p>
+    </div>
+    <span class="btn px-7 py-3 rounded-full text-sm text-center">Submit your build</span>
+  </a>
+</div></section>
 <footer class="px-6 py-14 text-sm max-w-6xl mx-auto grid md:grid-cols-2 gap-8">
   <div>
     <div class="font-black text-2xl tracking-[-1px] leading-none">ENDLESS</div>
@@ -149,6 +208,8 @@ table{width:100%;border-collapse:collapse}th,td{text-align:left;padding:.75rem 1
 function openQuote(){const m=document.getElementById('quote');m.classList.remove('hidden');m.style.display='flex';document.body.style.overflow='hidden'}
 function closeQuote(){const m=document.getElementById('quote');m.style.display='none';m.classList.add('hidden');document.body.style.overflow=''}
 function toggleMenu(){const m=document.getElementById('mobile-menu');const open=m.classList.contains('hidden');m.classList.toggle('hidden');document.getElementById('menu-icon-open').classList.toggle('hidden',open);document.getElementById('menu-icon-close').classList.toggle('hidden',!open);document.getElementById('menu-btn').setAttribute('aria-expanded',open?'true':'false')}
+function filterTopics(t){document.querySelectorAll('[data-topic]').forEach(e=>e.classList.toggle('hidden',t!=='all'&&e.dataset.topic!==t));document.querySelectorAll('[data-filter]').forEach(b=>b.setAttribute('aria-pressed',b.dataset.filter===t?'true':'false'))}
+document.querySelectorAll('[data-filter]').forEach(b=>b.addEventListener('click',()=>filterTopics(b.dataset.filter)));
 window.addEventListener('resize',()=>{if(window.innerWidth>=768)document.getElementById('mobile-menu').classList.add('hidden')});
 window.addEventListener('scroll',()=>document.getElementById('navbar').classList.toggle('nav-scrolled',scrollY>70));
 </script>
