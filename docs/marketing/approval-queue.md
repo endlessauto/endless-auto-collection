@@ -36,3 +36,7 @@ Drafts land here unchecked. Check a box (`- [x]`) to approve. Only a checked box
 - [ ] Carousel (Instagram): Polish can't fix every scratch (`docs/marketing/carousels/2026-10-22/5-slide-polish-cant-fix-every-scratch.html`)
 - [ ] Carousel (Instagram): A wrap doesn't hide damage (`docs/marketing/carousels/2026-10-22/9-slide-wrap-doesnt-hide-damage.html`)
 - [ ] Carousel (Instagram): Sometimes the answer is: not like that (`docs/marketing/carousels/2026-10-22/8-slide-not-like-that.html`)
+- [ ] Carousel (Instagram): Independent shop, dealer-level paper trail (`docs/marketing/carousels/2026-10-23/1-slide-independent-dealer-level-paper-trail.html`)
+- [ ] Carousel (Instagram): Your car has a story (`docs/marketing/carousels/2026-10-23/5-slide-your-car-has-a-story.html`)
+- [ ] Carousel (Instagram): Why sell the dream car? (`docs/marketing/carousels/2026-10-23/8-slide-why-sell-the-dream-car.html`)
+- [ ] Carousel (Instagram): How a visit works (`docs/marketing/carousels/2026-10-23/9-slide-how-a-visit-works.html`)
