@@ -51,6 +51,7 @@ textarea.input{min-height:9rem;resize:vertical;line-height:1.55}
 .hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
 .fade-in{animation:fade .6s ease both}@keyframes fade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
 @media(prefers-reduced-motion:reduce){.fade-in{animation:none}html{scroll-behavior:auto}}
+.ep-row{display:flex;gap:1.25rem;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;padding:0 1.5rem 1rem;margin:0 -1.5rem;scrollbar-width:thin;scrollbar-color:#3a3a3a transparent}.ep-row>a{flex:0 0 82%;max-width:22rem;scroll-snap-align:start}@media(min-width:768px){.ep-row{padding:0 0 1rem;margin:0}.ep-row>a{flex-basis:22rem}}
 html{scroll-behavior:smooth}
 section[id]{scroll-margin-top:6rem}
 </style>
@@ -102,9 +103,27 @@ section[id]{scroll-margin-top:6rem}
     <p class="eyebrow mb-6">THE INTERVIEW SERIES</p>
     <h1 class="heading-font text-5xl md:text-7xl text-white leading-[1.05]">What drives <span class="gold-text">you</span>.</h1>
     <p class="mt-8 text-lg md:text-xl text-white/70 max-w-2xl mx-auto">Every car has a reason behind it. A first car, a long build, a car that was your dad's. Tell us yours, and we may sit down with you to hear the story.</p>
-    <p class="mt-10"><a href="#share" class="btn inline-block px-8 py-3 rounded-full">Share your car</a></p>
+    <p class="mt-10 flex flex-wrap items-center justify-center gap-x-8 gap-y-4"><a href="#share" class="btn inline-block px-8 py-3 rounded-full">Submit request</a><a href="#episodes" class="text-white/70 hover:text-white underline">Watch the episodes ↓</a></p>
   </div>
 </header>
+
+<section id="episodes" class="px-6 md:px-16 py-16 max-w-5xl mx-auto border-t border-white/10">
+  <p class="eyebrow mb-3">EPISODES SO FAR</p>
+  <h2 class="h2 heading-font mb-3">Stories from the series.</h2>
+  <p class="text-white/60 mb-8">Swipe to see every episode so far.</p>
+  <div class="ep-row">
+    <a href="what-drives-you-arun-coumar.html" class="card rounded-3xl overflow-hidden flex flex-col hover:border-[#d4af37]/60 transition-colors">
+      <img src="images/guides/what-drives-you-arun-murcielago-thumb.jpg" alt="Arun Coumar beside his yellow 2008 Lamborghini Murciélago LP640 coupe, with the What Drives You title and 20 months of ownership" loading="lazy" width="1280" height="720" class="w-full aspect-video object-cover object-left">
+      <div class="p-6 flex flex-col flex-1 text-left">
+        <p class="text-[#f0c869] text-xs tracking-[3px] font-semibold mb-3">LAMBORGHINI · 2008 MURCIÉLAGO LP640</p>
+        <h3 class="heading-font text-2xl text-white">Selling his childhood dream car?</h3>
+        <p class="text-white/60 mt-3">Arun Coumar on why he is selling the Murciélago he dreamed of as a kid, after 20 months of ownership.</p>
+        <p class="text-white/40 mt-5 text-xs">Posted Oct 21, 2026</p>
+        <p class="text-white/80 mt-5 text-sm">Meet Arun →</p>
+      </div>
+    </a>
+  </div>
+</section>
 
 <section id="how" class="px-6 md:px-16 py-16 max-w-5xl mx-auto border-t border-white/10">
   <p class="eyebrow mb-3">HOW IT WORKS</p>
