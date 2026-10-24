@@ -40,3 +40,7 @@ Drafts land here unchecked. Check a box (`- [x]`) to approve. Only a checked box
 - [ ] Carousel (Instagram): Your car has a story (`docs/marketing/carousels/2026-10-23/5-slide-your-car-has-a-story.html`)
 - [ ] Carousel (Instagram): Why sell the dream car? (`docs/marketing/carousels/2026-10-23/8-slide-why-sell-the-dream-car.html`)
 - [ ] Carousel (Instagram): How a visit works (`docs/marketing/carousels/2026-10-23/9-slide-how-a-visit-works.html`)
+- [ ] Carousel (Instagram): Engine bays get detailed too (`docs/marketing/carousels/2026-10-24/1-slide-engine-bay-detailed-too.html`)
+- [ ] Carousel (Instagram): Interior detail, seats to headliner (`docs/marketing/carousels/2026-10-24/5-slide-interior-seats-to-headliner.html`)
+- [ ] Carousel (Instagram): Prep makes the gloss, coating keeps it (`docs/marketing/carousels/2026-10-24/8-slide-prep-makes-the-gloss.html`)
+- [ ] Carousel (Instagram): How long ceramic and film really last (`docs/marketing/carousels/2026-10-24/9-slide-how-long-does-it-last.html`)
