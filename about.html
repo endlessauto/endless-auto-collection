@@ -30,6 +30,49 @@ body{font-family:Inter,system-ui,sans-serif;background:#050505;color:#e4e4e7}
 .avatar{width:76px;height:76px;border-radius:9999px;background:linear-gradient(145deg,#2a2a2a 0%,#1a1a1a 100%);border:1px solid rgba(212,175,55,.3);color:#f0c869;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:1.1rem}
 .founder-card{background:radial-gradient(circle at 15% 20%,rgba(212,175,55,.12),transparent 55%),#0d0d0d;border:1px solid rgba(212,175,55,.45);box-shadow:0 20px 50px -20px rgba(212,175,55,.35)}
 .founder-avatar{width:112px;height:112px;border-radius:9999px;background:linear-gradient(145deg,#f5dfa0 0%,#d4af37 45%,#9c7a22 100%);color:#140f00;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:1.75rem;box-shadow:inset 0 1px 0 rgba(255,255,255,.55),0 10px 24px -6px rgba(212,175,55,.6)}
+.tm-roster{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:.75rem;margin-bottom:1rem}
+.tm-tile{background:#0d0d0d;border:1px solid #2a2a2a;border-radius:1rem;padding:.7rem;text-align:center;color:#a1a1aa;cursor:pointer;transition:border-color .25s ease,transform .25s ease,box-shadow .25s ease}
+.tm-tile:hover{border-color:#6b5a22;transform:translateY(-2px)}
+.tm-tile:focus-visible{outline:2px solid #d4af37;outline-offset:2px}
+.tm-tile[aria-selected=true]{border-color:#d4af37;color:#fff;box-shadow:0 0 0 3px rgba(212,175,55,.18),0 14px 30px -14px rgba(212,175,55,.5)}
+.tm-thumb{height:4.5rem;border-radius:.7rem;background:repeating-linear-gradient(135deg,#171717 0 8px,#111 8px 16px);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:1.4rem;color:#444;margin-bottom:.5rem;overflow:hidden}
+.tm-thumb img{width:100%;height:100%;object-fit:cover}
+.tm-tile[aria-selected=true] .tm-thumb{color:#d4af37}
+.tm-tile b{display:block;font-size:.8rem;letter-spacing:1.5px;font-weight:600}
+.tm-tile small{display:block;font-size:.62rem;letter-spacing:1px;color:#777;margin-top:2px}
+.tm-stage{position:relative;overflow:hidden;border:1px solid rgba(212,175,55,.45);border-radius:1.5rem;background:radial-gradient(circle at 15% 0%,rgba(212,175,55,.14),transparent 55%),#0b0b0b;box-shadow:0 30px 70px -35px rgba(212,175,55,.4)}
+.tm-lines{position:absolute;inset:0;background:repeating-linear-gradient(100deg,transparent 0 26px,rgba(212,175,55,.07) 26px 27px);pointer-events:none}
+.tm-flash{position:absolute;inset:0;background:linear-gradient(110deg,transparent 30%,rgba(245,223,160,.35) 50%,transparent 70%);transform:translateX(-120%);pointer-events:none}
+.tm-panel{position:relative;display:grid;grid-template-columns:16rem 1fr;gap:2rem;padding:2rem}
+.tm-panel[hidden]{display:none}
+.tm-photo{position:relative;border-radius:1rem;min-height:20rem;background:repeating-linear-gradient(135deg,#171717 0 10px,#101010 10px 20px);border:1px solid #2a2a2a;display:flex;align-items:center;justify-content:center;font-size:4rem;font-weight:700;color:#333;overflow:hidden}
+.tm-photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.tm-num{position:absolute;right:1rem;bottom:-1.6rem;font-size:9rem;font-weight:900;color:rgba(212,175,55,.07);line-height:1;pointer-events:none}
+.tm-role{font-size:.75rem;letter-spacing:3px;font-weight:600;color:#f0c869;text-transform:uppercase}
+.tm-name{font-size:clamp(2.6rem,7vw,4.2rem);font-weight:700;color:#fff;line-height:.95;letter-spacing:-2px;margin:.5rem 0 .7rem}
+.tm-name em{font-style:normal;background:linear-gradient(145deg,#f5dfa0,#d4af37 50%,#b08a2a);-webkit-background-clip:text;background-clip:text;color:transparent}
+.tm-quote{color:rgba(255,255,255,.72);font-size:1.1rem;max-width:30rem}
+.tm-bars{margin:1.3rem 0 1rem;max-width:29rem;list-style:none;padding:0}
+.tm-bar{display:grid;grid-template-columns:9.5rem 1fr;align-items:center;gap:.8rem;font-size:.7rem;letter-spacing:1.5px;font-weight:600;color:rgba(255,255,255,.6);margin:.6rem 0;text-transform:uppercase}
+.tm-track{height:7px;background:#1b1b1b;border-radius:4px;overflow:hidden}
+.tm-fill{height:100%;width:var(--w);background:linear-gradient(90deg,#9c7a22,#f5dfa0);border-radius:4px}
+.tm-story{color:rgba(255,255,255,.62);line-height:1.65;max-width:33rem}
+.tm-chips{margin-top:.9rem}
+.tm-chip{display:inline-block;font-size:.78rem;padding:.3rem .8rem;border-radius:9999px;border:1px solid rgba(212,175,55,.4);color:#f0c869;margin:0 .4rem .4rem 0}
+.tm-cta{display:inline-block;margin-top:1rem;padding:.75rem 1.6rem;border-radius:9999px;font-size:.9rem}
+.tm-play .tm-photo{animation:tm-slide .55s cubic-bezier(.2,.8,.2,1) both}
+.tm-play .tm-role{animation:tm-fade .4s .15s both}
+.tm-play .tm-name{animation:tm-slam .45s .2s cubic-bezier(.2,.9,.3,1.2) both}
+.tm-play .tm-quote,.tm-play .tm-story,.tm-play .tm-chips,.tm-play .tm-cta{animation:tm-fade .5s .55s both}
+.tm-play .tm-flash{animation:tm-sweep .7s ease-out}
+.tm-play .tm-fill{animation:tm-grow 1s .45s cubic-bezier(.2,.8,.2,1) both}
+@keyframes tm-slide{from{opacity:0;transform:translateX(-40px)}to{opacity:1;transform:none}}
+@keyframes tm-fade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+@keyframes tm-slam{from{opacity:0;transform:scale(1.5);filter:blur(8px)}to{opacity:1;transform:none;filter:none}}
+@keyframes tm-sweep{to{transform:translateX(120%)}}
+@keyframes tm-grow{from{width:0}to{width:var(--w)}}
+@media(max-width:760px){.tm-roster{gap:.5rem}.tm-tile{padding:.5rem .3rem}.tm-thumb{height:3.4rem}.tm-panel{grid-template-columns:1fr;padding:1.25rem;gap:1.25rem}.tm-photo{min-height:13rem}.tm-bar{grid-template-columns:7.5rem 1fr}}
+@media(prefers-reduced-motion:reduce){.tm-play *{animation:none!important}}
 .showcase-img{cursor:zoom-in;transition:filter .25s ease}.showcase-img:hover{filter:brightness(1.1)}
 </style>
 <link rel="stylesheet" href="/css/tailwind.css">
@@ -82,33 +125,65 @@ body{font-family:Inter,system-ui,sans-serif;background:#050505;color:#e4e4e7}
   </div>
   </div>
 </header>
-<section class="px-6 md:px-16 py-16 max-w-6xl mx-auto border-t border-white/10">
-  <h2 class="h2 heading-font mb-3">Owner / Team</h2>
-  <p class="text-white/60 max-w-2xl mb-10">The team behind every build.</p>
-  <article class="founder-card rounded-3xl p-10 md:p-12 flex flex-col md:flex-row items-center md:items-start gap-8 mb-6">
-    <div class="founder-avatar shrink-0">WX</div>
-    <div class="text-center md:text-left">
-      <p class="text-[#f0c869] text-xs tracking-[3px] font-semibold mb-2">FOUNDER &amp; OWNER</p>
-      <h3 class="heading-font text-3xl md:text-4xl font-bold text-white">Will Xu</h3>
-      <p class="text-white/60 mt-3 max-w-md">Started Endless Auto Collection in Fremont and leads every build, start to finish.</p>
+<section id="team" class="px-6 md:px-16 py-16 max-w-6xl mx-auto border-t border-white/10">
+  <p class="text-[#f0c869] text-xs tracking-[3px] font-semibold mb-3">OWNER / TEAM</p>
+  <h2 class="h2 heading-font mb-3">Meet the crew.</h2>
+  <p class="text-white/60 max-w-2xl mb-10">Pick someone and say hi before you book.</p>
+  <div class="tm-roster" role="tablist" aria-label="Team members"><button type="button" role="tab" id="tm-tab-will" aria-controls="tm-will" aria-selected="true" tabindex="0" class="tm-tile"><div class="tm-thumb">W</div><b>WILL</b><small>FOUNDER</small></button><button type="button" role="tab" id="tm-tab-yoobin" aria-controls="tm-yoobin" aria-selected="false" tabindex="-1" class="tm-tile"><div class="tm-thumb">Y</div><b>YOOBIN</b><small>CREATIVE</small></button><button type="button" role="tab" id="tm-tab-kevin" aria-controls="tm-kevin" aria-selected="false" tabindex="-1" class="tm-tile"><div class="tm-thumb">K</div><b>KEVIN</b><small>SERVICE</small></button><button type="button" role="tab" id="tm-tab-vinh" aria-controls="tm-vinh" aria-selected="false" tabindex="-1" class="tm-tile"><div class="tm-thumb">V</div><b>VINH</b><small>INSTALLER</small></button></div>
+  <div class="tm-stage tm-play" id="tm-stage">
+    <div class="tm-lines"></div><div class="tm-flash"></div>
+    <div class="tm-panel" role="tabpanel" id="tm-will" aria-labelledby="tm-tab-will">
+      <div class="tm-photo" aria-hidden="true">W</div>
+      <div class="tm-num" aria-hidden="true">01</div>
+      <div style="position:relative">
+        <p class="tm-role">Founder and owner</p>
+        <h3 class="tm-name heading-font">Will<br><em>Xu</em></h3>
+        <p class="tm-quote">"Cars are the doorway. The community is the point."</p>
+        <ul class="tm-bars"><li class="tm-bar"><span>Vision</span><div class="tm-track" aria-hidden="true"><div class="tm-fill" style="--w:96%"></div></div></li><li class="tm-bar"><span>Community</span><div class="tm-track" aria-hidden="true"><div class="tm-fill" style="--w:92%"></div></div></li><li class="tm-bar"><span>Storytelling</span><div class="tm-track" aria-hidden="true"><div class="tm-fill" style="--w:84%"></div></div></li></ul>
+        <p class="tm-story">Will started Endless to build a close community across the car world, and to help people beyond cars: telling their stories, collaborating, building together. A media studio for car people could be next.</p>
+        
+        <a href="whatdrivesyou.html" class="btn tm-cta">Share your story →</a>
+      </div>
     </div>
-  </article>
-  <div class="grid sm:grid-cols-3 gap-5">
-    <article class="card rounded-3xl p-7 text-center">
-      <div class="avatar mx-auto mb-4">YS</div>
-      <h3 class="text-lg font-semibold">Yoobin Seo</h3>
-      <p class="text-white/50 text-xs tracking-[1.5px] mt-1">TEAM MEMBER</p>
-    </article>
-    <article class="card rounded-3xl p-7 text-center">
-      <div class="avatar mx-auto mb-4">KL</div>
-      <h3 class="text-lg font-semibold">Kevin Li</h3>
-      <p class="text-white/50 text-xs tracking-[1.5px] mt-1">TEAM MEMBER</p>
-    </article>
-    <article class="card rounded-3xl p-7 text-center">
-      <div class="avatar mx-auto mb-4">V</div>
-      <h3 class="text-lg font-semibold">Vinh</h3>
-      <p class="text-white/50 text-xs tracking-[1.5px] mt-1">TEAM MEMBER</p>
-    </article>
+    <div class="tm-panel" role="tabpanel" id="tm-yoobin" aria-labelledby="tm-tab-yoobin" hidden>
+      <div class="tm-photo" aria-hidden="true">Y</div>
+      <div class="tm-num" aria-hidden="true">02</div>
+      <div style="position:relative">
+        <p class="tm-role">Creative director</p>
+        <h3 class="tm-name heading-font">Yoobin<br><em>Seo</em></h3>
+        <p class="tm-quote">"Paint by day. Code by night."</p>
+        <ul class="tm-bars"><li class="tm-bar"><span>Paint correction</span><div class="tm-track" aria-hidden="true"><div class="tm-fill" style="--w:90%"></div></div></li><li class="tm-bar"><span>Vinyl wrap</span><div class="tm-track" aria-hidden="true"><div class="tm-fill" style="--w:86%"></div></div></li><li class="tm-bar"><span>Headlight restoration</span><div class="tm-track" aria-hidden="true"><div class="tm-fill" style="--w:82%"></div></div></li><li class="tm-bar"><span>Mechanical</span><div class="tm-track" aria-hidden="true"><div class="tm-fill" style="--w:70%"></div></div></li></ul>
+        <p class="tm-story">Yoobin runs the creative side and works the bay: cosmetic repair, paint correction, headlight restoration, wraps, detailing, and mechanical. Off the clock he runs LinkedSpaces, whose app Bloggo is live on the App Store, and is building a social memory network for the places you have been.</p>
+        <div class="tm-chips"><span class="tm-chip">Snowboarding</span><span class="tm-chip">Golf</span><span class="tm-chip">Fishing</span><span class="tm-chip">Backpacking</span><span class="tm-chip">Cat person</span></div>
+        <button type="button" onclick="openQuote()" class="btn tm-cta">Plan your build →</button>
+      </div>
+    </div>
+    <div class="tm-panel" role="tabpanel" id="tm-kevin" aria-labelledby="tm-tab-kevin" hidden>
+      <div class="tm-photo" aria-hidden="true">K</div>
+      <div class="tm-num" aria-hidden="true">03</div>
+      <div style="position:relative">
+        <p class="tm-role">Service writer, in training</p>
+        <h3 class="tm-name heading-font">Kevin<br><em>Li</em></h3>
+        <p class="tm-quote">"Ask me anything. If I do not know, I will find out."</p>
+        <ul class="tm-bars"><li class="tm-bar"><span>Service writing</span><div class="tm-track" aria-hidden="true"><div class="tm-fill" style="--w:55%"></div></div></li><li class="tm-bar"><span>Mechanical</span><div class="tm-track" aria-hidden="true"><div class="tm-fill" style="--w:60%"></div></div></li><li class="tm-bar"><span>Customer care</span><div class="tm-track" aria-hidden="true"><div class="tm-fill" style="--w:75%"></div></div></li></ul>
+        <p class="tm-story">Kevin is learning the shop from the ground up and will soon be the first person you talk to when you book.</p>
+        
+        <button type="button" onclick="openQuote()" class="btn tm-cta">Book a service →</button>
+      </div>
+    </div>
+    <div class="tm-panel" role="tabpanel" id="tm-vinh" aria-labelledby="tm-tab-vinh" hidden>
+      <div class="tm-photo" aria-hidden="true">V</div>
+      <div class="tm-num" aria-hidden="true">04</div>
+      <div style="position:relative">
+        <p class="tm-role">Installer, PPF and tint</p>
+        <h3 class="tm-name heading-font"><em>Vinh</em></h3>
+        <p class="tm-quote">"Clean edges. No shortcuts."</p>
+        <ul class="tm-bars"><li class="tm-bar"><span>Paint protection film</span><div class="tm-track" aria-hidden="true"><div class="tm-fill" style="--w:90%"></div></div></li><li class="tm-bar"><span>Window tint</span><div class="tm-track" aria-hidden="true"><div class="tm-fill" style="--w:88%"></div></div></li><li class="tm-bar"><span>Precision</span><div class="tm-track" aria-hidden="true"><div class="tm-fill" style="--w:94%"></div></div></li></ul>
+        <p class="tm-story">Vinh installs the paint protection film and window tint that protect your car for years.</p>
+        
+        <button type="button" onclick="openQuote()" class="btn tm-cta">Ask about PPF or tint →</button>
+      </div>
+    </div>
   </div>
 </section>
 <section class="px-6 md:px-16 py-16 max-w-6xl mx-auto border-t border-white/10">
@@ -150,25 +225,25 @@ body{font-family:Inter,system-ui,sans-serif;background:#050505;color:#e4e4e7}
   <div class="grid md:grid-cols-3 gap-5">
       <!-- yt:cards:start -->
       <div class="card rounded-3xl overflow-hidden">
-        <button type="button" class="yt-lite relative block w-full aspect-video bg-black" data-yt="djCrFSHym1k" aria-label="Play: F80 M3 Bilstein B16 Coilovers: Finally Off the Lift">
-          <img src="https://i.ytimg.com/vi/djCrFSHym1k/hqdefault.jpg" alt="F80 M3 Bilstein B16 Coilovers: Finally Off the Lift" loading="lazy" class="absolute inset-0 w-full h-full object-cover">
+        <button type="button" class="yt-lite relative block w-full aspect-video bg-black" data-yt="Lx9wrjZF2zU" aria-label="Play: Lamborghini Sesto Elemento, Pagani Huayra BC &amp; Bugatti at Santana Row!">
+          <img src="https://i.ytimg.com/vi/Lx9wrjZF2zU/hqdefault.jpg" alt="Lamborghini Sesto Elemento, Pagani Huayra BC &amp; Bugatti at Santana Row!" loading="lazy" class="absolute inset-0 w-full h-full object-cover">
           <span class="absolute inset-0 flex items-center justify-center"><span class="w-14 h-14 rounded-full bg-black/60 backdrop-blur border border-white/30 flex items-center justify-center"><svg class="w-6 h-6 text-white ml-0.5" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span></span>
         </button>
-        <h3 class="text-base font-semibold p-4">F80 M3 Bilstein B16 Coilovers: Finally Off the Lift</h3>
+        <h3 class="text-base font-semibold p-4">Lamborghini Sesto Elemento, Pagani Huayra BC &amp; Bugatti at Santana Row!</h3>
       </div>
       <div class="card rounded-3xl overflow-hidden">
-        <button type="button" class="yt-lite relative block w-full aspect-video bg-black" data-yt="LQzZyGXlrbU" aria-label="Play: Cars and Coffee Bay Area | Chill Sunday Car Meet Vlog at Alexander&#x27;s Patisserie | Cupertino, CA">
-          <img src="https://i.ytimg.com/vi/LQzZyGXlrbU/hqdefault.jpg" alt="Cars and Coffee Bay Area | Chill Sunday Car Meet Vlog at Alexander&#x27;s Patisserie | Cupertino, CA" loading="lazy" class="absolute inset-0 w-full h-full object-cover">
+        <button type="button" class="yt-lite relative block w-full aspect-video bg-black" data-yt="hauU1eIK4m8" aria-label="Play: Selling His Childhood Dream Car? | Lamborghini Murciélago">
+          <img src="https://i.ytimg.com/vi/hauU1eIK4m8/hqdefault.jpg" alt="Selling His Childhood Dream Car? | Lamborghini Murciélago" loading="lazy" class="absolute inset-0 w-full h-full object-cover">
           <span class="absolute inset-0 flex items-center justify-center"><span class="w-14 h-14 rounded-full bg-black/60 backdrop-blur border border-white/30 flex items-center justify-center"><svg class="w-6 h-6 text-white ml-0.5" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span></span>
         </button>
-        <h3 class="text-base font-semibold p-4">Cars and Coffee Bay Area | Chill Sunday Car Meet Vlog at Alexander&#x27;s Patisserie | Cupertino, CA</h3>
+        <h3 class="text-base font-semibold p-4">Selling His Childhood Dream Car? | Lamborghini Murciélago</h3>
       </div>
       <div class="card rounded-3xl overflow-hidden">
-        <button type="button" class="yt-lite relative block w-full aspect-video bg-black" data-yt="DAqY4Em1KUw" aria-label="Play: F80 M3 Differential Bushings Installed + Rear Strut Swap Begins">
-          <img src="https://i.ytimg.com/vi/DAqY4Em1KUw/hqdefault.jpg" alt="F80 M3 Differential Bushings Installed + Rear Strut Swap Begins" loading="lazy" class="absolute inset-0 w-full h-full object-cover">
+        <button type="button" class="yt-lite relative block w-full aspect-video bg-black" data-yt="sQsioLTcRh4" aria-label="Play: 2024 Mustang GT Lowering Springs Install | Pt.1 Shop Vlog">
+          <img src="https://i.ytimg.com/vi/sQsioLTcRh4/hqdefault.jpg" alt="2024 Mustang GT Lowering Springs Install | Pt.1 Shop Vlog" loading="lazy" class="absolute inset-0 w-full h-full object-cover">
           <span class="absolute inset-0 flex items-center justify-center"><span class="w-14 h-14 rounded-full bg-black/60 backdrop-blur border border-white/30 flex items-center justify-center"><svg class="w-6 h-6 text-white ml-0.5" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span></span>
         </button>
-        <h3 class="text-base font-semibold p-4">F80 M3 Differential Bushings Installed + Rear Strut Swap Begins</h3>
+        <h3 class="text-base font-semibold p-4">2024 Mustang GT Lowering Springs Install | Pt.1 Shop Vlog</h3>
       </div>
 <!-- yt:cards:end -->
   </div>
@@ -177,7 +252,7 @@ body{font-family:Inter,system-ui,sans-serif;background:#050505;color:#e4e4e7}
   </div>
 </section>
 <!-- yt:schema:start -->
-<script type="application/ld+json">[{"@context": "https://schema.org", "@type": "VideoObject", "name": "F80 M3 Bilstein B16 Coilovers: Finally Off the Lift", "description": "Our F80 M3 is finally off the lift after 5 weeks. This shop vlog covers the day we finished the job, plus how we got the bay ready for the Mustang job that is next.", "thumbnailUrl": "https://i.ytimg.com/vi/djCrFSHym1k/hqdefault.jpg", "uploadDate": "2026-10-15T01:24:12+00:00", "duration": "PT8M3S", "embedUrl": "https://www.youtube-nocookie.com/embed/djCrFSHym1k", "contentUrl": "https://www.youtube.com/watch?v=djCrFSHym1k"}, {"@context": "https://schema.org", "@type": "VideoObject", "name": "Cars and Coffee Bay Area | Chill Sunday Car Meet Vlog at Alexander's Patisserie | Cupertino, CA", "description": "A relaxed cars and coffee car meet vlog from the Bay Area, filmed at Alexander's Patisserie on a Sunday morning.", "thumbnailUrl": "https://i.ytimg.com/vi/LQzZyGXlrbU/hqdefault.jpg", "uploadDate": "2026-10-13T19:47:43+00:00", "duration": "PT6M55S", "embedUrl": "https://www.youtube-nocookie.com/embed/LQzZyGXlrbU", "contentUrl": "https://www.youtube.com/watch?v=LQzZyGXlrbU"}, {"@context": "https://schema.org", "@type": "VideoObject", "name": "F80 M3 Differential Bushings Installed + Rear Strut Swap Begins", "description": "We put the F80 M3 differential back in with new bushings, reconnected the driveshaft and brace, then started on the rear passenger strut and spring for the Bilstein B1 shocks.", "thumbnailUrl": "https://i.ytimg.com/vi/DAqY4Em1KUw/hqdefault.jpg", "uploadDate": "2026-10-12T19:55:09+00:00", "duration": "PT4M37S", "embedUrl": "https://www.youtube-nocookie.com/embed/DAqY4Em1KUw", "contentUrl": "https://www.youtube.com/watch?v=DAqY4Em1KUw"}]</script>
+<script type="application/ld+json">[{"@context": "https://schema.org", "@type": "VideoObject", "name": "Lamborghini Sesto Elemento, Pagani Huayra BC & Bugatti at Santana Row!", "description": "A Lamborghini Sesto Elemento, Pagani Huayra, and Bugatti Chiron — all at Santana Row in San Jose, California.", "thumbnailUrl": "https://i.ytimg.com/vi/Lx9wrjZF2zU/hqdefault.jpg", "uploadDate": "2026-10-23T22:47:21+00:00", "duration": "PT3M14S", "embedUrl": "https://www.youtube-nocookie.com/embed/Lx9wrjZF2zU", "contentUrl": "https://www.youtube.com/watch?v=Lx9wrjZF2zU"}, {"@context": "https://schema.org", "@type": "VideoObject", "name": "Selling His Childhood Dream Car? | Lamborghini Murciélago", "description": "Lamborghini Murciélago owner Arun explains why he is selling the car he dreamed of as a kid. This is an interview about childhood dream cars, what it means to own one, and what comes next.", "thumbnailUrl": "https://i.ytimg.com/vi/hauU1eIK4m8/hqdefault.jpg", "uploadDate": "2026-10-22T01:43:31+00:00", "duration": "PT7M26S", "embedUrl": "https://www.youtube-nocookie.com/embed/hauU1eIK4m8", "contentUrl": "https://www.youtube.com/watch?v=hauU1eIK4m8"}, {"@context": "https://schema.org", "@type": "VideoObject", "name": "2024 Mustang GT Lowering Springs Install | Pt.1 Shop Vlog", "description": "We start a lowering springs install on a 2024 Ford Mustang GT (S650) at our Fremont shop.", "thumbnailUrl": "https://i.ytimg.com/vi/sQsioLTcRh4/hqdefault.jpg", "uploadDate": "2026-10-20T02:20:23+00:00", "duration": "PT10M11S", "embedUrl": "https://www.youtube-nocookie.com/embed/sQsioLTcRh4", "contentUrl": "https://www.youtube.com/watch?v=sQsioLTcRh4"}]</script>
 <!-- yt:schema:end -->
 <script>
 document.querySelectorAll('.yt-lite').forEach(b=>b.addEventListener('click',()=>{const f=document.createElement('iframe');f.src='https://www.youtube-nocookie.com/embed/'+b.dataset.yt+'?autoplay=1&rel=0';f.title=b.getAttribute('aria-label').replace('Play: ','');f.allow='autoplay; encrypted-media; picture-in-picture; fullscreen';f.allowFullscreen=true;f.className='block w-full aspect-video';f.style.border='0';b.replaceWith(f)}));
@@ -216,6 +291,23 @@ function closeQuote(){const m=document.getElementById('quote');m.style.display='
 function toggleMenu(){const m=document.getElementById('mobile-menu');const open=m.classList.contains('hidden');m.classList.toggle('hidden');document.getElementById('menu-icon-open').classList.toggle('hidden',open);document.getElementById('menu-icon-close').classList.toggle('hidden',!open);document.getElementById('menu-btn').setAttribute('aria-expanded',open?'true':'false')}
 window.addEventListener('resize',()=>{if(window.innerWidth>=768)document.getElementById('mobile-menu').classList.add('hidden')});
 window.addEventListener('scroll',()=>document.getElementById('navbar').classList.toggle('nav-scrolled',scrollY>70));
+</script>
+<script>
+(function(){
+  const tabs=[...document.querySelectorAll('.tm-tile')],stage=document.getElementById('tm-stage');
+  function select(t,focus){
+    tabs.forEach(x=>{const on=x===t;x.setAttribute('aria-selected',on);x.tabIndex=on?0:-1;document.getElementById(x.getAttribute('aria-controls')).hidden=!on});
+    stage.classList.remove('tm-play');void stage.offsetWidth;stage.classList.add('tm-play');
+    if(focus)t.focus();
+  }
+  tabs.forEach((t,i)=>{
+    t.addEventListener('click',()=>select(t));
+    t.addEventListener('keydown',e=>{
+      const d={ArrowRight:1,ArrowLeft:-1}[e.key];
+      if(d)select(tabs[(i+d+tabs.length)%tabs.length],true);
+    });
+  });
+})();
 </script>
 <script src="/js/bg-music.js"></script>
 <script async src="https://www.instagram.com/embed.js"></script>
