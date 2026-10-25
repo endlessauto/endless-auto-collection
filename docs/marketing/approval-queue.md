@@ -44,3 +44,7 @@ Drafts land here unchecked. Check a box (`- [x]`) to approve. Only a checked box
 - [ ] Carousel (Instagram): Interior detail, seats to headliner (`docs/marketing/carousels/2026-10-24/5-slide-interior-seats-to-headliner.html`)
 - [ ] Carousel (Instagram): Prep makes the gloss, coating keeps it (`docs/marketing/carousels/2026-10-24/8-slide-prep-makes-the-gloss.html`)
 - [ ] Carousel (Instagram): How long ceramic and film really last (`docs/marketing/carousels/2026-10-24/9-slide-how-long-does-it-last.html`)
+- [ ] Carousel (Instagram): A coating buys you time to rinse (`docs/marketing/carousels/2026-10-25/1-slide-coating-buys-time-to-rinse.html`)
+- [ ] Carousel (Instagram): A warranty is not a care plan (`docs/marketing/carousels/2026-10-25/4-slide-warranty-not-a-care-plan.html`)
+- [ ] Carousel (Instagram): What Fremont does to paint, and the routine (`docs/marketing/carousels/2026-10-25/8-slide-fremont-paint-routine.html`)
+- [ ] Carousel (Instagram): Aftercare starts with a record (`docs/marketing/carousels/2026-10-25/9-slide-aftercare-starts-with-a-record.html`)
