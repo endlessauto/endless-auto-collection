@@ -48,3 +48,7 @@ Drafts land here unchecked. Check a box (`- [x]`) to approve. Only a checked box
 - [ ] Carousel (Instagram): A warranty is not a care plan (`docs/marketing/carousels/2026-10-25/4-slide-warranty-not-a-care-plan.html`)
 - [ ] Carousel (Instagram): What Fremont does to paint, and the routine (`docs/marketing/carousels/2026-10-25/8-slide-fremont-paint-routine.html`)
 - [ ] Carousel (Instagram): Aftercare starts with a record (`docs/marketing/carousels/2026-10-25/9-slide-aftercare-starts-with-a-record.html`)
+- [ ] Carousel (Instagram): Where it parks changes the answer (`docs/marketing/carousels/2026-10-26/1-slide-where-it-parks-changes-it.html`)
+- [ ] Carousel (Instagram): Garage-kept? Start with gloss (`docs/marketing/carousels/2026-10-26/4-slide-garage-kept-start-with-the-coating.html`)
+- [ ] Carousel (Instagram): Four owners, four answers (`docs/marketing/carousels/2026-10-26/8-slide-four-owners-four-answers.html`)
+- [ ] Carousel (Instagram): We look first, then we scope (`docs/marketing/carousels/2026-10-26/9-slide-we-look-first-then-scope.html`)
