@@ -52,3 +52,7 @@ Drafts land here unchecked. Check a box (`- [x]`) to approve. Only a checked box
 - [ ] Carousel (Instagram): Garage-kept? Start with gloss (`docs/marketing/carousels/2026-10-26/4-slide-garage-kept-start-with-the-coating.html`)
 - [ ] Carousel (Instagram): Four owners, four answers (`docs/marketing/carousels/2026-10-26/8-slide-four-owners-four-answers.html`)
 - [ ] Carousel (Instagram): We look first, then we scope (`docs/marketing/carousels/2026-10-26/9-slide-we-look-first-then-scope.html`)
+- [ ] Carousel (Instagram): A hazy lens scatters your beam (`docs/marketing/carousels/2026-10-27/1-slide-hazy-lens-scatters-your-beam.html`)
+- [ ] Carousel (Instagram): Keep the lens wet (`docs/marketing/carousels/2026-10-27/5-slide-keep-the-lens-wet.html`)
+- [ ] Carousel (Instagram): Three grits, in order (`docs/marketing/carousels/2026-10-27/8-slide-three-grits-in-order.html`)
+- [ ] Carousel (Instagram): Why restored headlights haze again (`docs/marketing/carousels/2026-10-27/9-slide-why-restored-headlights-haze-again.html`)

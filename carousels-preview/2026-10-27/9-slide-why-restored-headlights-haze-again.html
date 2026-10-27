@@ -1,0 +1,316 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>9-slide: why restored headlights haze again</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=Inter:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+:root{--black:#050505;--graphite:#191919;--gold:#F5B51B;--gold-hi:#FFD45A;--gold-burnt:#C77A00;--white:#F4F4F2;--steel:#BFC1C3}
+*{box-sizing:border-box}
+body{margin:0;background:#121212;color:var(--white);font-family:'Inter',sans-serif;padding:24px 16px 64px}
+
+/* Brief box */
+.brief{max-width:760px;margin:0 auto 28px;padding:18px 20px;background:#1a1a1a;border:1px solid rgba(245,181,27,.25);border-radius:8px;font-size:13px;line-height:1.6;color:#d9d9d6}
+.brief h1{font-family:'Archivo',sans-serif;font-stretch:125%;font-weight:800;font-size:18px;margin:0 0 10px;color:var(--white)}
+.brief b{color:var(--gold);font-weight:600}
+.brief ul{margin:4px 0 8px;padding-left:18px}
+.brief .cap{white-space:pre-line;background:#111;border-radius:6px;padding:10px 12px;margin:4px 0 8px}
+
+/* Deck */
+.deck{display:flex;flex-wrap:wrap;gap:22px;justify-content:center}
+.sw{width:360px}
+.sn{font:600 10px 'Inter',sans-serif;letter-spacing:2px;text-transform:uppercase;color:#7d7f81;margin-bottom:6px}
+.slide{position:relative;width:360px;height:450px;background:var(--black);overflow:hidden;color:var(--white)}
+.slide.insight{background:var(--graphite)}
+.pad{position:absolute;inset:24px;display:flex;flex-direction:column;z-index:3}
+.center{justify-content:center;align-items:center;text-align:center}
+
+/* Type */
+.hd{font-family:'Archivo',sans-serif;font-stretch:125%;font-weight:800;line-height:1.05;letter-spacing:-.2px}
+.hd b,.cl b{color:var(--gold);font-weight:800}
+.eb{font:600 9px 'Inter',sans-serif;letter-spacing:3px;text-transform:uppercase;color:var(--gold)}
+.setup{font:italic 400 16px/1.4 'Inter',sans-serif;color:var(--steel)}
+.sup{font:400 14px/1.5 'Inter',sans-serif;color:var(--steel);margin-top:12px}
+.metal{background:linear-gradient(180deg,#FFFFFF 0%,#F4F4F2 40%,#BFC1C3 75%,#8E9093 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
+.rule{width:36px;height:2px;background:var(--gold);margin:0 auto 18px}
+
+/* Photos */
+.ph{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0}
+.shade{position:absolute;inset:0;z-index:1;background:linear-gradient(to top,rgba(5,5,5,.97) 0%,rgba(5,5,5,.85) 38%,rgba(5,5,5,.25) 75%,rgba(5,5,5,.55) 100%)}
+.ph-top{position:absolute;top:0;left:0;right:0;height:180px;width:100%;object-fit:cover;z-index:0}
+.ph-top-fade{position:absolute;top:0;left:0;right:0;height:180px;z-index:1;background:linear-gradient(to bottom,rgba(5,5,5,0) 40%,var(--black) 100%)}
+
+/* Content slides */
+.num{font-family:'Archivo',sans-serif;font-stretch:125%;font-weight:800;font-size:64px;line-height:1;color:transparent;-webkit-text-stroke:1px rgba(191,193,195,.35)}
+.cl{position:relative;padding-left:16px;margin-top:auto;margin-bottom:auto}
+.bar{position:absolute;left:0;top:4px;bottom:4px;width:3px;background:linear-gradient(to bottom,var(--gold-hi),var(--gold-burnt))}
+.cl .hd{font-size:25px;font-weight:700}
+
+/* Footer and marks */
+.flogo{position:absolute;left:24px;bottom:16px;width:132px;height:auto;z-index:5}
+.sph-bg{position:absolute;width:300px;height:300px;left:30px;top:75px;opacity:.07;z-index:0}
+.flogo.top{bottom:auto;top:22px}
+
+/* CTA */
+.logo{width:260px;height:auto;margin-bottom:22px}
+.pill{display:inline-block;margin-top:20px;padding:7px 14px;border:1.5px solid rgba(245,181,27,.55);border-radius:20px;font:600 10px 'Inter',sans-serif;letter-spacing:1.5px;color:var(--gold)}
+
+/* 1-slide extras */
+.tb{position:absolute;top:0;left:0;right:0;height:5px;z-index:6;background:linear-gradient(to right,var(--gold-burnt),var(--gold-hi),var(--gold-burnt))}
+.st{font:italic 400 14px/1.45 'Inter',sans-serif;color:var(--steel);margin-top:16px}
+.cb{display:inline-block;margin-top:16px;padding:4px 12px;border:1.5px solid rgba(245,181,27,.45);border-radius:20px;font:700 9px 'Inter',sans-serif;letter-spacing:2.5px;text-transform:uppercase;color:var(--gold)}
+
+/* Production notes, outside the slide */
+.shot-note{max-width:360px;margin:4px auto 0;padding:8px 12px;background:rgba(245,181,27,.05);border:1px dashed rgba(245,181,27,.3);border-radius:6px;font:400 10px/1.6 'Inter',sans-serif;color:#c9a75a}
+.shot-note b{color:var(--gold);font-weight:700}
+</style>
+</head>
+<body>
+<div class="brief">
+  <h1>9-slide: why restored headlights haze again</h1>
+  <b>Format:</b> 9-slide carousel<br>
+  <b>Pillar:</b> Process &amp; Craft<br>
+  <b>Hook type:</b> Limit / story (current belief: if it is clear, it is finished. True contrast: sanding strips the UV coat, so an unsealed lens is bare)<br>
+  <b>Angle source:</b> Tuesday angle (Process &amp; Craft: one step and why), <code>how-to-restore-headlights.html</code> (site guide, Oct 25 2026), headlight how-to video in <code>docs/marketing/youtube-catalog.md</code>, <code>docs/marketing/trend-briefs/trend-brief-2026-10-27.md</code><br>
+  <b>TikTok title:</b> Headlight restoration: why it hazes again | Fremont, CA<br>
+  <b>Caption:</b>
+  <div class="cap">Headlight restoration doesn&#x27;t last if the lens isn&#x27;t sealed. The factory UV hardcoat wears away over years of sun, heat and road grit. Sanding removes what&#x27;s left, so a freshly polished lens is clear but bare.
+
+Many restored headlights haze again within months without protection. Seal the lens the same day.
+
+We sand, polish and seal headlights at our Fremont shop. Tell us your car and we confirm the work and price: endlessautocollection.com/detailing.
+
+#headlightrestoration #headlights #uvprotection #autodetailing #fremontca</div>
+  <b>CTA asset:</b> detailing page, <code>endlessautocollection.com/detailing</code> (exists)<br>
+  <b>Grade:</b> 32/40 PUSH. Strong limit hook that explains a real complaint; proof is text only and the durability claim is the guide's own, so specificity is capped.<br>
+  <b>Open items:</b>
+  <ul>
+    <li>Every process point comes from the site guide, which is written for DIY. Confirm the shop follows the same sequence on customer cars.</li>
+    <li>Slide 6: "within months" is the guide's phrasing. The guide found no independent durability tests, so no protection type or duration is named here on purpose.</li>
+    <li>Slide 9: confirm which protection the shop applies (sealant, coating, clear coat or film) before any follow-up post names one.</li>
+  </ul>
+  <b>Supporting photos:</b>
+  <ul>
+    <li>None used. Needs: a restored lens that has hazed again next to a sealed one, same car if possible.</li>
+  </ul>
+</div>
+
+<div class="deck">
+
+  <div class="sw">
+    <div class="sn">Slide 1 — Hook</div>
+    <div class="slide">
+      <svg class="sph-bg" viewBox="0 0 24 24" fill="none" stroke="#F5B51B" stroke-width=".7"><circle cx="12" cy="12" r="10.5"/><ellipse cx="12" cy="12" rx="4.6" ry="10.5"/><ellipse cx="12" cy="12" rx="10.5" ry="4.2"/><line x1="1.5" y1="12" x2="22.5" y2="12"/><line x1="12" y1="1.5" x2="12" y2="22.5"/></svg>
+      <img class="flogo top" src="https://www.endlessautocollection.com/images/endless-logo.png" alt="Endless Auto Collection">
+      <div class="pad" style="justify-content:flex-end;padding-bottom:28px">
+        <div class="eb">Headlight restoration</div>
+        <div class="setup" style="margin-top:12px">Restored them. Hazy again in months?</div>
+        <div class="hd" style="font-size:36px;margin-top:8px">Sanding takes</div>
+        <div class="hd" style="font-size:36px;color:var(--gold);margin-top:4px">the UV coat.</div>
+      </div>
+    </div>
+    <div class="shot-note"><b>Slide 1 — Text only.</b> Shoot if wanted: a hazy lens in raking shop light, close, as a full-bleed background.</div>
+  </div>
+
+  <div class="sw">
+    <div class="sn">Slide 2 — Transition</div>
+    <div class="slide">
+      <div class="pad center">
+        <div class="rule"></div>
+        <div class="hd metal" style="font-size:24px;font-weight:700;line-height:1.2">Fog starts when the factory coat wears through.</div>
+      </div>
+      <img class="flogo" src="https://www.endlessautocollection.com/images/endless-logo.png" alt="Endless Auto Collection">
+    </div>
+    <div class="shot-note"><b>Slide 2 — Text only.</b></div>
+  </div>
+
+  <div class="sw">
+    <div class="sn">Slide 3 — Content</div>
+    <div class="slide">
+      <div class="pad">
+        <div class="num">01</div>
+        <div class="cl"><div class="bar"></div>
+          <div class="hd">Lenses ship with a <b>UV hardcoat</b>.</div>
+          <div class="sup">Sun, bulb heat, road grit and harsh cleaners wear it away over the years.</div>
+        </div>
+      </div>
+      <img class="flogo" src="https://www.endlessautocollection.com/images/endless-logo.png" alt="Endless Auto Collection">
+    </div>
+    <div class="shot-note"><b>Slide 3 — Text only.</b></div>
+  </div>
+
+  <div class="sw">
+    <div class="sn">Slide 4 — Content</div>
+    <div class="slide">
+      <div class="pad">
+        <div class="num">02</div>
+        <div class="cl"><div class="bar"></div>
+          <div class="hd">Bare plastic <b>oxidizes</b>.</div>
+          <div class="sup">That is the yellow, cloudy, chalky look you see on older cars.</div>
+        </div>
+      </div>
+      <img class="flogo" src="https://www.endlessautocollection.com/images/endless-logo.png" alt="Endless Auto Collection">
+    </div>
+    <div class="shot-note"><b>Slide 4 — Text only.</b></div>
+  </div>
+
+  <div class="sw">
+    <div class="sn">Slide 5 — Content</div>
+    <div class="slide">
+      <div class="pad">
+        <div class="num">03</div>
+        <div class="cl"><div class="bar"></div>
+          <div class="hd">Sanding removes what's <b>left</b> of the coat.</div>
+          <div class="sup">So a freshly polished lens is clear, and bare.</div>
+        </div>
+      </div>
+      <img class="flogo" src="https://www.endlessautocollection.com/images/endless-logo.png" alt="Endless Auto Collection">
+    </div>
+    <div class="shot-note"><b>Slide 5 — Text only.</b></div>
+  </div>
+
+  <div class="sw">
+    <div class="sn">Slide 6 — Content</div>
+    <div class="slide">
+      <div class="pad">
+        <div class="num">04</div>
+        <div class="cl"><div class="bar"></div>
+          <div class="hd">Skip the seal and it can <b>haze in months</b>.</div>
+          <div class="sup">Many restored headlights haze again within months without protection.</div>
+        </div>
+      </div>
+      <img class="flogo" src="https://www.endlessautocollection.com/images/endless-logo.png" alt="Endless Auto Collection">
+    </div>
+    <div class="shot-note"><b>Slide 6 — Text only.</b></div>
+  </div>
+
+  <div class="sw">
+    <div class="sn">Slide 7 — Content</div>
+    <div class="slide">
+      <div class="pad">
+        <div class="num">05</div>
+        <div class="cl"><div class="bar"></div>
+          <div class="hd">Seal it <b>the same day</b>.</div>
+          <div class="sup">Every day without protection is a day of fresh oxidation.</div>
+        </div>
+      </div>
+      <img class="flogo" src="https://www.endlessautocollection.com/images/endless-logo.png" alt="Endless Auto Collection">
+    </div>
+    <div class="shot-note"><b>Slide 7 — Text only.</b></div>
+  </div>
+
+  <div class="sw">
+    <div class="sn">Slide 8 — Insight</div>
+    <div class="slide insight">
+      <svg class="sph-bg" viewBox="0 0 24 24" fill="none" stroke="#F5B51B" stroke-width=".7"><circle cx="12" cy="12" r="10.5"/><ellipse cx="12" cy="12" rx="4.6" ry="10.5"/><ellipse cx="12" cy="12" rx="10.5" ry="4.2"/><line x1="1.5" y1="12" x2="22.5" y2="12"/><line x1="12" y1="1.5" x2="12" y2="22.5"/></svg>
+      <div class="pad center">
+        <div class="rule"></div>
+        <div class="hd" style="font-size:24px;font-weight:700;line-height:1.2">Polish makes it clear. <b>Sealing</b> keeps it clear.</div>
+      </div>
+      <img class="flogo" src="https://www.endlessautocollection.com/images/endless-logo.png" alt="Endless Auto Collection">
+    </div>
+    <div class="shot-note"><b>Slide 8 — Text only.</b></div>
+  </div>
+
+  <div class="sw">
+    <div class="sn">Slide 9 — CTA</div>
+    <div class="slide">
+      <div class="pad center">
+        <img class="logo" src="https://www.endlessautocollection.com/images/endless-logo.png" alt="Endless Auto Collection">
+        <div class="hd" style="font-size:20px;font-weight:700;line-height:1.25">We sand, polish and seal headlights at our Fremont shop.</div>
+        <div class="pill">endlessautocollection.com/detailing</div>
+      </div>
+    </div>
+    <div class="shot-note"><b>Slide 9 — Text only.</b> Script logo from repo.</div>
+  </div>
+
+</div>
+
+<!-- PNG export: do not remove -->
+<style>
+.dl-bar{max-width:760px;margin:0 auto 24px;display:flex;justify-content:center}
+.dl-btn{display:block;margin:10px auto 0;padding:9px 18px;border:1.5px solid rgba(245,181,27,.55);border-radius:20px;background:transparent;color:#F5B51B;font:600 11px 'Inter',sans-serif;letter-spacing:1.5px;text-transform:uppercase;cursor:pointer}
+.dl-btn:hover{background:rgba(245,181,27,.12)}
+.dl-btn:disabled{opacity:.5;cursor:default}
+.dl-all{padding:12px 26px;font-size:12px}
+</style>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html-to-image/1.11.11/html-to-image.min.js"></script>
+<script>
+(function(){
+  var base=(location.pathname.split('/').pop()||'carousel').replace(/\.html$/,'');
+  var slides=[].slice.call(document.querySelectorAll('.slide'));
+  var pad=function(n){return (n<10?'0':'')+n};
+  function name(i){return base+'-slide-'+pad(i+1)+'.png'}
+  var touch=window.matchMedia&&matchMedia('(pointer:coarse)').matches;
+  var fontCss;
+  function toData(u){return fetch(u).then(function(r){return r.blob()}).then(function(b){return new Promise(function(ok){var f=new FileReader();f.onload=function(){ok(f.result)};f.readAsDataURL(b)})})}
+  async function fonts(){
+    if(fontCss!==undefined)return fontCss;
+    try{
+      var href=document.querySelector('link[href*="fonts.googleapis.com/css2"]').href;
+      var css=await (await fetch(href)).text();
+      var urls=css.match(/url\(([^)]+)\)/g)||[];
+      for(var i=0;i<urls.length;i++){var u=urls[i].slice(4,-1).replace(/["']/g,'');css=css.split(u).join(await toData(u))}
+      fontCss=css;
+    }catch(e){fontCss=''}
+    return fontCss;
+  }
+  var inlined;
+  function inlineImages(){
+    if(!inlined)inlined=Promise.all([].slice.call(document.querySelectorAll('.slide img')).map(function(im){
+      if(im.src.indexOf('data:')===0)return;
+      return toData(im.src).then(function(d){im.src=d;return im.decode?im.decode():0}).catch(function(){});
+    }));
+    return inlined;
+  }
+  var cache=[];
+  function render(i,fc){return htmlToImage.toBlob(slides[i],{pixelRatio:3,width:360,height:450,fontEmbedCSS:fc})}
+  function file(i){
+    if(!cache[i])cache[i]=Promise.all([fonts(),inlineImages()]).then(function(r){var fc=r[0];return render(i,fc).then(function(){return render(i,fc)})}).then(function(b){return new File([b],name(i),{type:'image/png'})}).catch(function(e){cache[i]=null;throw e});
+    return cache[i];
+  }
+  function save(f){
+    var url=URL.createObjectURL(f),a=document.createElement('a');
+    a.href=url;a.download=f.name;document.body.appendChild(a);a.click();a.remove();
+    setTimeout(function(){URL.revokeObjectURL(url)},10000);
+  }
+  async function deliver(files){
+    if(touch&&navigator.canShare&&navigator.canShare({files:files})){
+      try{await navigator.share({files:files});return}
+      catch(e){if(e&&e.name==='AbortError')return}
+    }
+    for(var i=0;i<files.length;i++){save(files[i]);await new Promise(function(r){setTimeout(r,500)})}
+  }
+  async function guard(btn,label,fn){
+    btn.disabled=true;btn.textContent='Preparing…';
+    try{await fn()}catch(e){alert('Could not export. Open this page in Safari or Chrome from the website link and try again.')}
+    btn.disabled=false;btn.textContent=label;
+  }
+  slides.forEach(function(s,i){
+    var b=document.createElement('button');b.className='dl-btn';b.textContent=touch?'Save PNG':'Download as PNG';
+    var label=b.textContent;
+    b.onclick=function(){guard(b,label,async function(){await deliver([await file(i)])})};
+    s.parentNode.insertBefore(b,s.nextSibling);
+  });
+  var first=document.querySelector('.deck');
+  if(first&&slides.length){
+    var bar=document.createElement('div');bar.className='dl-bar';
+    var all=document.createElement('button');all.className='dl-btn dl-all';all.textContent=touch?'Save all slides':'Download all slides';
+    var allLabel=all.textContent;
+    all.onclick=function(){guard(all,allLabel,async function(){
+      var files=[];for(var i=0;i<slides.length;i++)files.push(await file(i));
+      await deliver(files);
+    })};
+    bar.appendChild(all);first.parentNode.insertBefore(bar,first);
+  }
+  window.addEventListener('load',async function(){
+    for(var i=0;i<slides.length;i++){try{await file(i)}catch(e){cache[i]=null}}
+  });
+})();
+</script>
+
+</body>
+</html>
