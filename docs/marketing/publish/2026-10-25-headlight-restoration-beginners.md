@@ -66,7 +66,7 @@ Made for first-time DIYers with hazy or yellowed headlights who have never held 
 
 *PARTS IN THIS VIDEO*
 
-• Wet sandpaper, 1500, 2000, and 3000 grit (removes the oxidized layer): brand and link TBD
+• Sandpaper, 1500, 2000, and 3000 grit (removes the oxidized layer): brand and link TBD
 • Compound and polish with cutting and polishing pads (removes sanding marks, restores clarity): brands TBD
 • 5 inch RUPES DA polisher (runs the pads): model TBD
 • Sealant or clear coat (protects the lens): product TBD
