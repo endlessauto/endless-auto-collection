@@ -7,14 +7,14 @@ Latest upload: 2026-10-26. Refreshed by `scripts/refresh_youtube_catalog.py` (pu
 
 | Posted | Title | Views | ID |
 |--------|-------|-------|----|
-| 2026-10-26 | How To Restore Your Yellow Headlights \| Easy Walk-Through | 4 | G7QD7uAAsQY |
-| 2026-10-23 | Lamborghini Sesto Elemento, Pagani Huayra BC & Bugatti at Santana Row! | 121 | Lx9wrjZF2zU |
-| 2026-10-22 | Selling His Childhood Dream Car? \| Lamborghini Murciélago | 171 | hauU1eIK4m8 |
-| 2026-10-20 | 2024 Mustang GT Lowering Springs Install \| Pt.1 Shop Vlog | 276 | sQsioLTcRh4 |
-| 2026-10-15 | F80 M3 Bilstein B16 Coilovers: Finally Off the Lift | 166 | djCrFSHym1k |
-| 2026-10-13 | Cars and Coffee Bay Area \| Chill Sunday Car Meet Vlog at Alexander's Patisserie \| Cupertino, CA | 68 | LQzZyGXlrbU |
-| 2026-10-12 | F80 M3 Differential Bushings Installed + Rear Strut Swap Begins | 112 | DAqY4Em1KUw |
-| 2026-10-09 | We Removed BMW M3 Differential Bushings With PLASTIC?! \| DIY Bushing Puller M3/M4 F80/F82/F8X | 408 | -8X6nPS1r_8 |
+| 2026-10-26 | How To Restore Your Yellow Headlights \| Easy Walk-Through | 87 | G7QD7uAAsQY |
+| 2026-10-23 | Lamborghini Sesto Elemento, Pagani Huayra BC & Bugatti at Santana Row! | 127 | Lx9wrjZF2zU |
+| 2026-10-22 | Selling His Childhood Dream Car? \| Lamborghini Murciélago | 173 | hauU1eIK4m8 |
+| 2026-10-20 | 2024 Mustang GT Lowering Springs Install \| Pt.1 Shop Vlog | 293 | sQsioLTcRh4 |
+| 2026-10-15 | F80 M3 Bilstein B16 Coilovers: Finally Off the Lift | 178 | djCrFSHym1k |
+| 2026-10-13 | Cars and Coffee Bay Area \| Chill Sunday Car Meet Vlog at Alexander's Patisserie \| Cupertino, CA | 71 | LQzZyGXlrbU |
+| 2026-10-12 | F80 M3 Differential Bushings Installed + Rear Strut Swap Begins | 120 | DAqY4Em1KUw |
+| 2026-10-09 | We Removed BMW M3 Differential Bushings With PLASTIC?! \| DIY Bushing Puller M3/M4 F80/F82/F8X | 426 | -8X6nPS1r_8 |
 | 2026-10-08 | Getting Our F80 M3 Ready for Touchdown \| Revshift Bushings + Bilstein EDC Shocks | 86 | dWNpwu3I82M |
 | 2026-10-07 | This Toyota Sienna Needed a Reset \| Full Car Detail | 447 | L2c1o-Qete8 |
 | 2026-10-06 | We Turned Our Auto Shop Into a Peaky Blinders Party | 109 | oZxXJGU6hEc |
@@ -26,11 +26,12 @@ Latest upload: 2026-10-26. Refreshed by `scripts/refresh_youtube_catalog.py` (pu
 
 | Posted | Title | Views | ID |
 |--------|-------|-------|----|
-| 2026-10-23 | Why sell the car you dreamed of owning as a kid? #whatdrivesyou | 1057 | _nNmNcPAtLA |
+| 2026-10-26 | You’re Selling Our Dream Car? \| WHAT DRIVES YOU? Pt. 2 | 81 | -0uLc6W8AnE |
+| 2026-10-23 | Why sell the car you dreamed of owning as a kid? #whatdrivesyou | 1058 | _nNmNcPAtLA |
 | 2026-10-12 | Brown Rice vs White Rice… Which Team Are You? 🍚 #fremontca | 287 | Hsrm4DwD_G0 |
 | 2026-10-09 | This Toyota Sienna Needed Help 😳 \| Full Car Detail | 155 | OlxLmAb5W-c |
-| 2026-10-09 | Escalade Door Handle Replacement \| 2007–2014 Tahoe & Yukon | 962 | oyMqPvQNAFE |
-| 2026-10-08 | Peaky Blinders Took Over Our Auto Shop 😂 \| Endless Autoworks | 23 | rCftVviwViw |
+| 2026-10-09 | Escalade Door Handle Replacement \| 2007–2014 Tahoe & Yukon | 987 | oyMqPvQNAFE |
+| 2026-10-08 | Peaky Blinders Took Over Our Auto Shop 😂 \| Endless Autoworks | 24 | rCftVviwViw |
 | 2026-10-07 | Who said a minivan can’t look this good? Come get your older cars detailed! | 1387 | sVzVpqLOHw8 |
 | 2026-10-06 | Rental Car Revival 🔥 Audi Q7 Detail | 509 | zFA0OFDYjrU |
 | 2026-10-06 | Come get your full car detailed in Fremont, CA | 907 | ShoOpSySkHQ |
