@@ -56,3 +56,7 @@ Drafts land here unchecked. Check a box (`- [x]`) to approve. Only a checked box
 - [ ] Carousel (Instagram): Keep the lens wet (`docs/marketing/carousels/2026-10-27/5-slide-keep-the-lens-wet.html`)
 - [ ] Carousel (Instagram): Three grits, in order (`docs/marketing/carousels/2026-10-27/8-slide-three-grits-in-order.html`)
 - [ ] Carousel (Instagram): Why restored headlights haze again (`docs/marketing/carousels/2026-10-27/9-slide-why-restored-headlights-haze-again.html`)
+- [ ] Carousel (Instagram): That clunk may be the diff bushings (`docs/marketing/carousels/2026-10-28/1-slide-clunk-on-throttle-check-the-diff.html`)
+- [ ] Carousel (Instagram): Two checks before you buy diff bushings (`docs/marketing/carousels/2026-10-28/5-slide-two-checks-before-you-buy-parts.html`)
+- [ ] Carousel (Instagram): We built our own bushing puller (`docs/marketing/carousels/2026-10-28/8-slide-we-built-the-bushing-puller.html`)
+- [ ] Carousel (Instagram): The F80 M3 diff job, in order (`docs/marketing/carousels/2026-10-28/10-slide-diff-job-in-order.html`)
