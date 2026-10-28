@@ -4,6 +4,10 @@ Pillar: Education (inside a shop vlog)
 Status: drafted. Chapters, music, shoot date, and the rest of the vlog's contents TBD.
 Format: shop vlog. The strut-removal tip is one segment, not the whole video.
 
+## Published
+
+Posted as "We used ONLY a JACK! BMW F8X M3/M4 Suspension | Shop Vlog": https://www.youtube.com/watch?v=wZGrPhqci_U (2026-10-28 UTC). The title and description below were drafts. The Bilstein guide links this video. On the Bilstein job itself the compressor was used.
+
 ## Accuracy note (read before publishing)
 
 The user's method: use the lift to lower the rotors for clearance, then remove the front strut without compressing the spring. The spring stays on the strut. The strut comes out of the car as one assembly. That is different from "removing the springs without a spring compressor", which would suggest a viewer can take a spring off a strut. They cannot do that safely. Our own guide (`bilstein-b16-strut-assembly.html`) says a compressor is required to take old struts apart. Titles and description below say "strut", not "springs", and say so in the description.
