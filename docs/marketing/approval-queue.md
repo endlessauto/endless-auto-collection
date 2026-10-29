@@ -60,3 +60,7 @@ Drafts land here unchecked. Check a box (`- [x]`) to approve. Only a checked box
 - [ ] Carousel (Instagram): Two checks before you buy diff bushings (`docs/marketing/carousels/2026-10-28/5-slide-two-checks-before-you-buy-parts.html`)
 - [ ] Carousel (Instagram): We built our own bushing puller (`docs/marketing/carousels/2026-10-28/8-slide-we-built-the-bushing-puller.html`)
 - [ ] Carousel (Instagram): The F80 M3 diff job, in order (`docs/marketing/carousels/2026-10-28/10-slide-diff-job-in-order.html`)
+- [ ] Carousel (Instagram): Wax is a weekend product (`docs/marketing/carousels/2026-10-29/1-slide-wax-is-a-weekend-product.html`)
+- [ ] Carousel (Instagram): Tuning is ask-first (`docs/marketing/carousels/2026-10-29/5-slide-tuning-is-ask-first.html`)
+- [ ] Carousel (Instagram): Springs, check before you buy (`docs/marketing/carousels/2026-10-29/8-slide-springs-check-before-you-buy.html`)
+- [ ] Carousel (Instagram): A shade number is not a heat number (`docs/marketing/carousels/2026-10-29/9-slide-shade-number-is-not-a-heat-number.html`)
