@@ -64,3 +64,7 @@ Drafts land here unchecked. Check a box (`- [x]`) to approve. Only a checked box
 - [ ] Carousel (Instagram): Tuning is ask-first (`docs/marketing/carousels/2026-10-29/5-slide-tuning-is-ask-first.html`)
 - [ ] Carousel (Instagram): Springs, check before you buy (`docs/marketing/carousels/2026-10-29/8-slide-springs-check-before-you-buy.html`)
 - [ ] Carousel (Instagram): A shade number is not a heat number (`docs/marketing/carousels/2026-10-29/9-slide-shade-number-is-not-a-heat-number.html`)
+- [ ] Carousel (Instagram): Three of us grew up in Fremont (`docs/marketing/carousels/2026-10-30/1-slide-three-of-us-grew-up-in-fremont.html`)
+- [ ] Carousel (Instagram): If I don't know, I'll find out (`docs/marketing/carousels/2026-10-30/4-slide-if-i-dont-know-ill-find-out.html`)
+- [ ] Carousel (Instagram): Who does what at Endless (`docs/marketing/carousels/2026-10-30/8-slide-who-does-what-at-endless.html`)
+- [ ] Carousel (Instagram): Cars are the doorway (`docs/marketing/carousels/2026-10-30/9-slide-cars-are-the-doorway.html`)
