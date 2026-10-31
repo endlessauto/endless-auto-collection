@@ -68,3 +68,7 @@ Drafts land here unchecked. Check a box (`- [x]`) to approve. Only a checked box
 - [ ] Carousel (Instagram): If I don't know, I'll find out (`docs/marketing/carousels/2026-10-30/4-slide-if-i-dont-know-ill-find-out.html`)
 - [ ] Carousel (Instagram): Who does what at Endless (`docs/marketing/carousels/2026-10-30/8-slide-who-does-what-at-endless.html`)
 - [ ] Carousel (Instagram): Cars are the doorway (`docs/marketing/carousels/2026-10-30/9-slide-cars-are-the-doorway.html`)
+- [ ] Carousel (Instagram): Got a tint fix-it ticket? (`docs/marketing/carousels/2026-10-31/1-slide-tint-fix-it-ticket.html`)
+- [ ] Carousel (Instagram): Brushes still scratch film (`docs/marketing/carousels/2026-10-31/4-slide-film-and-the-car-wash.html`)
+- [ ] Carousel (Instagram): Hazy new tint is usually curing (`docs/marketing/carousels/2026-10-31/8-slide-hazy-new-tint-is-curing.html`)
+- [ ] Carousel (Instagram): Remove film before it is due (`docs/marketing/carousels/2026-10-31/9-slide-remove-film-before-its-due.html`)
