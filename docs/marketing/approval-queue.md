@@ -72,3 +72,7 @@ Drafts land here unchecked. Check a box (`- [x]`) to approve. Only a checked box
 - [ ] Carousel (Instagram): Brushes still scratch film (`docs/marketing/carousels/2026-10-31/4-slide-film-and-the-car-wash.html`)
 - [ ] Carousel (Instagram): Hazy new tint is usually curing (`docs/marketing/carousels/2026-10-31/8-slide-hazy-new-tint-is-curing.html`)
 - [ ] Carousel (Instagram): Remove film before it is due (`docs/marketing/carousels/2026-10-31/9-slide-remove-film-before-its-due.html`)
+- [ ] Carousel (Instagram): Protection still needs a reset (`docs/marketing/carousels/2026-11-01/1-slide-protection-still-needs-a-reset.html`)
+- [ ] Carousel (Instagram): Film is not bulletproof (`docs/marketing/carousels/2026-11-01/5-slide-film-is-not-bulletproof.html`)
+- [ ] Carousel (Instagram): What's on your car? (`docs/marketing/carousels/2026-11-01/8-slide-whats-on-your-car.html`)
+- [ ] Carousel (Instagram): Five things to check (`docs/marketing/carousels/2026-11-01/9-slide-five-things-to-check.html`)
