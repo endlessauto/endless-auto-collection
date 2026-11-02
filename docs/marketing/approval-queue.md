@@ -76,3 +76,7 @@ Drafts land here unchecked. Check a box (`- [x]`) to approve. Only a checked box
 - [ ] Carousel (Instagram): Film is not bulletproof (`docs/marketing/carousels/2026-11-01/5-slide-film-is-not-bulletproof.html`)
 - [ ] Carousel (Instagram): What's on your car? (`docs/marketing/carousels/2026-11-01/8-slide-whats-on-your-car.html`)
 - [ ] Carousel (Instagram): Five things to check (`docs/marketing/carousels/2026-11-01/9-slide-five-things-to-check.html`)
+- [ ] Carousel (Instagram): Full-car tint can skip the windshield (`docs/marketing/carousels/2026-11-02/1-slide-tint-skip-the-windshield.html`)
+- [ ] Carousel (Instagram): I-880 commute: film the front first (`docs/marketing/carousels/2026-11-02/4-slide-880-commute-film-the-front-first.html`)
+- [ ] Carousel (Instagram): Tint: film first, then shade (`docs/marketing/carousels/2026-11-02/8-slide-tint-film-then-shade.html`)
+- [ ] Carousel (Instagram): Wrap or colored PPF? (`docs/marketing/carousels/2026-11-02/9-slide-wrap-or-colored-ppf.html`)
