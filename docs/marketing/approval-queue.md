@@ -80,3 +80,7 @@ Drafts land here unchecked. Check a box (`- [x]`) to approve. Only a checked box
 - [ ] Carousel (Instagram): I-880 commute: film the front first (`docs/marketing/carousels/2026-11-02/4-slide-880-commute-film-the-front-first.html`)
 - [ ] Carousel (Instagram): Tint: film first, then shade (`docs/marketing/carousels/2026-11-02/8-slide-tint-film-then-shade.html`)
 - [ ] Carousel (Instagram): Wrap or colored PPF? (`docs/marketing/carousels/2026-11-02/9-slide-wrap-or-colored-ppf.html`)
+- [ ] Carousel (Instagram): A torque value you didn't check is a guess (`docs/marketing/carousels/2026-11-03/1-slide-torque-value-you-didnt-check.html`)
+- [ ] Carousel (Instagram): Spreader stays in until the strut is seated (`docs/marketing/carousels/2026-11-03/4-slide-spreader-stays-in-until-seated.html`)
+- [ ] Carousel (Instagram): Pulling a strut needs no compressor (`docs/marketing/carousels/2026-11-03/8-slide-strut-out-no-compressor.html`)
+- [ ] Carousel (Instagram): Front strut out, in order (`docs/marketing/carousels/2026-11-03/10-slide-front-strut-out-in-order.html`)
