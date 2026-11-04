@@ -84,3 +84,7 @@ Drafts land here unchecked. Check a box (`- [x]`) to approve. Only a checked box
 - [ ] Carousel (Instagram): Spreader stays in until the strut is seated (`docs/marketing/carousels/2026-11-03/4-slide-spreader-stays-in-until-seated.html`)
 - [ ] Carousel (Instagram): Pulling a strut needs no compressor (`docs/marketing/carousels/2026-11-03/8-slide-strut-out-no-compressor.html`)
 - [ ] Carousel (Instagram): Front strut out, in order (`docs/marketing/carousels/2026-11-03/10-slide-front-strut-out-in-order.html`)
+- [ ] Carousel (Instagram): The springs were $419.95 (`docs/marketing/carousels/2026-11-04/1-slide-springs-were-419-95.html`)
+- [ ] Carousel (Instagram): Thread the nut on before you hit the bolt (`docs/marketing/carousels/2026-11-04/4-slide-thread-the-nut-on-first.html`)
+- [ ] Carousel (Instagram): Lowering the Mustang GT rear subframe (`docs/marketing/carousels/2026-11-04/8-slide-mustang-rear-subframe-in-order.html`)
+- [ ] Carousel (Instagram): Bolts we replace, not reuse (`docs/marketing/carousels/2026-11-04/8-slide-bolts-we-replace-not-reuse.html`)
