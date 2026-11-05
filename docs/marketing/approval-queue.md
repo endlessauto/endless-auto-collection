@@ -88,3 +88,7 @@ Drafts land here unchecked. Check a box (`- [x]`) to approve. Only a checked box
 - [ ] Carousel (Instagram): Thread the nut on before you hit the bolt (`docs/marketing/carousels/2026-11-04/4-slide-thread-the-nut-on-first.html`)
 - [ ] Carousel (Instagram): Lowering the Mustang GT rear subframe (`docs/marketing/carousels/2026-11-04/8-slide-mustang-rear-subframe-in-order.html`)
 - [ ] Carousel (Instagram): Bolts we replace, not reuse (`docs/marketing/carousels/2026-11-04/8-slide-bolts-we-replace-not-reuse.html`)
+- [ ] Carousel (Instagram): The rear window is the hard one to tint (`docs/marketing/carousels/2026-11-05/1-slide-tint-rear-window-is-the-hard-one.html`)
+- [ ] Carousel (Instagram): Bring your own part, hear our call first (`docs/marketing/carousels/2026-11-05/5-slide-bring-your-own-part-hear-our-call.html`)
+- [ ] Carousel (Instagram): Film copies the surface (`docs/marketing/carousels/2026-11-05/8-slide-film-copies-the-surface.html`)
+- [ ] Carousel (Instagram): Tint worries, answered (`docs/marketing/carousels/2026-11-05/9-slide-tint-worries-answered.html`)
