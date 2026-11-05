@@ -1,21 +1,22 @@
 # YouTube catalog — @EndlessAutoworks
 
 Channel: https://www.youtube.com/@EndlessAutoworks
-Latest upload: 2026-10-29. Refreshed by `scripts/refresh_youtube_catalog.py` (public view counts from the channel RSS feed; older rows are kept when they leave the feed).
+Latest upload: 2026-11-04. Refreshed by `scripts/refresh_youtube_catalog.py` (public view counts from the channel RSS feed; older rows are kept when they leave the feed).
 
 ## Long-form
 
 | Posted | Title | Views | ID |
 |--------|-------|-------|----|
-| 2026-10-29 | Restore headlights: a customer learns to do it himself | 114 | MsvmrwEbVoo |
-| 2026-10-28 | We used ONLY a JACK! BMW F8X M3/M4 Suspension \| Shop Vlog | 107 | wZGrPhqci_U |
-| 2026-10-26 | How To Restore Your Yellow Headlights \| Easy Walk-Through | 454 | G7QD7uAAsQY |
+| 2026-11-04 | SEMA 2026 Vlog Ep  1: We Left Our Shop to Go to Vegas | 65 | Kfp6WicldCQ |
+| 2026-10-29 | Restore headlights: a customer learns to do it himself | 118 | MsvmrwEbVoo |
+| 2026-10-28 | We used ONLY a JACK! BMW F8X M3/M4 Suspension \| Shop Vlog | 112 | wZGrPhqci_U |
+| 2026-10-26 | How To Restore Your Yellow Headlights \| Easy Walk-Through | 481 | G7QD7uAAsQY |
 | 2026-10-23 | Lamborghini Sesto Elemento, Pagani Huayra BC & Bugatti at Santana Row! | 166 | Lx9wrjZF2zU |
-| 2026-10-22 | Selling His Childhood Dream Car? \| Lamborghini Murciélago | 200 | hauU1eIK4m8 |
-| 2026-10-20 | 2024 Mustang GT Lowering Springs Install \| Pt.1 Shop Vlog | 435 | sQsioLTcRh4 |
-| 2026-10-15 | F80 M3 Bilstein B16 Coilovers: Finally Off the Lift | 241 | djCrFSHym1k |
-| 2026-10-13 | Cars and Coffee Bay Area \| Chill Sunday Car Meet Vlog at Alexander's Patisserie \| Cupertino, CA | 83 | LQzZyGXlrbU |
-| 2026-10-12 | F80 M3 Differential Bushings Installed + Rear Strut Swap Begins | 159 | DAqY4Em1KUw |
+| 2026-10-22 | Selling His Childhood Dream Car? \| Lamborghini Murciélago | 202 | hauU1eIK4m8 |
+| 2026-10-20 | 2024 Mustang GT Lowering Springs Install \| Pt.1 Shop Vlog | 440 | sQsioLTcRh4 |
+| 2026-10-15 | F80 M3 Bilstein B16 Coilovers: Finally Off the Lift | 242 | djCrFSHym1k |
+| 2026-10-13 | Cars and Coffee Bay Area \| Chill Sunday Car Meet Vlog at Alexander's Patisserie \| Cupertino, CA | 85 | LQzZyGXlrbU |
+| 2026-10-12 | F80 M3 Differential Bushings Installed + Rear Strut Swap Begins | 160 | DAqY4Em1KUw |
 | 2026-10-09 | We Removed BMW M3 Differential Bushings With PLASTIC?! \| DIY Bushing Puller M3/M4 F80/F82/F8X | 557 | -8X6nPS1r_8 |
 | 2026-10-08 | Getting Our F80 M3 Ready for Touchdown \| Revshift Bushings + Bilstein EDC Shocks | 86 | dWNpwu3I82M |
 | 2026-10-07 | This Toyota Sienna Needed a Reset \| Full Car Detail | 447 | L2c1o-Qete8 |
