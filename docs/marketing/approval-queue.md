@@ -92,3 +92,7 @@ Drafts land here unchecked. Check a box (`- [x]`) to approve. Only a checked box
 - [ ] Carousel (Instagram): Bring your own part, hear our call first (`docs/marketing/carousels/2026-11-05/5-slide-bring-your-own-part-hear-our-call.html`)
 - [ ] Carousel (Instagram): Film copies the surface (`docs/marketing/carousels/2026-11-05/8-slide-film-copies-the-surface.html`)
 - [ ] Carousel (Instagram): Tint worries, answered (`docs/marketing/carousels/2026-11-05/9-slide-tint-worries-answered.html`)
+- [ ] Carousel (Instagram): Clean edges, no shortcuts (`docs/marketing/carousels/2026-11-06/1-slide-clean-edges-no-shortcuts.html`)
+- [ ] Carousel (Instagram): It started in a driveway (`docs/marketing/carousels/2026-11-06/4-slide-it-started-in-a-driveway.html`)
+- [ ] Carousel (Instagram): You approve it first (`docs/marketing/carousels/2026-11-06/8-slide-you-approve-it-first.html`)
+- [ ] Carousel (Instagram): What we do in the shop (`docs/marketing/carousels/2026-11-06/9-slide-what-we-do-in-house.html`)
