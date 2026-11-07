@@ -96,3 +96,7 @@ Drafts land here unchecked. Check a box (`- [x]`) to approve. Only a checked box
 - [ ] Carousel (Instagram): It started in a driveway (`docs/marketing/carousels/2026-11-06/4-slide-it-started-in-a-driveway.html`)
 - [ ] Carousel (Instagram): You approve it first (`docs/marketing/carousels/2026-11-06/8-slide-you-approve-it-first.html`)
 - [ ] Carousel (Instagram): What we do in the shop (`docs/marketing/carousels/2026-11-06/9-slide-what-we-do-in-house.html`)
+- [ ] Carousel (Instagram): Correction levels paint, it doesn't fill (`docs/marketing/carousels/2026-11-07/1-slide-correction-levels-not-fills.html`)
+- [ ] Carousel (Instagram): Wheels get their own mitt (`docs/marketing/carousels/2026-11-07/4-slide-wheels-get-their-own-mitt.html`)
+- [ ] Carousel (Instagram): Interiors go top down (`docs/marketing/carousels/2026-11-07/8-slide-interiors-go-top-down.html`)
+- [ ] Carousel (Instagram): How to read a before and after (`docs/marketing/carousels/2026-11-07/9-slide-read-a-before-and-after.html`)
