@@ -100,3 +100,7 @@ Drafts land here unchecked. Check a box (`- [x]`) to approve. Only a checked box
 - [ ] Carousel (Instagram): Wheels get their own mitt (`docs/marketing/carousels/2026-11-07/4-slide-wheels-get-their-own-mitt.html`)
 - [ ] Carousel (Instagram): Interiors go top down (`docs/marketing/carousels/2026-11-07/8-slide-interiors-go-top-down.html`)
 - [ ] Carousel (Instagram): How to read a before and after (`docs/marketing/carousels/2026-11-07/9-slide-read-a-before-and-after.html`)
+- [ ] Carousel (Instagram): Protected paint still needs a service (`docs/marketing/carousels/2026-11-08/1-slide-protected-paint-still-needs-a-service.html`)
+- [ ] Carousel (Instagram): Two questions to ask at pickup (`docs/marketing/carousels/2026-11-08/5-slide-two-questions-at-pickup.html`)
+- [ ] Carousel (Instagram): Keep the original paint (`docs/marketing/carousels/2026-11-08/8-slide-keep-the-original-paint.html`)
+- [ ] Carousel (Instagram): Swirls come from the wash (`docs/marketing/carousels/2026-11-08/9-slide-swirls-come-from-the-wash.html`)
