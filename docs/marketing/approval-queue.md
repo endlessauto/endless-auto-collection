@@ -104,3 +104,7 @@ Drafts land here unchecked. Check a box (`- [x]`) to approve. Only a checked box
 - [ ] Carousel (Instagram): Two questions to ask at pickup (`docs/marketing/carousels/2026-11-08/5-slide-two-questions-at-pickup.html`)
 - [ ] Carousel (Instagram): Keep the original paint (`docs/marketing/carousels/2026-11-08/8-slide-keep-the-original-paint.html`)
 - [ ] Carousel (Instagram): Swirls come from the wash (`docs/marketing/carousels/2026-11-08/9-slide-swirls-come-from-the-wash.html`)
+- [ ] Carousel (Instagram): Heat is a tint problem, chips are a film problem (`docs/marketing/carousels/2026-11-09/1-slide-heat-is-tint-chips-are-film.html`)
+- [ ] Carousel (Instagram): Ceramic or PPF, start with the worry (`docs/marketing/carousels/2026-11-09/5-slide-ceramic-or-ppf-start-with-the-worry.html`)
+- [ ] Carousel (Instagram): Which service fits your car (`docs/marketing/carousels/2026-11-09/8-slide-which-service-fits-your-car.html`)
+- [ ] Carousel (Instagram): Order matters when you stack (`docs/marketing/carousels/2026-11-09/9-slide-order-matters-when-you-stack.html`)
