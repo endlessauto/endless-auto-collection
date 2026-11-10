@@ -108,3 +108,7 @@ Drafts land here unchecked. Check a box (`- [x]`) to approve. Only a checked box
 - [ ] Carousel (Instagram): Ceramic or PPF, start with the worry (`docs/marketing/carousels/2026-11-09/5-slide-ceramic-or-ppf-start-with-the-worry.html`)
 - [ ] Carousel (Instagram): Which service fits your car (`docs/marketing/carousels/2026-11-09/8-slide-which-service-fits-your-car.html`)
 - [ ] Carousel (Instagram): Order matters when you stack (`docs/marketing/carousels/2026-11-09/9-slide-order-matters-when-you-stack.html`)
+- [ ] Carousel (Instagram): Keep your face away from the top (`docs/marketing/carousels/2026-11-10/1-slide-keep-your-face-away-from-the-top.html`)
+- [ ] Carousel (Instagram): Find the wire before you pull the strut (`docs/marketing/carousels/2026-11-10/5-slide-find-the-wire-before-you-pull-the-strut.html`)
+- [ ] Carousel (Instagram): Not everything goes back in (`docs/marketing/carousels/2026-11-10/8-slide-not-everything-goes-back-in.html`)
+- [ ] Carousel (Instagram): Support the arm first (`docs/marketing/carousels/2026-11-10/9-slide-support-the-arm-first.html`)
