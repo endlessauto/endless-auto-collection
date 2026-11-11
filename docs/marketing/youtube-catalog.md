@@ -1,21 +1,21 @@
 # YouTube catalog — @EndlessAutoworks
 
 Channel: https://www.youtube.com/@EndlessAutoworks
-Latest upload: 2026-11-05. Refreshed by `scripts/refresh_youtube_catalog.py` (public view counts from the channel RSS feed; older rows are kept when they leave the feed).
+Latest upload: 2026-11-10. Refreshed by `scripts/refresh_youtube_catalog.py` (public view counts from the channel RSS feed; older rows are kept when they leave the feed).
 
 ## Long-form
 
 | Posted | Title | Views | ID |
 |--------|-------|-------|----|
-| 2026-11-05 | SEMA 2026 Day 1 \| Walking the Show as a Shop Owner | 167 | Q4GqZvMDKfo |
-| 2026-11-04 | SEMA 2026 Vlog Ep  1: We Left Our Shop to Go to Vegas | 149 | Kfp6WicldCQ |
-| 2026-10-29 | Restore headlights: a customer learns to do it himself | 125 | MsvmrwEbVoo |
-| 2026-10-28 | We used ONLY a JACK! BMW F8X M3/M4 Suspension \| Shop Vlog | 122 | wZGrPhqci_U |
-| 2026-10-26 | How To Restore Your Yellow Headlights \| Easy Walk-Through | 641 | G7QD7uAAsQY |
-| 2026-10-23 | Lamborghini Sesto Elemento, Pagani Huayra BC & Bugatti at Santana Row! | 194 | Lx9wrjZF2zU |
-| 2026-10-22 | Selling His Childhood Dream Car? \| Lamborghini Murciélago | 203 | hauU1eIK4m8 |
-| 2026-10-20 | 2024 Mustang GT Lowering Springs Install \| Pt.1 Shop Vlog | 447 | sQsioLTcRh4 |
-| 2026-10-15 | F80 M3 Bilstein B16 Coilovers: Finally Off the Lift | 250 | djCrFSHym1k |
+| 2026-11-05 | SEMA 2026 Day 1 \| Walking the Show as a Shop Owner | 182 | Q4GqZvMDKfo |
+| 2026-11-04 | SEMA 2026 Vlog Ep  1: We Left Our Shop to Go to Vegas | 150 | Kfp6WicldCQ |
+| 2026-10-29 | Restore headlights: a customer learns to do it himself | 129 | MsvmrwEbVoo |
+| 2026-10-28 | We used ONLY a JACK! BMW F8X M3/M4 Suspension \| Shop Vlog | 124 | wZGrPhqci_U |
+| 2026-10-26 | How To Restore Your Yellow Headlights \| Easy Walk-Through | 653 | G7QD7uAAsQY |
+| 2026-10-23 | Lamborghini Sesto Elemento, Pagani Huayra BC & Bugatti at Santana Row! | 195 | Lx9wrjZF2zU |
+| 2026-10-22 | Selling His Childhood Dream Car? \| Lamborghini Murciélago | 204 | hauU1eIK4m8 |
+| 2026-10-20 | 2024 Mustang GT Lowering Springs Install \| Pt.1 Shop Vlog | 452 | sQsioLTcRh4 |
+| 2026-10-15 | F80 M3 Bilstein B16 Coilovers: Finally Off the Lift | 254 | djCrFSHym1k |
 | 2026-10-13 | Cars and Coffee Bay Area \| Chill Sunday Car Meet Vlog at Alexander's Patisserie \| Cupertino, CA | 86 | LQzZyGXlrbU |
 | 2026-10-12 | F80 M3 Differential Bushings Installed + Rear Strut Swap Begins | 178 | DAqY4Em1KUw |
 | 2026-10-09 | We Removed BMW M3 Differential Bushings With PLASTIC?! \| DIY Bushing Puller M3/M4 F80/F82/F8X | 557 | -8X6nPS1r_8 |
@@ -30,7 +30,8 @@ Latest upload: 2026-11-05. Refreshed by `scripts/refresh_youtube_catalog.py` (pu
 
 | Posted | Title | Views | ID |
 |--------|-------|-------|----|
-| 2026-10-29 | When you hear the Church bells ringing #endlessautocollection #fremontca | 993 | VMcR13_XgZs |
+| 2026-11-10 | Hitched a Ride in a Lamborghini Huracán STO! #sema #indecentvehicles | 1359 | apK_Ur-_EZs |
+| 2026-10-29 | When you hear the Church bells ringing #endlessautocollection #fremontca | 994 | VMcR13_XgZs |
 | 2026-10-26 | You’re Selling Our Dream Car? \| WHAT DRIVES YOU? Pt. 2 | 171 | -0uLc6W8AnE |
 | 2026-10-23 | Why sell the car you dreamed of owning as a kid? #whatdrivesyou | 1080 | _nNmNcPAtLA |
 | 2026-10-12 | Brown Rice vs White Rice… Which Team Are You? 🍚 #fremontca | 296 | Hsrm4DwD_G0 |
