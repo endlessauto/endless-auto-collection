@@ -112,3 +112,7 @@ Drafts land here unchecked. Check a box (`- [x]`) to approve. Only a checked box
 - [ ] Carousel (Instagram): Find the wire before you pull the strut (`docs/marketing/carousels/2026-11-10/5-slide-find-the-wire-before-you-pull-the-strut.html`)
 - [ ] Carousel (Instagram): Not everything goes back in (`docs/marketing/carousels/2026-11-10/8-slide-not-everything-goes-back-in.html`)
 - [ ] Carousel (Instagram): Support the arm first (`docs/marketing/carousels/2026-11-10/9-slide-support-the-arm-first.html`)
+- [ ] Carousel (Instagram): Lift both front wheels before the end link (`docs/marketing/carousels/2026-11-11/1-slide-lift-both-front-wheels.html`)
+- [ ] Carousel (Instagram): Water inside the headlight is not a polish job (`docs/marketing/carousels/2026-11-11/5-slide-water-inside-the-headlight.html`)
+- [ ] Carousel (Instagram): The Murciélago that came home (`docs/marketing/carousels/2026-11-11/8-slide-murcielago-came-home.html`)
+- [ ] Carousel (Instagram): Five dream car questions, none about specs (`docs/marketing/carousels/2026-11-11/9-slide-five-dream-car-questions.html`)
