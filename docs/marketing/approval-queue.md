@@ -116,3 +116,7 @@ Drafts land here unchecked. Check a box (`- [x]`) to approve. Only a checked box
 - [ ] Carousel (Instagram): Water inside the headlight is not a polish job (`docs/marketing/carousels/2026-11-11/5-slide-water-inside-the-headlight.html`)
 - [ ] Carousel (Instagram): The Murciélago that came home (`docs/marketing/carousels/2026-11-11/8-slide-murcielago-came-home.html`)
 - [ ] Carousel (Instagram): Five dream car questions, none about specs (`docs/marketing/carousels/2026-11-11/9-slide-five-dream-car-questions.html`)
+- [ ] Carousel (Instagram): A new part is not a diagnosis (`docs/marketing/carousels/2026-11-12/1-slide-a-new-part-is-not-a-diagnosis.html`)
+- [ ] Carousel (Instagram): A wrap needs sound clear coat (`docs/marketing/carousels/2026-11-12/5-slide-wrap-needs-sound-clear-coat.html`)
+- [ ] Carousel (Instagram): Factory dark glass isn't tint (`docs/marketing/carousels/2026-11-12/8-slide-factory-dark-glass-isnt-tint.html`)
+- [ ] Carousel (Instagram): Ceramic on a daily driver, what changes and what doesn't (`docs/marketing/carousels/2026-11-12/9-slide-ceramic-on-a-daily-what-changes.html`)
