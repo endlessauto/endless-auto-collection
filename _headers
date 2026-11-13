@@ -9,6 +9,12 @@
 /carousels-preview/*
   X-Robots-Tag: noindex, nofollow
 
+/EACMedia
+  X-Robots-Tag: noindex, nofollow
+
+/EACMedia/*
+  X-Robots-Tag: noindex, nofollow
+
 /*.webp
   Access-Control-Allow-Origin: *
 
