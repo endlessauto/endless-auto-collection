@@ -7,19 +7,20 @@ Latest upload: 2026-11-13. Refreshed by `scripts/refresh_youtube_catalog.py` (pu
 
 | Posted | Title | Views | ID |
 |--------|-------|-------|----|
-| 2026-11-13 | SEMA 2026 as a Small Shop Owner \| Sung Kang, Larry Chen | 37 | KIMwoQiMGds |
-| 2026-11-05 | SEMA 2026 Day 1 \| Toyo Treadpass Builds + Shop Owner Walk | 195 | Q4GqZvMDKfo |
+| 2026-11-13 | SEMA 2026 as a Small Shop Owner \| Sung Kang, Larry Chen | 38 | KIMwoQiMGds |
+| 2026-11-13 | No air compressor needed? Electric HYCHIKA HVLP spray gun reality for DIYers | 2 | m8wz-4O1Tr0 |
+| 2026-11-05 | SEMA 2026 Day 1 \| Walking the Show as a Shop Owner | 195 | Q4GqZvMDKfo |
 | 2026-11-04 | SEMA 2026 Vlog Ep  1: We Left Our Shop to Go to Vegas | 162 | Kfp6WicldCQ |
 | 2026-10-29 | Restore headlights: a customer learns to do it himself | 132 | MsvmrwEbVoo |
 | 2026-10-28 | We used ONLY a JACK! BMW F8X M3/M4 Suspension \| Shop Vlog | 132 | wZGrPhqci_U |
 | 2026-10-26 | How To Restore Your Yellow Headlights \| Easy Walk-Through | 653 | G7QD7uAAsQY |
 | 2026-10-23 | Lamborghini Sesto Elemento, Pagani Huayra BC & Bugatti at Santana Row! | 200 | Lx9wrjZF2zU |
 | 2026-10-22 | Selling His Childhood Dream Car? \| Lamborghini Murciélago | 205 | hauU1eIK4m8 |
-| 2026-10-20 | 2024 Mustang GT Lowering Springs Install \| Pt.1 Shop Vlog | 457 | sQsioLTcRh4 |
+| 2026-10-20 | 2024 Mustang GT Lowering Springs Install \| Pt.1 Shop Vlog | 456 | sQsioLTcRh4 |
 | 2026-10-15 | F80 M3 Bilstein B16 Coilovers: Finally Off the Lift | 256 | djCrFSHym1k |
 | 2026-10-13 | Cars and Coffee Bay Area \| Chill Sunday Car Meet Vlog at Alexander's Patisserie \| Cupertino, CA | 89 | LQzZyGXlrbU |
-| 2026-10-12 | F80 M3 Differential Bushings Installed + Rear Strut Swap Begins | 137 | DAqY4Em1KUw |
-| 2026-10-09 | We Removed BMW M3 Differential Bushings With PLASTIC?! \| DIY Bushing Puller M3/M4 F80/F82/F8X | 473 | -8X6nPS1r_8 |
+| 2026-10-12 | F80 M3 Differential Bushings Installed + Rear Strut Swap Begins | 178 | DAqY4Em1KUw |
+| 2026-10-09 | We Removed BMW M3 Differential Bushings With PLASTIC?! \| DIY Bushing Puller M3/M4 F80/F82/F8X | 557 | -8X6nPS1r_8 |
 | 2026-10-08 | Getting Our F80 M3 Ready for Touchdown \| Revshift Bushings + Bilstein EDC Shocks | 86 | dWNpwu3I82M |
 | 2026-10-07 | This Toyota Sienna Needed a Reset \| Full Car Detail | 447 | L2c1o-Qete8 |
 | 2026-10-06 | We Turned Our Auto Shop Into a Peaky Blinders Party | 109 | oZxXJGU6hEc |
@@ -36,7 +37,7 @@ Latest upload: 2026-11-13. Refreshed by `scripts/refresh_youtube_catalog.py` (pu
 | 2026-10-26 | You’re Selling Our Dream Car? \| WHAT DRIVES YOU? Pt. 2 | 171 | -0uLc6W8AnE |
 | 2026-10-23 | Why sell the car you dreamed of owning as a kid? #whatdrivesyou | 1081 | _nNmNcPAtLA |
 | 2026-10-12 | Brown Rice vs White Rice… Which Team Are You? 🍚 #fremontca | 296 | Hsrm4DwD_G0 |
-| 2026-10-09 | This Toyota Sienna Needed Help 😳 \| Full Car Detail | 157 | OlxLmAb5W-c |
+| 2026-10-09 | This Toyota Sienna Needed Help 😳 \| Full Car Detail | 159 | OlxLmAb5W-c |
 | 2026-10-09 | Escalade Door Handle Replacement \| 2007–2014 Tahoe & Yukon | 1055 | oyMqPvQNAFE |
 | 2026-10-08 | Peaky Blinders Took Over Our Auto Shop 😂 \| Endless Autoworks | 24 | rCftVviwViw |
 | 2026-10-07 | Who said a minivan can’t look this good? Come get your older cars detailed! | 1387 | sVzVpqLOHw8 |
