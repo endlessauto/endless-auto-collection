@@ -68,3 +68,4 @@ Drafts land here unchecked. Check a box (`- [x]`) to approve. Only a checked box
 - [ ] Carousel (Instagram): If I don't know, I'll find out (`docs/marketing/carousels/2026-10-30/4-slide-if-i-dont-know-ill-find-out.html`)
 - [ ] Carousel (Instagram): Who does what at Endless (`docs/marketing/carousels/2026-10-30/8-slide-who-does-what-at-endless.html`)
 - [ ] Carousel (Instagram): Cars are the doorway (`docs/marketing/carousels/2026-10-30/9-slide-cars-are-the-doorway.html`)
+- [ ] Carousel (Instagram): The 7-Eleven Accord, Larry Chen at SEMA 2026 (`docs/marketing/carousels/2026-11-09/9-slide-larry-chen-7-eleven-accord.html`)

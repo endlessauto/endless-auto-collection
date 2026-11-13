@@ -14,7 +14,7 @@ Router and shared context for Endless Auto Collection (EAC) content. This skill 
 | New car/owner, story angles, interview questions, shot list | `brainstorm.md` |
 | Schedule, status, "what's next", "what's overdue" | `calendar.md` |
 | Footage notes/transcript → scripts, captions, thumbnails, archive copy | `content-engine.md` |
-| Prepare a video for publishing: title, thumbnail text, description, tags, keyword research | `publish.md` |
+| Prepare a video for publishing: title, thumbnail text, description, tags, keyword research, Short companion, pinned comment, end screen, review schedule | `publish.md` |
 | "What's trending", competitor or format research | `research.md` |
 | "How did this post do", pasted analytics | `performance.md` |
 | Instagram carousels (HTML slides), daily carousel batch | `carousel.md` |
@@ -55,7 +55,9 @@ Tag every idea and piece with exactly one: **Build Stories**, **Process & Craft*
 | `docs/marketing/content-grader.md` | Scoring rubric |
 | `docs/marketing/references/writing-style.md` | Banned words and openers, self-check, draft-feels-off log |
 | `docs/marketing/references/youtube-engine-playbook.md` | Packaging, hook, distribution, A/B principles |
+| `docs/marketing/references/youtube-description-reference.md` | House YouTube description style (user's Santana Row description), `*bold*` headers, section order |
 | `docs/marketing/references/kallaway-short-form-playbook.md` | Content game, idea mining, remix rule, hook alignment, buyer activation flow, lead magnets, first-3-reps sprint |
+| `docs/marketing/youtube-channel-audit-2026-11-12.md` | Channel audit: baselines, what wins and lags, workflow gaps; read before packaging |
 | `docs/marketing/youtube-catalog.md` | Posted long-form and Shorts with views; check before proposing a topic |
 | `docs/marketing/trend-briefs/` | Dated research briefs |
 | `docs/marketing/build-archives/` | Per-car briefs and archive copy |
