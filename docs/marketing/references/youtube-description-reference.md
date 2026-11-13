@@ -61,7 +61,7 @@ https://www.endlessautocollection.com/whatdrivesyou
 
 📲 CONNECT WITH ENDLESS
 
-Instagram: @endlessautocollection
+Instagram: @endlessautoco
 Email: EndlessAutoCollection@gmail.com
 Website: https://www.endlessautocollection.com
 

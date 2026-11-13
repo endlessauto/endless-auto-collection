@@ -89,7 +89,7 @@ Voice: sentence case in body copy, active voice, no hype. The chill-format rule:
 
 📲 *CONNECT WITH ENDLESS*
 
-Instagram: @endlessautocollection
+Instagram: @endlessautoco
 Email: EndlessAutoCollection@gmail.com
 Website: https://www.endlessautocollection.com
 

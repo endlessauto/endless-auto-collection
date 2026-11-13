@@ -16,7 +16,7 @@ Full-length emails for Endless Auto Collection. Companion to `shopmonkey-message
 Endless Auto Collection · Driven by Detail
 41907 Albrae St, Fremont, CA
 (510) 709-7097 · endlessautocollection@gmail.com
-instagram.com/endlessautocollection
+instagram.com/endlessautoco
 
 ---
 
