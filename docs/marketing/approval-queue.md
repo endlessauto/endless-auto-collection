@@ -120,3 +120,7 @@ Drafts land here unchecked. Check a box (`- [x]`) to approve. Only a checked box
 - [ ] Carousel (Instagram): A wrap needs sound clear coat (`docs/marketing/carousels/2026-11-12/5-slide-wrap-needs-sound-clear-coat.html`)
 - [ ] Carousel (Instagram): Factory dark glass isn't tint (`docs/marketing/carousels/2026-11-12/8-slide-factory-dark-glass-isnt-tint.html`)
 - [ ] Carousel (Instagram): Ceramic on a daily driver, what changes and what doesn't (`docs/marketing/carousels/2026-11-12/9-slide-ceramic-on-a-daily-what-changes.html`)
+- [ ] Carousel (Instagram): By appointment, not walk-in (`docs/marketing/carousels/2026-11-13/1-slide-by-appointment-not-walk-in.html`)
+- [ ] Carousel (Instagram): Our jobs, written down step by step (`docs/marketing/carousels/2026-11-13/5-slide-our-jobs-written-down.html`)
+- [ ] Carousel (Instagram): We left the shop for SEMA 2026 (`docs/marketing/carousels/2026-11-13/8-slide-we-left-the-shop-for-sema.html`)
+- [ ] Carousel (Instagram): Put your build on the record (`docs/marketing/carousels/2026-11-13/9-slide-put-your-build-on-the-record.html`)
