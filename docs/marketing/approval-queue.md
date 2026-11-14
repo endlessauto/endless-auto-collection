@@ -125,3 +125,7 @@ Drafts land here unchecked. Check a box (`- [x]`) to approve. Only a checked box
 - [ ] Carousel (Instagram): Our jobs, written down step by step (`docs/marketing/carousels/2026-11-13/5-slide-our-jobs-written-down.html`)
 - [ ] Carousel (Instagram): We left the shop for SEMA 2026 (`docs/marketing/carousels/2026-11-13/8-slide-we-left-the-shop-for-sema.html`)
 - [ ] Carousel (Instagram): Put your build on the record (`docs/marketing/carousels/2026-11-13/9-slide-put-your-build-on-the-record.html`)
+- [ ] Carousel (Instagram): Polish only shows what the sanding left (`docs/marketing/carousels/2026-11-14/1-slide-polish-shows-what-sanding-left.html`)
+- [ ] Carousel (Instagram): The DA sander was more even than hand sanding (`docs/marketing/carousels/2026-11-14/5-slide-da-sander-over-hand-sanding.html`)
+- [ ] Carousel (Instagram): Lexus RX 330 spoiler, peeling to gloss in six steps (`docs/marketing/carousels/2026-11-14/10-slide-lexus-spoiler-six-steps-to-gloss.html`)
+- [ ] Carousel (Instagram): Electric spray gun, what it did and didn't (`docs/marketing/carousels/2026-11-14/9-slide-electric-spray-gun-not-glass.html`)
