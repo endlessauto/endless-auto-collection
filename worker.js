@@ -29,8 +29,16 @@ export class MediaState extends DurableObject {
 
 export default {
   async fetch(request, env) {
-    const m = KEY_RE.exec(new URL(request.url).pathname);
-    if (!m) return reply({ error: "Not found" }, 404);
+    const url = new URL(request.url);
+    const m = KEY_RE.exec(url.pathname);
+    if (!m) {
+      if (url.pathname.startsWith("/api/")) return reply({ error: "Not found" }, 404);
+      const wrongCase = /^\/eacmedia(\/.*)?$/i.exec(url.pathname);
+      if (wrongCase && !url.pathname.startsWith("/EACMedia")) {
+        return Response.redirect(url.origin + "/EACMedia" + (wrongCase[1] || "/"), 301);
+      }
+      return env.ASSETS.fetch(request);
+    }
     if (request.method !== "GET" && request.method !== "POST") return reply({ error: "Method not allowed" }, 405);
     if (Number(request.headers.get("content-length") || 0) > 1000) return reply({ error: "Too large" }, 413);
     const stub = env.MEDIA_STATE.get(env.MEDIA_STATE.idFromName(m[1]));
