@@ -129,3 +129,7 @@ Drafts land here unchecked. Check a box (`- [x]`) to approve. Only a checked box
 - [ ] Carousel (Instagram): The DA sander was more even than hand sanding (`docs/marketing/carousels/2026-11-14/5-slide-da-sander-over-hand-sanding.html`)
 - [ ] Carousel (Instagram): Lexus RX 330 spoiler, peeling to gloss in six steps (`docs/marketing/carousels/2026-11-14/10-slide-lexus-spoiler-six-steps-to-gloss.html`)
 - [ ] Carousel (Instagram): Electric spray gun, what it did and didn't (`docs/marketing/carousels/2026-11-14/9-slide-electric-spray-gun-not-glass.html`)
+- [ ] Carousel (Instagram): Restored headlights need a new UV coat (`docs/marketing/carousels/2026-11-15/1-slide-headlights-need-a-new-uv-coat.html`)
+- [ ] Carousel (Instagram): Brushes still scratch film and wraps (`docs/marketing/carousels/2026-11-15/5-slide-brushes-still-scratch-film.html`)
+- [ ] Carousel (Instagram): Plan the wrap removal at install (`docs/marketing/carousels/2026-11-15/10-slide-plan-the-wrap-removal.html`)
+- [ ] Carousel (Instagram): Seal the headlight the same day (`docs/marketing/carousels/2026-11-15/9-slide-seal-the-headlight-same-day.html`)
