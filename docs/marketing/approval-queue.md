@@ -133,3 +133,7 @@ Drafts land here unchecked. Check a box (`- [x]`) to approve. Only a checked box
 - [ ] Carousel (Instagram): Brushes still scratch film and wraps (`docs/marketing/carousels/2026-11-15/5-slide-brushes-still-scratch-film.html`)
 - [ ] Carousel (Instagram): Plan the wrap removal at install (`docs/marketing/carousels/2026-11-15/10-slide-plan-the-wrap-removal.html`)
 - [ ] Carousel (Instagram): Seal the headlight the same day (`docs/marketing/carousels/2026-11-15/9-slide-seal-the-headlight-same-day.html`)
+- [ ] Carousel (Instagram): Correction makes the finish, ceramic keeps it (`docs/marketing/carousels/2026-11-16/1-slide-correction-makes-it-ceramic-keeps-it.html`)
+- [ ] Carousel (Instagram): Inspection or diagnostic (`docs/marketing/carousels/2026-11-16/5-slide-inspection-or-diagnostic.html`)
+- [ ] Carousel (Instagram): What goes into a ceramic quote (`docs/marketing/carousels/2026-11-16/10-slide-what-goes-into-a-ceramic-quote.html`)
+- [ ] Carousel (Instagram): Full detail, or one side of the car (`docs/marketing/carousels/2026-11-16/9-slide-full-detail-or-one-side.html`)
