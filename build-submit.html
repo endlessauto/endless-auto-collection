@@ -293,6 +293,8 @@ textarea.field-text::placeholder{color:rgba(228,228,231,.3)}
             <option>Engine</option>
             <option>Braking</option>
             <option>Mechanical</option>
+            <option>Chassis & Structure</option>
+            <option>Drivetrain</option>
           </select>
         </div>
         <div>
@@ -367,7 +369,7 @@ textarea.field-text::placeholder{color:rgba(228,228,231,.3)}
     </div>
     <div class="card rounded-2xl p-5 text-center">
       <p class="text-[10px] tracking-[2px] text-white/40 mb-2">CATEGORIES BUILT</p>
-      <p id="stat-categories" class="heading-font text-2xl text-white">0/8</p>
+      <p id="stat-categories" class="heading-font text-2xl text-white">0/10</p>
     </div>
     <div class="card rounded-2xl p-5 text-center">
       <p class="text-[10px] tracking-[2px] text-white/40 mb-2">UPGRADES PLANNED</p>
@@ -383,6 +385,22 @@ textarea.field-text::placeholder{color:rgba(228,228,231,.3)}
     </div>
     <div class="xp-track"><div id="xp-fill" class="xp-fill"></div></div>
     <p id="xp-caption" class="text-white/40 text-xs mt-3">Add your first upgrade above to start leveling up your build.</p>
+  </div>
+
+  <!-- GALLERY -->
+  <div id="sec-gallery" class="card rounded-2xl p-6 mt-4 scroll-mt-32">
+    <div class="flex items-center justify-between mb-1">
+      <p class="text-xs tracking-[2px] text-white/50">GALLERY</p>
+      <p id="gallery-count" class="mono text-xs text-white/40">0/12</p>
+    </div>
+    <p class="text-white/45 text-xs mb-4">Add more photos of your car: details, engine bay, interior, build progress shots.</p>
+    <div id="gallery-grid" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3">
+      <label for="gallery-input" id="gallery-add" class="upload-zone flex flex-col items-center justify-center aspect-square">
+        <p class="text-white/70 text-sm font-medium">+ Add photos</p>
+        <p class="text-white/35 text-xs mt-1">Pick several at once</p>
+      </label>
+    </div>
+    <input type="file" id="gallery-input" accept="image/*" multiple class="hidden">
   </div>
 
   <!-- SUBMIT -->
@@ -434,7 +452,7 @@ textarea.field-text::placeholder{color:rgba(228,228,231,.3)}
       <div class="badge pop mb-4" style="font-size:11px;padding:7px 16px">CARD SUBMITTED</div>
       <h2 class="h2 heading-font mb-4">Nice build. That's on its way in.</h2>
       <p class="text-white/65 max-w-xl mx-auto mb-8">We'll take a look and reach out at the email you left before it goes live in the archive. Thanks for being part of this.</p>
-      <p class="text-white/50 text-sm max-w-xl mx-auto mb-8">Your cover photo does not send with this form. Email it to <a href="mailto:endlessautocollection@gmail.com" class="underline text-white/80">endlessautocollection@gmail.com</a> with your build title in the subject.</p>
+      <p class="text-white/50 text-sm max-w-xl mx-auto mb-8">Your cover and gallery photos do not send with this form. Email them to <a href="mailto:endlessautocollection@gmail.com" class="underline text-white/80">endlessautocollection@gmail.com</a> with your build title in the subject.</p>
       <div class="flex gap-3 justify-center flex-wrap">
         <a href="/forums#build-archive" class="btn px-8 py-3 rounded-2xl">Back to forums</a>
         <a href="/" class="px-8 py-3 rounded-2xl border border-white/20">Back to home</a>
@@ -464,7 +482,7 @@ textarea.field-text::placeholder{color:rgba(228,228,231,.3)}
 </div>
 <script src="/js/build-score.js"></script>
 <script>
-const ICONS = {'Suspension':'⚙','Aero':'▲','Wheels & Tires':'◎','Exterior':'◆','Interior':'■','Engine':'▣','Braking':'●','Mechanical':'▣'};
+const ICONS = {'Suspension':'⚙','Aero':'▲','Wheels & Tires':'◎','Exterior':'◆','Interior':'■','Engine':'▣','Braking':'●','Mechanical':'▣','Chassis & Structure':'▦','Drivetrain':'◈'};
 const ALL_CATS = Object.keys(ICONS);
 let mods = [];
 let selectedTypes = new Set();
@@ -554,7 +572,9 @@ const MOD_PLACEHOLDERS = {
   'Interior':'e.g. Bucket seats',
   'Engine':'e.g. Cold air intake',
   'Braking':'e.g. Big brake kit',
-  'Mechanical':'e.g. Limited-slip differential'
+  'Mechanical':'e.g. Limited-slip differential',
+  'Chassis & Structure':'e.g. Front strut tower brace',
+  'Drivetrain':'e.g. Short-throw shifter'
 };
 document.getElementById('mod-cat').addEventListener('change', e => {
   document.getElementById('mod-name').placeholder = MOD_PLACEHOLDERS[e.target.value] || '';
@@ -592,6 +612,28 @@ document.getElementById('photo-input').addEventListener('change', e => {
   document.getElementById('hero-placeholder').classList.add('hidden');
   document.getElementById('hero-gradient').classList.remove('hidden');
   render();
+});
+
+const GALLERY_MAX = 12;
+const galleryUrls = [];
+function renderGallery(){
+  const grid = document.getElementById('gallery-grid');
+  grid.querySelectorAll('.gallery-thumb').forEach(el => el.remove());
+  const add = document.getElementById('gallery-add');
+  galleryUrls.forEach((url,i) => {
+    const d = document.createElement('div');
+    d.className = 'gallery-thumb relative aspect-square rounded-xl overflow-hidden border border-white/10';
+    d.innerHTML = `<img src="${url}" alt="" class="w-full h-full object-cover"><span class="mod-remove absolute top-1.5 right-1.5 bg-black/70 rounded-full w-6 h-6 flex items-center justify-center" data-gremove="${i}" title="Remove">&times;</span>`;
+    d.querySelector('[data-gremove]').addEventListener('click', () => { URL.revokeObjectURL(galleryUrls[i]); galleryUrls.splice(i,1); renderGallery(); });
+    grid.insertBefore(d, add);
+  });
+  add.style.display = galleryUrls.length >= GALLERY_MAX ? 'none' : '';
+  document.getElementById('gallery-count').textContent = galleryUrls.length + '/' + GALLERY_MAX;
+}
+document.getElementById('gallery-input').addEventListener('change', e => {
+  [...e.target.files].slice(0, GALLERY_MAX - galleryUrls.length).forEach(f => galleryUrls.push(URL.createObjectURL(f)));
+  e.target.value = '';
+  renderGallery();
 });
 
 ['in-tagline','in-title','in-owner','in-ownership-num','in-ownership-unit'].forEach(id => {

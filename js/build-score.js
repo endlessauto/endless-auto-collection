@@ -10,7 +10,9 @@ const MOD_WEIGHTS = {
   'Interior':      { style: 7,     rarity: 2 },
   'Engine':        { power: 11,    rarity: 3 },
   'Braking':       { handling: 9,  power: 2 },
-  'Mechanical':    { power: 5,     rarity: 2 }
+  'Mechanical':    { power: 5,     rarity: 2 },
+  'Chassis & Structure': { handling: 8, style: 1, rarity: 3 },
+  'Drivetrain':    { power: 7,     handling: 3, rarity: 2 }
 };
 
 const BASE_STAT = 8; // every car starts here — stock, before any logged upgrades

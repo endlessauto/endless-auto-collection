@@ -30,6 +30,16 @@ export class MediaState extends DurableObject {
 export default {
   async fetch(request, env) {
     const url = new URL(request.url);
+    if ((request.method === "GET" || request.method === "HEAD") && url.hostname.endsWith("endlessautocollection.com")) {
+      const isInsecure = url.protocol === "http:" || url.hostname === "endlessautocollection.com";
+      const htmlPage = /^\/([^/]+)\.html$/.exec(url.pathname);
+      if (isInsecure || htmlPage) {
+        url.protocol = "https:";
+        url.hostname = "www.endlessautocollection.com";
+        if (htmlPage) url.pathname = htmlPage[1] === "index" ? "/" : "/" + htmlPage[1];
+        return Response.redirect(url.toString(), 301);
+      }
+    }
     const m = KEY_RE.exec(url.pathname);
     if (!m) {
       if (url.pathname.startsWith("/api/")) return reply({ error: "Not found" }, 404);

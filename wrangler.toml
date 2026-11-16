@@ -6,7 +6,7 @@ compatibility_date = "2026-08-27"
 directory = "."
 not_found_handling = "404-page"
 binding = "ASSETS"
-run_worker_first = ["/api/*"]
+run_worker_first = true
 
 [[durable_objects.bindings]]
 name = "MEDIA_STATE"

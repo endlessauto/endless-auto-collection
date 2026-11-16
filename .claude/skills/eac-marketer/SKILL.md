@@ -15,6 +15,8 @@ Router and shared context for Endless Auto Collection (EAC) content. This skill 
 | Schedule, status, "what's next", "what's overdue" | `calendar.md` |
 | Footage notes/transcript → scripts, captions, thumbnails, archive copy | `content-engine.md` |
 | Prepare a video for publishing: title, thumbnail text, description, tags, keyword research, Short companion, pinned comment, end screen, review schedule | `publish.md` |
+| Site page audit, titles and meta, schema, page writing for the website | `seo-page.md` |
+| Internal links, orphan pages, which page should link to which | `internal-links.md` |
 | "What's trending", competitor or format research | `research.md` |
 | "How did this post do", pasted analytics | `performance.md` |
 | Instagram carousels (HTML slides), daily carousel batch | `carousel.md` |
@@ -49,6 +51,8 @@ Tag every idea and piece with exactly one: **Build Stories**, **Process & Craft*
 
 | File | Role |
 |------|------|
+| `docs/marketing/site-brief.md` | Business facts, NAP, reader, proof, say/don't-say; read before site pages and descriptions |
+| `scripts/seo_audit.py` | Local site audit: link graph, orphans, sitemap diff, on-page basics |
 | `docs/marketing/content-calendar.md` | Calendar table (source of truth) |
 | `docs/marketing/idea-inbox.md` | Raw team ideas, checked first |
 | `docs/marketing/approval-queue.md` | Only gate to `scheduled` |

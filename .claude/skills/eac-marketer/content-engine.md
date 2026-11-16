@@ -25,6 +25,12 @@ Drafts text from footage notes, a transcript, or raw interview answers (pasted o
 | Lead-magnet funnel copy | When asked: comment keyword (hyper-specific), auto-DM text, landing page (outcome headline, specific subheadline, 3 bullets, one field, "Send me the [thing]"), delivery line. Playbook section 5 |
 | Build Archive copy | Specs, difficulties, owner story, in the site's voice → `docs/marketing/build-archives/<car-slug>-archive.md` |
 
+## Honesty and structure rules
+
+- Never invent a first-hand anecdote, number, customer, or result. Missing: write `[WILL'S EXPERIENCE HERE]` and leave it visible. Same for owner quotes.
+- Read `docs/marketing/site-brief.md` for NAP, proof, and say/don't-say before descriptions and archive copy.
+- Site and archive copy: each H2 is a question with a complete two-sentence answer directly beneath it.
+
 ## Short-form hook rules
 
 - Write the text hook first, then the visual, then the spoken line. All three must say the same thing (max alignment). Show them as three labeled lines.
