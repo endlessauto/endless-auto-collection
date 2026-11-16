@@ -11,7 +11,7 @@ Research only. No drafts, no calendar changes.
 
 ## Our own data (outranks generic trends)
 
-- Wrap-removal Short (Nov 15): 1,576 views (1,497 yesterday, +79). Still the highest day-two start of the recent Shorts, but the gain is below the +204 the Huracan STO Short posted on its day four.
+- Wrap-removal Short (Nov 15): 1,576 views (1,497 yesterday, +79). The daily gain is below the +204 the Huracan STO Short posted on its day four.
 - AMG GT R detail Short (Nov 13): 1,292 (1,258, +34). Down from about +110 a day yesterday.
 - Huracan STO Short (Nov 10): 1,777 (1,779). Flat.
 - New long-form (Nov 15): "SEMA 2026 Karaoke Night With Car Creators in Vegas | AFTERHOURS" launched at 12 views.
@@ -20,7 +20,7 @@ Research only. No drafts, no calendar changes.
 
 ## Findings
 
-1. **Both new Shorts are decelerating: wrap removal +79 and AMG GT R +34 in a day, after +1,497 and +110 the day before.**
+1. **Both new Shorts are decelerating: wrap removal +79 and AMG GT R +34 in a day. The AMG GT R Short was adding about +110 a day yesterday.**
    Source: [youtube-catalog.md](../youtube-catalog.md).
    Pillar: Process & Craft.
    EAC angle: check in Studio whether the wrap-removal Short is still being shown to new viewers or has settled. If it has, the opening-day number mostly reflects the push, and leads from it are the real test. Count DMs, form fills and calls tied to the wrap-removal and AMG GT R Shorts this week before choosing a follow-up topic.
