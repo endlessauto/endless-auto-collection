@@ -137,3 +137,7 @@ Drafts land here unchecked. Check a box (`- [x]`) to approve. Only a checked box
 - [ ] Carousel (Instagram): Inspection or diagnostic (`docs/marketing/carousels/2026-11-16/5-slide-inspection-or-diagnostic.html`)
 - [ ] Carousel (Instagram): What goes into a ceramic quote (`docs/marketing/carousels/2026-11-16/10-slide-what-goes-into-a-ceramic-quote.html`)
 - [ ] Carousel (Instagram): Full detail, or one side of the car (`docs/marketing/carousels/2026-11-16/9-slide-full-detail-or-one-side.html`)
+- [ ] Carousel (Instagram): You see the film go on (`docs/marketing/carousels/2026-11-17/1-slide-you-see-the-film-go-on.html`)
+- [ ] Carousel (Instagram): Pick the wrap finish first (`docs/marketing/carousels/2026-11-17/5-slide-pick-the-wrap-finish-first.html`)
+- [ ] Carousel (Instagram): Clay before the polish (`docs/marketing/carousels/2026-11-17/9-slide-clay-before-the-polish.html`)
+- [ ] Carousel (Instagram): Pick tint by looking through it (`docs/marketing/carousels/2026-11-17/10-slide-pick-tint-by-looking-through-it.html`)
