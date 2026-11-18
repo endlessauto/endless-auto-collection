@@ -141,3 +141,7 @@ Drafts land here unchecked. Check a box (`- [x]`) to approve. Only a checked box
 - [ ] Carousel (Instagram): Pick the wrap finish first (`docs/marketing/carousels/2026-11-17/5-slide-pick-the-wrap-finish-first.html`)
 - [ ] Carousel (Instagram): Clay before the polish (`docs/marketing/carousels/2026-11-17/9-slide-clay-before-the-polish.html`)
 - [ ] Carousel (Instagram): Pick tint by looking through it (`docs/marketing/carousels/2026-11-17/10-slide-pick-tint-by-looking-through-it.html`)
+- [ ] Carousel (Instagram): We'd pick KW, the owner chose Bilstein B16 (`docs/marketing/carousels/2026-11-18/1-slide-we-pick-you-decide.html`)
+- [ ] Carousel (Instagram): Check the torque wrench range first, S650 Mustang GT (`docs/marketing/carousels/2026-11-18/5-slide-check-the-wrench-range.html`)
+- [ ] Carousel (Instagram): 168,000 miles, not done, 2018 F80 M3 (`docs/marketing/carousels/2026-11-18/10-slide-168000-miles-not-done.html`)
+- [ ] Carousel (Instagram): Street or track diff bushings, F80 M3 (`docs/marketing/carousels/2026-11-18/9-slide-street-or-track-diff-bushings.html`)
