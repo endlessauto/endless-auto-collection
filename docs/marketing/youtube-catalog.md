@@ -7,11 +7,11 @@ Latest upload: 2026-11-15. Refreshed by `scripts/refresh_youtube_catalog.py` (pu
 
 | Posted | Title | Views | ID |
 |--------|-------|-------|----|
-| 2026-11-15 | SEMA 2026 Karaoke Night With Car Creators in Vegas \| AFTERHOURS | 25 | e2xFRuH4sIo |
-| 2026-11-13 | SEMA 2026 as a Small Shop Owner \| Sung Kang, Larry Chen | 223 | KIMwoQiMGds |
-| 2026-11-13 | No air compressor needed? Electric HYCHIKA HVLP spray gun reality for DIYers | 59 | m8wz-4O1Tr0 |
-| 2026-11-05 | SEMA 2026 Day 1 \| Walking the Show as a Shop Owner | 215 | Q4GqZvMDKfo |
-| 2026-11-04 | SEMA 2026 Vlog Ep  1: We Left Our Shop to Go to Vegas | 172 | Kfp6WicldCQ |
+| 2026-11-15 | SEMA 2026 Karaoke Night With Car Creators in Vegas \| AFTERHOURS | 26 | e2xFRuH4sIo |
+| 2026-11-13 | SEMA 2026 as a Small Shop Owner \| Sung Kang, Larry Chen | 239 | KIMwoQiMGds |
+| 2026-11-13 | No air compressor needed? Electric HYCHIKA HVLP spray gun reality for DIYers | 69 | m8wz-4O1Tr0 |
+| 2026-11-05 | SEMA 2026 Day 1 \| Walking the Show as a Shop Owner | 220 | Q4GqZvMDKfo |
+| 2026-11-04 | SEMA 2026 Vlog Ep  1: We Left Our Shop to Go to Vegas | 175 | Kfp6WicldCQ |
 | 2026-10-29 | Restore headlights: a customer learns to do it himself | 133 | MsvmrwEbVoo |
 | 2026-10-28 | We used ONLY a JACK! BMW F8X M3/M4 Suspension \| Shop Vlog | 133 | wZGrPhqci_U |
 | 2026-10-26 | How To Restore Your Yellow Headlights \| Easy Walk-Through | 654 | G7QD7uAAsQY |
@@ -33,9 +33,9 @@ Latest upload: 2026-11-15. Refreshed by `scripts/refresh_youtube_catalog.py` (pu
 
 | Posted | Title | Views | ID |
 |--------|-------|-------|----|
-| 2026-11-15 | I Love Wrapping Cars… Until I Have to Remove It 💀 #vinylwrapping | 1645 | jmWifM1ANAs |
+| 2026-11-15 | I Love Wrapping Cars… Until I Have to Remove It 💀 #vinylwrapping | 1656 | jmWifM1ANAs |
 | 2026-11-13 | Making This Red AMG GT R Shine 🧼🔥 \| Satisfying Detail #fremontca #mercedesbenzclkgtr | 1321 | em1WmvfsSmU |
-| 2026-11-10 | Hitched a Ride in a Lamborghini Huracán STO! #sema #indecentvehicles | 1778 | apK_Ur-_EZs |
+| 2026-11-10 | Hitched a Ride in a Lamborghini Huracán STO! #sema #indecentvehicles | 1775 | apK_Ur-_EZs |
 | 2026-10-29 | When you hear the Church bells ringing #endlessautocollection #fremontca | 998 | VMcR13_XgZs |
 | 2026-10-26 | You’re Selling Our Dream Car? \| WHAT DRIVES YOU? Pt. 2 | 172 | -0uLc6W8AnE |
 | 2026-10-23 | Why sell the car you dreamed of owning as a kid? #whatdrivesyou | 1086 | _nNmNcPAtLA |
