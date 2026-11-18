@@ -126,3 +126,6 @@ details[open]>summary .chev{transform:rotate(-135deg);margin-bottom:-3px}
 .proj .go{font-family:var(--f-display);font-weight:600;color:var(--accent-soft)}
 footer{margin-top:44px;color:var(--muted);font-size:14px;border-top:1px solid var(--line);padding-top:14px}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.chip .t b,.bar-t b,.chev{transition:none}}
+.s-paddock .strip{background:linear-gradient(90deg,#3a3f47,#8b97a4,#cfd8e0)}
+.s-track .strip{background:linear-gradient(90deg,#5a1414,#c8321e,#ff7a52)}
+.s-people .strip{background:linear-gradient(90deg,#8fc5e8,#6a5aa8,#d98fb5)}
