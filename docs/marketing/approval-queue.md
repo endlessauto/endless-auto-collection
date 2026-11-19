@@ -145,3 +145,7 @@ Drafts land here unchecked. Check a box (`- [x]`) to approve. Only a checked box
 - [ ] Carousel (Instagram): Check the torque wrench range first, S650 Mustang GT (`docs/marketing/carousels/2026-11-18/5-slide-check-the-wrench-range.html`)
 - [ ] Carousel (Instagram): 168,000 miles, not done, 2018 F80 M3 (`docs/marketing/carousels/2026-11-18/10-slide-168000-miles-not-done.html`)
 - [ ] Carousel (Instagram): Street or track diff bushings, F80 M3 (`docs/marketing/carousels/2026-11-18/9-slide-street-or-track-diff-bushings.html`)
+- [ ] Carousel (Instagram): Film won't clear a yellow headlight (`docs/marketing/carousels/2026-11-19/1-slide-film-wont-clear-a-yellow-lens.html`)
+- [ ] Carousel (Instagram): Toothpaste won't restore a headlight (`docs/marketing/carousels/2026-11-19/5-slide-toothpaste-wont-restore-a-headlight.html`)
+- [ ] Carousel (Instagram): Front-end film stops at the doors (`docs/marketing/carousels/2026-11-19/8-slide-front-end-film-stops-at-the-doors.html`)
+- [ ] Carousel (Instagram): The pad decides the finish (`docs/marketing/carousels/2026-11-19/9-slide-the-pad-decides-the-finish.html`)
