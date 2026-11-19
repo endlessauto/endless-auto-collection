@@ -129,6 +129,7 @@ footer{margin-top:44px;color:var(--muted);font-size:14px;border-top:1px solid va
 .s-paddock .strip{background:linear-gradient(90deg,#3a3f47,#8b97a4,#cfd8e0)}
 .s-track .strip{background:linear-gradient(90deg,#5a1414,#c8321e,#ff7a52)}
 .s-people .strip{background:linear-gradient(90deg,#8fc5e8,#6a5aa8,#d98fb5)}
+.s-tests .strip{background:linear-gradient(90deg,#1f6f5c,#3fbf9a,#c8f2e0)}
 .brief{display:grid;gap:10px;margin:14px 0 4px}
 .brief .lead{margin:0;font-size:18px;line-height:1.45;max-width:64ch}
 .brief .box li{align-items:baseline}

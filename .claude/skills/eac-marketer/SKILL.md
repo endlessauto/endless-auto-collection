@@ -20,6 +20,7 @@ Router and shared context for Endless Auto Collection (EAC) content. This skill 
 | "What's trending", competitor or format research | `research.md` |
 | "How did this post do", pasted analytics | `performance.md` |
 | Instagram carousels (HTML slides), daily carousel batch | `carousel.md` |
+| Viral ideas to test, reveal / "my reaction if" / "is it possible" / unsolicited advice | `viral-blueprints.md` |
 | "First 3 videos", sprint, remix an outlier | `research.md` then `content-engine.md` (Kallaway playbook section 6) |
 
 Paths are relative to this folder. If a request spans two, run them in the data-flow order below.
