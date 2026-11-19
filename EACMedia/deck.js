@@ -35,7 +35,28 @@
     return '<summary class="' + cls + '"><span class="s-t">' + title + '</span><span class="s-c"></span><i class="chev" aria-hidden="true"></i></summary>';
   }
 
+  function cutMeta(m) {
+    if (!m) return "";
+    var rows = [["Pillar", m.pillar], ["Post as", m.fmt], ["Hook", m.hook], ["Next step", m.cta], ["Keyword idea", m.kw]];
+    return '<div class="cut-meta">' + rows.filter(function (r) { return r[1]; }).map(function (r) {
+      return '<div><b>' + r[0] + '</b><span>' + esc(r[1]) + '</span></div>';
+    }).join("") + '</div>';
+  }
+  function renderBrief() {
+    var el = document.getElementById("brief"), B = D.brief;
+    if (!el || !B) return;
+    var titles = {};
+    SHOOTS.forEach(function (sh) { allShots(sh).forEach(function (s) { titles[s[0]] = s[2] + " · " + sh.short; }); });
+    function list(a) { return a.map(function (t) { return '<li>' + esc(t) + '</li>'; }).join(""); }
+    el.innerHTML = '<div class="eyebrow">' + esc(B.eyebrow || "Start here") + '</div><p class="lead">' + esc(B.mission) + '</p><div class="facts">' +
+      '<div class="box"><h4>' + esc(B.topTitle || "If you only get ten shots") + '</h4><ul>' + B.top.map(function (id) { return '<li><span>' + id + '</span><span>' + esc(titles[id] || "") + '</span></li>'; }).join("") + '</ul></div>' +
+      '<div class="box plain"><h4>On every clip</h4><ul>' + list(B.rules) + '</ul></div>' +
+      '<div class="box plain"><h4>Say and show</h4><ul>' + list(B.avoid) + '</ul></div>' +
+      '<div class="box plain"><h4>How this page works</h4><ul>' + list(B.how) + '</ul></div></div>';
+  }
+
   function build() {
+    renderBrief();
     chipsEl.innerHTML = SHOOTS.map(function (sh) {
       return '<a class="chip" href="#' + sh.id + '" data-chip="' + sh.id + '"><span class="n">' + esc(sh.short) + '</span><span class="c">0/0</span><i class="t"><b></b></i></a>';
     }).join("");
@@ -55,7 +76,7 @@
           '<p class="note">' + esc(g.note) + '</p><ul class="cards">' + g.shots.map(card).join("") + '</ul></details>';
       }).join("");
       var cuts = sh.cuts ? '<details class="fold group cutsbox" data-key="' + sh.id + '-cuts"><summary class="g-sum"><span class="s-t">Cuts this shoot feeds</span><span class="s-c"></span><i class="chev" aria-hidden="true"></i></summary><p class="note">Ready means every shot the cut needs is marked Got it.</p><ul class="cuts">' + sh.cuts.map(function (c, i) {
-        return '<li class="cut" data-needs="' + c[2].join(",") + '" data-ready="0"><div class="cut-h"><span class="cut-t">' + esc(c[0]) + '</span><span class="cut-s">0/' + c[2].length + '</span></div><p>' + esc(c[1]) + '</p><div class="miss"></div></li>';
+        return '<li class="cut" data-needs="' + c[2].join(",") + '" data-ready="0"><div class="cut-h"><span class="cut-t">' + esc(c[0]) + '</span><span class="cut-s">0/' + c[2].length + '</span></div><p>' + esc(c[1]) + '</p>' + cutMeta(c[3]) + '<div class="miss"></div></li>';
       }).join("") + '</ul></details>' : "";
       return '<details class="shoot ' + sh.cls + '" id="' + sh.id + '" data-key="' + sh.id + '" data-ids="' + ids(shootItems(sh)) + '">' +
         '<summary class="shoot-sum"><span class="strip"></span><span class="sum-main"><span class="time">' + sh.time + '</span><span class="place">' + sh.place + '</span></span><span class="s-c"></span><i class="chev" aria-hidden="true"></i><span class="bar-t"><b></b></span></summary>' +
