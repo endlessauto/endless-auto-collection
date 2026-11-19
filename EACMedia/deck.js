@@ -48,11 +48,11 @@
     var titles = {};
     SHOOTS.forEach(function (sh) { allShots(sh).forEach(function (s) { titles[s[0]] = s[2] + " · " + sh.short; }); });
     function list(a) { return a.map(function (t) { return '<li>' + esc(t) + '</li>'; }).join(""); }
-    el.innerHTML = '<div class="eyebrow">' + esc(B.eyebrow || "Start here") + '</div><p class="lead">' + esc(B.mission) + '</p><div class="facts">' +
+    el.innerHTML = '<div class="box plain how"><h4>How this page works</h4><ul>' + list(B.how) + '</ul></div>' +
+      '<details class="fold"><summary class="g-sum"><span class="s-t">' + esc(B.eyebrow || "Start here") + '</span><span class="s-c">tap to read</span><i class="chev" aria-hidden="true"></i></summary><p class="note">' + esc(B.mission) + '</p><div class="facts">' +
       '<div class="box"><h4>' + esc(B.topTitle || "If you only get ten shots") + '</h4><ul>' + B.top.map(function (id) { return '<li><span>' + id + '</span><span>' + esc(titles[id] || "") + '</span></li>'; }).join("") + '</ul></div>' +
       '<div class="box plain"><h4>On every clip</h4><ul>' + list(B.rules) + '</ul></div>' +
-      '<div class="box plain"><h4>Say and show</h4><ul>' + list(B.avoid) + '</ul></div>' +
-      '<div class="box plain"><h4>How this page works</h4><ul>' + list(B.how) + '</ul></div></div>';
+      '<div class="box plain"><h4>Say and show</h4><ul>' + list(B.avoid) + '</ul></div></div></details>';
   }
 
   function build() {
