@@ -149,3 +149,7 @@ Drafts land here unchecked. Check a box (`- [x]`) to approve. Only a checked box
 - [ ] Carousel (Instagram): Toothpaste won't restore a headlight (`docs/marketing/carousels/2026-11-19/5-slide-toothpaste-wont-restore-a-headlight.html`)
 - [ ] Carousel (Instagram): Front-end film stops at the doors (`docs/marketing/carousels/2026-11-19/8-slide-front-end-film-stops-at-the-doors.html`)
 - [ ] Carousel (Instagram): The pad decides the finish (`docs/marketing/carousels/2026-11-19/9-slide-the-pad-decides-the-finish.html`)
+- [ ] Carousel (Instagram): We post what didn't work, too (`docs/marketing/carousels/2026-11-20/1-slide-we-post-what-didnt-work.html`)
+- [ ] Carousel (Instagram): Not a sports car? Same standard (`docs/marketing/carousels/2026-11-20/5-slide-not-a-sports-car-same-standard.html`)
+- [ ] Carousel (Instagram): The shop after hours (`docs/marketing/carousels/2026-11-20/8-slide-the-shop-after-hours.html`)
+- [ ] Carousel (Instagram): Watch the work before you book (`docs/marketing/carousels/2026-11-20/9-slide-watch-the-work-first.html`)
