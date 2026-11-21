@@ -153,3 +153,7 @@ Drafts land here unchecked. Check a box (`- [x]`) to approve. Only a checked box
 - [ ] Carousel (Instagram): Not a sports car? Same standard (`docs/marketing/carousels/2026-11-20/5-slide-not-a-sports-car-same-standard.html`)
 - [ ] Carousel (Instagram): The shop after hours (`docs/marketing/carousels/2026-11-20/8-slide-the-shop-after-hours.html`)
 - [ ] Carousel (Instagram): Watch the work before you book (`docs/marketing/carousels/2026-11-20/9-slide-watch-the-work-first.html`)
+- [ ] Carousel (Instagram): A detail can't put paint back (1-slide) (`docs/marketing/carousels/2026-11-21/1-slide-a-detail-cant-put-paint-back.html`)
+- [ ] Carousel (Instagram): A clean engine bay shows leaks (5-slide) (`docs/marketing/carousels/2026-11-21/5-slide-a-clean-bay-shows-leaks.html`)
+- [ ] Carousel (Instagram): Engine bays start cold and covered (8-slide) (`docs/marketing/carousels/2026-11-21/8-slide-engine-bays-start-cold-and-covered.html`)
+- [ ] Carousel (Instagram): What a detail can't bring back (9-slide) (`docs/marketing/carousels/2026-11-21/9-slide-what-a-detail-cant-bring-back.html`)
