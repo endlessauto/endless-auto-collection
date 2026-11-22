@@ -7,14 +7,14 @@ Latest upload: 2026-11-18. Refreshed by `scripts/refresh_youtube_catalog.py` (pu
 
 | Posted | Title | Views | ID |
 |--------|-------|-------|----|
-| 2026-11-15 | SEMA 2026 Karaoke Night With Car Creators in Vegas \| AFTERHOURS | 37 | e2xFRuH4sIo |
-| 2026-11-13 | SEMA 2026 as a Small Shop Owner \| Sung Kang, Larry Chen | 265 | KIMwoQiMGds |
-| 2026-11-13 | No air compressor needed? Electric HYCHIKA HVLP spray gun reality for DIYers | 117 | m8wz-4O1Tr0 |
-| 2026-11-05 | SEMA 2026 Day 1 \| Walking the Show as a Shop Owner | 230 | Q4GqZvMDKfo |
+| 2026-11-15 | SEMA 2026 Karaoke Night With Car Creators in Vegas \| AFTERHOURS | 40 | e2xFRuH4sIo |
+| 2026-11-13 | SEMA 2026 as a Small Shop Owner \| Sung Kang, Larry Chen | 269 | KIMwoQiMGds |
+| 2026-11-13 | No air compressor needed? Electric HYCHIKA HVLP spray gun reality for DIYers | 126 | m8wz-4O1Tr0 |
+| 2026-11-05 | SEMA 2026 Day 1 \| Walking the Show as a Shop Owner | 239 | Q4GqZvMDKfo |
 | 2026-11-04 | SEMA 2026 Vlog Ep  1: We Left Our Shop to Go to Vegas | 176 | Kfp6WicldCQ |
 | 2026-10-29 | Restore headlights: a customer learns to do it himself | 134 | MsvmrwEbVoo |
 | 2026-10-28 | We used ONLY a JACK! BMW F8X M3/M4 Suspension \| Shop Vlog | 133 | wZGrPhqci_U |
-| 2026-10-26 | How To Restore Your Yellow Headlights \| Easy Walk-Through | 655 | G7QD7uAAsQY |
+| 2026-10-26 | How To Restore Your Yellow Headlights \| Easy Walk-Through | 654 | G7QD7uAAsQY |
 | 2026-10-23 | Lamborghini Sesto Elemento, Pagani Huayra BC & Bugatti at Santana Row! | 202 | Lx9wrjZF2zU |
 | 2026-10-22 | Selling His Childhood Dream Car? \| Lamborghini Murciélago | 206 | hauU1eIK4m8 |
 | 2026-10-20 | 2024 Mustang GT Lowering Springs Install \| Pt.1 Shop Vlog | 463 | sQsioLTcRh4 |
@@ -33,10 +33,10 @@ Latest upload: 2026-11-18. Refreshed by `scripts/refresh_youtube_catalog.py` (pu
 
 | Posted | Title | Views | ID |
 |--------|-------|-------|----|
-| 2026-11-18 | Let’s restore your headlights, give it back that shine and clarity!  #headlightrestoration | 609 | D5eJ-fTyPiQ |
+| 2026-11-18 | Let’s restore your headlights, give it back that shine and clarity!  #headlightrestoration | 608 | D5eJ-fTyPiQ |
 | 2026-11-15 | I Love Wrapping Cars… Until I Have to Remove It 💀 #vinylwrapping | 1686 | jmWifM1ANAs |
 | 2026-11-13 | Making This Red AMG GT R Shine 🧼🔥 \| Satisfying Detail #fremontca #mercedesbenzclkgtr | 1328 | em1WmvfsSmU |
-| 2026-11-10 | Hitched a Ride in a Lamborghini Huracán STO! #sema #indecentvehicles | 1782 | apK_Ur-_EZs |
+| 2026-11-10 | Hitched a Ride in a Lamborghini Huracán STO! #sema #indecentvehicles | 1785 | apK_Ur-_EZs |
 | 2026-10-29 | When you hear the Church bells ringing #endlessautocollection #fremontca | 1000 | VMcR13_XgZs |
 | 2026-10-26 | You’re Selling Our Dream Car? \| WHAT DRIVES YOU? Pt. 2 | 174 | -0uLc6W8AnE |
 | 2026-10-23 | Why sell the car you dreamed of owning as a kid? #whatdrivesyou | 1086 | _nNmNcPAtLA |
