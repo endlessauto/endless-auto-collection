@@ -157,3 +157,7 @@ Drafts land here unchecked. Check a box (`- [x]`) to approve. Only a checked box
 - [ ] Carousel (Instagram): A clean engine bay shows leaks (5-slide) (`docs/marketing/carousels/2026-11-21/5-slide-a-clean-bay-shows-leaks.html`)
 - [ ] Carousel (Instagram): Engine bays start cold and covered (8-slide) (`docs/marketing/carousels/2026-11-21/8-slide-engine-bays-start-cold-and-covered.html`)
 - [ ] Carousel (Instagram): What a detail can't bring back (9-slide) (`docs/marketing/carousels/2026-11-21/9-slide-what-a-detail-cant-bring-back.html`)
+- [ ] Carousel (Instagram): Keep new tint windows up (1-slide) (`docs/marketing/carousels/2026-11-22/1-slide-keep-new-tint-windows-up.html`)
+- [ ] Carousel (Instagram): Align it after you lower it (5-slide) (`docs/marketing/carousels/2026-11-22/5-slide-align-it-after-you-lower-it.html`)
+- [ ] Carousel (Instagram): Ceramic, watch the water (8-slide) (`docs/marketing/carousels/2026-11-22/8-slide-ceramic-watch-the-water.html`)
+- [ ] Carousel (Instagram): Which headlight coat lasts (10-slide) (`docs/marketing/carousels/2026-11-22/10-slide-which-headlight-coat-lasts.html`)
