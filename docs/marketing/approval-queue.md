@@ -161,3 +161,7 @@ Drafts land here unchecked. Check a box (`- [x]`) to approve. Only a checked box
 - [ ] Carousel (Instagram): Align it after you lower it (5-slide) (`docs/marketing/carousels/2026-11-22/5-slide-align-it-after-you-lower-it.html`)
 - [ ] Carousel (Instagram): Ceramic, watch the water (8-slide) (`docs/marketing/carousels/2026-11-22/8-slide-ceramic-watch-the-water.html`)
 - [ ] Carousel (Instagram): Which headlight coat lasts (10-slide) (`docs/marketing/carousels/2026-11-22/10-slide-which-headlight-coat-lasts.html`)
+- [ ] Carousel (Instagram): A new color doesn't need a spray booth (1-slide) (`docs/marketing/carousels/2026-11-23/1-slide-new-color-no-spray-booth.html`)
+- [ ] Carousel (Instagram): Tint ticket, swap the film (5-slide) (`docs/marketing/carousels/2026-11-23/5-slide-tint-ticket-swap-the-film.html`)
+- [ ] Carousel (Instagram): Price ceramic per year, not per invoice (10-slide) (`docs/marketing/carousels/2026-11-23/10-slide-price-ceramic-per-year.html`)
+- [ ] Carousel (Instagram): PPF or repaint the chips (9-slide) (`docs/marketing/carousels/2026-11-23/9-slide-ppf-or-repaint-the-chips.html`)
