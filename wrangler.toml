@@ -15,3 +15,11 @@ class_name = "MediaState"
 [[migrations]]
 tag = "v1"
 new_sqlite_classes = ["MediaState"]
+
+[[durable_objects.bindings]]
+name = "RAFFLE_STATE"
+class_name = "RaffleState"
+
+[[migrations]]
+tag = "v2"
+new_sqlite_classes = ["RaffleState"]

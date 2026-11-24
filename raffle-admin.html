@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Giveaway admin</title>
+<style>
+body{margin:0;font-family:Inter,system-ui,sans-serif;background:#050505;color:#e4e4e7;padding:1.5rem}
+main{max-width:56rem;margin:0 auto}
+h1{color:#fff;font-size:1.5rem}
+h2{color:#f0c869;font-size:.8rem;letter-spacing:2px;text-transform:uppercase;margin:2rem 0 .7rem}
+input{background:#0f0f0f;border:1px solid #2a2a2a;border-radius:.6rem;color:#fff;font:inherit;padding:.6rem .8rem}
+button{border:0;border-radius:.6rem;cursor:pointer;font:inherit;font-weight:600;padding:.6rem 1rem;background:linear-gradient(145deg,#f5dfa0,#d4af37 50%,#9c7a22);color:#140f00}
+button.ghost{background:#1a1a1a;color:#ddd;border:1px solid #333}
+button[disabled]{opacity:.5;cursor:default}
+.card{background:#0d0d0d;border:1px solid #232323;border-radius:.9rem;padding:1rem;margin-bottom:.7rem}
+.prize{display:flex;flex-wrap:wrap;gap:.8rem;align-items:center;justify-content:space-between}
+.prize b{color:#fff}
+.win{color:#d4af37;margin-top:.4rem;font-size:.95rem;line-height:1.5}
+.meta{color:#777;font-size:.85rem}
+table{width:100%;border-collapse:collapse;font-size:.85rem}
+th,td{text-align:left;padding:.45rem .5rem;border-bottom:1px solid #1d1d1d}
+th{color:#777;font-weight:400}
+#msg{color:#ff8a80;min-height:1.2rem}
+</style>
+</head>
+<body>
+<main>
+  <h1>Giveaway admin</h1>
+  <form id="auth"><input type="password" id="key" placeholder="Admin key" autocomplete="current-password"> <button type="submit">Load</button></form>
+  <div id="msg"></div>
+  <div id="app" hidden>
+    <h2>Draw winners</h2>
+    <div id="prizes"></div>
+    <h2>Entries <span class="meta" id="count"></span></h2>
+    <button class="ghost" id="csv" type="button">Download CSV</button>
+    <div style="overflow-x:auto;margin-top:.8rem"><table><thead><tr><th>#</th><th>Name</th><th>Email</th><th>Instagram</th><th>YouTube</th><th>Tickets</th><th>Entered</th></tr></thead><tbody id="rows"></tbody></table></div>
+  </div>
+</main>
+<script>
+(function(){
+  var $=function(id){return document.getElementById(id)};
+  var key='',data=null;
+  function call(path,body){
+    return fetch('/api/raffle'+path,{method:body?'POST':'GET',headers:{authorization:'Bearer '+key,'content-type':'application/json'},body:body?JSON.stringify(body):undefined}).then(function(r){return r.json().then(function(j){if(!r.ok)throw new Error(j.error||'Request failed');return j})});
+  }
+  function td(tr,text){var c=document.createElement('td');c.textContent=text;tr.appendChild(c)}
+  function render(){
+    $('app').hidden=false;
+    $('count').textContent='('+data.entries.length+')';
+    var byId={};data.entries.forEach(function(e){byId[e.id]=e});
+    var box=$('prizes');box.textContent='';
+    data.prizes.forEach(function(name,i){
+      var active=data.winners.filter(function(w){return w.prize_index===i&&w.status==='active'})[0];
+      var card=document.createElement('div');card.className='card';
+      var row=document.createElement('div');row.className='prize';
+      var b=document.createElement('b');b.textContent=(i+1)+'. '+name;row.appendChild(b);
+      var btn=document.createElement('button');btn.textContent=active?'Redraw':'Draw winner';if(active)btn.className='ghost';
+      btn.onclick=function(){
+        if(active&&!confirm('Replace the current winner for "'+name+'"?'))return;
+        btn.disabled=true;
+        call('/admin/draw',{prize:i,redraw:!!active}).then(load).catch(function(x){$('msg').textContent=x.message;btn.disabled=false});
+      };
+      row.appendChild(btn);card.appendChild(row);
+      if(active){
+        var e=byId[active.entry_id]||{};
+        var w=document.createElement('div');w.className='win';
+        w.textContent=e.name+' · '+e.email+(e.instagram_handle?' · @'+e.instagram_handle:'');
+        card.appendChild(w);
+        var m=document.createElement('div');m.className='meta';
+        m.textContent='Drawn '+new Date(active.drawn_at).toLocaleString()+' from '+active.pool_size+' people, '+active.total_tickets+' tickets';
+        card.appendChild(m);
+      }
+      box.appendChild(card);
+    });
+    var tb=$('rows');tb.textContent='';
+    data.entries.forEach(function(e){
+      var tr=document.createElement('tr');
+      td(tr,e.id);td(tr,e.name);td(tr,e.email);td(tr,e.instagram_handle?'@'+e.instagram_handle:'');td(tr,e.yt_at?'yes':'');td(tr,e.tickets);td(tr,new Date(e.created_at).toLocaleString());
+      tb.appendChild(tr);
+    });
+  }
+  function load(){$('msg').textContent='';return call('/admin/entries').then(function(d){data=d;render()}).catch(function(x){$('msg').textContent=x.message})}
+  $('auth').addEventListener('submit',function(e){e.preventDefault();key=$('key').value;load()});
+  $('csv').addEventListener('click',function(){
+    var q=function(v){return '"'+String(v==null?'':v).replace(/"/g,'""')+'"'};
+    var lines=['id,name,email,instagram,youtube,tickets,entered'];
+    data.entries.forEach(function(e){lines.push([e.id,e.name,e.email,e.instagram_handle,e.yt_at?'yes':'',e.tickets,new Date(e.created_at).toISOString()].map(q).join(','))});
+    var a=document.createElement('a');a.href=URL.createObjectURL(new Blob([lines.join('\n')],{type:'text/csv'}));a.download='giveaway-entries.csv';a.click();
+  });
+})();
+</script>
+</body>
+</html>

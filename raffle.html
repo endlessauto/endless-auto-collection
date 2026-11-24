@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Endless Giving | Win a Month of Detailing | Endless Auto Collection</title>
+<meta name="description" content="Enter to win a month of full car detailing, an exterior detail, or an Endless tee from Endless Auto Collection in Fremont.">
+<link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon/favicon-32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/favicon/apple-touch-icon.png">
+<link rel="canonical" href="https://www.endlessautocollection.com/raffle">
+<meta property="og:url" content="https://www.endlessautocollection.com/raffle">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Endless Giving | Win a Month of Detailing">
+<meta property="og:description" content="Three prizes. Enter with your name and email.">
+<meta property="og:image" content="https://www.endlessautocollection.com/Endless_Tshirt_Back_1.webp">
+<meta name="twitter:card" content="summary_large_image">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Space+Grotesk:wght@600;700&display=swap');
+*{box-sizing:border-box}
+body{margin:0;font-family:Inter,system-ui,sans-serif;background:#050505;color:#e4e4e7;min-height:100vh;-webkit-font-smoothing:antialiased}
+.hf{font-family:'Space Grotesk',Inter,sans-serif}
+a{color:inherit}
+header{display:flex;justify-content:center;padding:1.4rem 1rem 0}
+header img{height:44px;width:auto;display:block}
+main{max-width:34rem;margin:0 auto;padding:1.5rem 1rem 4rem}
+.eyebrow{text-align:center;font-size:.75rem;letter-spacing:3px;font-weight:600;color:#f0c869;text-transform:uppercase}
+h1{text-align:center;font-size:clamp(2.2rem,8vw,3.2rem);line-height:1;letter-spacing:-1.5px;margin:.6rem 0 .8rem;color:#fff}
+h1 em{font-style:normal;background:linear-gradient(145deg,#f5dfa0,#d4af37 50%,#b08a2a);-webkit-background-clip:text;background-clip:text;color:transparent}
+.sub{text-align:center;color:#a1a1aa;margin:0 0 1.6rem}
+.card{background:radial-gradient(circle at 15% 0%,rgba(212,175,55,.12),transparent 55%),#0b0b0b;border:1px solid rgba(212,175,55,.4);border-radius:1.4rem;box-shadow:0 30px 70px -40px rgba(212,175,55,.45);overflow:hidden}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);border-bottom:1px solid #1d1d1d}
+.stat{padding:1rem .5rem;text-align:center}
+.stat+.stat{border-left:1px solid #1d1d1d}
+.stat b{display:block;font-size:1.9rem;color:#fff;line-height:1}
+.stat span{display:block;margin-top:.35rem;font-size:.68rem;letter-spacing:1.5px;color:#777;text-transform:uppercase}
+.body{padding:1.4rem}
+.prizes{list-style:none;margin:0 0 1.4rem;padding:0;display:grid;gap:.5rem}
+.prizes li{display:flex;align-items:center;gap:.8rem;background:#101010;border:1px solid #232323;border-radius:.9rem;padding:.7rem .9rem;color:#fff;font-weight:600;font-size:.95rem}
+.prizes i{font-style:normal;flex:none;width:1.7rem;height:1.7rem;border-radius:9999px;background:linear-gradient(145deg,#f5dfa0,#d4af37 50%,#9c7a22);color:#140f00;display:flex;align-items:center;justify-content:center;font-size:.8rem;font-weight:700}
+label{display:block;font-size:.75rem;letter-spacing:1.5px;text-transform:uppercase;color:#888;margin:0 0 .35rem}
+input[type=text],input[type=email]{width:100%;background:#0f0f0f;border:1px solid #2a2a2a;border-radius:.8rem;color:#fff;font:inherit;font-size:1rem;padding:.85rem 1rem;outline:none;transition:border-color .2s,box-shadow .2s}
+input:focus{border-color:#d4af37;box-shadow:0 0 0 3px rgba(212,175,55,.18)}
+.field{margin-bottom:1rem}
+.btn{position:relative;overflow:hidden;display:block;width:100%;border:0;cursor:pointer;font:inherit;font-weight:600;font-size:1rem;padding:.95rem 1rem;border-radius:.9rem;background:linear-gradient(145deg,#f5dfa0 0%,#d4af37 45%,#9c7a22 100%);color:#140f00;box-shadow:inset 0 1px 0 rgba(255,255,255,.55),inset 0 -2px 4px rgba(0,0,0,.25),0 6px 16px -6px rgba(212,175,55,.55);transition:transform .25s ease,filter .25s ease}
+.btn:hover{transform:translateY(-2px);filter:brightness(1.05)}
+.btn:active{transform:translateY(0)}
+.btn[disabled]{opacity:.6;cursor:wait;transform:none}
+.err{color:#ff8a80;font-size:.9rem;min-height:1.2rem;margin:.2rem 0 .6rem}
+.fine{color:#777;font-size:.8rem;margin:.9rem 0 0;text-align:center;line-height:1.5}
+.hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+[hidden]{display:none!important}
+.in{text-align:center;margin-bottom:1.2rem}
+.in .tick{width:3.2rem;height:3.2rem;border-radius:9999px;margin:0 auto .7rem;background:linear-gradient(145deg,#f5dfa0,#d4af37 50%,#9c7a22);color:#140f00;display:flex;align-items:center;justify-content:center;font-size:1.6rem;font-weight:700;animation:pop .45s cubic-bezier(.2,1.4,.4,1)}
+@keyframes pop{from{transform:scale(.3);opacity:0}to{transform:scale(1);opacity:1}}
+.in h2{margin:0;font-size:1.5rem;color:#fff}
+.in p{margin:.35rem 0 0;color:#a1a1aa;font-size:.95rem}
+.sec{font-size:.75rem;letter-spacing:2px;text-transform:uppercase;color:#f0c869;font-weight:600;margin:0 0 .7rem}
+.act{background:#101010;border:1px solid #232323;border-radius:1rem;margin-bottom:.6rem;overflow:hidden;transition:border-color .25s}
+.act.done{border-color:rgba(212,175,55,.5)}
+.row{display:flex;align-items:center;gap:.9rem;width:100%;background:none;border:0;color:inherit;font:inherit;text-align:left;padding:.85rem .9rem;cursor:pointer}
+.row[disabled]{cursor:default}
+.ico{flex:none;width:2.6rem;height:2.6rem;border-radius:.7rem;display:flex;align-items:center;justify-content:center}
+.ico svg{width:1.4rem;height:1.4rem;fill:#fff}
+.ig{background:linear-gradient(135deg,#515bd4,#8134af 45%,#dd2a7b 75%,#feda77)}
+.yt{background:#e52d27}
+.gr{background:#2a2a2a}
+.row .t{flex:1;color:#fff;font-weight:600;font-size:.95rem;line-height:1.25}
+.row .t small{display:block;color:#777;font-weight:400;font-size:.8rem;margin-top:2px}
+.pill{flex:none;font-weight:600;font-size:.85rem;border:1px solid #333;border-radius:.6rem;padding:.35rem .65rem;color:#fff}
+.done .pill{background:linear-gradient(145deg,#f5dfa0,#d4af37 50%,#9c7a22);color:#140f00;border-color:transparent}
+.expand{display:flex;gap:.5rem;padding:0 .9rem .9rem}
+.expand input{flex:1;min-width:0}
+.expand .btn{width:auto;padding:.7rem 1.1rem;font-size:.95rem}
+details{margin-top:1.2rem;color:#a1a1aa;font-size:.85rem;line-height:1.6}
+summary{cursor:pointer;color:#888;text-align:center}
+details ul{padding-left:1.1rem;margin:.8rem 0 0}
+details li{margin-bottom:.35rem}
+.closed{text-align:center;color:#f0c869;font-weight:600;padding:.5rem 0 1rem}
+</style>
+</head>
+<body>
+<header><a href="/" aria-label="Endless Auto Collection home"><img src="/images/endless-logo.png" alt="Endless Auto Collection" height="44"></a></header>
+<main>
+  <div class="eyebrow">Endless Giving</div>
+  <h1 class="hf">Win a month of <em>detailing</em></h1>
+  <p class="sub">Three winners. Enter with your name and email.</p>
+
+  <div class="card">
+    <div class="stats">
+      <div class="stat"><b id="sMine" class="hf">0</b><span>Your entries</span></div>
+      <div class="stat"><b id="sTotal" class="hf">0</b><span>Total entries</span></div>
+      <div class="stat"><b id="sDays" class="hf">–</b><span>Days left</span></div>
+    </div>
+    <div class="body">
+      <ol class="prizes">
+        <li><i>1</i>One month full car detailing package</li>
+        <li><i>2</i>Exterior car detail</li>
+        <li><i>3</i>Endless t-shirt</li>
+      </ol>
+
+      <form id="enterForm" novalidate>
+        <div class="field"><label for="name">Full name</label><input type="text" id="name" name="name" autocomplete="name" required maxlength="80"></div>
+        <div class="field"><label for="email">Email</label><input type="email" id="email" name="email" autocomplete="email" inputmode="email" required maxlength="120"></div>
+        <div class="hp" aria-hidden="true"><label>Website<input type="text" id="website" name="website" tabindex="-1" autocomplete="off"></label></div>
+        <div class="err" id="err" role="alert"></div>
+        <button class="btn" id="enterBtn" type="submit">Enter the giveaway</button>
+        <p class="fine">We use your name and email only to contact the winners. We never sell or share them.</p>
+      </form>
+
+      <div id="closed" class="closed" hidden>This giveaway has closed. Thank you for entering.</div>
+
+      <section id="inSection" hidden>
+        <div class="in">
+          <div class="tick">✓</div>
+          <h2 class="hf" id="inTitle">You're in</h2>
+          <p>Add more entries below. Each one raises your odds.</p>
+        </div>
+        <p class="sec">Bonus entries</p>
+
+        <div class="act" id="actIg">
+          <button class="row" type="button" id="igBtn">
+            <span class="ico ig"><svg viewBox="0 0 24 24"><path d="M12 7.4A4.6 4.6 0 1 0 12 16.6 4.6 4.6 0 0 0 12 7.4Zm0 7.6a3 3 0 1 1 0-6 3 3 0 0 1 0 6Zm5.9-7.8a1.1 1.1 0 1 1-2.2 0 1.1 1.1 0 0 1 2.2 0ZM21 8.3c-.1-1.4-.4-2.6-1.4-3.6S17.100 3.100 15.700 3C14.200 2.900 9.800 2.900 8.300 3 6.900 3.100 5.700 3.400 4.700 4.400S3.100 6.900 3 8.300c-.1 1.500-.1 5.900 0 7.400.1 1.400.4 2.600 1.400 3.600s2.200 1.300 3.600 1.400c1.500.1 5.900.1 7.400 0 1.400-.1 2.600-.4 3.600-1.400s1.300-2.200 1.400-3.600c.1-1.500.1-5.900 0-7.400Zm-1.900 9.100a2.900 2.900 0 0 1-1.600 1.600c-1.100.4-3.800.3-5.500.3s-4.300.1-5.500-.3a2.900 2.900 0 0 1-1.600-1.600c-.4-1.100-.3-3.800-.3-5.500s-.1-4.300.3-5.500a2.900 2.900 0 0 1 1.600-1.600c1.100-.4 3.800-.3 5.500-.3s4.300-.1 5.500.3a2.900 2.900 0 0 1 1.600 1.600c.4 1.100.3 3.800.3 5.500s.1 4.300-.3 5.500Z"/></svg></span>
+            <span class="t">Follow @endlessautoco on Instagram<small>Then add your handle</small></span>
+            <span class="pill">+1</span>
+          </button>
+          <div class="expand" id="igExpand" hidden>
+            <input type="text" id="igHandle" placeholder="@yourhandle" autocapitalize="off" autocorrect="off" spellcheck="false" maxlength="31" aria-label="Your Instagram handle">
+            <button class="btn" type="button" id="igSave">Add</button>
+          </div>
+        </div>
+
+        <div class="act" id="actYt">
+          <button class="row" type="button" id="ytBtn">
+            <span class="ico yt"><svg viewBox="0 0 24 24"><path d="M21.600 7.200a2.500 2.500 0 0 0-1.800-1.800C18.200 5 12 5 12 5s-6.200 0-7.800.4A2.500 2.500 0 0 0 2.400 7.200C2 8.800 2 12 2 12s0 3.200.4 4.800a2.500 2.500 0 0 0 1.800 1.800C5.800 19 12 19 12 19s6.200 0 7.800-.4a2.500 2.500 0 0 0 1.800-1.800c.4-1.600.4-4.800.4-4.800s0-3.200-.4-4.800ZM10 15V9l5.200 3L10 15Z"/></svg></span>
+            <span class="t">Subscribe to EndlessAutoCollection on YouTube</span>
+            <span class="pill">+1</span>
+          </button>
+        </div>
+
+        <div class="act">
+          <a class="row" href="https://g.page/r/CZ1mmwMzzRySEBM/review" target="_blank" rel="noopener noreferrer" style="text-decoration:none">
+            <span class="ico gr"><svg viewBox="0 0 24 24"><path d="m12 17.300 5.200 3.100-1.400-5.900 4.600-4-6-.5L12 4.500 9.600 10 3.600 10.500l4.600 4-1.400 5.900L12 17.300Z"/></svg></span>
+            <span class="t">Enjoyed working with us? Leave a Google review<small>Optional. It doesn't earn entries.</small></span>
+          </a>
+        </div>
+      </section>
+    </div>
+  </div>
+
+  <details>
+    <summary>Official rules</summary>
+    <ul>
+      <li>No purchase necessary. Entering with your name and email gives one entry. Bonus actions add one entry each, up to three entries per person.</li>
+      <li>Open to U.S. residents 18 and older. One entry per email address.</li>
+      <li>Three winners, one per prize, drawn at random after the giveaway closes on November 29, 2026 at 11:59 pm Pacific.</li>
+      <li>We email winners. A winner who doesn't reply within 48 hours forfeits the prize and we draw again.</li>
+      <li>Prizes are redeemed in person at Endless Auto Collection in Fremont, California, by appointment. Prizes have no cash value and can't be transferred.</li>
+      <li>This giveaway isn't sponsored, endorsed, or administered by Instagram, YouTube, or Google.</li>
+      <li>We use your name and email only to run this giveaway and contact winners.</li>
+    </ul>
+  </details>
+</main>
+
+<script>
+(function(){
+  var KEY='eac.raffle.token';
+  var token=null;try{token=localStorage.getItem(KEY)}catch(e){}
+  var $=function(id){return document.getElementById(id)};
+  var IG_URL='https://www.instagram.com/endlessautoco/';
+  var YT_URL='https://www.youtube.com/@EndlessAutoCollection?sub_confirmation=1';
+
+  function api(path,opts){
+    return fetch('/api/raffle'+path,opts).then(function(r){return r.json().then(function(j){if(!r.ok)throw new Error(j.error||'Something went wrong. Try again.');return j})});
+  }
+  function post(path,body){return api(path,{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify(body)})}
+
+  function render(s){
+    $('sTotal').textContent=s.total;
+    $('sDays').textContent=s.open?s.daysLeft:0;
+    if(s.me){
+      $('sMine').textContent=s.me.entries;
+      $('enterForm').hidden=true;
+      $('closed').hidden=true;
+      $('inSection').hidden=false;
+      var first=s.me.name.split(' ')[0];
+      $('inTitle').textContent="You're in, "+first;
+      mark($('actIg'),s.me.instagram);
+      mark($('actYt'),s.me.youtube);
+      if(s.me.instagram)$('igExpand').hidden=true;
+    }else{
+      $('inSection').hidden=true;
+      $('enterForm').hidden=!s.open;
+      $('closed').hidden=s.open;
+    }
+  }
+  function mark(el,done){
+    el.classList.toggle('done',done);
+    var pill=el.querySelector('.pill');
+    pill.textContent=done?'✓':'+1';
+    var btn=el.querySelector('button.row');
+    btn.disabled=done;
+  }
+  function load(){
+    api('/state'+(token?'?token='+encodeURIComponent(token):'')).then(render).catch(function(){});
+  }
+
+  $('enterForm').addEventListener('submit',function(e){
+    e.preventDefault();
+    var err=$('err'),btn=$('enterBtn');err.textContent='';
+    var name=$('name').value.trim(),email=$('email').value.trim();
+    if(name.length<2){err.textContent='Enter your full name.';$('name').focus();return}
+    if(!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)){err.textContent='Enter a valid email address.';$('email').focus();return}
+    btn.disabled=true;btn.textContent='Entering…';
+    post('/enter',{name:name,email:email,website:$('website').value}).then(function(s){
+      token=s.token;try{localStorage.setItem(KEY,token)}catch(e){}
+      render(s);
+    }).catch(function(x){err.textContent=x.message}).then(function(){btn.disabled=false;btn.textContent='Enter the giveaway'});
+  });
+
+  $('igBtn').addEventListener('click',function(){
+    window.open(IG_URL,'_blank','noopener');
+    $('igExpand').hidden=false;
+    $('igHandle').focus();
+  });
+  $('igSave').addEventListener('click',saveIg);
+  $('igHandle').addEventListener('keydown',function(e){if(e.key==='Enter'){e.preventDefault();saveIg()}});
+  function saveIg(){
+    var b=$('igSave');b.disabled=true;
+    post('/bonus',{token:token,action:'instagram',handle:$('igHandle').value}).then(render).catch(function(x){
+      $('igHandle').setCustomValidity(x.message);$('igHandle').reportValidity();$('igHandle').setCustomValidity('');
+    }).then(function(){b.disabled=false});
+  }
+  $('ytBtn').addEventListener('click',function(){
+    window.open(YT_URL,'_blank','noopener');
+    post('/bonus',{token:token,action:'youtube'}).then(render).catch(function(){});
+  });
+
+  load();
+})();
+</script>
+</body>
+</html>

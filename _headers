@@ -29,3 +29,6 @@
 
 /*.svg
   Access-Control-Allow-Origin: *
+
+/raffle-admin
+  X-Robots-Tag: noindex, nofollow

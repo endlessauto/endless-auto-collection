@@ -1,4 +1,7 @@
 import { DurableObject } from "cloudflare:workers";
+import { RaffleState } from "./raffle.js";
+
+export { RaffleState };
 
 const KEY_RE = /^\/api\/eacmedia\/([a-z0-9-]{3,50}-\d{4}-\d{2}-\d{2})$/;
 const ID_RE = /^([A-Z][0-9]{1,2}|p[0-9]{1,2})$/;
@@ -113,6 +116,11 @@ export default {
       }
     }
     if (url.pathname === "/admin" || url.pathname.startsWith("/admin/")) return handleAdmin(request, env, url);
+    if (url.pathname.startsWith("/api/raffle/")) {
+      if (request.method !== "GET" && request.method !== "POST") return reply({ error: "Method not allowed" }, 405);
+      if (Number(request.headers.get("content-length") || 0) > 2000) return reply({ error: "Too large" }, 413);
+      return env.RAFFLE_STATE.get(env.RAFFLE_STATE.idFromName("main")).fetch(request);
+    }
     const m = KEY_RE.exec(url.pathname);
     if (!m) {
       if (url.pathname.startsWith("/api/")) return reply({ error: "Not found" }, 404);
