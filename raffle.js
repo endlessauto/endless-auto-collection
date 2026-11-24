@@ -87,7 +87,7 @@ export class RaffleState extends DurableObject {
   }
 
   total() {
-    return this.sql.exec("SELECT COUNT(*) AS c FROM entries").one().c;
+    return this.sql.exec("SELECT ig_at, yt_at, google_at FROM entries").toArray().reduce((n, e) => n + weight(e), 0);
   }
 
   mine(token) {
