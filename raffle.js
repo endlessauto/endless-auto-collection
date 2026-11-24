@@ -4,7 +4,7 @@ const HEADERS = { "content-type": "application/json", "cache-control": "no-store
 const reply = (body, status = 200) => new Response(JSON.stringify(body), { status, headers: HEADERS });
 
 export const RAFFLE_ENDS = "2026-11-29T23:59:59-08:00";
-export const PRIZES = ["Endless Membership, One Month", "Full Car Detail", "Endless T-Shirt"];
+export const PRIZES = ["Endless Membership, 1 Month", "Full Car Detail", "Endless T-Shirt"];
 const MAX_ENTRIES_PER_IP = 5;
 const MAX_ADMIN_FAILS = 5;
 const MAX_POINTS = 4;
