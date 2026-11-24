@@ -6,6 +6,7 @@ const reply = (body, status = 200) => new Response(JSON.stringify(body), { statu
 export const RAFFLE_ENDS = "2026-11-29T23:59:59-08:00";
 export const PRIZES = ["Two Full Car Details in One Month", "Exterior Car Detail", "Endless T-Shirt"];
 const MAX_ENTRIES_PER_IP = 5;
+const MAX_ADMIN_FAILS = 5;
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
 const HANDLE_RE = /^[A-Za-z0-9._]{1,30}$/;
 
@@ -44,6 +45,11 @@ export class RaffleState extends DurableObject {
       instagram_handle TEXT,
       ig_at INTEGER,
       yt_at INTEGER
+    )`);
+    this.sql.exec(`CREATE TABLE IF NOT EXISTS admin_fails (
+      ip_hash TEXT PRIMARY KEY,
+      count INTEGER NOT NULL,
+      locked_until INTEGER NOT NULL
     )`);
     this.sql.exec(`CREATE TABLE IF NOT EXISTS winners (
       id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -84,7 +90,7 @@ export class RaffleState extends DurableObject {
     if (path === "/state" && request.method === "GET") return reply(this.state(url.searchParams.get("token")));
     if (path === "/enter" && request.method === "POST") return this.enter(request, body);
     if (path === "/bonus" && request.method === "POST") return this.bonus(body);
-    if (path.startsWith("/admin/")) return this.admin(request, path, body);
+    if (path.startsWith("/admin/")) return await this.admin(request, path, body);
     return reply({ error: "Not found" }, 404);
   }
 
@@ -132,11 +138,23 @@ export class RaffleState extends DurableObject {
     return reply(this.state(token));
   }
 
-  admin(request, path, b) {
+  async admin(request, path, b) {
     const key = this.env.RAFFLE_ADMIN_KEY;
     if (!key) return reply({ error: "Admin key not configured." }, 503);
+    const ipHash = await sha256("eac-raffle-admin|" + (request.headers.get("cf-connecting-ip") || "unknown"));
+    const f = this.sql.exec("SELECT count, locked_until FROM admin_fails WHERE ip_hash = ?", ipHash).toArray()[0];
+    if (f && f.locked_until > Date.now()) return reply({ error: "Too many wrong passwords. Try again in 15 minutes." }, 429);
     const auth = (request.headers.get("authorization") || "").replace(/^Bearer\s+/i, "");
-    if (!safeEqual(auth, key)) return reply({ error: "Unauthorized" }, 401);
+    if (!safeEqual(auth, key)) {
+      const count = (f ? f.count : 0) + 1;
+      const lockedUntil = count >= MAX_ADMIN_FAILS ? Date.now() + 15 * 60000 : 0;
+      this.sql.exec(
+        "INSERT INTO admin_fails (ip_hash, count, locked_until) VALUES (?, ?, ?) ON CONFLICT(ip_hash) DO UPDATE SET count = ?, locked_until = ?",
+        ipHash, lockedUntil ? 0 : count, lockedUntil, lockedUntil ? 0 : count, lockedUntil
+      );
+      return reply({ error: "Wrong password." }, 401);
+    }
+    if (f) this.sql.exec("DELETE FROM admin_fails WHERE ip_hash = ?", ipHash);
 
     if (path === "/admin/entries") {
       const rows = this.sql.exec(

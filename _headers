@@ -30,5 +30,5 @@
 /*.svg
   Access-Control-Allow-Origin: *
 
-/raffle-admin
+/raffle1
   X-Robots-Tag: noindex, nofollow
