@@ -22,7 +22,7 @@ button[disabled]{opacity:.5;cursor:default}
 table{width:100%;border-collapse:collapse;font-size:.85rem}
 th,td{text-align:left;padding:.45rem .5rem;border-bottom:1px solid #1d1d1d}
 th{color:#777;font-weight:400}
-.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:.6rem;margin-top:1.2rem}.stats div{background:#0d0d0d;border:1px solid #232323;border-radius:.9rem;padding:.8rem;text-align:center}.stats b{display:block;font-size:1.6rem;color:#fff}.stats span{font-size:.7rem;letter-spacing:1.5px;text-transform:uppercase;color:#777}
+.stats{display:grid;grid-template-columns:repeat(5,1fr);gap:.6rem;margin-top:1.2rem}.stats div{background:#0d0d0d;border:1px solid #232323;border-radius:.9rem;padding:.8rem;text-align:center}.stats b{display:block;font-size:1.6rem;color:#fff}.stats span{font-size:.7rem;letter-spacing:1.5px;text-transform:uppercase;color:#777}
 #msg{color:#ff8a80;min-height:1.2rem}
 </style>
 </head>
@@ -32,12 +32,12 @@ th{color:#777;font-weight:400}
   <form id="auth"><input type="password" id="key" placeholder="Password" autocomplete="current-password" autofocus> <button type="submit">Unlock</button></form>
   <div id="msg"></div>
   <div id="app" hidden>
-    <div class="stats"><div><b id="stPeople">0</b><span>People</span></div><div><b id="stPoints">0</b><span>Total points</span></div><div><b id="stIg">0</b><span>Instagram</span></div><div><b id="stYt">0</b><span>YouTube</span></div></div>
+    <div class="stats"><div><b id="stPeople">0</b><span>People</span></div><div><b id="stPoints">0</b><span>Total points</span></div><div><b id="stIg">0</b><span>Instagram</span></div><div><b id="stYt">0</b><span>YouTube</span></div><div><b id="stGr">0</b><span>Google</span></div></div>
     <h2>Winners</h2>
     <div id="prizes"></div>
     <h2>Entries <span class="meta" id="count"></span></h2>
     <input type="search" id="q" placeholder="Search name, email, or handle" style="min-width:16rem"> <button class="ghost" id="csv" type="button">Download CSV</button> <button class="ghost" id="refresh" type="button">Refresh</button>
-    <div style="overflow-x:auto;margin-top:.8rem"><table><thead><tr><th>#</th><th>Name</th><th>Email</th><th>Instagram</th><th>YouTube</th><th>Points</th><th>Entered</th></tr></thead><tbody id="rows"></tbody></table></div>
+    <div style="overflow-x:auto;margin-top:.8rem"><table><thead><tr><th>#</th><th>Name</th><th>Email</th><th>Instagram</th><th>YouTube</th><th>Google</th><th>Points</th><th>Flags</th><th>Entered</th></tr></thead><tbody id="rows"></tbody></table></div>
   </div>
 </main>
 <script>
@@ -52,7 +52,7 @@ th{color:#777;font-weight:400}
     $('app').hidden=false;
     $('auth').hidden=true;
     $('count').textContent='('+data.entries.length+')';
-    var pts=0,ig=0,yt=0;data.entries.forEach(function(e){pts+=e.tickets;if(e.ig_at)ig++;if(e.yt_at)yt++});
+    var pts=0,ig=0,yt=0,gr=0;data.entries.forEach(function(e){pts+=e.tickets;if(e.ig_at)ig++;if(e.yt_at)yt++;if(e.google_at)gr++});$('stGr').textContent=gr;
     $('stPeople').textContent=data.entries.length;$('stPoints').textContent=pts;$('stIg').textContent=ig;$('stYt').textContent=yt;
     var byId={};data.entries.forEach(function(e){byId[e.id]=e});
     var box=$('prizes');box.textContent='';
@@ -87,7 +87,7 @@ th{color:#777;font-weight:400}
       return !q||(e.name+' '+e.email+' '+(e.instagram_handle||'')).toLowerCase().indexOf(q)>-1;
     }).forEach(function(e){
       var tr=document.createElement('tr');if(won[e.id])tr.style.color='#d4af37';
-      td(tr,e.id);td(tr,e.name);td(tr,e.email);td(tr,e.instagram_handle?'@'+e.instagram_handle:'');td(tr,e.yt_at?'yes':'');td(tr,e.tickets);td(tr,new Date(e.created_at).toLocaleString());
+      td(tr,e.id);td(tr,e.name);td(tr,e.email);td(tr,e.instagram_handle?'@'+e.instagram_handle:'');td(tr,e.yt_at?'yes':'');td(tr,e.google_at?'yes':'');td(tr,e.tickets);var fl=[];if(e.same_name)fl.push('same name');if(e.same_network)fl.push('same network');td(tr,fl.join(', '));td(tr,new Date(e.created_at).toLocaleString());
       tb.appendChild(tr);
     });
   }
@@ -99,8 +99,8 @@ th{color:#777;font-weight:400}
   if(key)load();
   $('csv').addEventListener('click',function(){
     var q=function(v){return '"'+String(v==null?'':v).replace(/"/g,'""')+'"'};
-    var lines=['id,name,email,instagram,youtube,points,entered'];
-    data.entries.forEach(function(e){lines.push([e.id,e.name,e.email,e.instagram_handle,e.yt_at?'yes':'',e.tickets,new Date(e.created_at).toISOString()].map(q).join(','))});
+    var lines=['id,name,email,instagram,youtube,google,points,flags,entered'];
+    data.entries.forEach(function(e){lines.push([e.id,e.name,e.email,e.instagram_handle,e.yt_at?'yes':'',e.google_at?'yes':'',e.tickets,[e.same_name?'same name':'',e.same_network?'same network':''].filter(Boolean).join('; '),new Date(e.created_at).toISOString()].map(q).join(','))});
     var a=document.createElement('a');a.href=URL.createObjectURL(new Blob([lines.join('\n')],{type:'text/csv'}));a.download='giveaway-entries.csv';a.click();
   });
 })();
