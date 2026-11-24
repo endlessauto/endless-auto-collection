@@ -4,7 +4,7 @@ const HEADERS = { "content-type": "application/json", "cache-control": "no-store
 const reply = (body, status = 200) => new Response(JSON.stringify(body), { status, headers: HEADERS });
 
 export const RAFFLE_ENDS = "2026-11-29T23:59:59-08:00";
-export const PRIZES = ["One Month Full Car Detailing Package", "Exterior Car Detail", "Endless T-Shirt"];
+export const PRIZES = ["Two Full Car Details in One Month", "Exterior Car Detail", "Endless T-Shirt"];
 const MAX_ENTRIES_PER_IP = 5;
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
 const HANDLE_RE = /^[A-Za-z0-9._]{1,30}$/;
