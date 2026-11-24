@@ -165,3 +165,7 @@ Drafts land here unchecked. Check a box (`- [x]`) to approve. Only a checked box
 - [ ] Carousel (Instagram): Tint ticket, swap the film (5-slide) (`docs/marketing/carousels/2026-11-23/5-slide-tint-ticket-swap-the-film.html`)
 - [ ] Carousel (Instagram): Price ceramic per year, not per invoice (10-slide) (`docs/marketing/carousels/2026-11-23/10-slide-price-ceramic-per-year.html`)
 - [ ] Carousel (Instagram): PPF or repaint the chips (9-slide) (`docs/marketing/carousels/2026-11-23/9-slide-ppf-or-repaint-the-chips.html`)
+- [ ] Carousel (Instagram): Bring it to the consult unwashed (1-slide) (`docs/marketing/carousels/2026-11-24/1-slide-bring-it-unwashed-to-the-consult.html`)
+- [ ] Carousel (Instagram): Say what's in the cabin first (5-slide) (`docs/marketing/carousels/2026-11-24/5-slide-say-whats-in-the-cabin-first.html`)
+- [ ] Carousel (Instagram): On PPF day, the film goes on third (8-slide) (`docs/marketing/carousels/2026-11-24/8-slide-the-film-goes-on-third.html`)
+- [ ] Carousel (Instagram): Photos before we touch it (9-slide) (`docs/marketing/carousels/2026-11-24/9-slide-photos-before-we-touch-it.html`)
