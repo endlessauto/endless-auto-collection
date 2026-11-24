@@ -7,6 +7,8 @@ export const RAFFLE_ENDS = "2026-11-29T23:59:59-08:00";
 export const PRIZES = ["Two Full Car Details in One Month", "Exterior Car Detail", "Endless T-Shirt"];
 const MAX_ENTRIES_PER_IP = 5;
 const MAX_ADMIN_FAILS = 5;
+const MAX_POINTS = 4;
+const DISPOSABLE = new Set(["mailinator.com","guerrillamail.com","10minutemail.com","tempmail.com","temp-mail.org","yopmail.com","trashmail.com","sharklasers.com","getnada.com","throwawaymail.com","maildrop.cc","dispostable.com","fakeinbox.com","mailnesia.com","mintemail.com"]);
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
 const HANDLE_RE = /^[A-Za-z0-9._]{1,30}$/;
 
@@ -29,7 +31,18 @@ const safeEqual = (a, b) => {
   return r === 0;
 };
 
-const weight = (e) => 1 + (e.ig_at ? 1 : 0) + (e.yt_at ? 1 : 0);
+const weight = (e) => Math.min(MAX_POINTS, 1 + (e.ig_at ? 1 : 0) + (e.yt_at ? 1 : 0) + (e.google_at ? 1 : 0));
+
+const emailKey = (email) => {
+  let [local, domain] = email.split("@");
+  local = local.split("+")[0];
+  if (domain === "gmail.com" || domain === "googlemail.com") {
+    domain = "gmail.com";
+    local = local.replace(/\./g, "");
+  }
+  return local + "@" + domain;
+};
+const nameKey = (name) => name.toLowerCase().normalize("NFD").replace(/[^a-z0-9]/g, "");
 
 export class RaffleState extends DurableObject {
   constructor(ctx, env) {
@@ -46,6 +59,17 @@ export class RaffleState extends DurableObject {
       ig_at INTEGER,
       yt_at INTEGER
     )`);
+    const cols = this.sql.exec("PRAGMA table_info(entries)").toArray().map((c) => c.name);
+    for (const [col, type] of [["email_key", "TEXT"], ["name_key", "TEXT"], ["ig_key", "TEXT"], ["google_at", "INTEGER"]]) {
+      if (!cols.includes(col)) this.sql.exec(`ALTER TABLE entries ADD COLUMN ${col} ${type}`);
+    }
+    for (const r of this.sql.exec("SELECT id, email, name, instagram_handle FROM entries WHERE email_key IS NULL").toArray()) {
+      this.sql.exec(
+        "UPDATE entries SET email_key = ?, name_key = ?, ig_key = ? WHERE id = ?",
+        emailKey(r.email), nameKey(r.name), r.instagram_handle ? r.instagram_handle.toLowerCase() : null, r.id
+      );
+    }
+    try { this.sql.exec("CREATE UNIQUE INDEX IF NOT EXISTS idx_entries_email_key ON entries(email_key)"); } catch {}
     this.sql.exec(`CREATE TABLE IF NOT EXISTS admin_fails (
       ip_hash TEXT PRIMARY KEY,
       count INTEGER NOT NULL,
@@ -70,7 +94,7 @@ export class RaffleState extends DurableObject {
     if (typeof token !== "string" || token.length < 20) return null;
     const row = this.sql.exec("SELECT * FROM entries WHERE token = ?", token).toArray()[0];
     if (!row) return null;
-    return { name: row.name, entries: weight(row), instagram: !!row.ig_at, youtube: !!row.yt_at };
+    return { name: row.name, entries: weight(row), instagram: !!row.ig_at, youtube: !!row.yt_at, google: !!row.google_at };
   }
 
   state(token) {
@@ -107,14 +131,16 @@ export class RaffleState extends DurableObject {
     const perIp = this.sql.exec("SELECT COUNT(*) AS c FROM entries WHERE ip_hash = ?", ipHash).one().c;
     if (perIp >= MAX_ENTRIES_PER_IP) return reply({ error: "Too many entries from this network. Email us if this is a mistake." }, 429);
 
-    if (this.sql.exec("SELECT 1 FROM entries WHERE email = ?", email).toArray().length) {
+    if (DISPOSABLE.has(email.split("@")[1])) return reply({ error: "Use a real email address so we can reach you if you win." }, 400);
+    const eKey = emailKey(email);
+    if (this.sql.exec("SELECT 1 FROM entries WHERE email_key = ?", eKey).toArray().length) {
       return reply({ error: "That email is already entered. Good luck." }, 409);
     }
 
     const token = crypto.randomUUID() + crypto.randomUUID().replace(/-/g, "");
     this.sql.exec(
-      "INSERT INTO entries (name, email, token, ip_hash, created_at) VALUES (?, ?, ?, ?, ?)",
-      name, email, token, ipHash, Date.now()
+      "INSERT INTO entries (name, email, email_key, name_key, token, ip_hash, created_at) VALUES (?, ?, ?, ?, ?, ?, ?)",
+      name, email, eKey, nameKey(name), token, ipHash, Date.now()
     );
     return reply({ token, ...this.state(token) });
   }
@@ -126,12 +152,18 @@ export class RaffleState extends DurableObject {
     if (b.action === "instagram") {
       const handle = typeof b.handle === "string" ? b.handle.trim().replace(/^@/, "") : "";
       if (!HANDLE_RE.test(handle)) return reply({ error: "Enter your Instagram handle." }, 400);
+      const igKey = handle.toLowerCase();
+      if (this.sql.exec("SELECT 1 FROM entries WHERE ig_key = ? AND token <> ?", igKey, token).toArray().length) {
+        return reply({ error: "That Instagram handle is already claimed on another entry." }, 409);
+      }
       this.sql.exec(
-        "UPDATE entries SET instagram_handle = ?, ig_at = COALESCE(ig_at, ?) WHERE token = ?",
-        handle, Date.now(), token
+        "UPDATE entries SET instagram_handle = ?, ig_key = ?, ig_at = COALESCE(ig_at, ?) WHERE token = ?",
+        handle, igKey, Date.now(), token
       );
     } else if (b.action === "youtube") {
       this.sql.exec("UPDATE entries SET yt_at = COALESCE(yt_at, ?) WHERE token = ?", Date.now(), token);
+    } else if (b.action === "google") {
+      this.sql.exec("UPDATE entries SET google_at = COALESCE(google_at, ?) WHERE token = ?", Date.now(), token);
     } else {
       return reply({ error: "Unknown action." }, 400);
     }
@@ -158,7 +190,10 @@ export class RaffleState extends DurableObject {
 
     if (path === "/admin/entries") {
       const rows = this.sql.exec(
-        "SELECT id, name, email, instagram_handle, ig_at, yt_at, created_at FROM entries ORDER BY id"
+        `SELECT e.id, e.name, e.email, e.instagram_handle, e.ig_at, e.yt_at, e.google_at, e.created_at,
+          (SELECT COUNT(*) FROM entries o WHERE o.id <> e.id AND o.name_key = e.name_key) AS same_name,
+          (SELECT COUNT(*) FROM entries o WHERE o.id <> e.id AND o.ip_hash = e.ip_hash) AS same_network
+         FROM entries e ORDER BY e.id`
       ).toArray();
       const winners = this.sql.exec("SELECT * FROM winners ORDER BY id").toArray();
       return reply({ prizes: PRIZES, entries: rows.map((r) => ({ ...r, tickets: weight(r) })), winners });
@@ -188,7 +223,7 @@ export class RaffleState extends DurableObject {
       );
       return reply({
         prize: PRIZES[prize],
-        winner: { id: chosen.id, name: chosen.name, email: chosen.email, instagram_handle: chosen.instagram_handle, ig: !!chosen.ig_at, yt: !!chosen.yt_at },
+        winner: { id: chosen.id, name: chosen.name, email: chosen.email, instagram_handle: chosen.instagram_handle, ig: !!chosen.ig_at, yt: !!chosen.yt_at, google: !!chosen.google_at },
         pool_size: pool.length,
         total_tickets: totalTickets,
       });

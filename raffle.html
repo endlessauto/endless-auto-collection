@@ -139,11 +139,12 @@ details li{margin-bottom:.35rem}
           </button>
         </div>
 
-        <div class="act">
-          <a class="row" href="https://g.page/r/CZ1mmwMzzRySEBM/review" target="_blank" rel="noopener noreferrer" style="text-decoration:none">
+        <div class="act" id="actGr">
+          <button class="row" type="button" id="grBtn">
             <span class="ico gr"><svg viewBox="0 0 24 24"><path d="m12 17.300 5.200 3.100-1.400-5.900 4.600-4-6-.5L12 4.500 9.600 10 3.600 10.500l4.600 4-1.400 5.900L12 17.300Z"/></svg></span>
-            <span class="t">Enjoyed working with us? Leave a Google review<small>Optional. It doesn't earn entries.</small></span>
-          </a>
+            <span class="t">Leave us a Google review<small>Tell us about your experience</small></span>
+            <span class="pill">+1</span>
+          </button>
         </div>
       </section>
     </div>
@@ -152,8 +153,8 @@ details li{margin-bottom:.35rem}
   <details>
     <summary>Official rules</summary>
     <ul>
-      <li>No purchase necessary. Entering with your name and email gives one entry. Bonus actions add one entry each, up to three entries per person.</li>
-      <li>Open to U.S. residents 18 and older. One entry per email address.</li>
+      <li>No purchase necessary. Entering with your name and email gives one entry. Each bonus action adds one entry, up to four entries per person.</li>
+      <li>Open to U.S. residents 18 and older. One entry per person. We check for duplicate emails, names, and Instagram handles, and we remove duplicate or fake entries.</li>
       <li>Three winners, one per prize, drawn at random after the giveaway closes on November 29, 2026 at 11:59 pm Pacific.</li>
       <li>We email winners. A winner who doesn't reply within 48 hours forfeits the prize and we draw again.</li>
       <li>Prizes are redeemed in person at Endless Auto Collection in Fremont, California, by appointment. Prizes have no cash value and can't be transferred.</li>
@@ -188,6 +189,7 @@ details li{margin-bottom:.35rem}
       $('inTitle').textContent="You're in, "+first;
       mark($('actIg'),s.me.instagram);
       mark($('actYt'),s.me.youtube);
+      mark($('actGr'),s.me.google);
       if(s.me.instagram)$('igExpand').hidden=true;
     }else{
       $('inSection').hidden=true;
@@ -232,6 +234,10 @@ details li{margin-bottom:.35rem}
       $('igHandle').setCustomValidity(x.message);$('igHandle').reportValidity();$('igHandle').setCustomValidity('');
     }).then(function(){b.disabled=false});
   }
+  $('grBtn').addEventListener('click',function(){
+    window.open('https://g.page/r/CZ1mmwMzzRySEBM/review','_blank','noopener');
+    post('/bonus',{token:token,action:'google'}).then(render).catch(function(){});
+  });
   $('ytBtn').addEventListener('click',function(){
     window.open(YT_URL,'_blank','noopener');
     post('/bonus',{token:token,action:'youtube'}).then(render).catch(function(){});
