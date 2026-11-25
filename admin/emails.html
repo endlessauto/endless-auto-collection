@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>Email list | Endless Auto Collection</title>
+<link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap">
+<style>
+*{box-sizing:border-box}
+body{margin:0;background:#050505;color:#e4e4e7;font:16px/1.5 Inter,system-ui,sans-serif;padding:0 0 4rem}
+.wrap{max-width:60rem;margin:0 auto;padding:1.25rem 1.25rem 0}
+.eyebrow{font-size:.7rem;letter-spacing:2px;color:#f0c869;margin:1.2rem 0 .6rem}
+h1{font:600 2rem/1.15 "Space Grotesk",Inter,sans-serif;margin:0;color:#fff}
+.sub{color:#9a9aa3;margin:.5rem 0 1.4rem}.sub a{color:#f0c869}
+.bar{display:flex;flex-wrap:wrap;gap:.6rem;align-items:center;margin-bottom:1rem}
+.seg{display:flex;border:1px solid #2a2a2a;border-radius:.8rem;overflow:hidden}
+.seg button{background:#0d0d0d;color:#cfcfd6;border:0;padding:.6rem .95rem;font:inherit;font-size:.9rem;cursor:pointer;border-right:1px solid #2a2a2a}
+.seg button:last-child{border-right:0}
+.seg button.on{background:linear-gradient(145deg,#f5dfa0,#d4af37 45%,#9c7a22);color:#140f00;font-weight:600}
+select{background:#0d0d0d;color:#e4e4e7;border:1px solid #2a2a2a;border-radius:.8rem;padding:.6rem .8rem;font:inherit;font-size:.9rem}
+.sp{flex:1}
+.btn{background:#101010;color:#fff;border:1px solid #2a2a2a;border-radius:.8rem;padding:.6rem 1rem;font:inherit;font-size:.9rem;font-weight:600;cursor:pointer;text-decoration:none;display:inline-block}
+.btn.gold{background:linear-gradient(145deg,#f5dfa0,#d4af37 45%,#9c7a22);color:#140f00;border-color:#d4af37}
+.count{color:#9a9aa3;font-size:.9rem;margin:.2rem 0 .8rem}
+table{width:100%;border-collapse:collapse;background:#0d0d0d;border:1px solid #222;border-radius:1rem;overflow:hidden}
+th,td{text-align:left;padding:.8rem 1rem;border-bottom:1px solid #1d1d1d;vertical-align:middle}
+th{font-size:.68rem;letter-spacing:2px;color:#8a8a93;font-weight:600;text-transform:uppercase;background:#0a0a0a}
+tr:last-child td{border-bottom:0}
+td.em{overflow-wrap:anywhere}
+.tag{display:inline-block;font-size:.7rem;letter-spacing:1.5px;text-transform:uppercase;border:1px solid rgba(212,175,55,.4);color:#f0c869;border-radius:9999px;padding:.15rem .6rem}
+.ans{font-size:.85rem}.ans.g{color:#4ade80}.ans.m{color:#facc15}.ans.c{color:#f87171}
+.empty{padding:2rem;text-align:center;color:#8a8a93}
+.toast{position:fixed;left:50%;bottom:1.5rem;transform:translateX(-50%);background:#f5dfa0;color:#140f00;font-weight:600;padding:.6rem 1rem;border-radius:.8rem;opacity:0;pointer-events:none;transition:opacity .2s}
+.toast.on{opacity:1}
+@media(max-width:640px){
+  thead{display:none}
+  table,tbody,tr,td{display:block;width:100%}
+  tr{padding:.8rem 1rem;border-bottom:1px solid #1d1d1d}
+  tr:last-child{border-bottom:0}
+  td{padding:.1rem 0;border:0}
+  td.nm{font-weight:600;color:#fff;font-size:1.05rem}
+  td.ev,td.an,td.dt{display:inline-block;width:auto;margin-right:.7rem;margin-top:.35rem}
+  .sp{display:none}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="eyebrow">ENDLESS AUTO COLLECTION · TEAM ONLY</div>
+  <h1>Email list</h1>
+  <p class="sub">Everyone who RSVPed on the event pages. <a href="/admin">Back to dashboard</a></p>
+  <div class="bar">
+    <div class="seg" id="evSeg" role="group" aria-label="Filter by event">
+      <button type="button" data-ev="all" class="on">All events</button>
+      <button type="button" data-ev="Friday">Friday</button>
+      <button type="button" data-ev="Sunday">Sunday</button>
+    </div>
+    <select id="anSel" aria-label="Filter by answer">
+      <option value="all">All answers</option>
+      <option value="Going">Going</option>
+      <option value="Maybe">Maybe</option>
+      <option value="Can't">Can't</option>
+    </select>
+    <span class="sp"></span>
+    <button type="button" class="btn" id="copyBtn">Copy emails</button>
+    <a class="btn gold" href="/admin/rsvps.csv">Download CSV</a>
+  </div>
+  <p class="count" id="count">Loading…</p>
+  <table id="tbl" hidden>
+    <thead><tr><th>First name</th><th>Email</th><th>Event</th><th>Answer</th><th>Date</th></tr></thead>
+    <tbody id="body"></tbody>
+  </table>
+  <p class="empty" id="empty" hidden>No RSVPs match.</p>
+</div>
+<div class="toast" id="toast" role="status"></div>
+<script>
+(function(){
+var rows=[],ev='all',an='all';
+var body=document.getElementById('body'),tbl=document.getElementById('tbl'),empty=document.getElementById('empty'),count=document.getElementById('count'),toast=document.getElementById('toast');
+function td(c,t){var x=document.createElement('td');x.className=c;if(t!=null)x.textContent=t;return x}
+function shown(){return rows.filter(function(r){return(ev==='all'||r.event===ev)&&(an==='all'||r.answer===an)})}
+function render(){
+  var list=shown();body.textContent='';
+  list.forEach(function(r){
+    var tr=document.createElement('tr');
+    tr.appendChild(td('nm',r.name));
+    var e=td('em');if(r.email){var a=document.createElement('a');a.href='mailto:'+r.email;a.textContent=r.email;a.style.color='#e4e4e7';e.appendChild(a)}else{e.textContent='No email yet';e.style.color='#6b6b73'}tr.appendChild(e);
+    var v=td('ev');var s=document.createElement('span');s.className='tag';s.textContent=r.event;v.appendChild(s);tr.appendChild(v);
+    var n=td('an');var sp=document.createElement('span');sp.className='ans '+(r.answer==='Going'?'g':r.answer==='Maybe'?'m':'c');sp.textContent=r.answer;n.appendChild(sp);tr.appendChild(n);
+    tr.appendChild(td('dt',r.date));
+    body.appendChild(tr);
+  });
+  var withEmail=list.filter(function(r){return r.email}).length;
+  count.textContent=list.length+' RSVP'+(list.length===1?'':'s')+' · '+withEmail+' with an email';
+  tbl.hidden=!list.length;empty.hidden=!!list.length;
+}
+function say(t){toast.textContent=t;toast.classList.add('on');setTimeout(function(){toast.classList.remove('on')},1800)}
+document.getElementById('evSeg').addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;ev=b.dataset.ev;this.querySelectorAll('button').forEach(function(x){x.classList.toggle('on',x===b)});render()});
+document.getElementById('anSel').addEventListener('change',function(){an=this.value;render()});
+document.getElementById('copyBtn').addEventListener('click',function(){
+  var seen={},out=[];shown().forEach(function(r){var k=r.email.toLowerCase();if(r.email&&!seen[k]){seen[k]=1;out.push(r.email)}});
+  if(!out.length){say('No emails to copy');return}
+  var t=out.join(', ');
+  (navigator.clipboard?navigator.clipboard.writeText(t):Promise.reject()).then(function(){say('Copied '+out.length+' email'+(out.length===1?'':'s'))}).catch(function(){var a=document.createElement('textarea');a.value=t;document.body.appendChild(a);a.select();try{document.execCommand('copy');say('Copied '+out.length+' email'+(out.length===1?'':'s'))}catch(e){say('Copy failed')}a.remove()});
+});
+fetch('/admin/rsvps.json',{credentials:'same-origin'}).then(function(r){if(!r.ok)throw 0;return r.json()}).then(function(d){rows=d.rows||[];render()}).catch(function(){count.textContent='Could not load the list. Refresh the page.'});
+})();
+</script>
+</body>
+</html>

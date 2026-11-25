@@ -60,15 +60,27 @@ const csvCell = (v) => {
   if (/^[=+\-@\t\r]/.test(t)) t = "'" + t;
   return `"${t.replace(/"/g, '""')}"`;
 };
-async function rsvpCsv(env) {
-  const events = [["Friday", "friendsgiving-2026"], ["Sunday", "friendsgiving-sun-2026"]];
-  const lines = [["Event", "Name", "Answer", "Email", "RSVP date"].map(csvCell).join(",")];
-  for (const [label, id] of events) {
+const RSVP_EVENTS = [["Friday", "friendsgiving-2026"], ["Sunday", "friendsgiving-sun-2026"]];
+const ANSWER = { going: "Going", maybe: "Maybe", cant: "Can't" };
+
+async function rsvpRows(env) {
+  const out = [];
+  for (const [event, id] of RSVP_EVENTS) {
     const rows = await env.POTLUCK_STATE.get(env.POTLUCK_STATE.idFromName(id)).exportRsvps();
-    for (const r of rows) lines.push([label, r.name, r.status, r.email || "", new Date(r.created_at).toISOString().slice(0, 10)].map(csvCell).join(","));
+    for (const r of rows) out.push({ event, name: r.name, email: r.email || "", answer: ANSWER[r.status] || r.status, date: new Date(r.created_at).toISOString().slice(0, 10) });
   }
+  return out;
+}
+
+async function rsvpJson(env) {
+  return new Response(JSON.stringify({ rows: await rsvpRows(env) }), { headers: { "content-type": "application/json", ...NO_STORE } });
+}
+
+async function rsvpCsv(env) {
+  const lines = [["First name", "Email", "Event", "Answer", "RSVP date"].map(csvCell).join(",")];
+  for (const r of await rsvpRows(env)) lines.push([r.name, r.email, r.event, r.answer, r.date].map(csvCell).join(","));
   return new Response(lines.join("\r\n") + "\r\n", {
-    headers: { "content-type": "text/csv; charset=utf-8", "content-disposition": 'attachment; filename="eac-rsvps.csv"', ...NO_STORE },
+    headers: { "content-type": "text/csv; charset=utf-8", "content-disposition": 'attachment; filename="eac-email-list.csv"', ...NO_STORE },
   });
 }
 
@@ -101,6 +113,13 @@ async function handleAdmin(request, env, url) {
   if (request.method !== "GET" && request.method !== "HEAD") return new Response("Method not allowed", { status: 405, headers: NO_STORE });
   if (!(await isSignedIn(request, env))) return loginPage();
   if (path === "/admin/rsvps.csv") return rsvpCsv(env);
+  if (path === "/admin/rsvps.json") return rsvpJson(env);
+  if (path === "/admin/emails") {
+    const page = await env.ASSETS.fetch(new Request(url.origin + "/admin/emails", request));
+    const res = new Response(page.body, page);
+    for (const [k, v] of Object.entries(NO_STORE)) res.headers.set(k, v);
+    return res;
+  }
   const asset = await env.ASSETS.fetch(new Request(url.origin + "/admin/", request));
   const out = new Response(asset.body, asset);
   for (const [k, v] of Object.entries(NO_STORE)) out.headers.set(k, v);
