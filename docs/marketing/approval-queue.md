@@ -169,3 +169,7 @@ Drafts land here unchecked. Check a box (`- [x]`) to approve. Only a checked box
 - [ ] Carousel (Instagram): Say what's in the cabin first (5-slide) (`docs/marketing/carousels/2026-11-24/5-slide-say-whats-in-the-cabin-first.html`)
 - [ ] Carousel (Instagram): On PPF day, the film goes on third (8-slide) (`docs/marketing/carousels/2026-11-24/8-slide-the-film-goes-on-third.html`)
 - [ ] Carousel (Instagram): Photos before we touch it (9-slide) (`docs/marketing/carousels/2026-11-24/9-slide-photos-before-we-touch-it.html`)
+- [ ] Carousel (Instagram): Some bolts aren't done at the click (1-slide) (`docs/marketing/carousels/2026-11-25/1-slide-a-quarter-turn-past-the-click.html`)
+- [ ] Carousel (Instagram): Three special tools, the rest is sockets (5-slide) (`docs/marketing/carousels/2026-11-25/5-slide-three-tools-the-rest-is-sockets.html`)
+- [ ] Carousel (Instagram): The strut comes out spring on (10-slide) (`docs/marketing/carousels/2026-11-25/10-slide-the-strut-comes-out-spring-on.html`)
+- [ ] Carousel (Instagram): Bilstein B16 rears arrive in pieces (10-slide) (`docs/marketing/carousels/2026-11-25/10-slide-the-rears-arrive-in-pieces.html`)
