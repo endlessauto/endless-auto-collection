@@ -4,52 +4,195 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <meta name="robots" content="noindex, nofollow">
+<meta name="color-scheme" content="dark">
 <title>Team dashboard | Endless Auto Collection</title>
 <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap">
-<link rel="stylesheet" href="/EACMedia/deck.css">
+<style>
+:root{--bg:#050505;--card:#0d0d0d;--card-hi:#131313;--line:#1f1f1f;--line-hi:#3a3220;--tx:#e4e4e7;--mut:#9a9aa3;--gold:#d4af37;--gold-hi:#f0c869}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--tx);font:16px/1.5 Inter,system-ui,sans-serif;-webkit-text-size-adjust:100%}
+a{color:inherit;text-decoration:none}
+.hf{font-family:"Space Grotesk",Inter,sans-serif}
+.top{position:sticky;top:0;z-index:20;background:rgba(5,5,5,.92);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.top-in{max-width:68rem;margin:0 auto;padding:.75rem 1.25rem;display:flex;align-items:center;gap:1rem}
+.brand{display:flex;align-items:baseline;gap:.6rem;flex:none}
+.brand b{font:700 1.15rem/1 "Space Grotesk",sans-serif;letter-spacing:-.5px;color:#fff}
+.brand span{font-size:.65rem;letter-spacing:2.5px;color:var(--gold-hi)}
+.search{flex:1;position:relative;max-width:26rem;margin-left:auto}
+.search svg{position:absolute;left:.85rem;top:50%;transform:translateY(-50%);width:1.05rem;height:1.05rem;color:var(--mut);pointer-events:none}
+.search input{width:100%;background:var(--card);border:1px solid var(--line);border-radius:.8rem;color:#fff;font:inherit;font-size:.95rem;padding:.65rem .9rem .65rem 2.5rem;outline:none}
+.search input:focus{border-color:var(--gold)}
+.search kbd{position:absolute;right:.7rem;top:50%;transform:translateY(-50%);font:500 .7rem Inter,sans-serif;color:var(--mut);border:1px solid var(--line);border-radius:.4rem;padding:.05rem .4rem}
+.out{flex:none;font-size:.85rem;color:var(--mut);border:1px solid var(--line);border-radius:.7rem;padding:.55rem .85rem}
+.out:hover{color:#fff;border-color:#333}
+.wrap{max-width:68rem;margin:0 auto;padding:1.6rem 1.25rem 4rem}
+h1{font:600 1.9rem/1.15 "Space Grotesk",sans-serif;margin:0;color:#fff}
+.lede{color:var(--mut);margin:.35rem 0 1.4rem}
+.glance{display:grid;grid-template-columns:repeat(3,1fr);gap:.8rem;margin-bottom:2rem}
+.stat{background:linear-gradient(160deg,#15120a 0%,var(--card) 60%);border:1px solid var(--line-hi);border-radius:1rem;padding:1rem 1.1rem}
+.stat small{display:block;font-size:.68rem;letter-spacing:2px;color:var(--gold-hi);text-transform:uppercase}
+.stat strong{display:block;font:600 1.9rem/1.15 "Space Grotesk",sans-serif;color:#fff;margin-top:.3rem}
+.stat span{display:block;color:var(--mut);font-size:.85rem;margin-top:.1rem}
+.sec{margin-bottom:2rem;--acc:#f0c869;--acc-bg:rgba(212,175,55,.1);--acc-bd:rgba(212,175,55,.32)}
+.sec[data-t=media]{--acc:#8db4ff;--acc-bg:rgba(96,140,255,.1);--acc-bd:rgba(96,140,255,.32)}
+.sec[data-t=site]{--acc:#4ade80;--acc-bg:rgba(74,222,128,.09);--acc-bd:rgba(74,222,128,.3)}
+.sec h2{display:flex;align-items:center;gap:.6rem;font-size:.78rem;letter-spacing:2.5px;color:var(--acc);margin:0 0 .75rem;font-weight:600;text-transform:uppercase}
+.hic{width:2rem;height:2rem;border-radius:.6rem;background:var(--acc-bg);border:1px solid var(--acc-bd);display:flex;align-items:center;justify-content:center;flex:none}.hic svg{width:1.05rem;height:1.05rem}
+.sec h2::after{content:"";flex:1;height:1px;background:var(--line)}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:.8rem}
+.item{display:flex;gap:.9rem;align-items:flex-start;background:var(--card);border:1px solid var(--line);border-radius:1rem;padding:1rem 1.05rem;min-height:5.2rem;transition:border-color .2s,background .2s,transform .2s}
+.item:hover,.item:focus-visible{border-color:var(--acc);background:var(--card-hi);transform:translateY(-2px);outline:none}
+.ic{flex:none;width:2.5rem;height:2.5rem;border-radius:.75rem;background:var(--acc-bg);border:1px solid var(--acc-bd);display:flex;align-items:center;justify-content:center;color:var(--acc)}
+.ic svg{width:1.25rem;height:1.25rem}
+.tx{min-width:0;flex:1}
+.tx b{display:flex;align-items:center;gap:.5rem;font-weight:600;color:#fff;line-height:1.3}
+.tx p{margin:.15rem 0 0;color:var(--mut);font-size:.88rem;line-height:1.4}
+.pill{font-size:.68rem;font-weight:600;letter-spacing:.5px;color:#140f00;background:linear-gradient(145deg,#f5dfa0,#d4af37);border-radius:9999px;padding:.05rem .5rem}
+.tag{font-size:.68rem;font-weight:600;letter-spacing:.5px;color:var(--acc);border:1px solid var(--acc-bd);background:var(--acc-bg);border-radius:9999px;padding:.05rem .5rem}
+.ext{flex:none;color:#55555d;width:1rem;height:1rem;margin-top:.15rem}
+.item:hover .ext{color:var(--acc)}
+.none{display:none;text-align:center;color:var(--mut);padding:2rem 0}
+@media(max-width:860px){.grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:600px){
+  .top-in{flex-wrap:wrap;gap:.6rem;padding:.65rem 1rem}
+  .brand{order:1}.out{order:2;margin-left:auto}.search{order:3;flex:1 0 100%;max-width:none;margin:0}
+  .search kbd{display:none}
+  .wrap{padding:1.2rem 1rem 3rem}
+  h1{font-size:1.55rem}
+  .glance{grid-template-columns:repeat(3,1fr);gap:.5rem}
+  .stat{padding:.8rem .75rem}
+  .stat strong{font-size:1.45rem}
+  .stat span{font-size:.75rem}
+  .grid{grid-template-columns:1fr}
+  .item{min-height:4.6rem}
+}
+</style>
 </head>
 <body>
-<div class="wrap">
-  <header class="top" style="padding-top:28px">
-    <div class="eyebrow">Endless Auto Collection · Team only</div>
-    <h1>Team dashboard</h1>
-    <p class="lede">Everything the team needs, in one place. <a href="/admin/logout">Sign out</a></p>
-  </header>
-  <ul class="projects">
-    <li>
-      <a class="proj" href="/EACMedia/">
-        <span class="d">Shoot plans</span>
-        <h2>EAC Media</h2>
-        <p>Shot lists and shoot plans, one page per project. Check off shots on set from your phone.</p>
-        <span class="go">Open EAC Media →</span>
+<header class="top">
+  <div class="top-in">
+    <a class="brand" href="/admin" aria-label="Team dashboard home"><b>ENDLESS</b><span>TEAM</span></a>
+    <label class="search">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+      <input id="q" type="search" placeholder="Find a page or tool" autocomplete="off" aria-label="Find a page or tool">
+      <kbd>/</kbd>
+    </label>
+    <a class="out" href="/admin/logout">Sign out</a>
+  </div>
+</header>
+<main class="wrap">
+  <h1>Team dashboard</h1>
+  <p class="lede" id="hello">Everything the team needs, in one place.</p>
+
+  <section class="glance" aria-label="At a glance">
+    <div class="stat"><small>Friendsgiving</small><strong id="sCount">–</strong><span id="sWhen">Sun, Nov 29 · 4–10 PM</span></div>
+    <div class="stat"><small>Going Sunday</small><strong id="sGoing">–</strong><span id="sMaybe">RSVPs</span></div>
+    <div class="stat"><small>Emails</small><strong id="sEmails">–</strong><span>collected so far</span></div>
+  </section>
+
+  <section class="sec" data-sec data-t="events">
+    <h2><span class="hic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M8 3v4M16 3v4M3 10h18"/></svg></span>Events</h2>
+    <div class="grid">
+      <a class="item" href="/admin/emails" data-k="email list rsvp emails contacts">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></span>
+        <span class="tx"><b>Email list <span class="pill" id="pillEmails" hidden></span></b><p>First name, email and event. Copy or download.</p></span>
       </a>
-    </li>
-    <li>
-      <a class="proj" href="/EACMedia/track-day-2026-11-21">
-        <span class="d">Latest shoot</span>
-        <h2>Track day shoot</h2>
-        <p>The AMG GT R on track with Stillpoint Auto. Full shot list.</p>
-        <span class="go">Open the shot list →</span>
+      <a class="item" href="/raffle1" data-k="raffle admin giveaway entries draw winners">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9a2 2 0 0 0 0 4v3a1 1 0 0 0 1 1h16a1 1 0 0 0 1-1v-3a2 2 0 0 1 0-4V6a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1z"/><path d="M13 5v2M13 17v2M13 11v2"/></svg></span>
+        <span class="tx"><b>Raffle admin</b><p>Entries, bonus points and the draw. Has its own password.</p></span>
       </a>
-    </li>
-    <li>
-      <a class="proj" href="/raffle1">
-        <span class="d">Giveaway</span>
-        <h2>Raffle admin</h2>
-        <p>Entries, bonus points and the draw. Uses its own admin password.</p>
-        <span class="go">Open raffle admin →</span>
+      <a class="item" href="/friendsgiving-sun" data-k="sunday friendsgiving public event page rsvp potluck">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M8 3v4M16 3v4M3 10h18"/></svg></span>
+        <span class="tx"><b>Sunday Friendsgiving</b><p>The public event page with RSVP and potluck.</p></span>
       </a>
-    </li>
-    <li>
-      <a class="proj" href="/admin/emails">
-        <span class="d">Events</span>
-        <h2>Email list</h2>
-        <p>Everyone who RSVPed to Friday and Sunday. First name, email and event, with copy and CSV download.</p>
-        <span class="go">Open email list →</span>
+      <a class="item" href="/friendsgiving" data-k="friday friendsgiving private event page rsvp potluck">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg></span>
+        <span class="tx"><b>Friday Friendsgiving</b><p>The private event page. Not linked from the site.</p></span>
       </a>
-    </li>
-  </ul>
-</div>
+      <a class="item" href="/events" data-k="events page public website">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1L3.2 9.5l6.1-.9z"/></svg></span>
+        <span class="tx"><b>Events page</b><p>What visitors see under Events.</p></span>
+      </a>
+      <a class="item" href="/raffle" data-k="raffle public entry page giveaway">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="m12 7 1.6 3.4 3.7.5-2.7 2.6.7 3.7L12 15.4 8.7 17.2l.7-3.7-2.7-2.6 3.7-.5z"/></svg></span>
+        <span class="tx"><b>Raffle entry page</b><p>The public page people enter the raffle on.</p></span>
+      </a>
+    </div>
+  </section>
+
+  <section class="sec" data-sec data-t="media">
+    <h2><span class="hic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="6" width="14" height="12" rx="2"/><path d="m16 10 6-3v10l-6-3"/></svg></span>Media</h2>
+    <div class="grid">
+      <a class="item" href="/EACMedia/" data-k="eac media shoot plans shot lists">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="6" width="14" height="12" rx="2"/><path d="m16 10 6-3v10l-6-3"/></svg></span>
+        <span class="tx"><b>EAC Media</b><p>All shoot plans and shot lists. Check off shots on set.</p></span>
+      </a>
+      <a class="item" href="/EACMedia/track-day-2026-11-21" data-k="track day shoot amg gt r stillpoint shot list">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 17h14M6 17l1.5-6h9L18 17M9 11l1-3h4l1 3"/><circle cx="8" cy="17" r="1.6"/><circle cx="16" cy="17" r="1.6"/></svg></span>
+        <span class="tx"><b>Track day shoot <span class="tag">Nov 21</span></b><p>AMG GT R with Stillpoint Auto. Full shot list.</p></span>
+      </a>
+      <a class="item" href="/EACMedia/saturday-shoot-2026-11-14" data-k="saturday shoot sunrise mill valley car meet enclave shot list">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg></span>
+        <span class="tx"><b>Saturday shoot <span class="tag">Nov 14</span></b><p>Sunrise, car meet and Enclave. 87 shots.</p></span>
+      </a>
+    </div>
+  </section>
+
+  <section class="sec" data-sec data-t="site">
+    <h2><span class="hic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3 3 15 0 18M12 3c-3 3-3 15 0 18"/></svg></span>Website</h2>
+    <div class="grid">
+      <a class="item" href="/" target="_blank" rel="noopener" data-k="website home live site">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3 3 15 0 18M12 3c-3 3-3 15 0 18"/></svg></span>
+        <span class="tx"><b>Live website</b><p>Opens endlessautocollection.com in a new tab.</p></span>
+        <svg class="ext" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg>
+      </a>
+      <a class="item" href="/forums" target="_blank" rel="noopener" data-k="forums guides build archive owner stories">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h16v11H9l-5 4z"/></svg></span>
+        <span class="tx"><b>Forums</b><p>Shop guides and owner stories.</p></span>
+        <svg class="ext" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg>
+      </a>
+      <a class="item" href="/ppf" target="_blank" rel="noopener" data-k="services ppf ceramic tint detailing pricing">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 4 6v6c0 5 3.4 8 8 9 4.6-1 8-4 8-9V6z"/></svg></span>
+        <span class="tx"><b>Services and pricing</b><p>PPF page. Ceramic, tint and detailing are linked from the nav.</p></span>
+        <svg class="ext" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg>
+      </a>
+    </div>
+  </section>
+  <p class="none" id="none">No match. Try another word.</p>
+</main>
+<script>
+(function(){
+var $=function(i){return document.getElementById(i)};
+var q=$('q'),items=[].slice.call(document.querySelectorAll('.item')),secs=[].slice.call(document.querySelectorAll('[data-sec]'));
+function filter(){
+  var t=q.value.trim().toLowerCase(),n=0;
+  items.forEach(function(a){var hit=!t||(a.textContent+' '+(a.dataset.k||'')).toLowerCase().indexOf(t)>-1;a.style.display=hit?'':'none';if(hit)n++});
+  secs.forEach(function(s){s.style.display=[].slice.call(s.querySelectorAll('.item')).some(function(a){return a.style.display!=='none'})?'':'none'});
+  $('none').style.display=n?'none':'block';
+}
+q.addEventListener('input',filter);
+q.addEventListener('keydown',function(e){if(e.key==='Enter'){var f=items.filter(function(a){return a.style.display!=='none'})[0];if(f)f.click()}if(e.key==='Escape'){q.value='';filter();q.blur()}});
+document.addEventListener('keydown',function(e){if(e.key==='/'&&document.activeElement!==q&&!/input|textarea/i.test(document.activeElement.tagName)){e.preventDefault();q.focus()}});
+var h=new Date().getHours();$('hello').textContent=(h<12?'Good morning. ':h<18?'Good afternoon. ':'Good evening. ')+'Everything the team needs, in one place.';
+function countdown(){
+  var start=Date.parse('2026-11-29T16:00:00-08:00'),end=Date.parse('2026-11-29T22:00:00-08:00'),now=Date.now(),c=$('sCount'),w=$('sWhen');
+  if(now>=end){c.textContent='Done';w.textContent='Sun, Nov 29 · wrapped'}
+  else if(now>=start){c.textContent='Now';w.textContent='Happening until 10 PM'}
+  else{var d=Math.floor((start-now)/864e5);var hrs=Math.floor((start-now)/36e5);
+    if(hrs<24){c.textContent=hrs+(hrs===1?' hour':' hours');w.textContent='Today · 4–10 PM'}
+    else{c.textContent=d+(d===1?' day':' days');w.textContent='Sun, Nov 29 · 4–10 PM'}}
+}
+countdown();
+fetch('/admin/rsvps.json',{credentials:'same-origin'}).then(function(r){if(!r.ok)throw 0;return r.json()}).then(function(d){
+  var rows=d.rows||[],sun=rows.filter(function(r){return r.event==='Sunday'});
+  $('sGoing').textContent=sun.filter(function(r){return r.answer==='Going'}).length;
+  var m=sun.filter(function(r){return r.answer==='Maybe'}).length;$('sMaybe').textContent=m?'+ '+m+' maybe':'RSVPs so far';
+  var seen={},n=0;rows.forEach(function(r){var k=(r.email||'').toLowerCase();if(k&&!seen[k]){seen[k]=1;n++}});
+  $('sEmails').textContent=n;var p=$('pillEmails');if(n){p.textContent=n;p.hidden=false}
+}).catch(function(){});
+})();
+</script>
 </body>
 </html>
