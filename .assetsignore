@@ -21,3 +21,4 @@ image-originals/
 tailwind.config.js
 css/tailwind.src.css
 worker.js
+.dev.vars
