@@ -23,3 +23,11 @@ class_name = "RaffleState"
 [[migrations]]
 tag = "v2"
 new_sqlite_classes = ["RaffleState"]
+
+[[durable_objects.bindings]]
+name = "POTLUCK_STATE"
+class_name = "PotluckState"
+
+[[migrations]]
+tag = "v3"
+new_sqlite_classes = ["PotluckState"]
