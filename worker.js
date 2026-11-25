@@ -55,6 +55,23 @@ button{width:100%;margin-top:22px;padding:14px;border:0;border-radius:10px;backg
 <button type="submit">Sign in</button>${error ? `<div class="err">${error}</div>` : ""}
 </form></body></html>`, { status: error ? 401 : 200, headers: { "content-type": "text/html; charset=utf-8", ...NO_STORE } });
 
+const csvCell = (v) => {
+  let t = String(v ?? "");
+  if (/^[=+\-@\t\r]/.test(t)) t = "'" + t;
+  return `"${t.replace(/"/g, '""')}"`;
+};
+async function rsvpCsv(env) {
+  const events = [["Friday", "friendsgiving-2026"], ["Sunday", "friendsgiving-sun-2026"]];
+  const lines = [["Event", "Name", "Answer", "Email", "RSVP date"].map(csvCell).join(",")];
+  for (const [label, id] of events) {
+    const rows = await env.POTLUCK_STATE.get(env.POTLUCK_STATE.idFromName(id)).exportRsvps();
+    for (const r of rows) lines.push([label, r.name, r.status, r.email || "", new Date(r.created_at).toISOString().slice(0, 10)].map(csvCell).join(","));
+  }
+  return new Response(lines.join("\r\n") + "\r\n", {
+    headers: { "content-type": "text/csv; charset=utf-8", "content-disposition": 'attachment; filename="eac-rsvps.csv"', ...NO_STORE },
+  });
+}
+
 async function handleAdmin(request, env, url) {
   if (!env.ADMIN_USER || !env.ADMIN_PASS) {
     return new Response("Admin is not configured.", { status: 503, headers: NO_STORE });
@@ -83,6 +100,7 @@ async function handleAdmin(request, env, url) {
   }
   if (request.method !== "GET" && request.method !== "HEAD") return new Response("Method not allowed", { status: 405, headers: NO_STORE });
   if (!(await isSignedIn(request, env))) return loginPage();
+  if (path === "/admin/rsvps.csv") return rsvpCsv(env);
   const asset = await env.ASSETS.fetch(new Request(url.origin + "/admin/", request));
   const out = new Response(asset.body, asset);
   for (const [k, v] of Object.entries(NO_STORE)) out.headers.set(k, v);

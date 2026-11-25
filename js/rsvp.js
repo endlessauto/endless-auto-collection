@@ -30,17 +30,19 @@ btns.forEach(function(b){b.addEventListener('click',function(){
   err.textContent='';
   var name=form.name.value.trim();
   if(name.length<2){err.textContent='Enter your first name first.';form.name.focus();return}
-  var body={name:name,status:b.dataset.s,website:form.website.value},m=mine();
+  var email=form.email.value.trim();
+  if(!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)){err.textContent='Enter a valid email so we can send updates.';form.email.focus();return}
+  var body={name:name,email:email,status:b.dataset.s,website:form.website.value},m=mine();
   if(m){body.id=m.id;body.token=m.token}
   btns.forEach(function(x){x.disabled=true});
   fetch(API+'rsvp'+Q,{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify(body)}).then(function(r){return r.json().then(function(d){return{ok:r.ok,d:d}})}).then(function(x){
     btns.forEach(function(y){y.disabled=false});
     if(!x.ok){err.textContent=x.d.error||'That did not save. Try again.';return}
     if(!m)save({id:x.d.id,token:x.d.token});
-    try{localStorage.setItem('eac.potluck.name',name)}catch(e){}
+    try{localStorage.setItem('eac.potluck.name',name);localStorage.setItem('eac.potluck.email',email)}catch(e){}
     load();
   }).catch(function(){btns.forEach(function(y){y.disabled=false});err.textContent='We could not save that. Check your connection and try again.'});
 })});
-try{var n=localStorage.getItem('eac.potluck.name');if(n)form.name.value=n}catch(e){}
+try{var n=localStorage.getItem('eac.potluck.name');if(n)form.name.value=n;var em=localStorage.getItem('eac.potluck.email');if(em)form.email.value=em}catch(e){}
 load();
 })();

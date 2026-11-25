@@ -12,6 +12,7 @@ const ACTIVITY = { going: "is going", maybe: "is a maybe", cant: "can't make it"
 const MAX_COMMENTS = 500;
 const MAX_COMMENTS_PER_IP = 40;
 const MAX_RSVP_PER_IP = 20;
+const EMAIL_RE = /^[^\s@]{1,64}@[^\s@]{1,190}\.[^\s@]{2,}$/;
 const LINK_RE = /https?:|www\.|\.(com|net|org|io|co|ru|xyz)\b|@\w/i;
 
 const sha256 = async (s) => {
@@ -54,6 +55,11 @@ export class PotluckState extends DurableObject {
       ip_hash TEXT NOT NULL,
       created_at INTEGER NOT NULL
     )`);
+    try { this.sql.exec("ALTER TABLE rsvps ADD COLUMN email TEXT"); } catch {}
+  }
+
+  exportRsvps() {
+    return this.sql.exec("SELECT name, status, email, created_at FROM rsvps ORDER BY id ASC").toArray();
   }
 
   commentList() {
@@ -116,10 +122,12 @@ export class PotluckState extends DurableObject {
     if (!STATUSES.includes(b.status)) return reply({ error: "Pick Going, Maybe, or Can't." }, 400);
     if (name.length < 2) return reply({ error: "Enter your first name." }, 400);
     if (LINK_RE.test(name)) return reply({ error: "Just your first name, no links." }, 400);
+    const email = clean(b.email, 254).toLowerCase();
+    if (!EMAIL_RE.test(email)) return reply({ error: "Enter a valid email so we can send updates." }, 400);
     if (b.id !== undefined && b.id !== null) {
       const id = Number(b.id);
       if (!Number.isInteger(id) || typeof b.token !== "string") return reply({ error: "Invalid request" }, 400);
-      this.sql.exec("UPDATE rsvps SET name = ?, status = ? WHERE id = ? AND token = ?", name, b.status, id, b.token);
+      this.sql.exec("UPDATE rsvps SET name = ?, status = ?, email = ? WHERE id = ? AND token = ?", name, b.status, email, id, b.token);
       if (this.sql.exec("SELECT COUNT(*) AS c FROM rsvps WHERE id = ? AND token = ?", id, b.token).one().c) this.activity(id, name, b.status);
       return reply({ ok: true });
     }
@@ -127,7 +135,7 @@ export class PotluckState extends DurableObject {
     if (this.sql.exec("SELECT COUNT(*) AS c FROM rsvps").one().c >= MAX_RSVPS) return reply({ error: "RSVPs are full. Message us on Instagram." }, 429);
     if (this.sql.exec("SELECT COUNT(*) AS c FROM rsvps WHERE ip_hash = ?", ipHash).one().c >= MAX_RSVP_PER_IP) return reply({ error: "That's plenty from one connection. Message us on Instagram." }, 429);
     const token = crypto.randomUUID();
-    const id = this.sql.exec("INSERT INTO rsvps (name, status, token, ip_hash, created_at) VALUES (?, ?, ?, ?, ?) RETURNING id", name, b.status, token, ipHash, Date.now()).one().id;
+    const id = this.sql.exec("INSERT INTO rsvps (name, status, email, token, ip_hash, created_at) VALUES (?, ?, ?, ?, ?, ?) RETURNING id", name, b.status, email, token, ipHash, Date.now()).one().id;
     this.activity(id, name, b.status);
     return reply({ id, token });
   }
