@@ -10,7 +10,8 @@ const HEADERS = { "content-type": "application/json", "cache-control": "no-store
 const reply = (body, status = 200) => new Response(JSON.stringify(body), { status, headers: HEADERS });
 
 const enc = new TextEncoder();
-const SESSION_SECONDS = 60 * 60 * 24 * 30;
+const SESSION_SECONDS = 60 * 60 * 12;
+const REMEMBER_SECONDS = 60 * 60 * 24 * 365;
 const NO_STORE = { "cache-control": "no-store", "x-robots-tag": "noindex, nofollow" };
 
 const hex = (buf) => [...new Uint8Array(buf)].map((b) => b.toString(16).padStart(2, "0")).join("");
@@ -30,7 +31,8 @@ async function isSignedIn(request, env) {
   if (!m || Number(m[1]) < Date.now()) return false;
   return safeEqual(m[2], await sign(env, m[1]));
 }
-const loginPage = (error) => new Response(`<!DOCTYPE html>
+const safeNext = (n) => (typeof n === "string" && /^\/(?!\/|\\)/.test(n) && !n.startsWith("/admin/login") ? n : "/admin");
+const loginPage = (error, next = "/admin") => new Response(`<!DOCTYPE html>
 <html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="robots" content="noindex, nofollow"><title>Team sign in | Endless Auto Collection</title>
 <style>
@@ -40,12 +42,15 @@ label{display:block;font-size:13px;color:#9aa0a6;margin:14px 0 6px}
 input{width:100%;padding:13px 14px;border-radius:10px;border:1px solid #2a2f36;background:#14171b;color:#fff;font-size:16px}
 input:focus{outline:2px solid #e11d2e;border-color:transparent}
 button{width:100%;margin-top:22px;padding:14px;border:0;border-radius:10px;background:#e11d2e;color:#fff;font-size:16px;font-weight:600}
+.rm{display:flex;align-items:center;gap:10px;margin:16px 0 0;font-size:14px;color:#c9ced4}.rm input{width:20px;height:20px;margin:0;accent-color:#e11d2e}
 .err{margin-top:14px;color:#ff8a8a;font-size:14px}
 </style></head><body>
 <form method="post" action="/admin/login">
+<input type="hidden" name="next" value="${safeNext(next).replace(/&/g, "&amp;").replace(/"/g, "&quot;").replace(/</g, "&lt;")}">
 <h1>Team sign in</h1><p>Endless Auto Collection</p>
 <label for="u">Username</label><input id="u" name="username" autocomplete="username" autocapitalize="none" required autofocus>
 <label for="p">Password</label><input id="p" name="password" type="password" autocomplete="current-password" required>
+<label class="rm"><input type="checkbox" name="remember" value="1"> Remember this device</label>
 <button type="submit">Sign in</button>${error ? `<div class="err">${error}</div>` : ""}
 </form></body></html>`, { status: error ? 401 : 200, headers: { "content-type": "text/html; charset=utf-8", ...NO_STORE } });
 
@@ -62,12 +67,14 @@ async function handleAdmin(request, env, url) {
     const okPass = await safeEqual(p, env.ADMIN_PASS);
     if (!(okUser && okPass)) {
       await new Promise((r) => setTimeout(r, 600));
-      return loginPage("That username or password is wrong. Try again.");
+      return loginPage("That username or password is wrong. Try again.", String((form && form.get("next")) || ""));
     }
-    const exp = String(Date.now() + SESSION_SECONDS * 1000);
+    const remember = form.get("remember") === "1";
+    const exp = String(Date.now() + (remember ? REMEMBER_SECONDS : SESSION_SECONDS) * 1000);
+    const age = remember ? `; Max-Age=${REMEMBER_SECONDS}` : "";
     return new Response(null, {
       status: 303,
-      headers: { location: "/admin", "set-cookie": `eac_admin=${exp}.${await sign(env, exp)}; Path=/; Max-Age=${SESSION_SECONDS}; HttpOnly; Secure; SameSite=Strict`, ...NO_STORE },
+      headers: { location: safeNext(String(form.get("next") || "")), "set-cookie": `eac_admin=${exp}.${await sign(env, exp)}; Path=/${age}; HttpOnly; Secure; SameSite=Strict`, ...NO_STORE },
     });
   }
   if (path === "/admin/logout") {
@@ -79,6 +86,15 @@ async function handleAdmin(request, env, url) {
   const out = new Response(asset.body, asset);
   for (const [k, v] of Object.entries(NO_STORE)) out.headers.set(k, v);
   return out;
+}
+
+const isTeamOnly = (pathname) => /^\/eacmedia(\/|$)/i.test(pathname) || /^\/api\/eacmedia\//i.test(pathname);
+
+async function handleTeamOnly(request, env, url) {
+  if (!env.ADMIN_USER || !env.ADMIN_PASS) return new Response("Team area is not configured.", { status: 503, headers: NO_STORE });
+  if (await isSignedIn(request, env)) return null;
+  if (url.pathname.toLowerCase().startsWith("/api/")) return reply({ error: "Sign in required" }, 401);
+  return loginPage(null, url.pathname + url.search);
 }
 
 export class MediaState extends DurableObject {
@@ -114,6 +130,10 @@ export default {
         if (htmlPage) url.pathname = htmlPage[1] === "index" ? "/" : "/" + htmlPage[1];
         return Response.redirect(url.toString(), 301);
       }
+    }
+    if (isTeamOnly(url.pathname)) {
+      const blocked = await handleTeamOnly(request, env, url);
+      if (blocked) return blocked;
     }
     if (url.pathname === "/admin" || url.pathname.startsWith("/admin/")) return handleAdmin(request, env, url);
     if (url.pathname.startsWith("/api/raffle/")) {
