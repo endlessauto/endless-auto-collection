@@ -1,8 +1,9 @@
 import { DurableObject } from "cloudflare:workers";
 import { RaffleState } from "./raffle.js";
 import { PotluckState } from "./potluck.js";
+import { AnalyticsState } from "./analytics.js";
 
-export { RaffleState, PotluckState };
+export { RaffleState, PotluckState, AnalyticsState };
 
 const KEY_RE = /^\/api\/eacmedia\/([a-z0-9-]{3,50}-\d{4}-\d{2}-\d{2})$/;
 const ID_RE = /^([A-Z][0-9]{1,2}|p[0-9]{1,2})$/;
@@ -114,8 +115,11 @@ async function handleAdmin(request, env, url) {
   if (!(await isSignedIn(request, env))) return loginPage();
   if (path === "/admin/rsvps.csv") return rsvpCsv(env);
   if (path === "/admin/rsvps.json") return rsvpJson(env);
-  if (path === "/admin/emails") {
-    const page = await env.ASSETS.fetch(new Request(url.origin + "/admin/emails", request));
+  if (path === "/admin/analytics.json") {
+    return env.ANALYTICS_STATE.get(env.ANALYTICS_STATE.idFromName("main")).fetch(request);
+  }
+  if (path === "/admin/analytics" || path === "/admin/emails") {
+    const page = await env.ASSETS.fetch(new Request(url.origin + path, request));
     const res = new Response(page.body, page);
     for (const [k, v] of Object.entries(NO_STORE)) res.headers.set(k, v);
     return res;
@@ -174,6 +178,11 @@ export default {
       if (blocked) return blocked;
     }
     if (url.pathname === "/admin" || url.pathname.startsWith("/admin/")) return handleAdmin(request, env, url);
+    if (url.pathname === "/api/analytics/e") {
+      if (request.method !== "POST") return new Response(null, { status: 405, headers: { allow: "POST" } });
+      if (Number(request.headers.get("content-length") || 0) > 600) return new Response(null, { status: 413 });
+      return env.ANALYTICS_STATE.get(env.ANALYTICS_STATE.idFromName("main")).fetch(request);
+    }
     if (url.pathname.startsWith("/api/raffle/")) {
       if (request.method !== "GET" && request.method !== "POST") return reply({ error: "Method not allowed" }, 405);
       if (Number(request.headers.get("content-length") || 0) > 2000) return reply({ error: "Too large" }, 413);
