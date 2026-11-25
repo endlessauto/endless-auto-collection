@@ -8,14 +8,14 @@ Latest upload: 2026-11-18. Refreshed by `scripts/refresh_youtube_catalog.py` (pu
 | Posted | Title | Views | ID |
 |--------|-------|-------|----|
 | 2026-11-15 | SEMA 2026 Karaoke Night With Car Creators in Vegas \| AFTERHOURS | 42 | e2xFRuH4sIo |
-| 2026-11-13 | SEMA 2026 as a Small Shop Owner \| Sung Kang, Larry Chen | 275 | KIMwoQiMGds |
-| 2026-11-13 | No air compressor needed? Electric HYCHIKA HVLP spray gun reality for DIYers | 146 | m8wz-4O1Tr0 |
-| 2026-11-05 | SEMA 2026 Day 1 \| Walking the Show as a Shop Owner | 242 | Q4GqZvMDKfo |
+| 2026-11-13 | SEMA 2026 as a Small Shop Owner \| Sung Kang, Larry Chen | 279 | KIMwoQiMGds |
+| 2026-11-13 | No air compressor needed? Electric HYCHIKA HVLP spray gun reality for DIYers | 162 | m8wz-4O1Tr0 |
+| 2026-11-05 | SEMA 2026 Day 1 \| Walking the Show as a Shop Owner | 243 | Q4GqZvMDKfo |
 | 2026-11-04 | SEMA 2026 Vlog Ep  1: We Left Our Shop to Go to Vegas | 178 | Kfp6WicldCQ |
 | 2026-10-29 | Restore headlights: a customer learns to do it himself | 134 | MsvmrwEbVoo |
 | 2026-10-28 | We used ONLY a JACK! BMW F8X M3/M4 Suspension \| Shop Vlog | 135 | wZGrPhqci_U |
 | 2026-10-26 | How To Restore Your Yellow Headlights \| Easy Walk-Through | 656 | G7QD7uAAsQY |
-| 2026-10-23 | Lamborghini Sesto Elemento, Pagani Huayra BC & Bugatti at Santana Row! | 202 | Lx9wrjZF2zU |
+| 2026-10-23 | Lamborghini Sesto Elemento, Pagani Huayra BC & Bugatti at Santana Row! | 203 | Lx9wrjZF2zU |
 | 2026-10-22 | Selling His Childhood Dream Car? \| Lamborghini Murciélago | 206 | hauU1eIK4m8 |
 | 2026-10-20 | 2024 Mustang GT Lowering Springs Install \| Pt.1 Shop Vlog | 463 | sQsioLTcRh4 |
 | 2026-10-15 | F80 M3 Bilstein B16 Coilovers: Finally Off the Lift | 256 | djCrFSHym1k |
@@ -36,7 +36,7 @@ Latest upload: 2026-11-18. Refreshed by `scripts/refresh_youtube_catalog.py` (pu
 | 2026-11-18 | Let’s restore your headlights, give it back that shine and clarity!  #headlightrestoration | 604 | D5eJ-fTyPiQ |
 | 2026-11-15 | I Love Wrapping Cars… Until I Have to Remove It 💀 #vinylwrapping | 1689 | jmWifM1ANAs |
 | 2026-11-13 | Making This Red AMG GT R Shine 🧼🔥 \| Satisfying Detail #fremontca #mercedesbenzclkgtr | 1330 | em1WmvfsSmU |
-| 2026-11-10 | Hitched a Ride in a Lamborghini Huracán STO! #sema #indecentvehicles | 1786 | apK_Ur-_EZs |
+| 2026-11-10 | Hitched a Ride in a Lamborghini Huracán STO! #sema #indecentvehicles | 1787 | apK_Ur-_EZs |
 | 2026-10-29 | When you hear the Church bells ringing #endlessautocollection #fremontca | 1001 | VMcR13_XgZs |
 | 2026-10-26 | You’re Selling Our Dream Car? \| WHAT DRIVES YOU? Pt. 2 | 175 | -0uLc6W8AnE |
 | 2026-10-23 | Why sell the car you dreamed of owning as a kid? #whatdrivesyou | 1086 | _nNmNcPAtLA |
