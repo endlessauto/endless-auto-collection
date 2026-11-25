@@ -34,7 +34,7 @@ body{font-family:Inter,system-ui,sans-serif;background:#050505;color:#e4e4e7}
 .btn{position:relative;overflow:hidden;background:linear-gradient(145deg,#f5dfa0 0%,#d4af37 45%,#9c7a22 100%);color:#140f00;font-weight:600;box-shadow:inset 0 1px 0 rgba(255,255,255,.55)}
 .gold-text{background:linear-gradient(145deg,#f5dfa0 0%,#d4af37 50%,#b08a2a 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
 .ev-grid{display:grid;gap:1.5rem;grid-template-columns:minmax(0,1fr)}
-@media(min-width:768px){.ev-grid{grid-template-columns:minmax(0,1fr) minmax(0,1fr);align-items:start}}
+.ev-grid{max-width:32rem}
 .ev-card{background:#0d0d0d;border:1px solid #222;border-radius:1.25rem;overflow:hidden}
 .ev-day{font-size:.7rem;letter-spacing:3px;font-weight:600;color:#f0c869}
 .ev-locked{display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;min-height:22rem;padding:2rem;background:repeating-linear-gradient(135deg,#0d0d0d 0 14px,#101010 14px 28px)}
@@ -97,13 +97,7 @@ body{font-family:Inter,system-ui,sans-serif;background:#050505;color:#e4e4e7}
   </div></div>
 </header>
 <main class="px-6 md:px-16 pb-20">
-  <div class="max-w-6xl mx-auto ev-grid">
-    <article class="ev-card ev-locked" aria-label="Friday, private event">
-      <div class="ev-lock" aria-hidden="true"><svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="9" rx="2"/><path stroke-linecap="round" d="M8 11V8a4 4 0 0 1 8 0v3"/></svg></div>
-      <p class="ev-day">FRIDAY</p>
-      <h2 class="heading-font text-2xl mt-2">Private event</h2>
-      <p class="text-white/50 mt-2">Invite only.</p>
-    </article>
+  <div class="max-w-6xl mx-auto"><div class="ev-grid">
     <article class="ev-card" aria-label="Sunday, Friendsgiving">
       <a class="ev-flyer" href="/friendsgiving-sun" aria-label="Open the Friendsgiving event page">
         <img src="/images/events/friendsgiving-flyer-preview.webp" width="900" height="1190" alt="Friendsgiving flyer: Sunday Nov 29, 4 to 10 PM, potluck, movies, music and raffles, at 41907 Albrae St, Fremont. Public event: no burnouts, no reckless driving, respect staff and neighbors." fetchpriority="high">
@@ -118,7 +112,7 @@ body{font-family:Inter,system-ui,sans-serif;background:#050505;color:#e4e4e7}
         <p class="text-white/50 text-sm mt-4">Raffle winners are chosen Sunday. Follow <a class="text-[#f0c869]" href="https://www.instagram.com/endlessautoco/" target="_blank" rel="noopener noreferrer">@endlessautoco</a> for updates.</p>
       </div>
     </article>
-  </div>
+  </div></div>
 </main>
 <footer class="px-6 py-14 text-sm max-w-6xl mx-auto grid md:grid-cols-2 gap-8">
   <div>
