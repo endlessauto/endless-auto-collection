@@ -2,6 +2,7 @@ import { DurableObject } from "cloudflare:workers";
 import { sanitizeEvent, summarize } from "./analytics-core.mjs";
 
 const DAY_MS = 86400000;
+const MAX_BODY = 600;
 const MAX_PER_SID = 300;
 const RETAIN_DAYS = 90;
 const ROW_LIMIT = 200000;
@@ -28,23 +29,27 @@ export class AnalyticsState extends DurableObject {
   }
 
   async ingest(request) {
+    const text = await request.text();
+    if (new TextEncoder().encode(text).length > MAX_BODY) return new Response(null, { status: 413 });
     let body;
     try {
-      body = JSON.parse(await request.text());
+      body = JSON.parse(text);
     } catch {
       return new Response(null, { status: 400 });
     }
-    const ev = sanitizeEvent(body, request.headers.get("user-agent"));
-    if (!ev) return new Response(null, { status: 204 });
-    const now = Date.now();
-    const count = this.sql.exec("SELECT COUNT(*) AS n FROM events WHERE sid = ?", ev.sid).one().n;
-    if (count < MAX_PER_SID) {
-      this.sql.exec(
-        "INSERT INTO events (ts, sid, type, path, src, dev, cta, val, scroll) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)",
-        now, ev.sid, ev.type, ev.path, ev.src, ev.dev, ev.cta, ev.val, ev.scroll,
-      );
-    }
-    this.prune(now);
+    try {
+      const ev = sanitizeEvent(body, request.headers.get("user-agent"));
+      if (!ev) return new Response(null, { status: 204 });
+      const now = Date.now();
+      const count = this.sql.exec("SELECT COUNT(*) AS n FROM events WHERE sid = ?", ev.sid).one().n;
+      if (count < MAX_PER_SID) {
+        this.sql.exec(
+          "INSERT INTO events (ts, sid, type, path, src, dev, cta, val, scroll) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)",
+          now, ev.sid, ev.type, ev.path, ev.src, ev.dev, ev.cta, ev.val, ev.scroll,
+        );
+      }
+      this.prune(now);
+    } catch {}
     return new Response(null, { status: 204 });
   }
 
