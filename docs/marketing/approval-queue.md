@@ -173,3 +173,7 @@ Drafts land here unchecked. Check a box (`- [x]`) to approve. Only a checked box
 - [ ] Carousel (Instagram): Three special tools, the rest is sockets (5-slide) (`docs/marketing/carousels/2026-11-25/5-slide-three-tools-the-rest-is-sockets.html`)
 - [ ] Carousel (Instagram): The strut comes out spring on (10-slide) (`docs/marketing/carousels/2026-11-25/10-slide-the-strut-comes-out-spring-on.html`)
 - [ ] Carousel (Instagram): Bilstein B16 rears arrive in pieces (10-slide) (`docs/marketing/carousels/2026-11-25/10-slide-the-rears-arrive-in-pieces.html`)
+- [ ] Carousel (Instagram): The mechanical package doesn't cover wear and tear (1-slide) (`docs/marketing/carousels/2026-11-26/1-slide-package-excludes-wear-and-tear.html`)
+- [ ] Carousel (Instagram): A full detail doesn't include wax (5-slide) (`docs/marketing/carousels/2026-11-26/5-slide-a-full-detail-has-no-wax.html`)
+- [ ] Carousel (Instagram): Why our prices are starting points (10-slide) (`docs/marketing/carousels/2026-11-26/10-slide-why-our-prices-are-starting-points.html`)
+- [ ] Carousel (Instagram): A lifetime film warranty covers lifting (9-slide) (`docs/marketing/carousels/2026-11-26/9-slide-lifetime-warranty-covers-lifting.html`)
