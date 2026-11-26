@@ -326,4 +326,5 @@ function close(){lb.style.display='none';lb.classList.add('hidden');big.src='';d
 document.querySelectorAll('img[src^="images/showcase/"]').forEach(i=>{i.classList.add('showcase-img');i.tabIndex=0;i.setAttribute('role','button');i.addEventListener('click',()=>open(i));i.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();open(i)}})});
 lb.addEventListener('click',close);document.addEventListener('keydown',e=>{if(e.key==='Escape'&&!lb.classList.contains('hidden'))close()})})();
 </script>
+<script src="/js/analytics.js" defer></script>
 </body></html>
