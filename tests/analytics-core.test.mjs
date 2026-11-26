@@ -90,3 +90,15 @@ test("single pageview with cta is not a bounce", () => {
   const s = summarize([row({}), row({ type: "cta", cta: "call", ts: NOW - 1000 })], NOW, 7);
   assert.equal(s.bounceRate, 0);
 });
+
+test("avgTimeSec is per leave, not per visit", () => {
+  const rows = [
+    row({ sid: "a", ts: NOW - 6000 }),
+    row({ sid: "a", ts: NOW - 5000, type: "leave", val: 10000 }),
+    row({ sid: "a", ts: NOW - 4000, path: "/ppf" }),
+    row({ sid: "a", ts: NOW - 3000, type: "leave", path: "/ppf", val: 30000 }),
+    row({ sid: "a", ts: NOW - 2000, path: "/tint" }),
+    row({ sid: "a", ts: NOW - 1000, type: "leave", path: "/tint", val: 20000 }),
+  ];
+  assert.equal(summarize(rows, NOW, 7).avgTimeSec, 20);
+});

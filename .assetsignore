@@ -21,4 +21,8 @@ image-originals/
 tailwind.config.js
 css/tailwind.src.css
 worker.js
+/analytics.js
+analytics-core.mjs
+tests/
+.superpowers/
 .dev.vars

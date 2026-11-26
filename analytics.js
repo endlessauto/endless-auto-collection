@@ -65,7 +65,7 @@ export class AnalyticsState extends DurableObject {
     const days = [7, 30, 90].includes(d) ? d : 7;
     const now = Date.now();
     const rows = this.sql
-      .exec("SELECT ts, sid, type, path, src, dev, cta, val, scroll FROM events WHERE ts >= ? LIMIT ?", now - days * DAY_MS, ROW_LIMIT)
+      .exec("SELECT ts, sid, type, path, src, dev, cta, val, scroll FROM events WHERE ts >= ? ORDER BY ts DESC LIMIT ?", now - days * DAY_MS, ROW_LIMIT)
       .toArray();
     return new Response(JSON.stringify(summarize(rows, now, days)), { headers: HEADERS });
   }

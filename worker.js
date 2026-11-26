@@ -180,7 +180,8 @@ export default {
     if (url.pathname === "/admin" || url.pathname.startsWith("/admin/")) return handleAdmin(request, env, url);
     if (url.pathname === "/api/analytics/e") {
       if (request.method !== "POST") return new Response(null, { status: 405, headers: { allow: "POST" } });
-      if (Number(request.headers.get("content-length") || 0) > 600) return new Response(null, { status: 413 });
+      const len = request.headers.get("content-length");
+      if (!/^\d+$/.test(len || "") || Number(len) > 600) return new Response(null, { status: 413 });
       return env.ANALYTICS_STATE.get(env.ANALYTICS_STATE.idFromName("main")).fetch(request);
     }
     if (url.pathname.startsWith("/api/raffle/")) {

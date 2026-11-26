@@ -73,15 +73,11 @@ export function summarize(rows, now, days) {
   const visits = new Map();
   for (const r of inWin) {
     let v = visits.get(r.sid);
-    if (!v) visits.set(r.sid, (v = { first: r, pvs: [], hasCta: false, timeMs: 0, hasLeave: false, paths: new Set() }));
+    if (!v) visits.set(r.sid, (v = { first: r, pvs: [], hasCta: false, paths: new Set() }));
     if (r.type === "pv") {
       v.pvs.push(r);
       v.paths.add(r.path);
     } else if (r.type === "cta") v.hasCta = true;
-    else if (r.type === "leave") {
-      v.hasLeave = true;
-      v.timeMs += r.val;
-    }
   }
 
   const pages = new Map();
@@ -100,6 +96,8 @@ export function summarize(rows, now, days) {
     dailyMap.set(day, d);
   };
 
+  let timeSum = 0;
+  let timeN = 0;
   for (const r of inWin) {
     if (r.type === "pv") {
       page(r.path).views++;
@@ -110,13 +108,13 @@ export function summarize(rows, now, days) {
       p.timeSum += r.val;
       p.scrollSum += r.scroll;
       p.timeN++;
+      timeSum += r.val;
+      timeN++;
     }
   }
 
   let pageviews = 0;
   let bounces = 0;
-  let timeSum = 0;
-  let timeN = 0;
   const funnel = { home: 0, service: 0, cta: 0 };
   for (const v of visits.values()) {
     tally(sources, v.first.src);
@@ -124,10 +122,6 @@ export function summarize(rows, now, days) {
     bump(dayKey(v.first.ts), "visits");
     pageviews += v.pvs.length;
     if (v.pvs.length === 1 && !v.hasCta) bounces++;
-    if (v.hasLeave) {
-      timeSum += v.timeMs;
-      timeN++;
-    }
     if (v.pvs.length) page(v.pvs[v.pvs.length - 1].path).exits++;
     if (v.paths.has("/")) {
       funnel.home++;

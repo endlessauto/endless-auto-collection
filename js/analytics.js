@@ -59,7 +59,7 @@
       var m = /[?&]utm_source=([^&#]*)/.exec(location.search);
       if (m) {
         var u = decodeURIComponent(m[1].replace(/\+/g, " ")).toLowerCase().replace(/[^a-z0-9.-]+/g, "");
-        if (u) return u;
+        if (u) return u.slice(0, 60);
       }
       var host = "";
       var rm = /^https?:\/\/([^\/?#:]+)/i.exec(document.referrer || "");
@@ -121,5 +121,17 @@
       } catch (e) {}
     });
     window.addEventListener("pagehide", leave);
+    window.addEventListener("pageshow", function (e) {
+      try {
+        if (!e.persisted) return;
+        left = false;
+        visibleMs = 0;
+        maxScroll = 0;
+        shownAt = document.visibilityState === "hidden" ? 0 : Date.now();
+        trackScroll();
+        path = location.pathname;
+        send({ t: "pv" });
+      } catch (err) {}
+    });
   } catch (e) {}
 })();
