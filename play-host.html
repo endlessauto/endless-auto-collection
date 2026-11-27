@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>Game host | Endless Auto Collection</title>
+<link rel="icon" href="/images/favicon.ico">
+<style>
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{margin:0;font:500 16px/1.4 Inter,system-ui,sans-serif;background:#050505;color:#f4f4f5;padding:env(safe-area-inset-top) max(16px,env(safe-area-inset-right)) calc(2rem + env(safe-area-inset-bottom)) max(16px,env(safe-area-inset-left))}
+main{max-width:40rem;margin:0 auto;padding-top:1rem}
+h1{font-size:1.4rem;margin:.2rem 0 .8rem}
+h2{color:#f0c869;font-size:.75rem;letter-spacing:2px;text-transform:uppercase;margin:1.6rem 0 .6rem}
+input,select{width:100%;background:#0f0f0f;border:1px solid #2a2a2a;border-radius:.7rem;color:#fff;font:inherit;padding:.75rem .9rem}
+button{border:0;border-radius:.8rem;cursor:pointer;font:700 1rem Inter,sans-serif;padding:.85rem 1.1rem;background:linear-gradient(145deg,#f5dfa0,#d4af37 50%,#9c7a22);color:#140f00;min-height:3rem}
+button.ghost{background:#171717;color:#ddd;border:1px solid #333}
+button.danger{background:#171717;color:#f87171;border:1px solid #4a2222}
+button.big{width:100%;min-height:4rem;font-size:1.2rem}
+button[disabled]{opacity:.5}
+.card{background:#0d0d0d;border:1px solid #232323;border-radius:1rem;padding:1rem;margin:.6rem 0}
+.tabs{display:grid;grid-template-columns:1fr 1fr;gap:.4rem;margin:.4rem 0}
+.tabs button{background:#101010;color:#fff;border:1px solid #2a2a2a}
+.tabs button[aria-selected="true"]{background:linear-gradient(145deg,#f5dfa0,#d4af37 50%,#9c7a22);color:#140f00}
+.meta{color:#8a8a93;font-size:.88rem}
+.err{color:#ff8a80;min-height:1.2rem;margin:.4rem 0}
+.ok{color:#4ade80}
+.row{display:flex;gap:.6rem;align-items:center;flex-wrap:wrap}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:.5rem}.stats div{background:#0d0d0d;border:1px solid #232323;border-radius:.9rem;padding:.7rem;text-align:center}.stats b{display:block;font-size:1.5rem;font-variant-numeric:tabular-nums}.stats span{color:#8a8a93;font-size:.75rem}
+.opt{padding:.6rem .8rem;border:1px solid #2a2a2a;border-radius:.7rem;margin:.3rem 0;background:#101010}
+.opt.right{border-color:#4ade80;background:rgba(34,197,94,.12)}
+.lb{display:flex;justify-content:space-between;gap:.6rem;padding:.5rem .7rem;border-bottom:1px solid #1d1d1d}
+.lb:last-child{border:0}.lb b{color:#f0c869;font-variant-numeric:tabular-nums}
+.cand{display:flex;gap:.8rem;align-items:center;padding:.6rem;border:1px solid #232323;border-radius:.9rem;background:#0d0d0d;margin:.4rem 0}
+.cand img{width:4rem;height:5rem;object-fit:cover;border-radius:.6rem;flex:none;background:#111}
+.cand .t{flex:1;min-width:0;overflow-wrap:anywhere}
+.cand .v{font:700 1.3rem Inter;color:#f0c869;font-variant-numeric:tabular-nums}
+.win{border-color:#d4af37!important}
+.hp{display:grid;gap:.5rem}
+[hidden]{display:none!important}
+</style>
+</head>
+<body>
+<main>
+  <a id="backAdmin" href="/admin" style="color:#8a8a93;font-size:.88rem;text-decoration:none">‹ Admin</a>
+  <h1>Game host</h1>
+  <form id="auth"><div class="row"><input type="password" id="key" placeholder="Admin password" autocomplete="current-password" style="flex:1;min-width:10rem"><button type="submit">Unlock</button></div></form>
+  <div class="err" id="msg" role="alert"></div>
+
+  <div id="app" hidden>
+    <div class="tabs" role="tablist"><button type="button" id="b-trivia" aria-selected="true">Trivia</button><button type="button" id="b-vote" aria-selected="false">Fashion vote</button></div>
+
+    <section id="trivia">
+      <div class="card" id="sampleWarn" hidden><b>Sample questions are loaded.</b><div class="meta">Replace them in trivia-questions.js with the real photo questions and redeploy before the game.</div></div>
+      <div class="stats"><div><b id="sP">0</b><span>Players</span></div><div><b id="sA">0</b><span>Answered</span></div><div><b id="sT">–</b><span>Seconds left</span></div></div>
+      <h2 id="phaseLabel">Lobby</h2>
+      <button class="big" id="main" type="button">Start game</button>
+      <div class="card" id="qCard" hidden>
+        <div class="meta" id="qNum"></div>
+        <div style="font-size:1.2rem;font-weight:700;margin:.3rem 0 .6rem" id="qText"></div>
+        <img id="qImg" alt="" style="max-width:100%;border-radius:.7rem;margin-bottom:.6rem" hidden>
+        <div id="qOpts"></div>
+        <div class="meta">The green answer is shown to you only. Players see it when you reveal.</div>
+      </div>
+      <h2>Leaderboard</h2>
+      <div class="card" id="board"><span class="meta">No scores yet.</span></div>
+      <div id="winBox" class="card win" hidden>
+        <b>Winner</b>
+        <div id="winRows"></div>
+        <div class="meta">Awards two raffle entries to the guest, once per night. If they are not in the raffle yet, add the bonus in the raffle admin after they enter.</div>
+      </div>
+      <h2>Players here</h2>
+      <div class="meta" id="roster">None yet.</div>
+      <div class="row" style="margin-top:1.4rem"><button class="danger" id="reset" type="button">Reset game</button><span class="meta">Clears answers and scores. Players stay joined.</span></div>
+    </section>
+
+    <section id="vote" hidden>
+      <div class="stats"><div><b id="vC">0</b><span>Entries</span></div><div><b id="vV">0</b><span>Votes in</span></div><div><b id="vM">closed</b><span>Voting</span></div></div>
+      <div class="row" style="margin-top:.8rem">
+        <button type="button" id="vOpen" style="flex:1">Open voting</button>
+        <button type="button" id="vClose" class="ghost" style="flex:1">Close voting</button>
+        <button type="button" id="vReveal" class="ghost" style="flex:1">Reveal winner</button>
+      </div>
+      <h2>Add an entry</h2>
+      <a class="big" id="boothLink" href="/fashion-booth" style="display:flex;align-items:center;justify-content:center;border-radius:.8rem;text-decoration:none;font:700 1.1rem Inter,sans-serif;background:linear-gradient(145deg,#f5dfa0,#d4af37 50%,#9c7a22);color:#140f00;min-height:4rem;margin:.4rem 0">Add or replace photos in the booth</a>
+      <form class="card hp" id="addForm" novalidate hidden>
+        <input type="text" id="cName" placeholder="Guest first name" maxlength="40">
+        <input type="text" id="cCap" placeholder="Car or outfit note (optional)" maxlength="80">
+        <select id="cLink" aria-label="Link to a joined guest"><option value="">Not linked to a guest</option></select>
+        <label class="meta">Outfit photo<input type="file" id="cPhoto" accept="image/*"></label>
+        <label class="meta">Car photo (optional)<input type="file" id="cCar" accept="image/*"></label>
+        <button type="submit" id="addBtn">Add entry</button>
+        <div class="meta">Link an entry to a joined guest so the winner can get raffle entries in one tap.</div>
+      </form>
+      <h2>Entries</h2>
+      <div id="cands"></div>
+      <div id="vWin" class="card win" hidden><b>Winner</b><div id="vWinRows"></div></div>
+    </section>
+  </div>
+</main>
+<script>
+(function(){
+  var E=location.search.indexOf('e=sun')>-1?'sun':'fri';
+  var $=function(i){return document.getElementById(i)};
+  $('boothLink').href='/fashion-booth?e='+E;$('backAdmin').href='/admin?e='+E;
+  var key='';try{key=sessionStorage.getItem('eac.raffle1')||''}catch(e){}
+  var tab='trivia',ts=null,vs=null,offset=0,poll=null,tick=null;
+  function call(path,body,raw){
+    var h={authorization:'Bearer '+key};var o={method:(body||raw)?'POST':'GET',headers:h};
+    if(raw){o.body=raw;h['content-type']='image/jpeg'}else if(body){o.body=JSON.stringify(body);h['content-type']='application/json'}
+    return fetch('/api/game/host'+path+(path.indexOf('?')>-1?'&':'?')+'e='+E,o).then(function(r){return r.json().then(function(j){if(!r.ok)throw new Error(j.error||'Something went wrong.');return j})});
+  }
+  function el(t,c,x){var e=document.createElement(t);if(c)e.className=c;if(x!=null)e.textContent=x;return e}
+  function clear(n){while(n.firstChild)n.removeChild(n.firstChild)}
+  function say(t,good){var m=$('msg');m.textContent=t;m.className='err'+(good?' ok':'')}
+
+  $('auth').addEventListener('submit',function(e){e.preventDefault();key=$('key').value;load()});
+  function unlock(){$('auth').hidden=true;$('app').hidden=false;try{sessionStorage.setItem('eac.raffle1',key)}catch(e){}}
+  function load(){
+    return Promise.all([call('/trivia/state'),call('/vote/state')]).then(function(r){unlock();ts=r[0];vs=r[1];offset=ts.now-Date.now();renderT();renderV();schedule()}).catch(function(x){say(x.message);if(/password/i.test(x.message)){key='';try{sessionStorage.removeItem('eac.raffle1')}catch(e){}$('auth').hidden=false;$('app').hidden=true}})
+  }
+  function schedule(){clearTimeout(poll);poll=setTimeout(function(){if(document.hidden){schedule();return}load()},ts&&ts.phase==='question'?1500:3000)}
+  function setTab(t){tab=t;$('b-trivia').setAttribute('aria-selected',t==='trivia');$('b-vote').setAttribute('aria-selected',t==='vote');$('trivia').hidden=t!=='trivia';$('vote').hidden=t!=='vote'}
+  $('b-trivia').onclick=function(){setTab('trivia')};$('b-vote').onclick=function(){setTab('vote')};
+
+  // MARK: - Trivia
+  var LABEL={lobby:'Lobby',question:'Question open',reveal:'Answer revealed',final:'Final results'};
+  function renderT(){
+    var s=ts;$('sP').textContent=s.players;$('sA').textContent=s.answered==null?'–':s.answered;
+    $('sampleWarn').hidden=!s.sample;
+    $('phaseLabel').textContent=LABEL[s.phase]+(s.phase==='question'||s.phase==='reveal'?' · '+(s.qi+1)+' of '+s.total:'');
+    var m=$('main'),acts={lobby:['Start game','start'],question:['Reveal answer','reveal'],reveal:[s.qi+1>=s.total?'Show final results':'Next question','next'],final:['Game over',null]}[s.phase];
+    m.textContent=acts[0];m.disabled=!acts[1];m.dataset.act=acts[1]||'';
+    var qc=$('qCard');qc.hidden=!s.q;
+    if(s.q){$('qNum').textContent='Question '+(s.qi+1)+' of '+s.total;$('qText').textContent=s.q.prompt;var im=$('qImg');im.hidden=!s.q.image;if(s.q.image)im.src=s.q.image;
+      var o=$('qOpts');clear(o);s.q.options.forEach(function(t,i){var d=el('div','opt'+(i===s.answer?' right':''),'ABCD'[i]+'  '+t+(s.dist?'   ('+s.dist[i]+')':''));o.appendChild(d)})}
+    clearInterval(tick);
+    if(s.phase==='question'){var f=function(){var left=Math.max(0,Math.ceil((s.endsAt-(Date.now()+offset))/1000));$('sT').textContent=left;if(left<=0){clearInterval(tick);setTimeout(load,300)}};f();tick=setInterval(f,500)}else $('sT').textContent='–';
+    var b=$('board');clear(b);
+    if(!s.board||!s.board.length||s.phase==='lobby')b.appendChild(el('span','meta','No scores yet.'));
+    else s.board.forEach(function(r){var d=el('div','lb');d.appendChild(el('span','',r.rank+'. '+r.name));d.appendChild(el('b','',String(r.score)));b.appendChild(d)});
+    $('roster').textContent=s.roster&&s.roster.length?s.roster.join(', '):'None yet.';
+    var wb=$('winBox');wb.hidden=s.phase!=='final';
+    if(s.phase==='final'){var wr=$('winRows');clear(wr);var top=s.board.filter(function(r){return r.rank===1&&r.score>0});
+      if(!top.length)wr.appendChild(el('div','meta','No scores.'));
+      top.forEach(function(r){var d=el('div','row');d.appendChild(el('span','',r.name+' · '+r.score+' pts'+(r.inRaffle?'':' · not in raffle yet')));var bt=el('button','',r.inRaffle?'Award +2 entries':'Not in raffle');bt.type='button';bt.disabled=!r.inRaffle;bt.onclick=function(){bt.disabled=true;call('/trivia/award',{player:r.token}).then(function(j){bt.textContent='Awarded';say(j.name+' now has '+j.bonus+' bonus entries.',true)}).catch(function(x){say(x.message);bt.disabled=false})};d.appendChild(bt);wr.appendChild(d)})}
+  }
+  $('main').onclick=function(){var a=this.dataset.act;if(!a)return;this.disabled=true;call('/trivia/'+a,{}).then(load).catch(function(x){say(x.message);this.disabled=false}.bind(this))};
+  $('reset').onclick=function(){var b=this;if(!b.dataset.arm){b.dataset.arm='1';b.textContent='Tap again to reset';setTimeout(function(){b.textContent='Reset game';delete b.dataset.arm},3000);return}delete b.dataset.arm;b.textContent='Reset game';call('/trivia/reset',{}).then(load)};
+
+  // MARK: - Vote
+  function renderV(){
+    var s=vs;$('vC').textContent=s.candidates.length;$('vV').textContent=s.voters;$('vM').textContent=s.mode;
+    $('vOpen').disabled=s.mode==='open';$('vClose').disabled=s.mode==='closed';$('vReveal').disabled=s.mode==='revealed'||!s.candidates.length;
+    var sel=$('cLink'),cur=sel.value;if(sel.options.length!==s.players.length+1){clear(sel);var o0=el('option','','Not linked to a guest');o0.value='';sel.appendChild(o0);s.players.forEach(function(p){var o=el('option','',p.name);o.value=p.token;sel.appendChild(o)});sel.value=cur}
+    var res={};(s.results||[]).forEach(function(r){res[r.id]=r});
+    var box=$('cands');clear(box);
+    s.candidates.forEach(function(c){
+      var d=el('div','cand'+(res[c.id]&&res[c.id].winner&&res[c.id].votes?' win':''));
+      var im=el('img');im.src='/api/game/vote/photo?id='+c.id+'&s=photo&e='+E;im.alt='';d.appendChild(im);
+      var t=el('div','t');t.appendChild(el('b','',c.name));if(c.caption)t.appendChild(el('div','meta',c.caption));t.appendChild(el('div','meta',(c.hasCar?'Outfit and car':'Outfit only')+(s.links[c.id]?' · linked to raffle':'')));d.appendChild(t);
+      d.appendChild(el('span','v',String(res[c.id]?res[c.id].votes:0)));
+      var x=el('button','danger','Remove');x.type='button';x.onclick=function(){if(x.dataset.arm){call('/vote/remove',{id:c.id}).then(load);return}x.dataset.arm='1';x.textContent='Sure?';setTimeout(function(){x.textContent='Remove';delete x.dataset.arm},3000)};d.appendChild(x);
+      box.appendChild(d);
+    });
+    var wb=$('vWin');wb.hidden=s.mode!=='revealed';
+    if(s.mode==='revealed'){var wr=$('vWinRows');clear(wr);(s.results||[]).filter(function(r){return r.winner}).forEach(function(r){var row=el('div','row');row.appendChild(el('span','',r.name+' · '+r.votes+' votes'));var linked=s.links[r.id];var bt=el('button','',linked?'Award +3 entries':'Not linked');bt.type='button';bt.disabled=!linked;bt.onclick=function(){bt.disabled=true;call('/vote/award',{id:r.id}).then(function(j){bt.textContent='Awarded';say(j.name+' now has '+j.bonus+' bonus entries.',true)}).catch(function(x){say(x.message);bt.disabled=false})};row.appendChild(bt);wr.appendChild(row)})}
+  }
+  function mode(m){return function(){call('/vote/mode',{mode:m}).then(load).catch(function(x){say(x.message)})}}
+  $('vOpen').onclick=mode('open');$('vClose').onclick=mode('closed');$('vReveal').onclick=function(){var b=this;if(!b.dataset.arm){b.dataset.arm='1';b.textContent='Tap again to reveal';setTimeout(function(){b.textContent='Reveal winner';delete b.dataset.arm},3000);return}delete b.dataset.arm;b.textContent='Reveal winner';mode('revealed')()};
+
+  function shrink(file){
+    return new Promise(function(res,rej){
+      var r=new FileReader();r.onerror=rej;r.onload=function(){var im=new Image();im.onerror=rej;im.onload=function(){
+        var m=1100,k=Math.min(1,m/Math.max(im.width,im.height)),c=document.createElement('canvas');c.width=Math.round(im.width*k);c.height=Math.round(im.height*k);
+        c.getContext('2d').drawImage(im,0,0,c.width,c.height);
+        c.toBlob(function(b){b?res(b):rej(new Error('Could not read that photo.'))},'image/jpeg',.8)};im.src=r.result};r.readAsDataURL(file);
+    });
+  }
+  $('addForm').addEventListener('submit',function(e){
+    e.preventDefault();var n=$('cName').value.trim(),ph=$('cPhoto').files[0],car=$('cCar').files[0];
+    if(!n||!ph){say('Add a name and an outfit photo.');return}
+    $('addBtn').disabled=true;say('Uploading…',true);
+    shrink(ph).then(function(b){
+      return call('/vote/add?name='+encodeURIComponent(n)+'&caption='+encodeURIComponent($('cCap').value)+'&link='+encodeURIComponent($('cLink').value),null,b);
+    }).then(function(r){
+      if(!car)return;return shrink(car).then(function(b){return call('/vote/car?id='+r.id,null,b)});
+    }).then(function(){$('addForm').reset();say('Entry added.',true);$('addBtn').disabled=false;load()}).catch(function(x){say(x.message);$('addBtn').disabled=false});
+  });
+  if(key)load();
+})();
+</script>
+</body>
+</html>

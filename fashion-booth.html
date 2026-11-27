@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#050505">
+<title>Fashion booth | Endless Auto Collection</title>
+<link rel="icon" href="/images/favicon.ico">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;700&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+:root{--gold:#f0c869;--gold-d:#d4af37;--ink:#140f00;--line:#262626;--card:#0d0d0d;--mute:#a1a1aa}
+body{margin:0;font:500 17px/1.4 Inter,system-ui,sans-serif;background:#050505;color:#f4f4f5;-webkit-font-smoothing:antialiased;padding:env(safe-area-inset-top) max(16px,env(safe-area-inset-right)) calc(2rem + env(safe-area-inset-bottom)) max(16px,env(safe-area-inset-left))}
+main{max-width:30rem;margin:0 auto}
+.hf{font-family:'Space Grotesk',Inter,sans-serif}
+.gold{background:linear-gradient(145deg,#f5dfa0,#d4af37 50%,#b08a2a);-webkit-background-clip:text;background-clip:text;color:transparent}
+header{padding:1.4rem 0 .4rem;display:flex;align-items:baseline;justify-content:space-between;gap:1rem}
+header b{font:700 1.3rem 'Space Grotesk',sans-serif;letter-spacing:-.3px}
+header span{color:var(--mute);font-size:.85rem}
+.eyebrow{font-size:.72rem;letter-spacing:2px;text-transform:uppercase;font-weight:700;color:var(--gold);margin:.2rem 0}
+h1{font:700 clamp(2rem,9vw,2.5rem)/1.05 'Space Grotesk',sans-serif;letter-spacing:-.5px;margin:.2rem 0 .4rem}
+.sub{color:var(--mute);margin:0 0 1rem}
+.card{background:var(--card);border:1px solid var(--line);border-radius:1.2rem;padding:1.1rem;margin:.8rem 0}
+label.lbl{display:block;font-size:.8rem;font-weight:700;color:var(--mute);letter-spacing:1px;text-transform:uppercase;margin:0 0 .4rem}
+input[type=text],input[type=password]{width:100%;background:#0f0f0f;border:1px solid #2a2a2a;border-radius:.9rem;color:#fff;font:inherit;font-size:1.2rem;padding:1rem;outline:none}
+input[type=text]:focus,input[type=password]:focus{border-color:var(--gold-d)}
+.shot{position:relative;display:grid;place-items:center;width:min(100%,calc(64vh * 9 / 16));aspect-ratio:9/16;margin:1rem auto 0;border:2px dashed #3a3320;border-radius:1.2rem;background:#0b0b0b;cursor:pointer;overflow:hidden;text-align:center;color:var(--gold)}
+.shot.has{border:2px solid var(--gold-d)}
+.shot input{position:absolute;inset:0;opacity:0;width:100%;height:100%;cursor:pointer;font-size:0}
+.shot img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.shot img.fr{object-fit:fill;pointer-events:none;z-index:1}
+.shot>span{position:relative;z-index:2}
+.shot .ic{width:4.2rem;height:4.2rem;border-radius:50%;display:grid;place-items:center;background:linear-gradient(145deg,#f5dfa0,#d4af37 50%,#9c7a22);color:var(--ink);margin:0 auto .8rem}
+.shot .ic svg{width:2.1rem;height:2.1rem}
+.shot b{display:block;font:700 1.2rem 'Space Grotesk',sans-serif;color:#fff}
+.shot small{display:block;color:var(--mute);font-weight:500;margin-top:.2rem}
+.retake{position:absolute;right:12%;bottom:15%;z-index:3;background:rgba(0,0,0,.65);border:1px solid #444;color:#fff;border-radius:9999px;padding:.5rem .9rem;font:700 .85rem Inter,sans-serif;pointer-events:none;-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px)}
+.btn{display:block;width:100%;border:0;border-radius:.95rem;cursor:pointer;font:700 1.15rem Inter,sans-serif;padding:1rem;background:linear-gradient(145deg,#f5dfa0 0%,#d4af37 45%,#9c7a22 100%);color:var(--ink);margin-top:1.1rem;min-height:3.8rem}
+.btn[disabled]{opacity:.5}
+.btn.ghost{background:#161616;color:#fff;border:1px solid #333}
+.msg{min-height:1.3rem;margin:.7rem 0 0;font-size:.95rem;color:#ff8a80}
+.msg.ok{color:#4ade80}
+.link{font-size:.88rem;color:var(--mute);margin:.5rem 0 0;min-height:1.2rem}
+.link.on{color:#4ade80}
+.done{text-align:center;padding:1.6rem 1rem}
+.done img{width:9rem;aspect-ratio:9/16;object-fit:cover;border-radius:1rem;border:2px solid var(--gold-d);margin:0 auto 1rem;display:block}
+.done h2{font:700 1.7rem 'Space Grotesk',sans-serif;margin:.2rem 0}
+.recent{display:grid;grid-template-columns:repeat(3,1fr);gap:.7rem;padding:.2rem 0 .6rem}
+.recent figure{margin:0;text-align:center;position:relative}
+.recent .t{position:relative;display:block;cursor:pointer;border-radius:.8rem;overflow:hidden}
+.recent .t input{position:absolute;inset:0;opacity:0;width:100%;height:100%;cursor:pointer;font-size:0;z-index:3}
+.recent img{width:100%;aspect-ratio:9/16;object-fit:cover;border-radius:.8rem;border:1px solid var(--line);background:#111;display:block}
+.recent img.fr{position:absolute;inset:0;height:100%;object-fit:fill;border:0;pointer-events:none}
+.recent .rp{position:absolute;left:50%;transform:translateX(-50%);bottom:12%;z-index:2;background:rgba(0,0,0,.7);color:#fff;border:1px solid #555;border-radius:9999px;padding:.25rem .6rem;font:700 .72rem Inter,sans-serif;white-space:nowrap}
+.recent .busy img{opacity:.4}
+.recent figcaption{font-size:.85rem;color:var(--mute);margin-top:.3rem;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+[hidden]{display:none!important}
+</style>
+</head>
+<body>
+<main>
+  <header><b class="hf">Endless <span class="gold">Fashion</span></b><span id="count"></span></header>
+  <a id="backAdmin" href="/admin" style="color:var(--mute);font-size:.88rem;text-decoration:none">‹ Admin</a>
+
+  <section id="gate" hidden>
+    <p class="eyebrow">Host only</p>
+    <h1>Unlock the <span class="gold">booth</span></h1>
+    <p class="sub">Use the same password as the game host page.</p>
+    <form class="card" id="gateForm">
+      <input type="password" id="key" placeholder="Host password" autocomplete="current-password" aria-label="Host password">
+      <button class="btn" type="submit">Unlock</button>
+      <p class="msg" id="gateMsg" role="alert"></p>
+    </form>
+  </section>
+
+  <section id="app" hidden>
+    <p class="eyebrow">GTA fashion · Friendsgiving</p>
+    <h1>Add to the <span class="gold">vote</span></h1>
+    <p class="sub">First name, one photo, done. They show up in the guest vote right away.</p>
+
+    <form class="card" id="form" novalidate>
+      <label class="lbl" for="name">First name</label>
+      <input type="text" id="name" maxlength="24" placeholder="Maria" autocomplete="off" autocapitalize="words" enterkeyhint="done">
+      <p class="link" id="link"></p>
+
+      <label class="shot" id="shot">
+        <input type="file" id="photo" accept="image/*" capture="environment" aria-label="Take outfit photo">
+        <span id="shotEmpty">
+          <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg></span>
+          <b>Take outfit photo</b>
+          <small>Hold the phone upright. Head to shoes.</small>
+        </span>
+        <img id="shotImg" alt="" hidden>
+        <img class="fr" id="frame" src="/images/gta-frame.webp" alt="" onerror="this.remove()">
+        <span class="retake" id="retake" hidden>Retake</span>
+      </label>
+
+
+      <div class="hp" aria-hidden="true"><input type="text" tabindex="-1" autocomplete="off"></div>
+      <button class="btn" id="submit" type="submit">Add to fashion vote</button>
+      <p class="msg" id="msg" role="alert"></p>
+    </form>
+
+    <div class="card done" id="done" hidden>
+      <img id="doneImg" alt="">
+      <p class="eyebrow">Added</p>
+      <h2 id="doneName"></h2>
+      <p class="sub" id="doneNote"></p>
+      <button class="btn" id="another" type="button">Add the next person</button>
+    </div>
+
+    <div id="recentWrap" hidden>
+      <p class="eyebrow" style="margin-top:1.4rem">In the vote</p>
+      <p class="sub" style="font-size:.9rem;margin-bottom:.6rem">Tap a photo to replace it.</p>
+      <div class="recent" id="recent"></div>
+      <p class="msg" id="rmsg" role="alert"></p>
+    </div>
+  </section>
+</main>
+
+<script>
+(function(){
+  var E=location.search.indexOf('e=sun')>-1?'sun':'fri';
+  var $=function(i){return document.getElementById(i)};
+  var key='';try{key=sessionStorage.getItem('eac.raffle1')||''}catch(e){}
+  var photo=null,players=[],busy=false;
+  $('backAdmin').href='/admin?e='+E;
+  function el(t,c,x){var e=document.createElement(t);if(c)e.className=c;if(x!=null)e.textContent=x;return e}
+  function clear(n){while(n.firstChild)n.removeChild(n.firstChild)}
+  function say(t,good){var m=$('msg');m.textContent=t;m.className='msg'+(good?' ok':'')}
+
+  function call(path,body,raw){
+    var h={authorization:'Bearer '+key};var o={method:(body||raw)?'POST':'GET',headers:h};
+    if(raw){o.body=raw;h['content-type']='image/jpeg'}else if(body){o.body=JSON.stringify(body);h['content-type']='application/json'}
+    return fetch('/api/game/host'+path+(path.indexOf('?')>-1?'&':'?')+'e='+E,o).then(function(r){return r.json().then(function(j){if(!r.ok){var er=new Error(j.error||'Something went wrong.');er.status=r.status;throw er}return j})});
+  }
+
+  function shrink(file){
+    return new Promise(function(res,rej){
+      var u=URL.createObjectURL(file),im=new Image();
+      im.onerror=function(){URL.revokeObjectURL(u);rej(new Error('Could not read that photo.'))};
+      im.onload=function(){
+        URL.revokeObjectURL(u);
+        var W=720,H=1280,k=Math.max(W/im.width,H/im.height),sw=W/k,sh=H/k,c=document.createElement('canvas');
+        c.width=W;c.height=H;c.getContext('2d').drawImage(im,(im.width-sw)/2,(im.height-sh)/2,sw,sh,0,0,W,H);
+        (function enc(q){c.toBlob(function(b){
+          if(!b){rej(new Error('Could not read that photo.'));return}
+          if(b.size>580000&&q>.4){enc(q-.15);return}
+          b.size>580000?rej(new Error('That photo is too large. Try again.')):res(b);
+        },'image/jpeg',q)})(.86);
+      };im.src=u;
+    });
+  }
+
+  function gate(){$('gate').hidden=false;$('app').hidden=true}
+  $('gateForm').addEventListener('submit',function(e){e.preventDefault();key=$('key').value;$('gateMsg').textContent='';load()});
+
+  function load(){
+    return call('/vote/state').then(function(s){
+      $('gate').hidden=true;$('app').hidden=false;
+      try{sessionStorage.setItem('eac.raffle1',key)}catch(e){}
+      players=s.players||[];
+      $('count').textContent=s.candidates.length+(s.candidates.length===1?' entry':' entries');
+      renderRecent(s.candidates);matchLink();
+    }).catch(function(x){
+      if(x.status===401||x.status===503||/password/i.test(x.message)){key='';try{sessionStorage.removeItem('eac.raffle1')}catch(e){}$('gateMsg').textContent=x.message;gate()}
+      else{gate();$('gateMsg').textContent=x.message}
+    });
+  }
+
+  var bust={};
+  function rsay(t,good){var m=$('rmsg');m.textContent=t;m.className='msg'+(good?' ok':'')}
+  function renderRecent(list){
+    var box=$('recent');clear(box);$('recentWrap').hidden=!list.length;
+    list.forEach(function(c){
+      var f=el('figure'),t=el('label','t');
+      var im=el('img');im.src='/api/game/vote/photo?id='+c.id+'&s=photo&e='+E+(bust[c.id]?'&v='+bust[c.id]:'');im.alt=c.name+' outfit';im.loading='lazy';
+      t.appendChild(im);
+      var fr=el('img','fr');fr.alt='';fr.src='/images/gta-frame.webp';fr.onerror=function(){fr.remove()};t.appendChild(fr);
+      t.appendChild(el('span','rp','Replace'));
+      var inp=el('input');inp.type='file';inp.accept='image/*';inp.setAttribute('capture','environment');inp.setAttribute('aria-label','Replace photo for '+c.name);
+      inp.onchange=function(){
+        var file=inp.files[0];inp.value='';if(!file)return;
+        if(!confirm('Replace '+c.name+"'s photo?"))return;
+        f.classList.add('busy');rsay('Replacing '+c.name+'’s photo…',true);
+        shrink(file).then(function(b){return call('/vote/replace?id='+c.id,null,b)}).then(function(){
+          bust[c.id]=Date.now();f.classList.remove('busy');rsay(c.name+'’s photo is replaced.',true);load();
+        }).catch(function(x){f.classList.remove('busy');rsay(x.message)});
+      };
+      t.appendChild(inp);f.appendChild(t);f.appendChild(el('figcaption','',c.name));box.appendChild(f);
+    });
+  }
+
+  function norm(s){return s.toLowerCase().normalize('NFD').replace(/[^a-z0-9]/g,'')}
+  function match(){
+    var n=norm($('name').value);if(!n)return null;
+    var hits=players.filter(function(p){return norm(p.name)===n});
+    return hits.length===1?hits[0]:null;
+  }
+  function matchLink(){
+    var l=$('link'),n=$('name').value.trim();
+    if(!n){l.textContent='';l.className='link';return}
+    var m=match();
+    if(m){l.textContent='Matched to a player in the game.';l.className='link on'}
+    else{l.textContent='Not in the game yet. They can still be in the vote.';l.className='link'}
+  }
+  $('name').addEventListener('input',matchLink);
+
+  function preview(file,img,show){
+    img.src=URL.createObjectURL(file);img.hidden=false;if(show)show();
+  }
+  $('photo').addEventListener('change',function(){
+    var f=this.files[0];if(!f)return;photo=f;say('');
+    preview(f,$('shotImg'),function(){$('shotEmpty').hidden=true;$('retake').hidden=false;$('shot').classList.add('has')});
+  });
+
+  function reset(){
+    photo=null;$('form').reset();
+    $('shotImg').hidden=true;$('shotImg').removeAttribute('src');$('shotEmpty').hidden=false;$('retake').hidden=true;$('shot').classList.remove('has');
+    $('link').textContent='';$('link').className='link';say('');
+  }
+
+  $('form').addEventListener('submit',function(e){
+    e.preventDefault();if(busy)return;
+    var n=$('name').value.trim().replace(/\s+/g,' ');
+    if(!n){say('Enter their first name.');$('name').focus();return}
+    if(!photo){say('Take the outfit photo first.');return}
+    busy=true;$('submit').disabled=true;say('Uploading…',true);
+    var m=match(),thumb=$('shotImg').src;
+    shrink(photo).then(function(b){
+      return call('/vote/add?name='+encodeURIComponent(n)+'&caption=&link='+encodeURIComponent(m?m.token:''),null,b);
+    }).then(function(){
+      $('doneImg').src=thumb;$('doneName').textContent=n;
+      $('doneNote').textContent=m?'In the vote and matched to their game name.':'In the vote. No game player matched that name.';
+      $('form').hidden=true;$('done').hidden=false;
+      busy=false;$('submit').disabled=false;
+      load();
+    }).catch(function(x){say(x.message);busy=false;$('submit').disabled=false});
+  });
+  $('another').addEventListener('click',function(){reset();$('done').hidden=true;$('form').hidden=false;$('name').focus()});
+
+  if(key)load();else gate();
+})();
+</script>
+</body>
+</html>

@@ -1,7 +1,9 @@
 import { DurableObject } from "cloudflare:workers";
 import { RaffleState } from "./raffle.js";
+import { PotluckState } from "./potluck.js";
+import { GameState } from "./game.js";
 
-export { RaffleState };
+export { RaffleState, PotluckState, GameState };
 
 const KEY_RE = /^\/api\/eacmedia\/([a-z0-9-]{3,50}-\d{4}-\d{2}-\d{2})$/;
 const ID_RE = /^([A-Z][0-9]{1,2}|p[0-9]{1,2})$/;
@@ -43,10 +45,25 @@ export default {
         return Response.redirect(url.toString(), 301);
       }
     }
+    if (/^\/agenda\/?$/i.test(url.pathname) && url.pathname !== "/agenda") {
+      url.pathname = "/agenda";
+      return Response.redirect(url.toString(), 301);
+    }
     if (url.pathname.startsWith("/api/raffle/")) {
       if (request.method !== "GET" && request.method !== "POST") return reply({ error: "Method not allowed" }, 405);
       if (Number(request.headers.get("content-length") || 0) > 2000) return reply({ error: "Too large" }, 413);
       return env.RAFFLE_STATE.get(env.RAFFLE_STATE.idFromName("main")).fetch(request);
+    }
+    if (url.pathname.startsWith("/api/potluck/")) {
+      if (request.method !== "GET" && request.method !== "POST") return reply({ error: "Method not allowed" }, 405);
+      if (Number(request.headers.get("content-length") || 0) > 1000) return reply({ error: "Too large" }, 413);
+      return env.POTLUCK_STATE.get(env.POTLUCK_STATE.idFromName(url.searchParams.get("e") === "sun" ? "friendsgiving-sun-2026" : "friendsgiving-2026")).fetch(request);
+    }
+    if (url.pathname.startsWith("/api/game/")) {
+      if (request.method !== "GET" && request.method !== "POST") return reply({ error: "Method not allowed" }, 405);
+      const upload = /^\/api\/game\/host\/vote\/(add|car|replace)$/.test(url.pathname);
+      if (Number(request.headers.get("content-length") || 0) > (upload ? 620000 : 2000)) return reply({ error: "Too large" }, 413);
+      return env.GAME_STATE.get(env.GAME_STATE.idFromName(url.searchParams.get("e") === "sun" ? "game-sun-2026" : "game-fri-2026")).fetch(request);
     }
     const m = KEY_RE.exec(url.pathname);
     if (!m) {

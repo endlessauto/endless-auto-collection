@@ -21,3 +21,9 @@ image-originals/
 tailwind.config.js
 css/tailwind.src.css
 worker.js
+
+game.js
+raffle.js
+potluck.js
+trivia-questions.js
+panel/

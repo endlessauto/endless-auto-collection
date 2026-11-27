@@ -13,7 +13,7 @@ Markers: `⚠️ verify` = inferred from the site or repo, confirm. `⚠️ NEED
 | Site | https://www.endlessautocollection.com |
 | NAP (canonical, matches schema) | 41907 Albrae St, Fremont, CA 94538 · +1 510-709-7097 · endlessautocollection@gmail.com |
 | Hours | By appointment only (per schema description) |
-| Social | Instagram @endlessautoco · YouTube @EndlessAutoworks |
+| Social | Instagram @endlessautoworks · YouTube @EndlessAutoworks |
 | Search country / language | US / English ⚠️ verify |
 | Service area | Fremont, Newark, Union City, Milpitas, Hayward, East Bay, Silicon Valley |
 | One-sentence offer | Fremont shop for PPF, ceramic coating, tint, wraps, detailing, and mechanical work on European and Japanese performance cars, done and documented in detail ⚠️ verify |

@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#050505">
+<title>Admin | Endless Auto Collection</title>
+<link rel="icon" href="/images/favicon.ico">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;700&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+:root{--gold:#f0c869;--gold-d:#d4af37;--ink:#140f00;--line:#262626;--card:#0d0d0d;--mute:#a1a1aa}
+body{margin:0;font:500 17px/1.4 Inter,system-ui,sans-serif;background:#050505;color:#f4f4f5;-webkit-font-smoothing:antialiased;padding:env(safe-area-inset-top) max(16px,env(safe-area-inset-right)) calc(3rem + env(safe-area-inset-bottom)) max(16px,env(safe-area-inset-left))}
+main{max-width:40rem;margin:0 auto}
+.hf{font-family:'Space Grotesk',Inter,sans-serif}
+.gold{background:linear-gradient(145deg,#f5dfa0,#d4af37 50%,#b08a2a);-webkit-background-clip:text;background-clip:text;color:transparent}
+header{padding:1.4rem 0 .6rem;display:flex;align-items:center;justify-content:space-between;gap:1rem}
+header b{font:700 1.3rem 'Space Grotesk',sans-serif;letter-spacing:-.3px}
+header button{background:none;border:1px solid #333;color:var(--mute);border-radius:9999px;padding:.4rem .9rem;font:700 .8rem Inter,sans-serif;cursor:pointer}
+.eyebrow{font-size:.72rem;letter-spacing:2px;text-transform:uppercase;font-weight:700;color:var(--gold);margin:1.8rem 0 .6rem}
+h1{font:700 clamp(2rem,9vw,2.5rem)/1.05 'Space Grotesk',sans-serif;letter-spacing:-.5px;margin:.4rem 0}
+.sub{color:var(--mute);margin:0 0 1rem}
+.card{background:var(--card);border:1px solid var(--line);border-radius:1.2rem;padding:1.1rem;margin:.8rem 0}
+input[type=password]{width:100%;background:#0f0f0f;border:1px solid #2a2a2a;border-radius:.9rem;color:#fff;font:inherit;font-size:1.1rem;padding:.95rem 1rem;outline:none}
+input[type=password]:focus{border-color:var(--gold-d)}
+.btn{display:block;width:100%;border:0;border-radius:.95rem;cursor:pointer;font:700 1.05rem Inter,sans-serif;padding:1rem;background:linear-gradient(145deg,#f5dfa0 0%,#d4af37 45%,#9c7a22 100%);color:var(--ink);margin-top:.7rem;min-height:3.4rem}
+.err{color:#ff8a80;min-height:1.2rem;margin:.5rem 0 0;font-size:.92rem}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:.5rem}
+.stats div{background:#0d0d0d;border:1px solid var(--line);border-radius:.9rem;padding:.7rem .4rem;text-align:center}
+.stats b{display:block;font:700 1.35rem 'Space Grotesk',sans-serif;font-variant-numeric:tabular-nums}
+.stats span{color:var(--mute);font-size:.74rem}
+.tool{display:flex;align-items:center;gap:.9rem;padding:1rem;margin:.6rem 0;background:var(--card);border:1px solid var(--line);border-radius:1.1rem;color:inherit;text-decoration:none}
+.tool:active{transform:scale(.99)}
+.tool i{flex:none;width:2.8rem;height:2.8rem;border-radius:.8rem;display:grid;place-items:center;background:#1d1a10;border:1px solid rgba(212,175,55,.45);color:var(--gold)}
+.tool i svg{width:1.4rem;height:1.4rem}
+.tool b{display:block;font-size:1.05rem}.tool span{color:var(--mute);font-size:.88rem}
+.tool em{margin-left:auto;font-style:normal;color:var(--mute);font-size:1.3rem}
+[hidden]{display:none!important}
+</style>
+</head>
+<body>
+<main>
+  <header><b class="hf">Endless <span class="gold">Admin</span></b><button id="out" type="button" hidden>Lock</button></header>
+
+  <section id="gate" hidden>
+    <h1>Unlock <span class="gold">admin</span></h1>
+    <p class="sub">One password opens every admin page.</p>
+    <form class="card" id="gateForm">
+      <input type="password" id="key" placeholder="Admin password" autocomplete="current-password" aria-label="Admin password">
+      <button class="btn" type="submit">Unlock</button>
+      <p class="err" id="msg" role="alert"></p>
+    </form>
+  </section>
+
+  <section id="app" hidden>
+    <p class="eyebrow">Game management · <span id="evt">Friday</span></p>
+    <div class="stats">
+      <div><b id="sP">–</b><span>Players</span></div>
+      <div><b id="sT">–</b><span>Trivia</span></div>
+      <div><b id="sE">–</b><span>Entries</span></div>
+      <div><b id="sV">–</b><span>Voting</span></div>
+    </div>
+
+    <a class="tool" id="host" href="/play-host">
+      <i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 3l14 9-14 9z"/></svg></i>
+      <div><b>Run the game</b><span>Start trivia, open and close the vote, reveal winners, give bonus entries.</span></div><em>›</em>
+    </a>
+    <a class="tool" id="booth" href="/fashion-booth">
+      <i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg></i>
+      <div><b>Fashion booth</b><span>Add contestants and replace their photos.</span></div><em>›</em>
+    </a>
+
+    <p class="eyebrow">Raffle</p>
+    <a class="tool" href="/raffle1">
+      <i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 12v9H4v-9M2 7h20v5H2zM12 22V7M12 7H7.5a2.5 2.5 0 1 1 0-5C11 2 12 7 12 7zM12 7h4.5a2.5 2.5 0 1 0 0-5C13 2 12 7 12 7z"/></svg></i>
+      <div><b>Raffle admin</b><span>Entries, bonuses and the draw.</span></div><em>›</em>
+    </a>
+
+    <p class="eyebrow">Guest pages</p>
+    <a class="tool" id="agenda" href="/agenda">
+      <i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><path d="M14 14h3v3h-3zM20 14v3M14 20h3M20 20h1"/></svg></i>
+      <div><b>QR page</b><span>What guests see when they scan.</span></div><em>›</em>
+    </a>
+    <a class="tool" id="play" href="/play">
+      <i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M12 18h.01"/></svg></i>
+      <div><b>Guest game screen</b><span>Trivia and vote, as guests play.</span></div><em>›</em>
+    </a>
+  </section>
+</main>
+
+<script>
+(function(){
+  var E=location.search.indexOf('e=sun')>-1?'sun':'fri';
+  var $=function(i){return document.getElementById(i)};
+  var key='';try{key=sessionStorage.getItem('eac.raffle1')||''}catch(e){}
+  var poll=null;
+  var q=E==='sun'?'?e=sun':'?e=fri';
+  $('evt').textContent=E==='sun'?'Sunday':'Friday';
+  ['host','booth','agenda','play'].forEach(function(id){$(id).href=$(id).getAttribute('href')+q});
+
+  function call(path){
+    return fetch('/api/game/host'+path+'?e='+E,{headers:{authorization:'Bearer '+key}}).then(function(r){return r.json().then(function(j){if(!r.ok){var er=new Error(j.error||'Something went wrong.');er.status=r.status;throw er}return j})});
+  }
+  function lock(msg){
+    clearTimeout(poll);key='';try{sessionStorage.removeItem('eac.raffle1')}catch(e){}
+    $('app').hidden=true;$('out').hidden=true;$('gate').hidden=false;$('msg').textContent=msg||'';
+  }
+  var PH={lobby:'Lobby',question:'Live',reveal:'Reveal',final:'Final'};
+  function load(){
+    clearTimeout(poll);
+    return Promise.all([call('/trivia/state'),call('/vote/state')]).then(function(r){
+      $('gate').hidden=true;$('app').hidden=false;$('out').hidden=false;
+      try{sessionStorage.setItem('eac.raffle1',key)}catch(e){}
+      $('sP').textContent=r[0].players;$('sT').textContent=PH[r[0].phase]||r[0].phase;
+      $('sE').textContent=r[1].candidates.length;$('sV').textContent=r[1].mode.charAt(0).toUpperCase()+r[1].mode.slice(1);
+      poll=setTimeout(function(){document.hidden?load():load()},5000);
+    }).catch(function(x){
+      if(x.status===401||x.status===503)lock(x.message);
+      else if(!$('app').hidden)poll=setTimeout(load,5000);
+      else lock(x.message);
+    });
+  }
+  $('gateForm').addEventListener('submit',function(e){e.preventDefault();key=$('key').value;$('key').value='';$('msg').textContent='';load()});
+  $('out').addEventListener('click',function(){lock('')});
+  if(key)load();else $('gate').hidden=false;
+})();
+</script>
+</body>
+</html>

@@ -4,10 +4,10 @@ const HEADERS = { "content-type": "application/json", "cache-control": "no-store
 const reply = (body, status = 200) => new Response(JSON.stringify(body), { status, headers: HEADERS });
 
 export const RAFFLE_ENDS = "2026-11-29T23:59:59-08:00";
-export const PRIZES = ["Endless Membership, 1 Month", "Full Car Detail", "Endless T-Shirt"];
+export const PRIZES = ["Endless Membership, 1 Month", "Full Car Detail or $100 Coupon", "Endless T-Shirt"];
 const MAX_ENTRIES_PER_IP = 5;
 const MAX_ADMIN_FAILS = 5;
-const MAX_POINTS = 4;
+const MAX_POINTS = 5;
 const DISPOSABLE = new Set(["mailinator.com","guerrillamail.com","10minutemail.com","tempmail.com","temp-mail.org","yopmail.com","trashmail.com","sharklasers.com","getnada.com","throwawaymail.com","maildrop.cc","dispostable.com","fakeinbox.com","mailnesia.com","mintemail.com"]);
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
 const HANDLE_RE = /^[A-Za-z0-9._]{1,30}$/;
@@ -31,7 +31,7 @@ const safeEqual = (a, b) => {
   return r === 0;
 };
 
-const weight = (e) => Math.min(MAX_POINTS, 1 + (e.ig_at ? 1 : 0) + (e.yt_at ? 1 : 0) + (e.google_at ? 1 : 0));
+const weight = (e) => Math.min(MAX_POINTS, 1 + (e.ig_at ? 1 : 0) + (e.yt_at ? 1 : 0) + (e.google_at ? 1 : 0) + (e.bloggo_at ? 1 : 0)) + (e.bonus || 0);
 
 const emailKey = (email) => {
   let [local, domain] = email.split("@");
@@ -60,7 +60,7 @@ export class RaffleState extends DurableObject {
       yt_at INTEGER
     )`);
     const cols = this.sql.exec("PRAGMA table_info(entries)").toArray().map((c) => c.name);
-    for (const [col, type] of [["email_key", "TEXT"], ["name_key", "TEXT"], ["ig_key", "TEXT"], ["google_at", "INTEGER"]]) {
+    for (const [col, type] of [["email_key", "TEXT"], ["name_key", "TEXT"], ["ig_key", "TEXT"], ["google_at", "INTEGER"], ["bloggo_at", "INTEGER"], ["removed_at", "INTEGER"], ["bonus", "INTEGER DEFAULT 0"]]) {
       if (!cols.includes(col)) this.sql.exec(`ALTER TABLE entries ADD COLUMN ${col} ${type}`);
     }
     for (const r of this.sql.exec("SELECT id, email, name, instagram_handle FROM entries WHERE email_key IS NULL").toArray()) {
@@ -75,6 +75,14 @@ export class RaffleState extends DurableObject {
       count INTEGER NOT NULL,
       locked_until INTEGER NOT NULL
     )`);
+    this.sql.exec(`CREATE TABLE IF NOT EXISTS bonus_awards (
+      id INTEGER PRIMARY KEY AUTOINCREMENT,
+      entry_id INTEGER NOT NULL,
+      reason TEXT NOT NULL,
+      points INTEGER NOT NULL,
+      created_at INTEGER NOT NULL,
+      UNIQUE (entry_id, reason)
+    )`);
     this.sql.exec(`CREATE TABLE IF NOT EXISTS winners (
       id INTEGER PRIMARY KEY AUTOINCREMENT,
       prize_index INTEGER NOT NULL,
@@ -87,14 +95,14 @@ export class RaffleState extends DurableObject {
   }
 
   total() {
-    return this.sql.exec("SELECT ig_at, yt_at, google_at FROM entries").toArray().reduce((n, e) => n + weight(e), 0);
+    return this.sql.exec("SELECT ig_at, yt_at, google_at, bloggo_at, bonus FROM entries WHERE removed_at IS NULL").toArray().reduce((n, e) => n + weight(e), 0);
   }
 
   mine(token) {
     if (typeof token !== "string" || token.length < 20) return null;
     const row = this.sql.exec("SELECT * FROM entries WHERE token = ?", token).toArray()[0];
     if (!row) return null;
-    return { name: row.name, entries: weight(row), instagram: !!row.ig_at, youtube: !!row.yt_at, google: !!row.google_at };
+    return { name: row.name, entries: weight(row), instagram: !!row.ig_at, youtube: !!row.yt_at, google: !!row.google_at, bloggo: !!row.bloggo_at, bonus: row.bonus || 0 };
   }
 
   state(token) {
@@ -164,6 +172,8 @@ export class RaffleState extends DurableObject {
       this.sql.exec("UPDATE entries SET yt_at = COALESCE(yt_at, ?) WHERE token = ?", Date.now(), token);
     } else if (b.action === "google") {
       this.sql.exec("UPDATE entries SET google_at = COALESCE(google_at, ?) WHERE token = ?", Date.now(), token);
+    } else if (b.action === "bloggo") {
+      this.sql.exec("UPDATE entries SET bloggo_at = COALESCE(bloggo_at, ?) WHERE token = ?", Date.now(), token);
     } else {
       return reply({ error: "Unknown action." }, 400);
     }
@@ -190,13 +200,51 @@ export class RaffleState extends DurableObject {
 
     if (path === "/admin/entries") {
       const rows = this.sql.exec(
-        `SELECT e.id, e.name, e.email, e.instagram_handle, e.ig_at, e.yt_at, e.google_at, e.created_at,
-          (SELECT COUNT(*) FROM entries o WHERE o.id <> e.id AND o.name_key = e.name_key) AS same_name,
-          (SELECT COUNT(*) FROM entries o WHERE o.id <> e.id AND o.ip_hash = e.ip_hash) AS same_network
+        `SELECT e.id, e.name, e.email, e.instagram_handle, e.ig_at, e.yt_at, e.google_at, e.bloggo_at, e.bonus, e.removed_at, e.created_at,
+          (SELECT COUNT(*) FROM entries o WHERE o.id <> e.id AND o.name_key = e.name_key AND o.removed_at IS NULL) AS same_name,
+          (SELECT COUNT(*) FROM entries o WHERE o.id <> e.id AND o.ip_hash = e.ip_hash AND o.removed_at IS NULL) AS same_network
          FROM entries e ORDER BY e.id`
       ).toArray();
       const winners = this.sql.exec("SELECT * FROM winners ORDER BY id").toArray();
       return reply({ prizes: PRIZES, entries: rows.map((r) => ({ ...r, tickets: weight(r) })), winners });
+    }
+
+    if ((path === "/admin/remove" || path === "/admin/restore") && request.method === "POST") {
+      const id = b.id;
+      if (!Number.isInteger(id)) return reply({ error: "Unknown entry." }, 400);
+      if (path === "/admin/remove") {
+        if (this.sql.exec("SELECT 1 FROM winners WHERE entry_id = ? AND status = 'active'", id).toArray().length) {
+          return reply({ error: "This entry is a current winner. Redraw that prize first." }, 409);
+        }
+        this.sql.exec("UPDATE entries SET removed_at = COALESCE(removed_at, ?) WHERE id = ?", Date.now(), id);
+      } else {
+        this.sql.exec("UPDATE entries SET removed_at = NULL WHERE id = ?", id);
+      }
+      return reply({ ok: true });
+    }
+
+    if (path === "/admin/bonus" && request.method === "POST") {
+      const points = b.points;
+      const reason = typeof b.reason === "string" ? b.reason.trim().slice(0, 60) : "";
+      if (!Number.isInteger(points) || points === 0 || Math.abs(points) > 20 || !reason) return reply({ error: "Enter points and a reason." }, 400);
+      const e = Number.isInteger(b.id)
+        ? this.sql.exec("SELECT id, name, bonus FROM entries WHERE id = ? AND removed_at IS NULL", b.id).toArray()[0]
+        : typeof b.token === "string" && b.token.length >= 20
+          ? this.sql.exec("SELECT id, name, bonus FROM entries WHERE token = ? AND removed_at IS NULL", b.token).toArray()[0]
+          : null;
+      if (!e) return reply({ error: "That guest is not in the raffle." }, 404);
+      if (this.sql.exec("SELECT 1 FROM bonus_awards WHERE entry_id = ? AND reason = ?", e.id, reason).toArray().length) {
+        return reply({ error: e.name + " already has this bonus." }, 409);
+      }
+      const next = Math.max(0, (e.bonus || 0) + points);
+      this.sql.exec("INSERT INTO bonus_awards (entry_id, reason, points, created_at) VALUES (?, ?, ?, ?)", e.id, reason, points, Date.now());
+      this.sql.exec("UPDATE entries SET bonus = ? WHERE id = ?", next, e.id);
+      return reply({ ok: true, name: e.name, bonus: next });
+    }
+
+    if (path === "/admin/reset-winners" && request.method === "POST") {
+      this.sql.exec("DELETE FROM winners");
+      return reply({ ok: true });
     }
 
     if (path === "/admin/draw" && request.method === "POST") {
@@ -206,7 +254,7 @@ export class RaffleState extends DurableObject {
       if (active.length && !b.redraw) return reply({ error: "Prize already drawn. Pass redraw to replace the winner." }, 409);
 
       const pool = this.sql.exec(
-        "SELECT * FROM entries WHERE id NOT IN (SELECT entry_id FROM winners) ORDER BY id"
+        "SELECT * FROM entries WHERE removed_at IS NULL AND id NOT IN (SELECT entry_id FROM winners) ORDER BY id"
       ).toArray();
       if (!pool.length) return reply({ error: "No eligible entries left." }, 409);
       const totalTickets = pool.reduce((n, e) => n + weight(e), 0);
@@ -223,7 +271,7 @@ export class RaffleState extends DurableObject {
       );
       return reply({
         prize: PRIZES[prize],
-        winner: { id: chosen.id, name: chosen.name, email: chosen.email, instagram_handle: chosen.instagram_handle, ig: !!chosen.ig_at, yt: !!chosen.yt_at, google: !!chosen.google_at },
+        winner: { id: chosen.id, name: chosen.name, email: chosen.email, instagram_handle: chosen.instagram_handle, ig: !!chosen.ig_at, yt: !!chosen.yt_at, google: !!chosen.google_at, bloggo: !!chosen.bloggo_at },
         pool_size: pool.length,
         total_tickets: totalTickets,
       });

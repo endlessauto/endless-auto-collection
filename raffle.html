@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Friendsgiving Raffle | Endless Giving | Endless Auto Collection</title>
-<meta name="description" content="Enter to win a 1 Month Endless Membership, a Full Car Detail, or an Endless T-Shirt from Endless Auto Collection in Fremont.">
+<meta name="description" content="Enter to win a 1 Month Endless Membership, a Full Car Detail or $100 coupon, or an Endless T-Shirt from Endless Auto Collection in Fremont.">
 <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
 <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon/favicon-32.png">
 <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon/apple-touch-icon.png">
@@ -13,8 +13,12 @@
 <meta property="og:type" content="website">
 <meta property="og:title" content="Friendsgiving Raffle | Endless Giving">
 <meta property="og:description" content="Three prizes. Enter with your name and email.">
-<meta property="og:image" content="https://www.endlessautocollection.com/Endless_Tshirt_Back_1.webp">
+<meta property="og:image" content="https://www.endlessautocollection.com/images/friendsgiving-preview.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="1502">
+<meta name="twitter:image" content="https://www.endlessautocollection.com/images/friendsgiving-preview.jpg">
 <meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="/css/tailwind.css">
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Space+Grotesk:wght@600;700&display=swap');
 *{box-sizing:border-box}
@@ -23,7 +27,7 @@ body{margin:0;font-family:Inter,system-ui,sans-serif;background:#050505;color:#e
 a{color:inherit}
 header{display:flex;justify-content:center;padding:1.4rem 1rem 0}
 header img{height:44px;width:auto;display:block}
-main{max-width:34rem;margin:0 auto;padding:1.5rem 1rem 4rem}
+main{max-width:34rem;margin:0 auto;padding:5.5rem 1rem 4rem}
 .eyebrow{text-align:center;font-size:.75rem;letter-spacing:3px;font-weight:600;color:#f0c869;text-transform:uppercase}
 h1{text-align:center;font-size:clamp(2.2rem,8vw,3.2rem);line-height:1;letter-spacing:-1.5px;margin:.6rem 0 .8rem;color:#fff}
 h1 em{font-style:normal;background:linear-gradient(145deg,#f5dfa0,#d4af37 50%,#b08a2a);-webkit-background-clip:text;background-clip:text;color:transparent}
@@ -65,7 +69,8 @@ input:focus{border-color:#d4af37;box-shadow:0 0 0 3px rgba(212,175,55,.18)}
 .ico svg{width:1.4rem;height:1.4rem;fill:#fff}
 .ig{background:linear-gradient(135deg,#515bd4,#8134af 45%,#dd2a7b 75%,#feda77)}
 .yt{background:#e52d27}
-.gr{background:#2a2a2a}
+.gr{background:#4285f4}
+.bl{background:linear-gradient(160deg,#2aa7ff,#0a60ff)}
 .row .t{flex:1;color:#fff;font-weight:600;font-size:.95rem;line-height:1.25}
 .row .t small{display:block;color:#777;font-weight:400;font-size:.8rem;margin-top:2px}
 .pill{flex:none;font-weight:600;font-size:.85rem;border:1px solid #333;border-radius:.6rem;padding:.35rem .65rem;color:#fff}
@@ -78,14 +83,54 @@ summary{cursor:pointer;color:#888;text-align:center}
 details ul{padding-left:1.1rem;margin:.8rem 0 0}
 details li{margin-bottom:.35rem}
 .closed{text-align:center;color:#f0c869;font-weight:600;padding:.5rem 0 1rem}
+.mem{flex:1;text-align:left;background:none;border:0;padding:0;color:inherit;font:inherit;font-weight:600;cursor:pointer}.mem small{display:block;color:#f0c869;font-weight:400;font-size:.78rem;margin-top:2px}.mem:hover small{text-decoration:underline}
+.info-btn{position:absolute;right:3.9rem;top:50%;transform:translateY(-50%);width:2rem;height:2rem;padding:0;background:none;border:0;color:#8a8a93;cursor:pointer;display:flex;align-items:center;justify-content:center;border-radius:9999px}.info-btn:hover{color:#f0c869}.info-btn svg{width:1.3rem;height:1.3rem}
+#actBl .row .t{padding-right:2rem}
 </style>
 </head>
 <body>
-<header><a href="/" aria-label="Endless Auto Collection home"><img src="/images/endless-logo.png" alt="Endless Auto Collection" height="44"></a></header>
+<nav id="navbar" class="fixed top-0 inset-x-0 z-50 border-b border-white/10">
+  <div class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
+    <a href="/" class="flex items-center shrink-0"><img src="/Endless_Tshirt_Back_1.webp" alt="Endless Auto Collection" class="h-6 sm:h-7 md:h-9 w-auto"></a>
+    <div class="hidden md:flex gap-7 text-xs tracking-widest text-zinc-300">
+      <div class="relative group/svc">
+        <a href="/#services" class="inline-flex items-center gap-1">SERVICES<svg class="w-3 h-3 mt-px transition-transform group-hover/svc:rotate-180" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg></a>
+        <div class="absolute left-1/2 -translate-x-1/2 top-full pt-3 opacity-0 pointer-events-none translate-y-1 group-hover/svc:opacity-100 group-hover/svc:pointer-events-auto group-hover/svc:translate-y-0 group-focus-within/svc:opacity-100 group-focus-within/svc:pointer-events-auto group-focus-within/svc:translate-y-0 transition-all duration-200 z-50">
+          <div class="w-72 rounded-2xl border border-white/10 bg-[#0a0a0a] p-2 shadow-2xl shadow-black/60">
+            <a href="/ppf" class="flex flex-col gap-0.5 px-4 py-3 rounded-xl hover:bg-white/5 transition-colors"><span class="text-white text-sm font-medium tracking-normal normal-case">Paint protection film</span><span class="text-white/40 text-xs tracking-normal normal-case">Self-healing film, 10-year warranty</span></a>
+            <a href="/ceramic" class="flex flex-col gap-0.5 px-4 py-3 rounded-xl hover:bg-white/5 transition-colors"><span class="text-white text-sm font-medium tracking-normal normal-case">Ceramic coating</span><span class="text-white/40 text-xs tracking-normal normal-case">Correction, then multi-year gloss</span></a>
+            <a href="/tint" class="flex flex-col gap-0.5 px-4 py-3 rounded-xl hover:bg-white/5 transition-colors"><span class="text-white text-sm font-medium tracking-normal normal-case">Window tint</span><span class="text-white/40 text-xs tracking-normal normal-case">Heat, UV, California-legal shades</span></a>
+            <a href="/wraps" class="flex flex-col gap-0.5 px-4 py-3 rounded-xl hover:bg-white/5 transition-colors"><span class="text-white text-sm font-medium tracking-normal normal-case">Custom wraps</span><span class="text-white/40 text-xs tracking-normal normal-case">Color change without paint</span></a>
+            <a href="/detailing" class="flex flex-col gap-0.5 px-4 py-3 rounded-xl hover:bg-white/5 transition-colors"><span class="text-white text-sm font-medium tracking-normal normal-case">Car detailing</span><span class="text-white/40 text-xs tracking-normal normal-case">Full detail or pick individual services</span></a>
+            <a href="/mechanical" class="flex flex-col gap-0.5 px-4 py-3 rounded-xl hover:bg-white/5 transition-colors"><span class="text-white text-sm font-medium tracking-normal normal-case">Mechanical services</span><span class="text-white/40 text-xs tracking-normal normal-case">Maintenance, inspection, diagnostic</span></a>
+          </div>
+        </div>
+      </div>
+      <a href="/#process">PROCESS</a>
+      <a href="/#faq">FAQ</a>
+      <a href="/about">ABOUT</a>
+      <a href="/forums">FORUMS</a>
+    </div>
+    <div class="flex items-center gap-2">
+      <button onclick="openQuote()" class="btn px-5 py-2 rounded-full text-sm">Consult</button>
+      <button onclick="toggleMenu()" id="menu-btn" class="md:hidden text-white p-2 -mr-2" aria-label="Menu" aria-expanded="false">
+        <svg id="menu-icon-open" class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/></svg>
+        <svg id="menu-icon-close" class="w-6 h-6 hidden" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
+      </button>
+    </div>
+  </div>
+  <div id="mobile-menu" class="hidden md:hidden px-6 pb-4 border-t border-white/10 bg-[#050505]">
+      <a href="/#services" onclick="toggleMenu()" class="block py-3 border-b border-white/5 text-zinc-300">SERVICES</a>
+      <a href="/#process" onclick="toggleMenu()" class="block py-3 border-b border-white/5 text-zinc-300">PROCESS</a>
+      <a href="/#faq" onclick="toggleMenu()" class="block py-3 border-b border-white/5 text-zinc-300">FAQ</a>
+      <a href="/about" onclick="toggleMenu()" class="block py-3 border-b border-white/5 text-zinc-300">ABOUT</a>
+      <a href="/forums" onclick="toggleMenu()" class="block py-3 border-b border-white/5 text-zinc-300">FORUMS</a>
+  </div>
+</nav>
 <main>
   <div class="eyebrow">Endless Giving</div>
   <h1 class="hf">Friendsgiving <em>Raffle</em></h1>
-  <p class="sub">Three winners. Enter with your name and email.</p>
+  <p class="sub">Three winners. Enter with your name and email.<br><strong style="color:#f0c869">We draw the winners at the end of Sunday, November 29.</strong></p>
 
   <div class="card">
     <div class="stats">
@@ -96,8 +141,8 @@ details li{margin-bottom:.35rem}
     <div class="body">
       <p class="sec">Raffle gifts</p>
       <ol class="prizes">
-        <li><i>1</i>Endless Membership, 1 Month</li>
-        <li><i>2</i>Full Car Detail</li>
+        <li><i>1</i><button type="button" class="mem" data-membership>Endless Membership, 1 Month<small>See the monthly package</small></button></li>
+        <li><i>2</i>Full Car Detail or $100 Coupon</li>
         <li><i>3</i>Endless T-Shirt</li>
       </ol>
       <p class="perk">Plus a free Endless sticker for everyone who enters, while supplies last.</p>
@@ -124,7 +169,7 @@ details li{margin-bottom:.35rem}
         <div class="act" id="actIg">
           <button class="row" type="button" id="igBtn">
             <span class="ico ig"><svg viewBox="0 0 24 24"><path d="M12 7.4A4.6 4.6 0 1 0 12 16.6 4.6 4.6 0 0 0 12 7.4Zm0 7.6a3 3 0 1 1 0-6 3 3 0 0 1 0 6Zm5.9-7.8a1.1 1.1 0 1 1-2.2 0 1.1 1.1 0 0 1 2.2 0ZM21 8.3c-.1-1.4-.4-2.6-1.4-3.6S17.100 3.100 15.700 3C14.200 2.900 9.800 2.900 8.300 3 6.900 3.100 5.700 3.400 4.700 4.400S3.100 6.900 3 8.300c-.1 1.500-.1 5.900 0 7.400.1 1.400.4 2.600 1.400 3.600s2.200 1.300 3.600 1.400c1.500.1 5.900.1 7.400 0 1.400-.1 2.600-.4 3.600-1.400s1.300-2.200 1.400-3.600c.1-1.500.1-5.900 0-7.400Zm-1.900 9.100a2.900 2.900 0 0 1-1.600 1.600c-1.100.4-3.800.3-5.500.3s-4.300.1-5.500-.3a2.900 2.900 0 0 1-1.600-1.600c-.4-1.100-.3-3.800-.3-5.500s-.1-4.300.3-5.500a2.900 2.900 0 0 1 1.600-1.600c1.100-.4 3.800-.3 5.500-.3s4.300-.1 5.500.3a2.900 2.900 0 0 1 1.600 1.600c.4 1.100.3 3.800.3 5.500s.1 4.300-.3 5.500Z"/></svg></span>
-            <span class="t">Follow @endlessautoco on Instagram<small>Then add your handle</small></span>
+            <span class="t">Follow @endlessautoworks on Instagram<small>Then add your handle</small></span>
             <span class="pill">+1</span>
           </button>
           <div class="expand" id="igExpand" hidden>
@@ -143,10 +188,19 @@ details li{margin-bottom:.35rem}
 
         <div class="act" id="actGr">
           <button class="row" type="button" id="grBtn">
-            <span class="ico gr"><svg viewBox="0 0 24 24"><path d="m12 17.300 5.200 3.100-1.400-5.900 4.600-4-6-.5L12 4.500 9.600 10 3.600 10.500l4.600 4-1.400 5.900L12 17.300Z"/></svg></span>
+            <span class="ico gr"><svg viewBox="0 0 24 24"><path fill="none" stroke="#fff" stroke-width="3.2" d="M19.600 8A8.200 8.200 0 1 0 20.200 12.600H12.200"/></svg></span>
             <span class="t">Leave us a Google review<small>Tell us about your experience</small></span>
             <span class="pill">+1</span>
           </button>
+        </div>
+
+        <div class="act" id="actBl" style="position:relative">
+          <button class="row" type="button" id="blBtn">
+            <span class="ico bl"><svg viewBox="0 0 24 24"><path d="M12.700 4.200 12 5.400l-.7-1.200a1.300 1.300 0 0 0-2.200 1.300l.9 1.600-4.200 7.300H4.200a1.300 1.300 0 0 0 0 2.600h9.900l-1.400-2.600H7.800l5-8.600.5.900a1.300 1.300 0 0 0 2.200-1.300l-.9-1.600a1.300 1.300 0 0 0-1.900-.9ZM19.800 14.400h-2.100l-3-5.200-1.300 2.200 3.500 6h3a1.300 1.300 0 0 0 0-2.600Z"/></svg></span>
+            <span class="t">Download Bloggo and leave an honest review<small>Bloggo: Journal &amp; Diary on the App Store</small></span>
+            <span class="pill">+1</span>
+          </button>
+          <button class="info-btn" type="button" id="blInfo" aria-label="About Bloggo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 11v5.500M12 7.700v.1"/></svg></button>
         </div>
       </section>
     </div>
@@ -155,24 +209,37 @@ details li{margin-bottom:.35rem}
   <details>
     <summary>Official rules</summary>
     <ul>
-      <li>No purchase necessary. Entering with your name and email gives one entry. Each bonus action adds one entry, up to four entries per person.</li>
+      <li>No purchase necessary. Entering with your name and email gives one entry. Each bonus action adds one entry, up to five entries per person.</li>
       <li>Open to U.S. residents 18 and older. One entry per person. We check for duplicate emails, names, and Instagram handles, and we remove duplicate or fake entries.</li>
       <li>Three winners, one per prize, drawn at random after the giveaway closes on November 29, 2026 at 11:59 pm Pacific.</li>
       <li>We email winners. A winner who doesn't reply within 48 hours forfeits the prize and we draw again.</li>
       <li>Prizes are redeemed in person at Endless Auto Collection in Fremont, California, by appointment. Prizes have no cash value and can't be transferred.</li>
       <li>Free stickers are available to everyone who enters, in person at our Fremont shop while supplies last. Ask for one when you visit.</li>
-      <li>This giveaway isn't sponsored, endorsed, or administered by Instagram, YouTube, or Google.</li>
+      <li>This giveaway isn't sponsored, endorsed, or administered by Instagram, YouTube, Google, or Apple.</li>
       <li>We use your name and email only to run this giveaway and contact winners.</li>
     </ul>
   </details>
 </main>
 
+<div id="quote" class="hidden fixed inset-0 bg-black/90 z-[100] p-4" style="align-items:center;justify-content:center">
+  <div class="bg-[#0a0a0a] border border-white/10 rounded-3xl w-full max-w-4xl overflow-hidden">
+    <div class="flex justify-between px-6 py-4 border-b border-white/10"><h3 class="text-xl font-semibold">Request a consultation</h3><button onclick="closeQuote()" class="text-3xl">&times;</button></div>
+    <iframe src="https://app.shopmonkey.cloud/public/quote-request/a4ae6990-41f1-4247-ae13-fd586c6981a6" width="100%" height="640" style="border:0"></iframe>
+  </div>
+</div>
+<script>
+function openQuote(){const m=document.getElementById('quote');m.classList.remove('hidden');m.style.display='flex';document.body.style.overflow='hidden'}
+function closeQuote(){const m=document.getElementById('quote');m.style.display='none';m.classList.add('hidden');document.body.style.overflow=''}
+function toggleMenu(){const m=document.getElementById('mobile-menu');const open=m.classList.contains('hidden');m.classList.toggle('hidden');document.getElementById('menu-icon-open').classList.toggle('hidden',open);document.getElementById('menu-icon-close').classList.toggle('hidden',!open);document.getElementById('menu-btn').setAttribute('aria-expanded',open?'true':'false')}
+window.addEventListener('resize',()=>{if(window.innerWidth>=768)document.getElementById('mobile-menu').classList.add('hidden')});
+window.addEventListener('scroll',()=>document.getElementById('navbar').classList.toggle('nav-scrolled',scrollY>70));
+</script>
 <script>
 (function(){
   var KEY='eac.raffle.token';
   var token=null;try{token=localStorage.getItem(KEY)}catch(e){}
   var $=function(id){return document.getElementById(id)};
-  var IG_URL='https://www.instagram.com/endlessautoco/';
+  var IG_URL='https://www.instagram.com/endlessautoworks/';
   var YT_URL='https://www.youtube.com/@EndlessAutoCollection?sub_confirmation=1';
 
   function api(path,opts){
@@ -193,6 +260,7 @@ details li{margin-bottom:.35rem}
       mark($('actIg'),s.me.instagram);
       mark($('actYt'),s.me.youtube);
       mark($('actGr'),s.me.google);
+      mark($('actBl'),s.me.bloggo);
       if(s.me.instagram)$('igExpand').hidden=true;
     }else{
       $('inSection').hidden=true;
@@ -241,13 +309,32 @@ details li{margin-bottom:.35rem}
     window.open('https://g.page/r/CZ1mmwMzzRySEBM/review','_blank','noopener');
     post('/bonus',{token:token,action:'google'}).then(render).catch(function(){});
   });
+  $('blBtn').addEventListener('click',function(){
+    window.open('https://apps.apple.com/us/app/bloggo-journal-diary/id6759849314','_blank','noopener');
+    post('/bonus',{token:token,action:'bloggo'}).then(render).catch(function(){});
+  });
   $('ytBtn').addEventListener('click',function(){
     window.open(YT_URL,'_blank','noopener');
     post('/bonus',{token:token,action:'youtube'}).then(render).catch(function(){});
   });
 
   load();
+  document.addEventListener('DOMContentLoaded',function(){
+  (function(){var m=$('blModal'),last;function open(){last=document.activeElement;m.classList.add('open');document.body.style.overflow='hidden';$('blClose').focus()}function close(){m.classList.remove('open');document.body.style.overflow='';if(last)last.focus()}
+  $('blInfo').addEventListener('click',function(e){e.stopPropagation();open()});$('blClose').addEventListener('click',close);m.addEventListener('click',function(e){if(e.target===m)close()});document.addEventListener('keydown',function(e){if(e.key==='Escape'&&m.classList.contains('open'))close()})})();
+  });
 })();
 </script>
+<div class="mm" id="blModal" role="dialog" aria-modal="true" aria-labelledby="blH">
+  <div class="mm-box">
+    <button class="mm-x" type="button" aria-label="Close" id="blClose">&times;</button>
+    <p class="mm-eye">About the app</p>
+    <h2 class="mm-h" id="blH">Bloggo: Journal &amp; Diary</h2>
+    <p style="margin:0 0 .9rem;color:#e4e4e7;line-height:1.55">Bloggo was created by Yoobin. Never forget a moment again.</p>
+    <p style="margin:0 0 .9rem;color:#a1a1aa;line-height:1.55">Bloggo turns your camera roll into a beautiful journal, organized by day and place, with captions written for you. Your memories stay private on your device unless you choose to share them.</p>
+    <a class="mm-go" href="https://apps.apple.com/us/app/bloggo-journal-diary/id6759849314" target="_blank" rel="noopener noreferrer">View on the App Store</a>
+  </div>
+</div>
+<script src="/js/membership-modal.js" defer></script>
 </body>
 </html>

@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#050505">
+<title>Tonight at Endless Giving | Endless Auto Collection</title>
+<meta name="description" content="Everything happening at the Endless Friendsgiving tonight: the flyer, the fashion vote, trivia and the raffle.">
+<link rel="canonical" href="https://www.endlessautocollection.com/agenda">
+<link rel="icon" href="/images/favicon.ico">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;700&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+:root{--gold:#f0c869;--gold-d:#d4af37;--ink:#140f00;--line:#262626;--card:#0d0d0d;--mute:#a1a1aa}
+html{scroll-behavior:smooth}
+body{margin:0;font:500 17px/1.45 Inter,system-ui,sans-serif;background:#050505;color:#f4f4f5;-webkit-font-smoothing:antialiased;padding:env(safe-area-inset-top) max(16px,env(safe-area-inset-right)) calc(3rem + env(safe-area-inset-bottom)) max(16px,env(safe-area-inset-left))}
+.nav{position:fixed;top:0;left:0;right:0;z-index:50;background:rgba(5,5,5,.88);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);border-bottom:1px solid rgba(255,255,255,.1);padding-top:env(safe-area-inset-top)}
+.nav .bar{max-width:72rem;margin:0 auto;height:4rem;padding:0 max(1.2rem,env(safe-area-inset-right)) 0 max(1.2rem,env(safe-area-inset-left));display:flex;align-items:center;justify-content:space-between;gap:1rem}
+.nav .logo img{display:block;height:1.6rem;width:auto}
+.nav .links{display:none;gap:1.8rem;font-size:.75rem;letter-spacing:.18em;color:#d4d4d8}
+.nav .links a,.nav .drawer a{color:inherit;text-decoration:none}
+.nav .links a:hover{color:#fff}
+.nav .burger{display:grid;place-items:center;width:2.75rem;height:2.75rem;margin-right:-.6rem;background:none;border:0;color:#fff;cursor:pointer}
+.nav .burger svg{width:1.5rem;height:1.5rem}
+.nav .drawer{border-top:1px solid rgba(255,255,255,.1);background:#050505;padding:0 max(1.2rem,env(safe-area-inset-left)) .8rem}
+.nav .drawer a{display:block;padding:.9rem 0;border-bottom:1px solid rgba(255,255,255,.06);color:#d4d4d8;font-size:.9rem;letter-spacing:.16em}
+@media (min-width:768px){.nav .links{display:flex}.nav .burger,.nav .drawer{display:none!important}}
+main{max-width:30rem;margin:0 auto;padding-top:4.5rem}
+.hf{font-family:'Space Grotesk',Inter,sans-serif}
+.gold{background:linear-gradient(145deg,#f5dfa0,#d4af37 50%,#b08a2a);-webkit-background-clip:text;background-clip:text;color:transparent}
+.eyebrow{font-size:.72rem;letter-spacing:2px;text-transform:uppercase;font-weight:700;color:var(--gold);margin:0 0 .3rem}
+h1,h2{font-family:'Space Grotesk',sans-serif;margin:.2rem 0 .5rem;line-height:1.05;letter-spacing:-.5px}
+h1{font-size:clamp(2.3rem,11vw,3rem)}h2{font-size:1.65rem}
+.sub{color:var(--mute);margin:0 0 1rem}
+.hero{padding:1.6rem 0 .4rem}
+.hero p{font-size:1.12rem;color:#d4d4d8;margin:.4rem 0 1.2rem}
+.btn{display:flex;align-items:center;justify-content:center;gap:.5rem;width:100%;border:0;border-radius:.95rem;cursor:pointer;font:700 1.1rem Inter,sans-serif;padding:1rem;background:linear-gradient(145deg,#f5dfa0 0%,#d4af37 45%,#9c7a22 100%);color:var(--ink);min-height:3.5rem;text-decoration:none}
+.btn.ghost{background:#141414;color:#fff;border:1px solid #333}
+.btn[disabled]{opacity:.55}
+section{margin-top:2.4rem}
+.card{background:var(--card);border:1px solid var(--line);border-radius:1.2rem;padding:1.1rem}
+.tonight{display:grid;gap:.5rem;margin:.2rem 0 0;padding:0;list-style:none}
+.tonight li{display:flex;gap:.8rem;align-items:center;padding:.8rem .9rem;background:#0d0d0d;border:1px solid var(--line);border-radius:.9rem}
+.tonight i{flex:none;width:2rem;height:2rem;border-radius:50%;display:grid;place-items:center;font-style:normal;font-weight:700;font-size:.85rem;background:#1d1a10;border:1px solid rgba(212,175,55,.45);color:var(--gold)}
+.tonight b{display:block;font-size:1rem}.tonight span{color:var(--mute);font-size:.88rem}
+.know{display:flex;gap:.8rem;align-items:center;margin-top:.8rem;padding:.9rem 1rem;border-radius:1rem;background:#17130a;border:1px solid rgba(212,175,55,.35)}
+.know i{flex:none;width:2.2rem;height:2.2rem;border-radius:50%;display:grid;place-items:center;background:#1d1a10;border:1px solid rgba(212,175,55,.45);color:var(--gold)}
+.know i svg{width:1.1rem;height:1.1rem}
+.know b{display:block;font-size:1rem}.know span{color:#d4d4d8;font-size:.92rem}
+input[type=text]{width:100%;background:#0f0f0f;border:1px solid #2a2a2a;border-radius:.9rem;color:#fff;font:inherit;font-size:1.1rem;padding:.95rem 1rem;outline:none}
+input[type=text]:focus{border-color:var(--gold-d)}
+.err{color:#ff8a80;min-height:1.2rem;margin:.5rem 0 0;font-size:.92rem}
+.hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+.note{color:var(--mute);font-size:.88rem;margin:.9rem 0 0}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:.8rem;margin-top:1rem}
+.pc{position:relative;display:block;width:100%;padding:0;border:0;background:none;color:inherit;font:inherit;text-align:left;cursor:pointer;border-radius:1.1rem}
+.pc:disabled{cursor:default}
+.pc .ph{position:relative;aspect-ratio:9/16;border-radius:.9rem;overflow:hidden;background:#111}
+.pc .ph>img.o{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+.pc .fr{position:absolute;inset:0;width:100%;height:100%;object-fit:fill;pointer-events:none;z-index:2}
+.pc.css .ph{border:3px solid #fff;box-shadow:0 0 0 3px #000,0 0 0 5px var(--gold-d)}
+.pc .shade{position:absolute;left:0;right:0;bottom:0;height:30%;background:linear-gradient(transparent,rgba(0,0,0,.88));z-index:1}
+.pc .plate{position:absolute;left:11%;right:11%;bottom:15.5%;z-index:3;text-align:center}
+.pc .nm{display:block;font:700 1.2rem/1.05 'Space Grotesk',sans-serif;text-transform:uppercase;letter-spacing:.5px;color:#fff;text-shadow:0 2px 0 #000,0 0 10px rgba(0,0,0,.7);overflow-wrap:anywhere}
+.pc .st{display:inline-block;margin-top:.35rem;font-size:.72rem;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;color:var(--ink);background:var(--gold);border-radius:9999px;padding:.2rem .55rem}
+.pc .tick{position:absolute;left:12%;top:20%;z-index:3;width:2rem;height:2rem;border-radius:50%;display:none;place-items:center;background:var(--gold);color:var(--ink)}
+.pc .tick svg{width:1.1rem;height:1.1rem}
+.pc.sel .ph{box-shadow:0 0 0 3px var(--gold-d)}
+.pc.sel .tick{display:grid}
+.pc.win .ph{box-shadow:0 0 0 3px var(--gold-d),0 0 28px rgba(212,175,55,.45)}
+.pc:not(:disabled):active .ph{transform:scale(.98)}
+.state{display:flex;align-items:center;gap:.5rem;font-size:.92rem;color:var(--mute);margin:.2rem 0 0}
+.live{display:inline-block;width:.6rem;height:.6rem;border-radius:50%;background:#ef4444;animation:p 1.4s ease-in-out infinite}
+@keyframes p{0%,100%{opacity:.35}50%{opacity:1}}
+@media (prefers-reduced-motion:reduce){.live{animation:none}html{scroll-behavior:auto}.pc .ph{transition:none}}
+.empty{text-align:center;padding:1.6rem 1rem;color:var(--mute)}
+.when{display:inline-block;margin:.1rem 0 .8rem;padding:.35rem .8rem;border-radius:9999px;background:#1d1a10;border:1px solid rgba(212,175,55,.45);color:var(--gold);font-weight:700;font-size:.92rem}
+.raffle{background:linear-gradient(160deg,#17130a,#0d0d0d 60%);border-color:rgba(212,175,55,.35)}
+[hidden]{display:none!important}
+</style>
+</head>
+<body>
+<nav class="nav" aria-label="Main">
+  <div class="bar">
+    <a class="logo" href="/"><img src="/Endless_Tshirt_Back_1.webp" alt="Endless Auto Collection"></a>
+    <div class="links">
+      <a href="/#services">SERVICES</a>
+      <a href="/#process">PROCESS</a>
+      <a href="/#faq">FAQ</a>
+      <a href="/about">ABOUT</a>
+      <a href="/forums">FORUMS</a>
+    </div>
+    <button class="burger" id="burger" type="button" aria-label="Menu" aria-expanded="false" aria-controls="drawer">
+      <svg id="bOpen" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+      <svg id="bClose" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" hidden><path d="M6 18 18 6M6 6l12 12"/></svg>
+    </button>
+  </div>
+  <div class="drawer" id="drawer" hidden>
+    <a href="/#services">SERVICES</a>
+    <a href="/#process">PROCESS</a>
+    <a href="/#faq">FAQ</a>
+    <a href="/about">ABOUT</a>
+    <a href="/forums">FORUMS</a>
+  </div>
+</nav>
+<main>
+    <div class="hero">
+    <p class="eyebrow">Tonight</p>
+    <h1>Happy <span class="gold">Thanksgiving</span></h1>
+    <p>Thank you for coming. Much love from the Endless team.</p>
+    <a class="btn" id="flyer" href="/friendsgiving">See the flyer</a>
+  </div>
+
+  <section id="tonight">
+    <p class="eyebrow">What's happening</p>
+    <h2>Tonight at Endless Giving</h2>
+    <ul class="tonight">
+      <li><i>1</i><div><b>Eat and hang out</b><span>Potluck table, music and billiards.</span></div></li>
+      <li><i>2</i><div><b>Trivia: how well do you know your cars?</b><span>Play from your phone.</span></div></li>
+      <li><i>3</i><div><b>GTA fashion vote</b><span>Pick the best dressed. Voting stays open until the host closes it.</span></div></li>
+      <li><i>4</i><div><b>Raffle</b><span>Enter any time. Winners are announced Sunday.</span></div></li>
+    </ul>
+    <div class="know" role="note">
+      <i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="11" width="18" height="10" rx="2"/><path d="M7 11V8a5 5 0 0 1 10 0v3"/></svg></i>
+      <div><b>Restrooms</b><span>They're in the back and need a keycard. Ask any Endless team member and we'll let you in.</span></div>
+    </div>
+  </section>
+
+  <section id="raffle">
+    <div class="card raffle">
+      <p class="eyebrow">Raffle</p>
+      <h2>Enter the raffle</h2>
+      <p class="when">Winners are announced Sunday, Nov 29.</p>
+      <p class="sub">Free to enter. Prizes include a 1 Month Endless Membership, a Full Car Detail or $100 coupon, and an Endless T-Shirt. The fashion winner gets 3 bonus entries and the trivia winner gets 2.</p>
+      <a class="btn" href="/raffle">Go to the raffle</a>
+    </div>
+  </section>
+
+  <section id="trivia">
+    <div class="card">
+      <p class="eyebrow">Trivia</p>
+      <h2>How well do you know your cars?</h2>
+      <p class="sub" style="margin-bottom:.6rem">Photo questions, 20 seconds each. Fastest right answer scores most. The winner gets 2 bonus raffle entries.</p>
+      <p class="state" id="tState"></p>
+      <a class="btn" id="play" href="/play" style="margin-top:1rem">Play trivia</a>
+    </div>
+  </section>
+
+  <section id="fashion">
+    <p class="eyebrow">GTA fashion</p>
+    <h2>Who's best dressed?</h2>
+    <p class="sub" id="fSub">Tap the person you think is best dressed.</p>
+
+    <form class="card" id="joinForm" novalidate hidden>
+      <p style="margin:0 0 .7rem;font-weight:700">Enter your first name to vote</p>
+      <input type="text" id="name" maxlength="24" placeholder="Your first name" autocomplete="given-name" aria-label="Your first name">
+      <div class="hp" aria-hidden="true"><label>Website<input type="text" id="website" tabindex="-1" autocomplete="off"></label></div>
+      <button class="btn" id="joinBtn" type="submit" style="margin-top:.7rem">Continue</button>
+      <p class="err" id="joinErr" role="alert"></p>
+      <p class="note" style="margin-top:.2rem">Your name shows on the trivia leaderboard. We don't store anything else.</p>
+    </form>
+
+    <div id="cards"></div>
+    <p class="err" id="voteErr" role="alert"></p>
+  </section>
+
+</main>
+
+<script>
+(function(){
+  var E=location.search.indexOf('e=sun')>-1?'sun':'fri';
+  var API='/api/game';
+  var $=function(i){return document.getElementById(i)};
+  $('burger').addEventListener('click',function(){
+    var open=$('drawer').hidden;$('drawer').hidden=!open;$('bOpen').hidden=open;$('bClose').hidden=!open;this.setAttribute('aria-expanded',open);
+  });
+  window.addEventListener('resize',function(){if(window.innerWidth>=768){$('drawer').hidden=true;$('bOpen').hidden=false;$('bClose').hidden=true;$('burger').setAttribute('aria-expanded',false)}});
+  var token='',vv=null,lastKey='',pollV=null,pollT=null;
+  try{token=localStorage.getItem('eac.game.token.'+E)||''}catch(e){}
+  if(E==='sun'){$('flyer').href='/friendsgiving-sun';$('play').href='/play?e=sun'}
+  function api(path,body){
+    var u=API+path+(path.indexOf('?')>-1?'&':'?')+'e='+E;
+    return fetch(u,{method:body?'POST':'GET',headers:body?{'content-type':'application/json'}:undefined,body:body?JSON.stringify(body):undefined}).then(function(r){return r.json().then(function(j){if(!r.ok)throw new Error(j.error||'Something went wrong.');return j})});
+  }
+  function el(tag,cls,text){var e=document.createElement(tag);if(cls)e.className=cls;if(text!=null)e.textContent=text;return e}
+  function clear(n){while(n.firstChild)n.removeChild(n.firstChild)}
+
+  // MARK: - Join
+  function needJoin(){
+    $('joinForm').hidden=false;
+    var rt='';try{rt=localStorage.getItem('eac.raffle.token')||''}catch(e){}
+    if(rt){fetch('/api/raffle/state?token='+encodeURIComponent(rt)).then(function(r){return r.json()}).then(function(s){if(s&&s.me&&s.me.name&&!$('name').value)$('name').value=s.me.name.split(' ')[0]}).catch(function(){})}
+  }
+  $('joinForm').addEventListener('submit',function(ev){
+    ev.preventDefault();var n=$('name').value.trim();
+    if(!n){$('joinErr').textContent='Enter your first name.';return}
+    var rt='';try{rt=localStorage.getItem('eac.raffle.token')||''}catch(e){}
+    $('joinBtn').disabled=true;$('joinErr').textContent='';
+    api('/join',{name:n,website:$('website').value,raffleToken:rt}).then(function(j){
+      token=j.token;try{localStorage.setItem('eac.game.token.'+E,token)}catch(e){}
+      $('joinForm').hidden=true;$('joinBtn').disabled=false;lastKey='';loadVote();
+    }).catch(function(x){$('joinErr').textContent=x.message;$('joinBtn').disabled=false});
+  });
+
+  // MARK: - Fashion vote
+  var CHECK='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>';
+  function loadVote(){
+    clearTimeout(pollV);
+    api('/vote/state?token='+encodeURIComponent(token)).then(function(s){
+      vv=s;renderVote();
+    }).catch(function(){}).then(function(){
+      pollV=setTimeout(function(){document.hidden?loadVote():loadVote()},document.hidden?4000:6000);
+    });
+  }
+  function card(c,s,res){
+    var mine=s.myVote===c.id,open=s.mode==='open'&&!!token,r=res[c.id];
+    var b=el('button','pc'+(mine?' sel':'')+(s.mode==='revealed'&&r&&r.winner?' win':''));b.type='button';
+    b.setAttribute('aria-pressed',mine);b.setAttribute('aria-label',(open?'Vote for ':'')+c.name);
+    var ph=el('div','ph');
+    var im=el('img','o');im.src=API+'/vote/photo?id='+c.id+'&s=photo&e='+E;im.alt=c.name+' outfit';im.loading='lazy';ph.appendChild(im);
+    ph.appendChild(el('div','shade'));
+    var fr=el('img','fr');fr.alt='';fr.src='/images/gta-frame.webp';fr.onerror=function(){fr.remove();b.classList.add('css')};ph.appendChild(fr);
+    var tk=el('span','tick');tk.innerHTML=CHECK;ph.appendChild(tk);
+    var pl=el('div','plate');pl.appendChild(el('span','nm',c.name));
+    if(s.mode==='revealed'&&r)pl.appendChild(el('span','st',r.votes+(r.votes===1?' vote':' votes')+(r.winner?' · winner':'')));
+    else if(mine)pl.appendChild(el('span','st','Your vote'));
+    ph.appendChild(pl);b.appendChild(ph);
+    b.disabled=!open;
+    if(open)b.onclick=function(){
+      if(vv.myVote===c.id)return;
+      vv.myVote=c.id;lastKey='';renderVote();$('voteErr').textContent='';
+      api('/vote/cast',{token:token,candidate:c.id}).then(loadVote).catch(function(x){$('voteErr').textContent=x.message;loadVote()});
+    };
+    return b;
+  }
+  function renderVote(){
+    var s=vv,box=$('cards');
+    var key=[s.mode,s.myVote,token?1:0,s.candidates.map(function(c){return c.id}).join(','),(s.results||[]).map(function(r){return r.id+':'+r.votes}).join(',')].join('|');
+    if(key===lastKey)return;lastKey=key;clear(box);
+    $('fSub').textContent={closed:'Voting opens soon. Have a look at the entries.',open:token?'Tap the person you think is best dressed. You can change your vote until voting closes.':'Enter your first name to vote.',revealed:'Voting is closed. Here are the results.'}[s.mode];
+    if(!s.candidates.length){var e=el('div','card empty','New entries are added as guests arrive. Check back soon.');box.appendChild(e);return}
+    var res={};if(s.results)s.results.forEach(function(r){res[r.id]=r});
+    var g=el('div','grid');s.candidates.forEach(function(c){g.appendChild(card(c,s,res))});box.appendChild(g);
+  }
+
+  // MARK: - Trivia status
+  function loadTrivia(){
+    clearTimeout(pollT);
+    api('/trivia/state?token='+encodeURIComponent(token)).then(function(s){
+      var t=$('tState');clear(t);
+      if(s.phase==='question'||s.phase==='reveal'){t.appendChild(el('span','live'));t.appendChild(el('span','','Live now · question '+(s.qi+1)+' of '+s.total))}
+      else if(s.phase==='final')t.appendChild(el('span','','Game over. See the final results.'));
+      else t.appendChild(el('span','',s.players?s.players+(s.players===1?' player is':' players are')+' waiting.':'Starts when the host starts it.'));
+      $('play').textContent=s.phase==='question'||s.phase==='reveal'?'Join the game':s.phase==='final'?'See results':'Play trivia';
+    }).catch(function(){}).then(function(){pollT=setTimeout(loadTrivia,document.hidden?6000:5000)});
+  }
+
+  document.addEventListener('visibilitychange',function(){if(!document.hidden){loadVote();loadTrivia()}});
+  api('/vote/state?token='+encodeURIComponent(token)).then(function(){
+    if(!token)needJoin();
+    else api('/trivia/state?token='+encodeURIComponent(token)).then(function(s){if(!s.me){token='';try{localStorage.removeItem('eac.game.token.'+E)}catch(e){}needJoin()}}).catch(function(){});
+    loadVote();loadTrivia();
+  }).catch(function(){$('fSub').textContent='Could not load the vote. Pull down to refresh.'});
+})();
+</script>
+</body>
+</html>
