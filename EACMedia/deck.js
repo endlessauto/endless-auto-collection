@@ -75,7 +75,7 @@
           '<summary class="g-sum"><span class="s-t">' + esc(g.name) + '</span><span class="s-c"></span><i class="chev" aria-hidden="true"></i></summary>' +
           '<p class="note">' + esc(g.note) + '</p><ul class="cards">' + g.shots.map(card).join("") + '</ul></details>';
       }).join("");
-      var cuts = sh.cuts ? '<details class="fold group cutsbox" data-key="' + sh.id + '-cuts"><summary class="g-sum"><span class="s-t">Cuts this shoot feeds</span><span class="s-c"></span><i class="chev" aria-hidden="true"></i></summary><p class="note">Ready means every shot the cut needs is marked Got it.</p><ul class="cuts">' + sh.cuts.map(function (c, i) {
+      var cuts = sh.cuts ? '<details class="fold group cutsbox" data-key="' + sh.id + '-cuts"><summary class="g-sum"><span class="s-t">Videos from this shoot</span><span class="s-c"></span><i class="chev" aria-hidden="true"></i></summary><p class="note">Ready means every shot the cut needs is marked Got it.</p><ul class="cuts">' + sh.cuts.map(function (c, i) {
         return '<li class="cut" data-needs="' + c[2].join(",") + '" data-ready="0"><div class="cut-h"><span class="cut-t">' + esc(c[0]) + '</span><span class="cut-s">0/' + c[2].length + '</span></div><p>' + esc(c[1]) + '</p>' + cutMeta(c[3]) + '<div class="miss"></div></li>';
       }).join("") + '</ul></details>' : "";
       return '<details class="shoot ' + sh.cls + '" id="' + sh.id + '" data-key="' + sh.id + '" data-ids="' + ids(shootItems(sh)) + '">' +

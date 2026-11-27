@@ -1,0 +1,318 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The strut comes out spring on</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=Inter:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+:root{--black:#050505;--graphite:#191919;--gold:#F5B51B;--gold-hi:#FFD45A;--gold-burnt:#C77A00;--white:#F4F4F2;--steel:#BFC1C3}
+*{box-sizing:border-box}
+body{margin:0;background:#121212;color:var(--white);font-family:'Inter',sans-serif;padding:24px 16px 64px}
+
+/* Brief box */
+.brief{max-width:760px;margin:0 auto 28px;padding:18px 20px;background:#1a1a1a;border:1px solid rgba(245,181,27,.25);border-radius:8px;font-size:13px;line-height:1.6;color:#d9d9d6}
+.brief h1{font-family:'Archivo',sans-serif;font-stretch:125%;font-weight:800;font-size:18px;margin:0 0 10px;color:var(--white)}
+.brief b{color:var(--gold);font-weight:600}
+.brief ul{margin:4px 0 8px;padding-left:18px}
+.brief .cap{white-space:pre-line;background:#111;border-radius:6px;padding:10px 12px;margin:4px 0 8px}
+
+/* Deck */
+.deck{display:flex;flex-wrap:wrap;gap:22px;justify-content:center}
+.sw{width:360px}
+.sn{font:600 10px 'Inter',sans-serif;letter-spacing:2px;text-transform:uppercase;color:#7d7f81;margin-bottom:6px}
+.slide{position:relative;width:360px;height:450px;background:var(--black);overflow:hidden;color:var(--white)}
+.slide.insight{background:var(--graphite)}
+.pad{position:absolute;inset:24px;display:flex;flex-direction:column;z-index:3}
+.center{justify-content:center;align-items:center;text-align:center}
+
+/* Type */
+.hd{font-family:'Archivo',sans-serif;font-stretch:125%;font-weight:800;line-height:1.05;letter-spacing:-.2px}
+.hd b,.cl b{color:var(--gold);font-weight:800}
+.eb{font:600 9px 'Inter',sans-serif;letter-spacing:3px;text-transform:uppercase;color:var(--gold)}
+.setup{font:italic 400 16px/1.4 'Inter',sans-serif;color:var(--steel)}
+.sup{font:400 14px/1.5 'Inter',sans-serif;color:var(--steel);margin-top:12px}
+.metal{background:linear-gradient(180deg,#FFFFFF 0%,#F4F4F2 40%,#BFC1C3 75%,#8E9093 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
+.rule{width:36px;height:2px;background:var(--gold);margin:0 auto 18px}
+
+/* Photos */
+.ph{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0}
+.shade{position:absolute;inset:0;z-index:1;background:linear-gradient(to top,rgba(5,5,5,.97) 0%,rgba(5,5,5,.85) 38%,rgba(5,5,5,.25) 75%,rgba(5,5,5,.55) 100%)}
+.ph-top{position:absolute;top:0;left:0;right:0;height:180px;width:100%;object-fit:cover;z-index:0}
+.ph-top-fade{position:absolute;top:0;left:0;right:0;height:180px;z-index:1;background:linear-gradient(to bottom,rgba(5,5,5,0) 40%,var(--black) 100%)}
+
+/* Content slides */
+.num{font-family:'Archivo',sans-serif;font-stretch:125%;font-weight:800;font-size:64px;line-height:1;color:transparent;-webkit-text-stroke:1px rgba(191,193,195,.35)}
+.cl{position:relative;padding-left:16px;margin-top:auto;margin-bottom:auto}
+.bar{position:absolute;left:0;top:4px;bottom:4px;width:3px;background:linear-gradient(to bottom,var(--gold-hi),var(--gold-burnt))}
+.cl .hd{font-size:25px;font-weight:700}
+
+/* Footer and marks */
+.flogo{position:absolute;left:24px;bottom:16px;width:132px;height:auto;z-index:5}
+.sph-bg{position:absolute;width:300px;height:300px;left:30px;top:75px;opacity:.07;z-index:0}
+.flogo.top{bottom:auto;top:22px}
+
+/* CTA */
+.logo{width:260px;height:auto;margin-bottom:22px}
+.pill{display:inline-block;margin-top:20px;padding:7px 14px;border:1.5px solid rgba(245,181,27,.55);border-radius:20px;font:600 10px 'Inter',sans-serif;letter-spacing:1.5px;color:var(--gold)}
+
+/* 1-slide extras */
+.tb{position:absolute;top:0;left:0;right:0;height:5px;z-index:6;background:linear-gradient(to right,var(--gold-burnt),var(--gold-hi),var(--gold-burnt))}
+.st{font:italic 400 14px/1.45 'Inter',sans-serif;color:var(--steel);margin-top:16px}
+.cb{display:inline-block;margin-top:16px;padding:4px 12px;border:1.5px solid rgba(245,181,27,.45);border-radius:20px;font:700 9px 'Inter',sans-serif;letter-spacing:2.5px;text-transform:uppercase;color:var(--gold)}
+
+/* Production notes, outside the slide */
+.shot-note{max-width:360px;margin:4px auto 0;padding:8px 12px;background:rgba(245,181,27,.05);border:1px dashed rgba(245,181,27,.3);border-radius:6px;font:400 10px/1.6 'Inter',sans-serif;color:#c9a75a}
+.shot-note b{color:var(--gold);font-weight:700}
+</style>
+</head>
+<body>
+
+<div class="brief">
+  <h1>The compressor is for the spring, not the strut</h1>
+  <b>Format:</b> 10-slide carousel (8–10 slot)<br>
+  <b>Pillar:</b> Build Stories<br>
+  <b>Hook type:</b> Contrarian (current belief: you need a spring compressor to get a front strut out. True contrast: on our F80 M3 the strut comes out with the spring on; the compressor is for taking the spring off and building the new strut)<br>
+  <b>Angle source:</b> <code>bilstein-b16-strut-assembly.html</code> (2018 BMW M3 F80 Bilstein B16 guide, published Oct 12, 2026). Wednesday Build Stories angle, front steps and FAQ "Do I need a spring compressor to remove F80 M3 front struts?". The Oct 21 bench post covered assembly order; this one covers removal.<br>
+  <b>TikTok title:</b> F80 M3 front strut removal without a spring compressor | Fremont, CA<br>
+  <b>Caption:</b>
+  <div class="cap">F80 M3 front strut removal doesn't need a spring compressor. The compressor is for taking the spring off the strut, and for building the new one.
+
+On our 2018 M3 F80 Bilstein B16 job: top bolts loosened first, the bottom freed, a spindle spreader twisted 90°, and the strut came out. On another day we used the lift for clearance and pulled a front strut with the spring still on. On this job the spring came off with the compressor fully seated, face clear of the top.
+
+Every step and torque spec: endlessautocollection.com/bilstein-b16-strut-assembly
+
+#strutremoval #f80m3 #bilsteinb16 #bmwm3 #fremontca</div>
+  <b>CTA asset:</b> DIY guide, <code>endlessautocollection.com/bilstein-b16-strut-assembly</code> (exists)<br>
+  <b>Grade:</b> 33/40 PUSH (stricter second pass; first pass 35). Clear contrarian hook backed line by line by the guide; proof is one shop photo, and it is not confirmed as this car.<br>
+  <b>Open items:</b>
+  <ul><li>Slide 1 photo: <code>images/showcase/m4-lift.jpg</code> shows a white F8X on the lift behind a G8X. Confirm whether the lifted car is the F80 M3 from this job. If not, keep the photo (the copy names no car in it) or swap to a text hook.</li><li>Slide 7: "On another day" follows the guide. It does not say it was the same car, so the slide doesn't either. The guide links that day to the video "We used ONLY a JACK! BMW F8X M3/M4 Suspension".</li><li>Slide 4 omits the battery note from the guide ("if the battery sits near the strut mount bolts, disconnect it"); it is in the guide.</li></ul>
+  <b>Supporting photos:</b>
+  <ul><li>Slide 1: <code>images/showcase/m4-lift.jpg</code> (in repo)</li><li>Slide 8: <code>images/guides/schwaben-strut-spring-compressor.webp</code> (in repo)</li></ul>
+</div>
+
+<div class="deck">
+
+  <div class="sw">
+    <div class="sn">Slide 1 — Hook</div>
+    <div class="slide">
+      <img class="ph" src="https://www.endlessautocollection.com/images/showcase/m4-lift.jpg" alt="" style="object-position:36% 30%">
+      <div class="shade"></div>
+      <img class="flogo top" src="https://www.endlessautocollection.com/images/endless-logo.png" alt="Endless Auto Collection">
+      <div class="pad" style="justify-content:flex-end;padding-bottom:28px">
+        <div class="eb">2018 BMW M3 F80</div>
+        <div class="setup" style="margin-top:12px">The compressor isn't for pulling the strut.</div>
+        <div class="hd" style="font-size:36px;margin-top:8px">It's for the</div><div class="hd" style="font-size:44px;color:var(--gold)">spring.</div>
+      </div>
+    </div>
+    <div class="shot-note"><b>Slide 1 — Photo:</b> images/showcase/m4-lift.jpg. Real shop photo, F8X on the lift. See open items before naming the car.</div>
+  </div>
+  <div class="sw">
+    <div class="sn">Slide 2 — Transition</div>
+    <div class="slide">
+      <div class="pad center">
+        <div class="rule"></div>
+        <div class="hd metal" style="font-size:24px;font-weight:700;line-height:1.2">How the front strut comes out, and where the compressor fits.</div>
+      </div>
+      <img class="flogo" src="https://www.endlessautocollection.com/images/endless-logo.png" alt="Endless Auto Collection">
+    </div>
+    <div class="shot-note"><b>Slide 2 — Text only.</b></div>
+  </div>
+  <div class="sw">
+    <div class="sn">Slide 3 — Content</div>
+    <div class="slide">
+      <div class="pad">
+        <div class="num">01</div>
+        <div class="cl"><div class="bar"></div>
+          <div class="hd">Lift the hood. <b>Loosen</b> the top bolts.</div>
+          <div class="sup">13mm and E18 E-torx at the mount. Loosen them now, don't remove them yet.</div>
+        </div>
+      </div>
+      <img class="flogo" src="https://www.endlessautocollection.com/images/endless-logo.png" alt="Endless Auto Collection">
+    </div>
+    <div class="shot-note"><b>Slide 3 — Text only.</b></div>
+  </div>
+  <div class="sw">
+    <div class="sn">Slide 4 — Content</div>
+    <div class="slide">
+      <div class="pad">
+        <div class="num">02</div>
+        <div class="cl"><div class="bar"></div>
+          <div class="hd">Free the <b>bottom</b> of the strut.</div>
+          <div class="sup">ABS sensor aside, end link nut off, a jack under the rotor, then the bracket bolt.</div>
+        </div>
+      </div>
+      <img class="flogo" src="https://www.endlessautocollection.com/images/endless-logo.png" alt="Endless Auto Collection">
+    </div>
+    <div class="shot-note"><b>Slide 4 — Text only.</b></div>
+  </div>
+  <div class="sw">
+    <div class="sn">Slide 5 — Content</div>
+    <div class="slide">
+      <div class="pad">
+        <div class="num">03</div>
+        <div class="cl"><div class="bar"></div>
+          <div class="hd">Twist the <b>spindle spreader</b> 90°.</div>
+          <div class="sup">It releases the strut from the knuckle and holds it there while you work.</div>
+        </div>
+      </div>
+      <img class="flogo" src="https://www.endlessautocollection.com/images/endless-logo.png" alt="Endless Auto Collection">
+    </div>
+    <div class="shot-note"><b>Slide 5 — Text only.</b></div>
+  </div>
+  <div class="sw">
+    <div class="sn">Slide 6 — Content</div>
+    <div class="slide">
+      <div class="pad">
+        <div class="num">04</div>
+        <div class="cl"><div class="bar"></div>
+          <div class="hd">The strut comes out <b>spring on</b>.</div>
+          <div class="sup">Remove the top bolts and pull it. No compressor needed to get it out.</div>
+        </div>
+      </div>
+      <img class="flogo" src="https://www.endlessautocollection.com/images/endless-logo.png" alt="Endless Auto Collection">
+    </div>
+    <div class="shot-note"><b>Slide 6 — Text only.</b></div>
+  </div>
+  <div class="sw">
+    <div class="sn">Slide 7 — Content</div>
+    <div class="slide">
+      <div class="pad">
+        <div class="num">05</div>
+        <div class="cl"><div class="bar"></div>
+          <div class="hd">One day we used the <b>lift</b> instead.</div>
+          <div class="sup">On another day, the lift gave the clearance to pull a front strut, spring still fitted.</div>
+        </div>
+      </div>
+      <img class="flogo" src="https://www.endlessautocollection.com/images/endless-logo.png" alt="Endless Auto Collection">
+    </div>
+    <div class="shot-note"><b>Slide 7 — Text only.</b></div>
+  </div>
+  <div class="sw">
+    <div class="sn">Slide 8 — Content</div>
+    <div class="slide">
+      <img class="ph-top" src="https://www.endlessautocollection.com/images/guides/schwaben-strut-spring-compressor.webp" alt=""><div class="ph-top-fade"></div>
+      <div class="pad" style="padding-top:190px">
+        <div class="num">06</div>
+        <div class="cl"><div class="bar"></div>
+          <div class="hd">The compressor takes the <b>spring off</b>.</div>
+          <div class="sup">Keep it fully seated and your face clear of the top.</div>
+        </div>
+      </div>
+      <img class="flogo" src="https://www.endlessautocollection.com/images/endless-logo.png" alt="Endless Auto Collection">
+    </div>
+    <div class="shot-note"><b>Slide 8 — Photo:</b> images/guides/schwaben-strut-spring-compressor.webp. The compressor used on this job.</div>
+  </div>
+  <div class="sw">
+    <div class="sn">Slide 9 — Insight</div>
+    <div class="slide insight">
+      <svg class="sph-bg" viewBox="0 0 24 24" fill="none" stroke="#F5B51B" stroke-width=".7"><circle cx="12" cy="12" r="10.5"/><ellipse cx="12" cy="12" rx="4.6" ry="10.5"/><ellipse cx="12" cy="12" rx="10.5" ry="4.2"/><line x1="1.5" y1="12" x2="22.5" y2="12"/><line x1="12" y1="1.5" x2="12" y2="22.5"/></svg>
+      <div class="pad center">
+        <div class="rule"></div>
+        <div class="hd" style="font-size:24px;font-weight:700;line-height:1.2">The compressor is for the <b>spring</b>, not the strut.</div>
+      </div>
+      <img class="flogo" src="https://www.endlessautocollection.com/images/endless-logo.png" alt="Endless Auto Collection">
+    </div>
+    <div class="shot-note"><b>Slide 9 — Text only.</b></div>
+  </div>
+  <div class="sw">
+    <div class="sn">Slide 10 — CTA</div>
+    <div class="slide">
+      <div class="pad center">
+        <img class="logo" src="https://www.endlessautocollection.com/images/endless-logo.png" alt="Endless Auto Collection">
+        <div class="hd" style="font-size:20px;font-weight:700;line-height:1.25">Every step, tool and torque spec for this job.</div>
+        <div class="pill">endlessautocollection.com/bilstein-b16-strut-assembly</div>
+      </div>
+    </div>
+    <div class="shot-note"><b>Slide 10 — Text only.</b> Full logo image from the repo.</div>
+  </div>
+
+</div>
+
+<!-- PNG export: do not remove -->
+<style>
+.dl-bar{max-width:760px;margin:0 auto 24px;display:flex;justify-content:center}
+.dl-btn{display:block;margin:10px auto 0;padding:9px 18px;border:1.5px solid rgba(245,181,27,.55);border-radius:20px;background:transparent;color:#F5B51B;font:600 11px 'Inter',sans-serif;letter-spacing:1.5px;text-transform:uppercase;cursor:pointer}
+.dl-btn:hover{background:rgba(245,181,27,.12)}
+.dl-btn:disabled{opacity:.5;cursor:default}
+.dl-all{padding:12px 26px;font-size:12px}
+</style>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html-to-image/1.11.11/html-to-image.min.js"></script>
+<script>
+(function(){
+  var base=(location.pathname.split('/').pop()||'carousel').replace(/\.html$/,'');
+  var slides=[].slice.call(document.querySelectorAll('.slide'));
+  var pad=function(n){return (n<10?'0':'')+n};
+  function name(i){return base+'-slide-'+pad(i+1)+'.png'}
+  var touch=window.matchMedia&&matchMedia('(pointer:coarse)').matches;
+  var fontCss;
+  function toData(u){return fetch(u).then(function(r){return r.blob()}).then(function(b){return new Promise(function(ok){var f=new FileReader();f.onload=function(){ok(f.result)};f.readAsDataURL(b)})})}
+  async function fonts(){
+    if(fontCss!==undefined)return fontCss;
+    try{
+      var href=document.querySelector('link[href*="fonts.googleapis.com/css2"]').href;
+      var css=await (await fetch(href)).text();
+      var urls=css.match(/url\(([^)]+)\)/g)||[];
+      for(var i=0;i<urls.length;i++){var u=urls[i].slice(4,-1).replace(/["']/g,'');css=css.split(u).join(await toData(u))}
+      fontCss=css;
+    }catch(e){fontCss=''}
+    return fontCss;
+  }
+  var inlined;
+  function inlineImages(){
+    if(!inlined)inlined=Promise.all([].slice.call(document.querySelectorAll('.slide img')).map(function(im){
+      if(im.src.indexOf('data:')===0)return;
+      return toData(im.src).then(function(d){im.src=d;return im.decode?im.decode():0}).catch(function(){});
+    }));
+    return inlined;
+  }
+  var cache=[];
+  function render(i,fc){return htmlToImage.toBlob(slides[i],{pixelRatio:3,width:360,height:450,fontEmbedCSS:fc})}
+  function file(i){
+    if(!cache[i])cache[i]=Promise.all([fonts(),inlineImages()]).then(function(r){var fc=r[0];return render(i,fc).then(function(){return render(i,fc)})}).then(function(b){return new File([b],name(i),{type:'image/png'})}).catch(function(e){cache[i]=null;throw e});
+    return cache[i];
+  }
+  function save(f){
+    var url=URL.createObjectURL(f),a=document.createElement('a');
+    a.href=url;a.download=f.name;document.body.appendChild(a);a.click();a.remove();
+    setTimeout(function(){URL.revokeObjectURL(url)},10000);
+  }
+  async function deliver(files){
+    if(touch&&navigator.canShare&&navigator.canShare({files:files})){
+      try{await navigator.share({files:files});return}
+      catch(e){if(e&&e.name==='AbortError')return}
+    }
+    for(var i=0;i<files.length;i++){save(files[i]);await new Promise(function(r){setTimeout(r,500)})}
+  }
+  async function guard(btn,label,fn){
+    btn.disabled=true;btn.textContent='Preparing…';
+    try{await fn()}catch(e){alert('Could not export. Open this page in Safari or Chrome from the website link and try again.')}
+    btn.disabled=false;btn.textContent=label;
+  }
+  slides.forEach(function(s,i){
+    var b=document.createElement('button');b.className='dl-btn';b.textContent=touch?'Save PNG':'Download as PNG';
+    var label=b.textContent;
+    b.onclick=function(){guard(b,label,async function(){await deliver([await file(i)])})};
+    s.parentNode.insertBefore(b,s.nextSibling);
+  });
+  var first=document.querySelector('.deck');
+  if(first&&slides.length){
+    var bar=document.createElement('div');bar.className='dl-bar';
+    var all=document.createElement('button');all.className='dl-btn dl-all';all.textContent=touch?'Save all slides':'Download all slides';
+    var allLabel=all.textContent;
+    all.onclick=function(){guard(all,allLabel,async function(){
+      var files=[];for(var i=0;i<slides.length;i++)files.push(await file(i));
+      await deliver(files);
+    })};
+    bar.appendChild(all);first.parentNode.insertBefore(bar,first);
+  }
+  window.addEventListener('load',async function(){
+    for(var i=0;i<slides.length;i++){try{await file(i)}catch(e){cache[i]=null}}
+  });
+})();
+</script>
+
+</body>
+</html>

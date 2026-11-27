@@ -42,7 +42,7 @@ button[disabled]{opacity:.5}
 </head>
 <body>
 <main>
-  <a id="backAdmin" href="/admin" style="color:#8a8a93;font-size:.88rem;text-decoration:none">‹ Admin</a>
+  <a id="backAdmin" href="/admin/game" style="color:#8a8a93;font-size:.88rem;text-decoration:none">‹ Admin</a>
   <h1>Game host</h1>
   <form id="auth"><div class="row"><input type="password" id="key" placeholder="Admin password" autocomplete="current-password" style="flex:1;min-width:10rem"><button type="submit">Unlock</button></div></form>
   <div class="err" id="msg" role="alert"></div>
@@ -102,7 +102,7 @@ button[disabled]{opacity:.5}
 (function(){
   var E=location.search.indexOf('e=sun')>-1?'sun':'fri';
   var $=function(i){return document.getElementById(i)};
-  $('boothLink').href='/fashion-booth?e='+E;$('backAdmin').href='/admin?e='+E;
+  $('boothLink').href='/fashion-booth?e='+E;$('backAdmin').href='/admin/game?e='+E;
   var key='';try{key=sessionStorage.getItem('eac.raffle1')||''}catch(e){}
   var tab='trivia',ts=null,vs=null,offset=0,poll=null,tick=null;
   function call(path,body,raw){

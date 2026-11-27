@@ -259,5 +259,6 @@ input[type=text]:focus{border-color:var(--gold-d)}
   if(token)api('/trivia/state?token='+encodeURIComponent(token)).then(function(s){if(s.me)start();else{token='';showJoin()}}).catch(showJoin);else showJoin();
 })();
 </script>
+<script src="/js/analytics.js" defer></script>
 </body>
 </html>

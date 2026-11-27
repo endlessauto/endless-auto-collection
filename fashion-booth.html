@@ -64,7 +64,7 @@ input[type=text]:focus,input[type=password]:focus{border-color:var(--gold-d)}
 <body>
 <main>
   <header><b class="hf">Endless <span class="gold">Fashion</span></b><span id="count"></span></header>
-  <a id="backAdmin" href="/admin" style="color:var(--mute);font-size:.88rem;text-decoration:none">‹ Admin</a>
+  <a id="backAdmin" href="/admin/game" style="color:var(--mute);font-size:.88rem;text-decoration:none">‹ Admin</a>
 
   <section id="gate" hidden>
     <p class="eyebrow">Host only</p>
@@ -128,7 +128,7 @@ input[type=text]:focus,input[type=password]:focus{border-color:var(--gold-d)}
   var $=function(i){return document.getElementById(i)};
   var key='';try{key=sessionStorage.getItem('eac.raffle1')||''}catch(e){}
   var photo=null,players=[],busy=false;
-  $('backAdmin').href='/admin?e='+E;
+  $('backAdmin').href='/admin/game?e='+E;
   function el(t,c,x){var e=document.createElement(t);if(c)e.className=c;if(x!=null)e.textContent=x;return e}
   function clear(n){while(n.firstChild)n.removeChild(n.firstChild)}
   function say(t,good){var m=$('msg');m.textContent=t;m.className='msg'+(good?' ok':'')}

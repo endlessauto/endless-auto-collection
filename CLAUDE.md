@@ -21,4 +21,12 @@ For content, social, video scripts, captions, Build Archive pages, the content c
 
 Business facts, NAP, proof, and say/don't-say live in `docs/marketing/site-brief.md`. Site audit: `python3 scripts/seo_audit.py`.
 
+## Analytics
+
+Own first-party analytics, cookieless, no IP stored. Tracker `js/analytics.js`; Durable Object `analytics.js` (binding `ANALYTICS_STATE`); core logic `analytics-core.mjs`; dashboard `admin/analytics.html` at `/admin/analytics`, JSON at `/admin/analytics.json`.
+- Opening `/admin/analytics` on a device sets localStorage `eac.notrack`, so that device stops counting.
+- Tests: plain `node --test`.
+- Deploy needs migration `v4` (`AnalyticsState`). Nothing deployed yet.
+- After the first deploy, spot-check the exit beacon on real cross-page navigation in a real browser.
+
 Voice and brand standards come from the global `~/.claude/CLAUDE.md`. Don't duplicate them here.
