@@ -177,3 +177,7 @@ Drafts land here unchecked. Check a box (`- [x]`) to approve. Only a checked box
 - [ ] Carousel (Instagram): A full detail doesn't include wax (5-slide) (`docs/marketing/carousels/2026-11-26/5-slide-a-full-detail-has-no-wax.html`)
 - [ ] Carousel (Instagram): Why our prices are starting points (10-slide) (`docs/marketing/carousels/2026-11-26/10-slide-why-our-prices-are-starting-points.html`)
 - [ ] Carousel (Instagram): A lifetime film warranty covers lifting (9-slide) (`docs/marketing/carousels/2026-11-26/9-slide-lifetime-warranty-covers-lifting.html`)
+- [ ] Carousel (Instagram): Three house rules for Sunday (1-slide) (`docs/marketing/carousels/2026-11-27/1-slide-three-house-rules.html`)
+- [ ] Carousel (Instagram): Three prizes, closes Sunday (5-slide) (`docs/marketing/carousels/2026-11-27/5-slide-three-prizes-closes-sunday.html`)
+- [ ] Carousel (Instagram): How Sunday's potluck works (8-slide) (`docs/marketing/carousels/2026-11-27/8-slide-how-sundays-potluck-works.html`)
+- [ ] Carousel (Instagram): Our first Thanksgiving at the shop (9-slide) (`docs/marketing/carousels/2026-11-27/9-slide-our-first-thanksgiving-at-the-shop.html`)
