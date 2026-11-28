@@ -150,7 +150,7 @@ input[type=text]:focus{border-color:var(--gold-d)}
     p.then(function(s){
       offset=0;
       if(tab==='trivia'){offset=s.now-Date.now();if(!s.me&&token){token='';try{localStorage.removeItem('eac.game.token.'+E)}catch(e){}showJoin();return}tv=s;renderTrivia()}
-      else{vv=s;renderVote()}
+      else{if(token&&s.joined===false){token='';try{localStorage.removeItem('eac.game.token.'+E)}catch(e){}showJoin();return}vv=s;renderVote()}
       if(s.me)$('who').textContent=s.me.name;
       schedule();
     }).catch(function(){schedule(4000)});

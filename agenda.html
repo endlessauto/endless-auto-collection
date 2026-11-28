@@ -215,6 +215,7 @@ input[type=text]:focus{border-color:var(--gold-d)}
   function loadVote(){
     clearTimeout(pollV);
     api('/vote/state?token='+encodeURIComponent(token)).then(function(s){
+      if(token&&s.joined===false){token='';try{localStorage.removeItem('eac.game.token.'+E)}catch(e){}needJoin();lastKey=''}
       vv=s;renderVote();
     }).catch(function(){}).then(function(){
       pollV=setTimeout(function(){document.hidden?loadVote():loadVote()},document.hidden?4000:6000);
@@ -255,6 +256,7 @@ input[type=text]:focus{border-color:var(--gold-d)}
   function loadTrivia(){
     clearTimeout(pollT);
     api('/trivia/state?token='+encodeURIComponent(token)).then(function(s){
+      if(token&&!s.me){token='';try{localStorage.removeItem('eac.game.token.'+E)}catch(e){}needJoin();lastKey='';loadVote()}
       var t=$('tState');clear(t);
       if(s.phase==='question'||s.phase==='reveal'){t.appendChild(el('span','live'));t.appendChild(el('span','','Live now · question '+(s.qi+1)+' of '+s.total))}
       else if(s.phase==='final')t.appendChild(el('span','','Game over. See the final results.'));
