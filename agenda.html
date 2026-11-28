@@ -6,7 +6,7 @@
 <meta name="robots" content="noindex, nofollow">
 <meta name="theme-color" content="#050505">
 <title>Tonight at Endless Giving | Endless Auto Collection</title>
-<meta name="description" content="Everything happening at the Endless Friendsgiving tonight: the flyer, the fashion vote, trivia and the raffle.">
+<meta name="description" content="Everything happening at the Endless Friendsgiving tonight: the fashion vote, trivia and the raffle.">
 <link rel="canonical" href="https://www.endlessautocollection.com/agenda">
 <link rel="icon" href="/images/favicon.ico">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -134,7 +134,6 @@ input[type=text]:focus{border-color:var(--gold-d)}
     <p class="eyebrow">Tonight</p>
     <h1>Happy <span class="gold">Thanksgiving</span></h1>
     <p>Thank you for coming. Much love from the Endless team.</p>
-    <a class="btn" id="flyer" href="/friendsgiving">See the flyer</a>
   </div>
 
   <section id="tonight">
@@ -203,7 +202,7 @@ input[type=text]:focus{border-color:var(--gold-d)}
   try{token=localStorage.getItem('eac.game.token.'+E)||''}catch(e){}
   var vt='';try{vt=localStorage.getItem('eac.vote.token.'+E)||''}catch(e){}
   if(!vt){var ra=new Uint8Array(16);(window.crypto||{getRandomValues:function(a){for(var i=0;i<a.length;i++)a[i]=Math.floor(Math.random()*256)}}).getRandomValues(ra);vt=[].map.call(ra,function(b){return('0'+b.toString(16)).slice(-2)}).join('');try{localStorage.setItem('eac.vote.token.'+E,vt)}catch(e){}}
-  if(E==='sun'){$('flyer').href='/friendsgiving-sun';$('play').href='/play?e=sun'}
+  if(E==='sun'){$('play').href='/play?e=sun'}
   function api(path,body){
     var u=API+path+(path.indexOf('?')>-1?'&':'?')+'e='+E;
     return fetch(u,{method:body?'POST':'GET',headers:body?{'content-type':'application/json'}:undefined,body:body?JSON.stringify(body):undefined}).then(function(r){return r.json().then(function(j){if(!r.ok)throw new Error(j.error||'Something went wrong.');return j})});
