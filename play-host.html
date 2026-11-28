@@ -32,7 +32,10 @@ button[disabled]{opacity:.5}
 .lb{display:flex;justify-content:space-between;gap:.6rem;padding:.5rem .7rem;border-bottom:1px solid #1d1d1d}
 .lb:last-child{border:0}.lb b{color:#f0c869;font-variant-numeric:tabular-nums}
 .cand{display:flex;gap:.8rem;align-items:center;padding:.6rem;border:1px solid #232323;border-radius:.9rem;background:#0d0d0d;margin:.4rem 0}
-.cand img{width:4rem;height:5rem;object-fit:cover;border-radius:.6rem;flex:none;background:#111}
+.cand .rep{position:relative;flex:none;display:block;cursor:pointer;border-radius:.6rem;overflow:hidden}
+.cand .rep input{position:absolute;inset:0;opacity:0;width:100%;height:100%;cursor:pointer;font-size:0}
+.cand .rp{position:absolute;left:0;right:0;bottom:0;text-align:center;font:700 .62rem Inter,sans-serif;color:#fff;background:rgba(0,0,0,.65);padding:.15rem 0;pointer-events:none}
+.cand img{width:4rem;height:5rem;object-fit:cover;border-radius:.6rem;flex:none;background:#111;display:block}
 .cand .t{flex:1;min-width:0;overflow-wrap:anywhere}
 .cand .v{font:700 1.3rem Inter;color:#f0c869;font-variant-numeric:tabular-nums}
 .win{border-color:#d4af37!important}
@@ -157,7 +160,17 @@ button[disabled]{opacity:.5}
     var box=$('cands');clear(box);
     s.candidates.forEach(function(c){
       var d=el('div','cand'+(res[c.id]&&res[c.id].winner&&res[c.id].votes?' win':''));
-      var im=el('img');im.src='/api/game/vote/photo?id='+c.id+'&s=photo&e='+E;im.alt='';d.appendChild(im);
+      var rl=el('label','rep');
+      var im=el('img');im.src='/api/game/vote/photo?id='+c.id+'&s=photo&e='+E+(bust[c.id]?'&v='+bust[c.id]:'');im.alt='';rl.appendChild(im);
+      rl.appendChild(el('span','rp','Replace'));
+      var inp=el('input');inp.type='file';inp.accept='image/*';inp.setAttribute('aria-label','Replace photo for '+c.name);
+      inp.onchange=function(){
+        var f=inp.files[0];inp.value='';if(!f)return;
+        if(!confirm('Replace '+c.name+"'s photo?"))return;
+        say('Replacing '+c.name+'’s photo…',true);
+        shrink(f).then(function(b){return call('/vote/replace?id='+c.id,null,b)}).then(function(){bust[c.id]=Date.now();say(c.name+'’s photo is replaced.',true);load()}).catch(function(x){say(x.message)});
+      };
+      rl.appendChild(inp);d.appendChild(rl);
       var t=el('div','t');t.appendChild(el('b','',c.name));if(c.caption)t.appendChild(el('div','meta',c.caption));t.appendChild(el('div','meta',(c.hasCar?'Outfit and car':'Outfit only')+(s.links[c.id]?' · linked to raffle':'')));d.appendChild(t);
       d.appendChild(el('span','v',String(res[c.id]?res[c.id].votes:0)));
       var x=el('button','danger','Remove');x.type='button';x.onclick=function(){if(x.dataset.arm){call('/vote/remove',{id:c.id}).then(load);return}x.dataset.arm='1';x.textContent='Sure?';setTimeout(function(){x.textContent='Remove';delete x.dataset.arm},3000)};d.appendChild(x);
@@ -166,6 +179,7 @@ button[disabled]{opacity:.5}
     var wb=$('vWin');wb.hidden=s.mode!=='revealed';
     if(s.mode==='revealed'){var wr=$('vWinRows');clear(wr);(s.results||[]).filter(function(r){return r.winner}).forEach(function(r){var row=el('div','row');row.appendChild(el('span','',r.name+' · '+r.votes+' votes'));var linked=s.links[r.id];var bt=el('button','',linked?'Award +2 entries':'Not linked');bt.type='button';bt.disabled=!linked;bt.onclick=function(){bt.disabled=true;call('/vote/award',{id:r.id}).then(function(j){bt.textContent='Awarded';say(j.name+' now has '+j.bonus+' bonus entries.',true)}).catch(function(x){say(x.message);bt.disabled=false})};row.appendChild(bt);wr.appendChild(row)})}
   }
+  var bust={};
   function mode(m){return function(){call('/vote/mode',{mode:m}).then(load).catch(function(x){say(x.message)})}}
   $('vOpen').onclick=mode('open');$('vClose').onclick=mode('closed');$('vReveal').onclick=function(){var b=this;if(!b.dataset.arm){b.dataset.arm='1';b.textContent='Tap again to reveal';setTimeout(function(){b.textContent='Reveal winner';delete b.dataset.arm},3000);return}delete b.dataset.arm;b.textContent='Reveal winner';mode('revealed')()};
 
