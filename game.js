@@ -147,6 +147,7 @@ export class GameState extends DurableObject {
     };
     const p = this.player(token);
     if (token) out.joined = !!p;
+    out.resetKeepsVotes = true;
     if (p) {
       const v = this.sql.exec("SELECT candidate_id FROM votes WHERE token = ?", p.token).toArray()[0];
       out.myVote = v ? v.candidate_id : null;
@@ -316,8 +317,6 @@ export class GameState extends DurableObject {
     }
     if (path === "/trivia/reset") {
       this.sql.exec("DELETE FROM answers");
-      this.sql.exec("DELETE FROM votes");
-      this.sql.exec("DELETE FROM players");
       this.kvSet("g", { phase: "lobby", qi: -1, qStart: 0 });
       return reply({ ok: true });
     }
