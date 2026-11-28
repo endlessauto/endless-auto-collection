@@ -7,7 +7,7 @@ const MAX_PLAYERS = 300;
 const MAX_CANDIDATES = 60;
 const MAX_PHOTO = 600000;
 const TRIVIA_POINTS = 2;
-const VOTE_POINTS = 3;
+const VOTE_POINTS = 2;
 
 const sha256 = async (s) => {
   const d = await crypto.subtle.digest("SHA-256", new TextEncoder().encode(s));

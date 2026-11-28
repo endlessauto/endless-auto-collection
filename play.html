@@ -81,7 +81,7 @@ input[type=text]:focus{border-color:var(--gold-d)}
   <section id="join" hidden>
     <p class="eyebrow">Friendsgiving · Endless Giving</p>
     <h1>Join the <span class="gold">game</span></h1>
-    <p class="sub">Trivia and the fashion vote run from your phone. Type your first name and you're in. The trivia winner gets two extra raffle entries and the fashion vote winner gets three.</p>
+    <p class="sub">Trivia and the fashion vote run from your phone. Type your first name and you're in. The trivia winner and the fashion vote winner each get two extra raffle entries.</p>
     <form class="card" id="joinForm" novalidate>
       <input type="text" id="name" maxlength="24" placeholder="Your first name" autocomplete="given-name" aria-label="Your first name">
       <div class="hp" aria-hidden="true"><label>Website<input type="text" id="website" tabindex="-1" autocomplete="off"></label></div>
@@ -253,7 +253,7 @@ input[type=text]:focus{border-color:var(--gold-d)}
       }else if(s.myVote===c.id){inn.appendChild(el('span','','Your vote'))}
       d.appendChild(inn);box.appendChild(d);
     });
-    if(s.mode==='revealed')box.appendChild(el('p','note','The winner gets three extra raffle entries.'));
+    if(s.mode==='revealed')box.appendChild(el('p','note','The winner gets two extra raffle entries. The host will announce them.'));
   }
 
   if(token)api('/trivia/state?token='+encodeURIComponent(token)).then(function(s){if(s.me)start();else{token='';showJoin()}}).catch(showJoin);else showJoin();
