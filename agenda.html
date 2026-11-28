@@ -44,6 +44,9 @@ section{margin-top:2.4rem}
 .card{background:var(--card);border:1px solid var(--line);border-radius:1.2rem;padding:1.1rem}
 .tonight{display:grid;gap:.5rem;margin:.2rem 0 0;padding:0;list-style:none}
 .tonight li{display:flex;gap:.8rem;align-items:center;padding:.8rem .9rem;background:#0d0d0d;border:1px solid var(--line);border-radius:.9rem}
+.tonight li.jump{padding:0}
+.tonight li.jump a{display:flex;gap:.8rem;align-items:center;padding:.8rem .9rem;width:100%;color:inherit;text-decoration:none;border-radius:.9rem}
+#trivia,#fashion{scroll-margin-top:5rem}
 .tonight i{flex:none;width:2rem;height:2rem;border-radius:50%;display:grid;place-items:center;font-style:normal;font-weight:700;font-size:.85rem;background:#1d1a10;border:1px solid rgba(212,175,55,.45);color:var(--gold)}
 .tonight b{display:block;font-size:1rem}.tonight span{color:var(--mute);font-size:.88rem}
 .know{display:flex;gap:.8rem;align-items:center;margin-top:.8rem;padding:.9rem 1rem;border-radius:1rem;background:#17130a;border:1px solid rgba(212,175,55,.35)}
@@ -121,8 +124,8 @@ input[type=text]:focus{border-color:var(--gold-d)}
     <h2>Tonight at Endless Giving</h2>
     <ul class="tonight">
       <li><i>1</i><div><b>Eat and hang out</b><span>Potluck table, music and billiards.</span></div></li>
-      <li><i>2</i><div><b>Trivia: how well do you know your cars?</b><span>Play from your phone.</span></div></li>
-      <li><i>3</i><div><b>GTA fashion vote</b><span>Pick the best dressed. Voting stays open until the host closes it.</span></div></li>
+      <li class="jump"><a href="#trivia"><i>2</i><div><b>Trivia: how well do you know your cars?</b><span>Play from your phone.</span></div></a></li>
+      <li class="jump"><a href="#fashion"><i>3</i><div><b>GTA fashion vote</b><span>Pick the best dressed. Voting stays open until the host closes it.</span></div></a></li>
       <li><i>4</i><div><b>Raffle</b><span>Enter any time. Winners are announced Sunday.</span></div></li>
     </ul>
     <div class="know" role="note">
