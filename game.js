@@ -318,6 +318,7 @@ export class GameState extends DurableObject {
     }
     if (path === "/trivia/reset") {
       this.sql.exec("DELETE FROM answers");
+      this.sql.exec("DELETE FROM players");
       this.kvSet("g", { phase: "lobby", qi: -1, qStart: 0 });
       return reply({ ok: true });
     }
