@@ -321,7 +321,7 @@ input[type=text]:focus{border-color:var(--gold-d)}
     var pl=el('div','plate');pl.appendChild(el('span','nm',c.name));
     if(s.mode==='revealed'&&r)pl.appendChild(el('span','st',r.votes+(r.votes===1?' vote':' votes')+(r.winner?' · winner':'')));
     ph.appendChild(pl);b.appendChild(ph);
-    var cell=el('div','cell');cell.appendChild(b);
+    var cell=el('div','cell');cell.dataset.id=c.id;cell.appendChild(b);
     b.onclick=function(){openViewer(vv.candidates.findIndex(function(x){return x.id===c.id}))};
     if(open){
       var vb=el('button','vb'+(mine?' on':''),mine?'Voted':'Vote');vb.type='button';
@@ -330,10 +330,21 @@ input[type=text]:focus{border-color:var(--gold-d)}
     }
     return cell;
   }
+  var lastStruct='';
   function renderVote(){
     var s=vv,box=$('cards');
     var key=[s.mode,s.myVote,token?1:0,s.candidates.map(function(c){return c.id}).join(','),(s.results||[]).map(function(r){return r.id+':'+r.votes}).join(',')].join('|');
-    if(key===lastKey)return;lastKey=key;syncViewer();clear(box);
+    if(key===lastKey)return;lastKey=key;syncViewer();
+    var struct=[s.mode,token?1:0,s.candidates.map(function(c){return c.id}).join(','),(s.results||[]).map(function(r){return r.id+':'+r.votes}).join(',')].join('|');
+    if(struct===lastStruct&&box.querySelector('.grid')){
+      [].forEach.call(box.querySelectorAll('.cell'),function(cell){
+        var mine=s.myVote===Number(cell.dataset.id),pc=cell.querySelector('.pc'),vb=cell.querySelector('.vb');
+        pc.classList.toggle('sel',mine);
+        if(vb){vb.className='vb'+(mine?' on':'');vb.textContent=mine?'Voted':'Vote';vb.setAttribute('aria-pressed',mine);vb.setAttribute('aria-label',(mine?'Voted for ':'Vote for ')+(vv.candidates.filter(function(c){return c.id===Number(cell.dataset.id)})[0]||{}).name)}
+      });
+      return;
+    }
+    lastStruct=struct;clear(box);
     $('fSub').textContent={closed:'Voting opens soon. Have a look at the entries.',open:token?'Tap Vote on your pick, or tap a photo to see it full screen and swipe through everyone. You can change your vote until voting closes.':'Enter your first name to vote.',revealed:'Voting is closed. Here are the results.'}[s.mode];
     if(!s.candidates.length){var e=el('div','card empty','New entries are added as guests arrive. Check back soon.');box.appendChild(e);return}
     var res={};if(s.results)s.results.forEach(function(r){res[r.id]=r});
