@@ -75,6 +75,9 @@ input[type=text]:focus{border-color:var(--gold-d)}
 .pc.sel .tick{display:grid}
 .pc.win .ph{box-shadow:0 0 0 3px var(--gold-d),0 0 28px rgba(212,175,55,.45)}
 .pc:not(:disabled):active .ph{transform:scale(.98)}
+.vb{display:block;width:100%;margin-top:.6rem;padding:.7rem 1rem;min-height:2.9rem;border-radius:9999px;border:2px solid var(--gold);background:transparent;color:#fff;font:700 1rem Inter,sans-serif;cursor:pointer;transition:background .2s,border-color .2s}
+.vb:active{transform:scale(.98)}
+.vb.on{background:#16a34a;border-color:#16a34a;color:#fff}
 .state{display:flex;align-items:center;gap:.5rem;font-size:.92rem;color:var(--mute);margin:.2rem 0 0}
 .live{display:inline-block;width:.6rem;height:.6rem;border-radius:50%;background:#ef4444;animation:p 1.4s ease-in-out infinite}
 @keyframes p{0%,100%{opacity:.35}50%{opacity:1}}
@@ -232,15 +235,21 @@ input[type=text]:focus{border-color:var(--gold-d)}
     var tk=el('span','tick');tk.innerHTML=CHECK;ph.appendChild(tk);
     var pl=el('div','plate');pl.appendChild(el('span','nm',c.name));
     if(s.mode==='revealed'&&r)pl.appendChild(el('span','st',r.votes+(r.votes===1?' vote':' votes')+(r.winner?' · winner':'')));
-    else if(mine)pl.appendChild(el('span','st','Your vote'));
     ph.appendChild(pl);b.appendChild(ph);
     b.disabled=!open;
-    if(open)b.onclick=function(){
+    function cast(){
       if(vv.myVote===c.id)return;
       vv.myVote=c.id;lastKey='';renderVote();$('voteErr').textContent='';
       api('/vote/cast',{token:token,candidate:c.id}).then(loadVote).catch(function(x){$('voteErr').textContent=x.message;loadVote()});
-    };
-    return b;
+    }
+    var cell=el('div','cell');cell.appendChild(b);
+    if(open){
+      b.onclick=cast;
+      var vb=el('button','vb'+(mine?' on':''),mine?'Voted':'Vote');vb.type='button';
+      vb.setAttribute('aria-label',(mine?'Voted for ':'Vote for ')+c.name);vb.setAttribute('aria-pressed',mine);
+      vb.onclick=cast;cell.appendChild(vb);
+    }
+    return cell;
   }
   function renderVote(){
     var s=vv,box=$('cards');
