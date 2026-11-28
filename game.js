@@ -6,6 +6,7 @@ const reply = (body, status = 200) => new Response(JSON.stringify(body), { statu
 const MAX_PLAYERS = 300;
 const MAX_CANDIDATES = 60;
 const MAX_PHOTO = 600000;
+const voterToken = (t) => typeof t === "string" && /^[A-Za-z0-9_-]{20,64}$/.test(t);
 const TRIVIA_POINTS = 2;
 const VOTE_POINTS = 2;
 
@@ -147,9 +148,9 @@ export class GameState extends DurableObject {
     };
     const p = this.player(token);
     if (token) out.joined = !!p;
-    out.resetKeepsVotes = true;
-    if (p) {
-      const v = this.sql.exec("SELECT candidate_id FROM votes WHERE token = ?", p.token).toArray()[0];
+    out.anonVotes = true;
+    if (voterToken(token)) {
+      const v = this.sql.exec("SELECT candidate_id FROM votes WHERE token = ?", token).toArray()[0];
       out.myVote = v ? v.candidate_id : null;
     }
     const top = Math.max(0, ...rows.map((r) => r.votes));
@@ -224,11 +225,10 @@ export class GameState extends DurableObject {
   }
 
   cast(b) {
-    const p = this.player(b.token);
-    if (!p) return reply({ error: "Join first." }, 401);
+    if (!voterToken(b.token)) return reply({ error: "Could not read your vote. Refresh and try again." }, 400);
     if (this.voteMode() !== "open") return reply({ error: "Voting is not open." }, 409);
     if (!Number.isInteger(b.candidate) || !this.sql.exec("SELECT 1 FROM candidates WHERE id = ?", b.candidate).toArray().length) return reply({ error: "Unknown entry." }, 400);
-    this.sql.exec("INSERT INTO votes (token, candidate_id) VALUES (?, ?) ON CONFLICT(token) DO UPDATE SET candidate_id = excluded.candidate_id", p.token, b.candidate);
+    this.sql.exec("INSERT INTO votes (token, candidate_id) VALUES (?, ?) ON CONFLICT(token) DO UPDATE SET candidate_id = excluded.candidate_id", b.token, b.candidate);
     return reply({ ok: true });
   }
 

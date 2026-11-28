@@ -108,6 +108,8 @@ input[type=text]:focus{border-color:var(--gold-d)}
   var $=function(i){return document.getElementById(i)};
   var token='',tab='trivia',tv=null,vv=null,offset=0,timer=null,pollT=null,lastKey='';
   try{token=localStorage.getItem('eac.game.token.'+E)||''}catch(e){}
+  var vt='';try{vt=localStorage.getItem('eac.vote.token.'+E)||''}catch(e){}
+  if(!vt){var ra=new Uint8Array(16);(window.crypto||{getRandomValues:function(a){for(var i=0;i<a.length;i++)a[i]=Math.floor(Math.random()*256)}}).getRandomValues(ra);vt=[].map.call(ra,function(b){return('0'+b.toString(16)).slice(-2)}).join('');try{localStorage.setItem('eac.vote.token.'+E,vt)}catch(e){}}
   function api(path,body){
     var u=API+path+(path.indexOf('?')>-1?'&':'?')+'e='+E;
     return fetch(u,{method:body?'POST':'GET',headers:body?{'content-type':'application/json'}:undefined,body:body?JSON.stringify(body):undefined}).then(function(r){return r.json().then(function(j){if(!r.ok)throw new Error(j.error||'Something went wrong.');return j})});
@@ -146,11 +148,11 @@ input[type=text]:focus{border-color:var(--gold-d)}
   }
   function refresh(){
     clearTimeout(pollT);
-    var p=tab==='trivia'?api('/trivia/state?token='+encodeURIComponent(token)):api('/vote/state?token='+encodeURIComponent(token));
+    var p=tab==='trivia'?api('/trivia/state?token='+encodeURIComponent(token)):api('/vote/state?token='+encodeURIComponent(vt));
     p.then(function(s){
       offset=0;
       if(tab==='trivia'){offset=s.now-Date.now();if(!s.me&&token){token='';try{localStorage.removeItem('eac.game.token.'+E)}catch(e){}showJoin();return}tv=s;renderTrivia()}
-      else{if(token&&s.joined===false){token='';try{localStorage.removeItem('eac.game.token.'+E)}catch(e){}showJoin();return}vv=s;renderVote()}
+      else{vv=s;renderVote()}
       if(s.me)$('who').textContent=s.me.name;
       schedule();
     }).catch(function(){schedule(4000)});
@@ -248,7 +250,7 @@ input[type=text]:focus{border-color:var(--gold-d)}
       inn.appendChild(b);if(c.caption)inn.appendChild(el('span','',c.caption));
       if(s.mode==='open'){
         var bt=el('button','btn'+(s.myVote===c.id?' ghost':''),s.myVote===c.id?'Your vote':'Vote for '+c.name);bt.type='button';
-        bt.onclick=function(){bt.disabled=true;api('/vote/cast',{token:token,candidate:c.id}).then(function(){refresh()}).catch(function(x){bt.textContent=x.message;setTimeout(refresh,1500)})};
+        bt.onclick=function(){bt.disabled=true;api('/vote/cast',{token:vt,candidate:c.id}).then(function(){refresh()}).catch(function(x){bt.textContent=x.message;setTimeout(refresh,1500)})};
         inn.appendChild(bt);
       }else if(s.myVote===c.id){inn.appendChild(el('span','','Your vote'))}
       d.appendChild(inn);box.appendChild(d);

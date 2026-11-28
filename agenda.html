@@ -178,15 +178,6 @@ input[type=text]:focus{border-color:var(--gold-d)}
     <p class="sub" id="fSub">Tap Vote under the person you think is best dressed.</p>
     <p class="note" style="margin-top:-.4rem">The fashion winner gets 2 bonus raffle entries, same as the trivia winner.</p>
 
-    <form class="card" id="joinForm" novalidate hidden>
-      <p style="margin:0 0 .7rem;font-weight:700">Enter your first name to vote</p>
-      <input type="text" id="name" maxlength="24" placeholder="Your first name" autocomplete="given-name" aria-label="Your first name">
-      <div class="hp" aria-hidden="true"><label>Website<input type="text" id="website" tabindex="-1" autocomplete="off"></label></div>
-      <button class="btn" id="joinBtn" type="submit" style="margin-top:.7rem">Continue</button>
-      <p class="err" id="joinErr" role="alert"></p>
-      <p class="note" style="margin-top:.2rem">Your name shows on the trivia leaderboard. We don't store anything else.</p>
-    </form>
-
     <div id="cards"></div>
     <p class="err" id="voteErr" role="alert"></p>
   </section>
@@ -210,6 +201,8 @@ input[type=text]:focus{border-color:var(--gold-d)}
   window.addEventListener('resize',function(){if(window.innerWidth>=768){$('drawer').hidden=true;$('bOpen').hidden=false;$('bClose').hidden=true;$('burger').setAttribute('aria-expanded',false)}});
   var token='',vv=null,lastKey='',pollV=null,pollT=null;
   try{token=localStorage.getItem('eac.game.token.'+E)||''}catch(e){}
+  var vt='';try{vt=localStorage.getItem('eac.vote.token.'+E)||''}catch(e){}
+  if(!vt){var ra=new Uint8Array(16);(window.crypto||{getRandomValues:function(a){for(var i=0;i<a.length;i++)a[i]=Math.floor(Math.random()*256)}}).getRandomValues(ra);vt=[].map.call(ra,function(b){return('0'+b.toString(16)).slice(-2)}).join('');try{localStorage.setItem('eac.vote.token.'+E,vt)}catch(e){}}
   if(E==='sun'){$('flyer').href='/friendsgiving-sun';$('play').href='/play?e=sun'}
   function api(path,body){
     var u=API+path+(path.indexOf('?')>-1?'&':'?')+'e='+E;
@@ -218,28 +211,10 @@ input[type=text]:focus{border-color:var(--gold-d)}
   function el(tag,cls,text){var e=document.createElement(tag);if(cls)e.className=cls;if(text!=null)e.textContent=text;return e}
   function clear(n){while(n.firstChild)n.removeChild(n.firstChild)}
 
-  // MARK: - Join
-  function needJoin(){
-    $('joinForm').hidden=false;
-    var rt='';try{rt=localStorage.getItem('eac.raffle.token')||''}catch(e){}
-    if(rt){fetch('/api/raffle/state?token='+encodeURIComponent(rt)).then(function(r){return r.json()}).then(function(s){if(s&&s.me&&s.me.name&&!$('name').value)$('name').value=s.me.name.split(' ')[0]}).catch(function(){})}
-  }
-  $('joinForm').addEventListener('submit',function(ev){
-    ev.preventDefault();var n=$('name').value.trim();
-    if(!n){$('joinErr').textContent='Enter your first name.';return}
-    var rt='';try{rt=localStorage.getItem('eac.raffle.token')||''}catch(e){}
-    $('joinBtn').disabled=true;$('joinErr').textContent='';
-    api('/join',{name:n,website:$('website').value,raffleToken:rt}).then(function(j){
-      token=j.token;try{localStorage.setItem('eac.game.token.'+E,token)}catch(e){}
-      $('joinForm').hidden=true;$('joinBtn').disabled=false;lastKey='';loadVote();
-    }).catch(function(x){$('joinErr').textContent=x.message;$('joinBtn').disabled=false});
-  });
-
   // MARK: - Fashion vote
   function loadVote(){
     clearTimeout(pollV);
-    api('/vote/state?token='+encodeURIComponent(token)).then(function(s){
-      if(token&&s.joined===false){token='';try{localStorage.removeItem('eac.game.token.'+E)}catch(e){}needJoin();lastKey=''}
+    api('/vote/state?token='+encodeURIComponent(vt)).then(function(s){
       vv=s;renderVote();
     }).catch(function(){}).then(function(){
       pollV=setTimeout(function(){document.hidden?loadVote():loadVote()},document.hidden?4000:6000);
@@ -248,7 +223,7 @@ input[type=text]:focus{border-color:var(--gold-d)}
   function cast(c){
     if(vv.myVote===c.id)return;
     vv.myVote=c.id;lastKey='';renderVote();$('voteErr').textContent='';
-    api('/vote/cast',{token:token,candidate:c.id}).then(loadVote).catch(function(x){$('voteErr').textContent=x.message;loadVote()});
+    api('/vote/cast',{token:vt,candidate:c.id}).then(loadVote).catch(function(x){$('voteErr').textContent=x.message;loadVote()});
   }
 
   // MARK: - Full-screen viewer
@@ -286,11 +261,11 @@ input[type=text]:focus{border-color:var(--gold-d)}
     var c=vList[vCur];if(!c)return;
     $('vCount').textContent=(vCur+1)+' of '+vList.length;
     $('vPrev').disabled=vCur<=0;$('vNext').disabled=vCur>=vList.length-1;
-    var open=vv.mode==='open'&&!!token,mine=vv.myVote===c.id,b=$('vVote'),m=$('vMsg');
+    var open=vv.mode==='open',mine=vv.myVote===c.id,b=$('vVote'),m=$('vMsg');
     b.hidden=!open;
     if(open){b.className='vb'+(mine?' on':'');b.textContent=mine?'Voted':'Vote';b.setAttribute('aria-pressed',mine);b.setAttribute('aria-label',(mine?'Voted for ':'Vote for ')+c.name);m.textContent=''}
     else if(vv.mode==='revealed'){var r=(vv.results||[]).filter(function(x){return x.id===c.id})[0];m.textContent=r?r.votes+(r.votes===1?' vote':' votes')+(r.winner?' · winner':''):''}
-    else m.textContent=vv.mode==='open'?'Enter your first name above to vote.':'Voting opens soon.';
+    else m.textContent='Voting opens soon.';
   }
   (function(){
     var t=$('vTrack'),raf=0;
@@ -312,7 +287,7 @@ input[type=text]:focus{border-color:var(--gold-d)}
   })();
 
   function card(c,s,res){
-    var mine=s.myVote===c.id,open=s.mode==='open'&&!!token,r=res[c.id];
+    var mine=s.myVote===c.id,open=s.mode==='open',r=res[c.id];
     var b=el('button','pc'+(mine?' sel':'')+(s.mode==='revealed'&&r&&r.winner?' win':''));b.type='button';
     b.setAttribute('aria-label','View '+c.name);
     var ph=el('div','ph');
@@ -334,9 +309,9 @@ input[type=text]:focus{border-color:var(--gold-d)}
   var lastStruct='';
   function renderVote(){
     var s=vv,box=$('cards');
-    var key=[s.mode,s.myVote,token?1:0,s.candidates.map(function(c){return c.id}).join(','),(s.results||[]).map(function(r){return r.id+':'+r.votes}).join(',')].join('|');
+    var key=[s.mode,s.myVote,s.candidates.map(function(c){return c.id}).join(','),(s.results||[]).map(function(r){return r.id+':'+r.votes}).join(',')].join('|');
     if(key===lastKey)return;lastKey=key;syncViewer();
-    var struct=[s.mode,token?1:0,s.candidates.map(function(c){return c.id}).join(','),(s.results||[]).map(function(r){return r.id+':'+r.votes}).join(',')].join('|');
+    var struct=[s.mode,s.candidates.map(function(c){return c.id}).join(','),(s.results||[]).map(function(r){return r.id+':'+r.votes}).join(',')].join('|');
     if(struct===lastStruct&&box.querySelector('.grid')){
       [].forEach.call(box.querySelectorAll('.cell'),function(cell){
         var mine=s.myVote===Number(cell.dataset.id),pc=cell.querySelector('.pc'),vb=cell.querySelector('.vb');
@@ -346,7 +321,7 @@ input[type=text]:focus{border-color:var(--gold-d)}
       return;
     }
     lastStruct=struct;clear(box);
-    $('fSub').textContent={closed:'Voting opens soon. Have a look at the entries.',open:token?'Tap Vote on your pick, or tap a photo to see it full screen and swipe through everyone. You can change your vote until voting closes.':'Enter your first name to vote.',revealed:'Voting is closed. Here are the results.'}[s.mode];
+    $('fSub').textContent={closed:'Voting opens soon. Have a look at the entries.',open:'Tap Vote on your pick, or tap a photo to see it full screen and swipe through everyone. You can change your vote until voting closes.',revealed:'Voting is closed. Here are the results.'}[s.mode];
     if(!s.candidates.length){var e=el('div','card empty','New entries are added as guests arrive. Check back soon.');box.appendChild(e);return}
     var res={};if(s.results)s.results.forEach(function(r){res[r.id]=r});
     var g=el('div','grid');s.candidates.forEach(function(c){g.appendChild(card(c,s,res))});box.appendChild(g);
@@ -356,7 +331,6 @@ input[type=text]:focus{border-color:var(--gold-d)}
   function loadTrivia(){
     clearTimeout(pollT);
     api('/trivia/state?token='+encodeURIComponent(token)).then(function(s){
-      if(token&&!s.me){token='';try{localStorage.removeItem('eac.game.token.'+E)}catch(e){}needJoin();lastKey='';loadVote()}
       var t=$('tState');clear(t);
       if(s.phase==='question'||s.phase==='reveal'){t.appendChild(el('span','live'));t.appendChild(el('span','','Live now · question '+(s.qi+1)+' of '+s.total))}
       else if(s.phase==='final')t.appendChild(el('span','','Game over. See the final results.'));
@@ -366,11 +340,7 @@ input[type=text]:focus{border-color:var(--gold-d)}
   }
 
   document.addEventListener('visibilitychange',function(){if(!document.hidden){loadVote();loadTrivia()}});
-  api('/vote/state?token='+encodeURIComponent(token)).then(function(){
-    if(!token)needJoin();
-    else api('/trivia/state?token='+encodeURIComponent(token)).then(function(s){if(!s.me){token='';try{localStorage.removeItem('eac.game.token.'+E)}catch(e){}needJoin()}}).catch(function(){});
-    loadVote();loadTrivia();
-  }).catch(function(){$('fSub').textContent='Could not load the vote. Pull down to refresh.'});
+  loadVote();loadTrivia();
 })();
 </script>
 <script src="/js/analytics.js" defer></script>
