@@ -8,13 +8,13 @@ Latest upload: 2026-11-18. Refreshed by `scripts/refresh_youtube_catalog.py` (pu
 | Posted | Title | Views | ID |
 |--------|-------|-------|----|
 | 2026-11-15 | SEMA 2026 Karaoke Night With Car Creators in Vegas \| AFTERHOURS | 44 | e2xFRuH4sIo |
-| 2026-11-13 | SEMA 2026 as a Small Shop Owner \| Sung Kang, Larry Chen | 297 | KIMwoQiMGds |
-| 2026-11-13 | No air compressor needed? Electric HYCHIKA HVLP spray gun reality for DIYers | 179 | m8wz-4O1Tr0 |
+| 2026-11-13 | SEMA 2026 as a Small Shop Owner \| Sung Kang, Larry Chen | 308 | KIMwoQiMGds |
+| 2026-11-13 | No air compressor needed? Electric HYCHIKA HVLP spray gun reality for DIYers | 188 | m8wz-4O1Tr0 |
 | 2026-11-05 | SEMA 2026 Day 1 \| Walking the Show as a Shop Owner | 247 | Q4GqZvMDKfo |
 | 2026-11-04 | SEMA 2026 Vlog Ep  1: We Left Our Shop to Go to Vegas | 179 | Kfp6WicldCQ |
 | 2026-10-29 | Restore headlights: a customer learns to do it himself | 136 | MsvmrwEbVoo |
 | 2026-10-28 | We used ONLY a JACK! BMW F8X M3/M4 Suspension \| Shop Vlog | 136 | wZGrPhqci_U |
-| 2026-10-26 | How To Restore Your Yellow Headlights \| Easy Walk-Through | 665 | G7QD7uAAsQY |
+| 2026-10-26 | How To Restore Your Yellow Headlights \| Easy Walk-Through | 671 | G7QD7uAAsQY |
 | 2026-10-23 | Lamborghini Sesto Elemento, Pagani Huayra BC & Bugatti at Santana Row! | 202 | Lx9wrjZF2zU |
 | 2026-10-22 | Selling His Childhood Dream Car? \| Lamborghini Murciélago | 206 | hauU1eIK4m8 |
 | 2026-10-20 | 2024 Mustang GT Lowering Springs Install \| Pt.1 Shop Vlog | 463 | sQsioLTcRh4 |
