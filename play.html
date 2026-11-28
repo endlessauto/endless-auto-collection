@@ -72,6 +72,18 @@ input[type=text]:focus{border-color:var(--gold-d)}
 .cand .votes{float:right;color:var(--gold);font-weight:700}
 .note{color:var(--mute);font-size:.88rem;text-align:center;margin:1rem 0}
 [hidden]{display:none!important}
+.roster{position:fixed;left:0;right:0;bottom:0;z-index:20;padding:1.6rem 0 calc(.8rem + env(safe-area-inset-bottom));background:linear-gradient(transparent,rgba(5,5,5,.92) 38%);pointer-events:none}
+.roster>*{pointer-events:auto}
+.rh{margin:0 max(16px,env(safe-area-inset-left)) .5rem;font-size:.72rem;letter-spacing:2px;text-transform:uppercase;font-weight:700;color:var(--gold)}
+.rl{display:flex;gap:.5rem;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none;padding:.2rem max(16px,env(safe-area-inset-left)) .4rem}
+.rl::-webkit-scrollbar{display:none}
+.rc{flex:none;padding:.5rem .95rem;border-radius:9999px;background:rgba(20,20,20,.92);border:1px solid #333;color:#fff;font:700 .95rem Inter,sans-serif;white-space:nowrap;animation:rbob 3.2s ease-in-out var(--d,0s) infinite}
+.rc.me{border-color:var(--gold-d);color:var(--gold)}
+.rc.new{animation:rin .5s ease-out,rbob 3.2s ease-in-out calc(.5s + var(--d,0s)) infinite}
+@keyframes rbob{0%,100%{transform:translateY(0)}50%{transform:translateY(-4px)}}
+@keyframes rin{from{opacity:0;transform:translateY(14px) scale(.9)}to{opacity:1;transform:none}}
+body.hasRoster{padding-bottom:calc(7rem + env(safe-area-inset-bottom))}
+@media (prefers-reduced-motion:reduce){.rc,.rc.new{animation:none}}
 </style>
 </head>
 <body>
@@ -100,6 +112,8 @@ input[type=text]:focus{border-color:var(--gold-d)}
     <div id="vote" hidden></div>
   </section>
 </main>
+
+<div class="roster" id="roster" hidden aria-label="Players in the room"><p class="rh" id="rHead"></p><div class="rl" id="rList"></div></div>
 
 <script>
 (function(){
@@ -141,7 +155,7 @@ input[type=text]:focus{border-color:var(--gold-d)}
     refresh();
   }
   function setTab(t){
-    tab=t;$('t-trivia').setAttribute('aria-selected',t==='trivia');$('t-vote').setAttribute('aria-selected',t==='vote');
+    tab=t;if(t!=='trivia'){$('roster').hidden=true;document.body.classList.remove('hasRoster')}else if(tv)renderRoster(tv);$('t-trivia').setAttribute('aria-selected',t==='trivia');$('t-vote').setAttribute('aria-selected',t==='vote');
     $('trivia').hidden=t!=='trivia';$('vote').hidden=t!=='vote';
     if(t==='trivia')$('dotT').hidden=true;else $('dotV').hidden=true;
     refresh();
@@ -166,8 +180,24 @@ input[type=text]:focus{border-color:var(--gold-d)}
 
   // MARK: - Trivia
   var LET=['A','B','C','D'];
+  var rNames=[];
+  function renderRoster(s){
+    var r=$('roster'),list=$('rList');
+    if(s.phase!=='lobby'||!s.names||!s.names.length){r.hidden=true;document.body.classList.remove('hasRoster');rNames=[];clear(list);return}
+    r.hidden=false;document.body.classList.add('hasRoster');
+    var same=rNames.length<=s.names.length&&rNames.every(function(n,i){return n===s.names[i]});
+    if(!same){clear(list);rNames=[]}
+    var me=s.me&&s.me.name;
+    for(var i=rNames.length;i<s.names.length;i++){
+      var c=el('span','rc'+(s.names[i]===me?' me':'')+(same&&rNames.length?' new':''),s.names[i]);
+      c.style.setProperty('--d',((i%7)*.35)+'s');list.appendChild(c);
+    }
+    rNames=s.names.slice();
+    $('rHead').textContent='In the room · '+s.names.length;
+  }
   function renderTrivia(){
-    var box=$('trivia'),s=tv,key=s.phase+'|'+s.qi+'|'+(s.me&&s.me.choice)+'|'+(s.top?s.top.length:0)+'|'+s.players;
+    var box=$('trivia'),s=tv,key=s.phase+'|'+s.qi+'|'+(s.me&&s.me.choice)+'|'+(s.top?s.top.length:0)+'|'+s.players+'|'+(s.names||[]).join(',');
+    renderRoster(s);
     if(key===lastKey)return;
     lastKey=key;clearInterval(timer);clear(box);
     if(s.phase==='lobby'){

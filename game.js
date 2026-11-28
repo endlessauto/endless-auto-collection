@@ -107,6 +107,7 @@ export class GameState extends DurableObject {
         out.dist = dist;
       }
     }
+    if (g.phase === "lobby") out.names = this.sql.exec("SELECT name FROM players ORDER BY joined_at, rowid LIMIT 200").toArray().map((r) => r.name);
     const lb = this.leaderboard();
     if (g.phase === "reveal" || g.phase === "final") out.top = lb.slice(0, 5).map((r) => ({ name: r.name, score: r.score, rank: r.rank }));
     const p = this.player(token);
