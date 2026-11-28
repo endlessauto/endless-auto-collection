@@ -181,3 +181,7 @@ Drafts land here unchecked. Check a box (`- [x]`) to approve. Only a checked box
 - [ ] Carousel (Instagram): Three prizes, closes Sunday (5-slide) (`docs/marketing/carousels/2026-11-27/5-slide-three-prizes-closes-sunday.html`)
 - [ ] Carousel (Instagram): How Sunday's potluck works (8-slide) (`docs/marketing/carousels/2026-11-27/8-slide-how-sundays-potluck-works.html`)
 - [ ] Carousel (Instagram): Our first Thanksgiving at the shop (9-slide) (`docs/marketing/carousels/2026-11-27/9-slide-our-first-thanksgiving-at-the-shop.html`)
+- [ ] Carousel (Instagram): A listed drop isn't a measured drop (1-slide) (`docs/marketing/carousels/2026-11-28/1-slide-listed-drop-isnt-measured.html`)
+- [ ] Carousel (Instagram): Two details a month saves $10, three saves $65 (5-slide) (`docs/marketing/carousels/2026-11-28/5-slide-two-a-month-saves-ten.html`)
+- [ ] Carousel (Instagram): S650 front springs, lift both wheels first (8-slide) (`docs/marketing/carousels/2026-11-28/8-slide-lift-both-front-wheels-first.html`)
+- [ ] Carousel (Instagram): S650 rear springs, drop the subframe one side at a time (10-slide) (`docs/marketing/carousels/2026-11-28/10-slide-drop-the-subframe-one-side.html`)
