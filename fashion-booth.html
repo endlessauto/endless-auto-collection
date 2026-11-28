@@ -107,7 +107,7 @@ input[type=text]:focus,input[type=password]:focus{border-color:var(--gold-d)}
 
     <div class="card done" id="done" hidden>
       <img id="doneImg" alt="">
-      <p class="eyebrow">Added</p>
+      <p class="eyebrow" id="doneTag">Added</p>
       <h2 id="doneName"></h2>
       <p class="sub" id="doneNote"></p>
       <button class="btn" id="another" type="button">Add the next person</button>
@@ -127,7 +127,7 @@ input[type=text]:focus,input[type=password]:focus{border-color:var(--gold-d)}
   var E=location.search.indexOf('e=sun')>-1?'sun':'fri';
   var $=function(i){return document.getElementById(i)};
   var key='';try{key=sessionStorage.getItem('eac.raffle1')||''}catch(e){}
-  var photo=null,players=[],busy=false;
+  var photo=null,players=[],cands=[],busy=false;
   $('backAdmin').href='/admin/game?e='+E;
   function el(t,c,x){var e=document.createElement(t);if(c)e.className=c;if(x!=null)e.textContent=x;return e}
   function clear(n){while(n.firstChild)n.removeChild(n.firstChild)}
@@ -163,7 +163,7 @@ input[type=text]:focus,input[type=password]:focus{border-color:var(--gold-d)}
     return call('/vote/state').then(function(s){
       $('gate').hidden=true;$('app').hidden=false;
       try{sessionStorage.setItem('eac.raffle1',key)}catch(e){}
-      players=s.players||[];
+      players=s.players||[];cands=s.candidates||[];
       $('count').textContent=s.candidates.length+(s.candidates.length===1?' entry':' entries');
       renderRecent(s.candidates);matchLink();
     }).catch(function(x){
@@ -229,13 +229,16 @@ input[type=text]:focus,input[type=password]:focus{border-color:var(--gold-d)}
     var n=$('name').value.trim().replace(/\s+/g,' ');
     if(!n){say('Enter their first name.');$('name').focus();return}
     if(!photo){say('Take the outfit photo first.');return}
+    var dup=cands.filter(function(c){return norm(c.name)===norm(n)})[0];
+    if(dup&&!confirm(dup.name+' is already in the vote. Replace their photo?\n\nCancel adds a second '+n+' instead.'))dup=null;
     busy=true;$('submit').disabled=true;say('Uploading…',true);
     var m=match(),thumb=$('shotImg').src;
     shrink(photo).then(function(b){
+      if(dup)return call('/vote/replace?id='+dup.id,null,b).then(function(){bust[dup.id]=Date.now()});
       return call('/vote/add?name='+encodeURIComponent(n)+'&caption=&link='+encodeURIComponent(m?m.token:''),null,b);
     }).then(function(){
-      $('doneImg').src=thumb;$('doneName').textContent=n;
-      $('doneNote').textContent=m?'In the vote and matched to their game name.':'In the vote. No game player matched that name.';
+      $('doneImg').src=thumb;$('doneName').textContent=dup?dup.name:n;$('doneTag').textContent=dup?'Replaced':'Added';
+      $('doneNote').textContent=dup?'Photo replaced. No new entry was added.':m?'In the vote and matched to their game name.':'In the vote. No game player matched that name.';
       $('form').hidden=true;$('done').hidden=false;
       busy=false;$('submit').disabled=false;
       load();
